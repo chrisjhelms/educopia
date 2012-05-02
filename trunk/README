@@ -1,0 +1,7 @@
+Be aware that all files/tools/script in trunk may be under active developement 
+
+If you add directories at this root level of the repository, please update the wiki at https://www.metaarchive.org/metawiki/index.php?title=MetaSource_Subversion_Repository to explain what the directory is for.
+
+cache/       contains scripts and files usefull for cache administrators 
+plugins/     plugin xml files and tools/scripts/test sites useful for plugin developers 
+webserver/   contains scripts and files useful for administrators of webservers

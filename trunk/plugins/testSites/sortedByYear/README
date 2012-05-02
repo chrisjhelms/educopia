@@ -1,0 +1,3 @@
+manifest.html and manifestIndex.html are identical 
+
+we keep both files here because some example plugins look for one or the other manifest file for their starting url 
