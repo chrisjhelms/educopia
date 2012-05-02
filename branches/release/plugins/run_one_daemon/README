@@ -1,0 +1,56 @@
+run_one_daemon runs a standalone development daemon.  Useful for testing
+basic daemon behavior through the UI, and crawling behavior of plugins
+(crawl rules, URL normalizers, etc.).
+
+To set up run_one_daemon:
+  svn co  https://svn.library.emory.edu/oss/metasource/trunk/plugins/xml plugins 
+  ./update_config  
+         # creates metaarchive_plugins.xml, metaarchive_aus.xml, plugins/metaaive.jar)
+
+The daemon uses the user name and password defined in ./lockss.opt
+
+To run the daemon: 
+  ./start
+  ...   (connect to daemon on port 8081)
+  ./stop
+
+You can also start the daemon without the predefined titles from metaarchive_aus.xml 
+  ./start -notitle 
+
+./clean removes all files written by the LOCKSS daemon (log files, cache content, ...)
+
+To add a new/changed plugins to the LOCKSS daemon's configuration 
+and/or to update the daemons archival units list on the basis of conspectus data
+   svn up plugins 
+   rerun ./update_config and restart the daemon 
+
+Adding predefined titles is done slightly different from regular caches. 
+You need to go to 'Journal Configuration | Manual Add/Edit' instead of 
+'Journal Configuration | Add Titles '
+ 
+To add a predefined archival unit: 
+  direct your browser to  http://localhost:8081
+  choose 'Journal Configuration | Manual Add/Edit ' 
+  push 'Add' button 
+  select AU from 'Choose a title' drop down list 
+  push 'Continue' 
+  push 'Create' 
+
+To add an archival unit manually: 
+  direct your browser to  http://localhost:8081
+  choose 'Journal Configuration | Manual Add/Edit ' 
+  push 'Add' button 
+  choose a plugin from the drop down list 
+  push 'Continue' 
+  fill the form with appropiate parameter values 
+
+To start a Crawl on an ArchivalUnit 
+  direct your browser to  http://localhost:8081/DebugPanel
+  choose AU from 'AU Actions: select AU" drop down list 
+  push 'Start Crawl' 
+
+
+Always commit changes to your plugins to subversion 
+
+
+

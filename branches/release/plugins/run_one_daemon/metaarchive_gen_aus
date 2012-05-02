@@ -1,0 +1,15 @@
+#!/bin/sh
+
+wget -O /tmp/aus.$$ 'http://metaarchive.org/tools/conspectus_dev/config_data.php?au_only'
+
+cat metaarchive_header.xml 
+
+# generate archival units definition
+echo "\t<!-- Archival Units: -->"
+echo "\t<property name='title'>"
+cat /tmp/aus.$$
+echo "\t</property>"
+
+cat metaarchive_footer.xml
+
+/bin/rm /tmp/aus.$$

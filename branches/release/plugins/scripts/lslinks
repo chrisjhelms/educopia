@@ -1,0 +1,86 @@
+#!/usr/bin/perl 
+
+use strict; 
+use Getopt::Long; 
+use HTML::SimpleLinkExtor;
+
+my $ROOT = "http://208.151.220.11"; 
+my $URL = "Image_Masters/"; 
+my $DOALL = 0; 
+my $ROOT =  ""; 
+my $URL = "";
+my $DOTRACE = 0; 
+
+if (0 == parseargs()) {
+    my($rc) = doit(); 
+    exit($rc); 
+}
+exit(1) ;
+
+sub usage
+{
+   print  "usage: lslinks OPTIONS \n"; 
+   print "\t-root <root>: root of web site  \n"; 
+   print "\t-url <url>: absolute url from which to extract links \n"; 
+   print "\t-all: do not filter out links to sites outside <root>  \n"; 
+   print "\t-t: whether to trace the script's actions\n";
+   print "List all links in url <root>/<link> \n";
+   return 1;
+}
+
+sub parseargs 
+{
+  my $result = GetOptions( "root=s" => \$ROOT, 
+                           "url=s" => \$URL ,
+                           "all" => \$DOALL ,
+                           "t" => \$DOTRACE 
+                          ); 
+  if ($result == 1) { 
+     if (!$URL) { 
+         $URL = $ROOT; 
+     } 
+     if (!$ROOT  || !$URL) { 
+        return usage(); 
+     }
+  } else {
+     return usage(); 
+  }
+  return 0; 
+}
+
+sub doit() 
+{
+   my $extor = HTML::SimpleLinkExtor->new();
+   my $url = "$URL"; 
+
+   if ($url !~ /^http/) {   
+      $url = "$ROOT/$url"; 
+   } 
+   trace("extract from:  $url"); 
+   $extor->parse_url($url);
+
+   my @a_hrefs     = $extor->a;
+   foreach $a (@a_hrefs) {
+      trace ("test $a "); 
+      if ($a !~ /^http/) {   
+         $a = "$ROOT/$a"; 
+      } 
+      trace ("test $a"); 
+      if ($DOALL || (0 == index $a, $ROOT)) { 
+         print  $a . "\n"; 
+      } else {
+         print STDERR "REJECT: $a \n"; 
+      } 
+   } 
+   return 0; 
+}
+
+
+sub trace
+{
+   if ($DOTRACE) {
+      my $str = join(' ', @_);
+      print $str . "\n";
+   }
+}
+

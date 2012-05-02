@@ -1,0 +1,91 @@
+<map>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;contentdm Collections at Virginia Tech&quot;</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%slockss/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>contentdm at Virginia Tech</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string></string>
+  </entry>
+  <entry>
+    <string>au_crawlwindow_ser</string>
+    <org.lockss.daemon.CrawlWindows-Interval>
+      <start>
+        <time>1215014419866</time>
+        <timezone>America/Kentucky/Monticello</timezone>
+      </start>
+      <end>
+        <time>1215057559866</time>
+        <timezone>America/Kentucky/Monticello</timezone>
+      </end>
+      <fieldMask>3</fieldMask>
+      <timeZoneId>Etc/GMT+12</timeZoneId>
+    </org.lockss.daemon.CrawlWindows-Interval>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>collection_name</key>
+        <displayName>Collection Name</displayName>
+        <description>The name of the subdirectory that contains the collection.</description>
+        <type>1</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>2</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>5</int>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>86400000</long>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.vt.library.contentdm</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%slockss/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;%s/?$&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;%s%s$&quot;, base_url, collection_name</string>
+      <string>5,&quot;%s%s/&quot;, base_url, collection_name</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_crawl_type</string>
+    <string>HTML Links</string>
+  </entry>
+</map>
