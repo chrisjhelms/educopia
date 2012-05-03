@@ -13,15 +13,15 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;American Routes audio masters&quot;</string>
-  </entry>
-  <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>15724800000</long>
+    <string>&quot;American Routes audio masters: %s&quot;, volume_name</string>
   </entry>
   <entry>
     <string>plugin_name</string>
     <string>American Routes audio masters Plugin</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>15724800000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>
