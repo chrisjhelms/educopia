@@ -2,5 +2,5 @@ If you add directories at this root level of the repository, please update the w
 
 cache/       contains scripts and files useful for cache administrators 
 plugins/     plugin xml files - the ones used in the production network
-             along with released tools/scripts/test sites useful for plugin developers 
+plugins_dev/ released tools/scripts/test sites useful for plugin developers 
 webserver/   contains scripts and files useful for administrators of webservers
