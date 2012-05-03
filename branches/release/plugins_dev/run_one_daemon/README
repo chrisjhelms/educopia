@@ -35,7 +35,7 @@ You can also start the daemon without the predefined titles from metaarchive_aus
   ./start -notitle 
 
 ./clean removes all files written by the LOCKSS daemon (log files, cache content, ...)
-./check checks whether the aml config files are proper xml 
+./check checks whether the xml config files are proper xml 
         and prints whether the daemon is running (as indicated by the dpid file)
 
 To add a new/changed plugins to the LOCKSS daemon's configuration 
@@ -70,6 +70,26 @@ To start a Crawl on an ArchivalUnit
 
 
 Always commit changes to your plugins to subversion 
+
+
+--------------------------------------------------------------------------------
+EXPERT USAGE:
+--------------------------------------------------------------------------------
+The ./clean commend deletes all files stored by run_one_daemon for all 
+archival_units. If you wish to delete an single archival unit along with all
+files stored bythe daemon: 
+   * access the daemons 'Repositories' list under 'Damon Status' and 
+     determine the directory under which content is stored 
+   * delete the archival unit from the daemons 'Journal Configurations'
+     with the 'Remove Titles' option 
+   * stop the daemon 
+   * recursively remove the directory you foudn in step 1: 
+     rm -rf ./caches/dir_name_found 
+   * restart the daemon  
+   * check whether the archival unit is in fact gone in the 'AuIds' Table under 
+     'Daemon Status'
+   * add the archival unit back into the daemons 'Journal Configurations'
+     with the 'Add Titles' option
 
 
 --------------------------------------------------------------------------------
