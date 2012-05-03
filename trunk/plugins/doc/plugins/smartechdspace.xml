@@ -8,7 +8,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -73,11 +73,11 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;^%s/manifest.html&quot;, base_url</string>
+      <string>1,&quot;^%s/MACmanifest/permission.txt&quot;, base_url</string>
       <string>1,&quot;^%s/manifestSmartech.html&quot;, base_url2</string>
       <string>1,&quot;set=hdl_1853_%s&quot;, hdl_id</string>
-      <string>1,&quot;^%s/handle/2451/[0-9]+\?mode=full&quot;, base_url</string>
-      <string>1,&quot;^%s/bitstream/2451/*/*/*&quot;, base_url</string>
+      <string>1,&quot;^%s/handle/1853/[0-9]+\?mode=full&quot;, base_url</string>
+      <string>1,&quot;^%s/bitstream/1853/*/*/*&quot;, base_url</string>
     </list>
   </entry>
   <entry>
