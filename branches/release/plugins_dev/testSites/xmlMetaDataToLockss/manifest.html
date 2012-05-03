@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Collection Based on Syled XML MetaData</title>
+</head>
+<body>
+<h2>Collection Based on Syled XML MetaData</h2>
+
+<h3> 
+<img alt="MetaArchive logo" src="http://www.metaarchive.org/public/images/favicon.ico"> 
+Manifest Page to Allow preservation by LOCKSS daemons in the 
+<A href="http://www.metaarchive.org"> MetaArchive Network </a>  
+<br/> 
+<img alt="LOCKSS logo" src="http://www.lockss.org/favicon.ico"> LOCKSS system has permission to collect, preserve, and serve this Archival Unit.
+</h3> 
+
+<p>Collection Info:</p>
+<ul>
+	<li>Conspectus Collection(s):  LINK to relevant Conspectus Entry </li> 
+	<li>Institution: INSTITUTION </li>
+	<li>Contact Info: <a href="mailto:support@metaarchive.org">support at metaarchive.org </a></li>
+</ul>
+
+<p>
+This collection consists of  MetaData (XML files) and document files referenced in the MetaData. A stylesheet is used on the server side to transform the XML data into HTML with links to document files, so that a LOCKSS crawl guided by a plugin can discover these document links. A corresponding LOCKSS plugin should contain rules that INCLUDE the xml (metadata) and the documents themselves. 
+</p> 
+
+<h3>Links for LOCKSS to start crawling</h3>
+<h3> Archival Unit: hdl_id=7401 </h3> 
+<ul>
+<li> hdl_1853_7402 </li> 
+<li>  <a href='http://smartech.gatech.edu/dspace-oai/request?verb=ListRecords&metadataPrefix=oai_dc&set=hdl_1853_7401'> OAI:DC XML: set=hdl_1853_7401 </a> </li> 
+<li>  <a href='./transform.php?set=hdl_1853_7401'> HTML: set=hdl_1853_7401 </a>  </li>
+</ul>
+
+<h3> Archival Unit: hdl_id=7409 </h3> 
+<ul>
+<li> hdl_1853_7409 </li> 
+<li>  <a href='http://smartech.gatech.edu/dspace-oai/request?verb=ListRecords&metadataPrefix=oai_dc&set=hdl_1853_7409'> OAI:DC XML: set=hdl_1853_7409 </a>  </li>
+<li>  <a href='./transform.php?set=hdl_1853_7409'> HTML: set=hdl_1853_7409 </a>  </li>
+</ul> 
+<hr width='100%' />
+<p> 
+This particular example shows how to use the OAI export at <a href=http://smartech.gatech.edu/dspace-oai/request?verb=Identity'>http://smartech.gatech.edu</a>, Georgia Tech's <a href='http://www.dspace.org/'>DSPACE</a> based institutional repository.  This manifest page includes links to dynamically generated DublinCore XML of particular record sets. The style sheet and script on the the webserver cooperate to transform the generated Dublin Core XML  to HTML with links to DSPACE item pages that end in '?mode=full'. Including this parameter in links enables us to define a simple plugin that has the usual base_url parameter and a hdl_id parameter. The folllowing rules create the desired behaviour of including metadata and docuemt files in a crawl avoiding the inclusion of DSPACE collection and community pages.
+<ol> 
+<li> 
+EXCLUDE_NO_MATCH ^&lt;base_url&gt;
+</li> <li> 
+INCLUDE manifest.html$
+</li> <li> 
+INCLUDE ^&lt;base_url&gt;/.*set=hdl_1853_&lt;hdl_id&gt;
+</li> <li> 
+INCLUDE ^&lt;base_url&gt;/.*mode=full$
+</li> <li> 
+INCLUDE ^&lt;base_url&gt;/bitstream/.* 
+</li>
+</ol> 
+
+<p> 
+To use this approach to prepare a DSPACE/XML based collection for preservation with LOCKSS/MetaArchice it is easiest to place the stylesheet, transformer script, and manifest page on the same server as the content that is to be preserved.</p> 
+
+
+<h3> The Details: Script, StyleSheet ... </h3> 
+<ul> 
+<li>  
+<a href="transform">transform.php</a>, php script that applies the stylesheet 
+</li><li> 
+<a href="./oai2.xsl"> oai2.xsl</a>  style sheet that converts DublinCore XML to html 
+</li><li> 
+<a href="http://www.eprints.org/software/xslt.php"> http://www.eprints.org/software/xslt.php</a> style stylesheet developed for eprints, which we used as template 
+</li>
+</ul>
+
+</html>
