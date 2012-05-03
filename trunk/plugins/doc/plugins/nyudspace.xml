@@ -44,7 +44,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;doc.plugins NYU-DSPACE %s&quot;, name</string>
+    <string>&quot;DOC NYU-DSPACE %s&quot;, name</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -64,7 +64,7 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>doc.plugins-NUY DSPACE Mockup</string>
+    <string>DOC NUY DSPACE Mockup</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>

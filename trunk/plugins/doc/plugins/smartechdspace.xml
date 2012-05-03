@@ -44,7 +44,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;doc.plugins Smartech-DSPACE  %s&quot;, hdl_id</string>
+    <string>&quot;DOC Smartech-DSPACE  %s&quot;, hdl_id</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -64,7 +64,7 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>doc.plugins-NUY DSPACE Mockup</string>
+    <string>DOC SMARTech DSPACE Mockup</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
