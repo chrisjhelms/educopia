@@ -9,11 +9,11 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;All Files for Static eJournal %s&quot;, volume_name</string>
+    <string>&quot;All Files for Static eJournals at Virginia Tech&quot;</string>
   </entry>
   <entry>
     <string>plugin_name</string>
@@ -25,7 +25,7 @@
   </entry>
   <entry>
     <string>plugin_notes</string>
-    <string>This plugin will harvest all files in a subdirectory of a given base URL, as defined by the journal_name.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at /lockss/manifest.html of the base directory.  Useful for small, static collections with no defined structure that would lend them to be divided into AU&apos;s.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin.</string>
+    <string>This plugin will harvest all files in a subdirectory of a given base URL, as defined by the journal names in the rules.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at /lockss/manifest.html of the base directory.  Useful for small, static collections with no defined structure that would not lend them to be divided into AU&apos;s because of size.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin.</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -34,7 +34,23 @@
       <string>1,&quot;^%s/lockss/manifest\.html$&quot;, base_url</string>
       <string>1,&quot;^%s/index\.html$&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
-      <string>5,&quot;^%s/%s&quot;, base_url, volume_name</string>
+      <string>1,&quot;^%s/CATALYST&quot;, base_url</string>
+      <string>1,&quot;^%s/MODAL&quot;, base_url</string>
+      <string>1,&quot;^%s/JCAEDE&quot;, base_url</string>
+      <string>1,&quot;^%s/JDC&quot;, base_url</string>
+      <string>1,&quot;^%s/JFE&quot;, base_url</string>
+      <string>1,&quot;^%s/JJSTE&quot;, base_url</string>
+      <string>1,&quot;^%s/JIAHR&quot;, base_url</string>
+      <string>1,&quot;^%s/JMSEC&quot;, base_url</string>
+      <string>1,&quot;^%s/JVER&quot;, base_url</string>
+      <string>1,&quot;^%s/JVTE&quot;, base_url</string>
+      <string>1,&quot;^%s/JYSL&quot;, base_url</string>
+      <string>1,&quot;^%s/nreview&quot;, base_url</string>
+      <string>1,&quot;^%s/JARS&quot;, base_url</string>
+      <string>1,&quot;^%s/SPT&quot;, base_url</string>
+      <string>1,&quot;^%s/vaes&quot;, base_url</string>
+      <string>1,&quot;^%s/VTMAG&quot;, base_url</string>
+      <string>5,&quot;^%s/old-WILLA&quot;, base_url</string>
     </list>
   </entry>
   <entry>
@@ -44,14 +60,6 @@
   <entry>
     <string>plugin_config_props</string>
     <list>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>volume_name</key>
-        <displayName>Volume Name</displayName>
-        <type>1</type>
-        <size>20</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
