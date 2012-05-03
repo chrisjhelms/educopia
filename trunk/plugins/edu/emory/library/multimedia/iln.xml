@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -20,12 +20,12 @@
     <string>&quot;Illustrated London News&quot;</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>The Civil War from Illustrated London News</string>
+    <string>au_def_new_content_crawl</string>
+    <long>31449600000</long>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>1209600000</long>
+    <string>plugin_name</string>
+    <string>The Civil War from Illustrated London News</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
@@ -35,12 +35,13 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;^%s/metaarchive/manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s.*&quot;, base_url</string>
     </list>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%smanifest-metaarchive.html&quot;, base_url</string>
+    <string>&quot;%s/metaarchive/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>

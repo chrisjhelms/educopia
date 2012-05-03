@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.emory.library.generic</string>
+    <string>edu.emory.library.amroutes</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -9,23 +9,23 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>1</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;All Files for Collection contained in %s&quot;, base_url</string>
+    <string>&quot;American Routes audio masters&quot;</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>31449600000</long>
+    <long>15724800000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>Generic Crawl All Plugin</string>
+    <string>American Routes audio masters Plugin</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
-    <string>This plugin will harvest all files in a subdirectory of a given base URL.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at /lockss/manifest.html of the base directory.  Useful for small, static collections with no defined structure that would lend them to be divided into AU&apos;s.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin.  Any changes to this plugin itself should be carefully considered and tested before deployment as it effects multiple collections.</string>
+    <string>Given a baseURL and volume_name, this plugin will harvest all files in the subdirectory [baseURL]/[volume_name]/.  The Base URL is expected to not contain a trailing slash [/].  Plugin assumes that the web server auto-generates directory indexes. The manifest page must be located at [baseURL]/metaarchive/manifest.html.  Potentially useful for collections organized in sub-directories.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin. </string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -33,8 +33,10 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s/?$&quot;, base_url</string>
+      <string>2,&quot;Thumbs.db$&quot;</string>
       <string>2,&quot;/\?&quot;</string>
-      <string>1,&quot;^%s/.*$&quot;, base_url</string>
+      <string>1,&quot;^%s/%s[0-9a-zA-Z._]*$&quot;, base_url, volume_name</string>
+      <string>1,&quot;^%s/%s&quot;, base_url, volume_name</string>
     </list>
   </entry>
   <entry>
@@ -44,6 +46,14 @@
   <entry>
     <string>plugin_config_props</string>
     <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>volume_name</key>
+        <displayName>Volume Name</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
