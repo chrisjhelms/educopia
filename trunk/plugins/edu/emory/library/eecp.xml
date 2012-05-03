@@ -16,12 +16,12 @@
     <string>&quot;Early Emory College Photographs&quot;</string>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>15724800000</long>
-  </entry>
-  <entry>
     <string>plugin_name</string>
     <string>EECP Plugin</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>15724800000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>
