@@ -12,6 +12,10 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;Early Emory College Photographs&quot;</string>
   </entry>

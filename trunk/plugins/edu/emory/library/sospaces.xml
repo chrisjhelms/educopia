@@ -12,6 +12,10 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;Southern Spaces %s&quot;, year_range</string>
   </entry>

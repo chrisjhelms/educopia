@@ -12,16 +12,20 @@
     <string>2</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;The Martyred President (Lincoln Sermons)&quot;</string>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>31449600000</long>
-  </entry>
-  <entry>
     <string>plugin_name</string>
     <string>The Martyred President (Lincoln Sermons)</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>31449600000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>

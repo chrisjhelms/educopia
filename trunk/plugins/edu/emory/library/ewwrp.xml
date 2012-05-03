@@ -12,16 +12,20 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;EWWRP: %s&quot;, sub_collection</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>Emory Women Writers Resource Project</string>
+    <string>au_def_new_content_crawl</string>
+    <long>15724800000</long>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>7862400000</long>
+    <string>plugin_name</string>
+    <string>Emory Women Writers Resource Project</string>
   </entry>
   <entry>
     <string>plugin_notes</string>

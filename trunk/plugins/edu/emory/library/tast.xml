@@ -12,16 +12,20 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;Trans-atlantic Slave Trade Database&quot;</string>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>15724800000</long>
-  </entry>
-  <entry>
     <string>plugin_name</string>
     <string>Transatlantic Slave Trade Database Plugin</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>15724800000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>
