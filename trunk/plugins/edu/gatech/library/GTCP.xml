@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>3</string>
+    <string>34</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -20,12 +20,12 @@
     <string>&quot;SMARTech %s&quot;, full_name</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>GT Campus Publications</string>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>2592000000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>GT Campus Publications</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -48,14 +48,6 @@
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>volume_name</key>
-        <displayName>Volume Name</displayName>
-        <type>1</type>
-        <size>20</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
@@ -65,11 +57,19 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
+        <key>volume_name</key>
+        <displayName>Volume Name</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
         <key>full_name</key>
         <displayName>Full Name</displayName>
         <description>Descriptive name of AU.</description>
         <type>1</type>
-        <size>30</size>
+        <size>50</size>
         <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -78,7 +78,7 @@
         <displayName>Collection List</displayName>
         <description>SMARTech collections included.</description>
         <type>1</type>
-        <size>100</size>
+        <size>1000</size>
         <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
