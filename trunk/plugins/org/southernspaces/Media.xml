@@ -13,15 +13,15 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;Southern Spaces Media Files&quot;</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>Southern Spaces Media Files Plugin</string>
+    <string>&quot;Southern Spaces Media: %s %d&quot;, author_name, year</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>15724800000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Southern Spaces Media Files Plugin</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
