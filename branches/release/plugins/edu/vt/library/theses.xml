@@ -74,7 +74,7 @@ Anything that does not match the above structure is harvested by a separate coll
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>6</string>
+    <string>7</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
