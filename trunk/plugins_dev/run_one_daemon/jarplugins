@@ -1,0 +1,2 @@
+cd plugins 
+jar cvf ../metaarchive_plugins.jar `find . -name \*.xml`
