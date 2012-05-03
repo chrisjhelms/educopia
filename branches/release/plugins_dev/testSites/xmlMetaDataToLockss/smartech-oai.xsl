@@ -550,12 +550,16 @@ The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people
 <tr><td class="key">Format</td><td class="value"><xsl:value-of select="."/></td></tr></xsl:template>
 
 <xsl:template match="dc:identifier" xmlns:dc="http://purl.org/dc/elements/1.1/">
-
 <tr><td class="key">Resource Identifier</td><td class="value">
-<xsl:variable name='dspaceitem' select="substring-after(.,'1853/')" />
-<a class="link" href="http://smartech.gatech.edu/handle/1853/{$dspaceitem}?mode=full"> 
-<xsl:value-of select="."/>
-</a> 
+  <xsl:choose>
+    <xsl:when test='starts-with(.,"http" )'>
+        <xsl:variable name='dspaceitem' select="substring-after(.,'1853/')" />
+        <a class="link" href="http://smartech.gatech.edu/handle/1853/{$dspaceitem}?mode=full"> <xsl:value-of select="."/> </a> 
+    </xsl:when>
+    <xsl:otherwise>
+       <xsl:value-of select="."/>
+    </xsl:otherwise>
+  </xsl:choose>
 </td></tr></xsl:template>
 
 <xsl:template match="dc:source" xmlns:dc="http://purl.org/dc/elements/1.1/">
