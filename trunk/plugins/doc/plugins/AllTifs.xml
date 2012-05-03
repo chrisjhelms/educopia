@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>doc.plugins.harvestAllTifs</string>
+    <string>doc.plugins.AllTifs</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
