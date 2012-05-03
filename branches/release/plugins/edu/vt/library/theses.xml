@@ -50,21 +50,6 @@ available/etd-122398-123456/ (this would go into the year 1998 AU)
 Anything that does not match the above structure is harvested by a separate collection and plugin, called ETD&apos;s@VT - pre 2000 unsorted and edu.vt.library.thesesearly, respectively. This second collection is static as no new ETD&apos;s are being added with the old naming conventions. This second collection also harvests the non-ETD content in the /theses directory as it merely excludes pages that follow the above format.</string>
   </entry>
   <entry>
-    <string>au_crawlwindow_ser</string>
-    <org.lockss.daemon.CrawlWindows-Interval>
-      <start>
-        <time>1215014419866</time>
-        <timezone>America/Kentucky/Monticello</timezone>
-      </start>
-      <end>
-        <time>1215057559866</time>
-        <timezone>America/Kentucky/Monticello</timezone>
-      </end>
-      <fieldMask>3</fieldMask>
-      <timeZoneId>Etc/GMT+12</timeZoneId>
-    </org.lockss.daemon.CrawlWindows-Interval>
-  </entry>
-  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
