@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -17,20 +17,20 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;SMARTech %s&quot;, collection_names</string>
-  </entry>
-  <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>2592000000</long>
+    <string>&quot;SMARTech %s&quot;, volume_name</string>
   </entry>
   <entry>
     <string>plugin_name</string>
     <string>GT Campus Publications</string>
   </entry>
   <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>2592000000</long>
+  </entry>
+  <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;^%s/MACmanifest/manifest.php&quot;, base_url</string>
+      <string>1,&quot;^%s/MACmanifest/manifest%s.php&quot;, base_url, volume_name</string>
       <string>1,&quot;^%s/bitstream/1853/*/*/*&quot;, base_url</string>
       <string>1,&quot;^%s/handle/1853/[0-9]+\?mode=full&amp;submit_simple=Show\+full\+item\+record&quot;, base_url</string>
       <string>2,&quot;^%s/1853/[0-9]+$&quot;, base_url</string>
@@ -38,7 +38,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/MACmanifest/manifest.php?collection=%s&amp;quantity=%s&amp;start=%s&amp;end=%s&quot;, base_url, collection, quantity, start_date, end_date</string>
+    <string>&quot;%s/MACmanifest/manifest%s.php&quot;, base_url, volume_name</string>
   </entry>
   <entry>
     <string>plugin_crawl_type</string>
@@ -48,33 +48,10 @@
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>collection</key>
-        <displayName>DSpace Collection(s)</displayName>
-        <description>DSpace collection(s) to include in AU.  
-Enter multiple collections separated by
-commas, and set Quantity param.</description>
+        <key>volume_name</key>
+        <displayName>Volume Name</displayName>
         <type>1</type>
         <size>20</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>start_date</key>
-        <displayName>Start Date</displayName>
-        <description>Use this to limit a set by date.  Accepts 
-a UTC datetime of the form yyyy-mm-dd.</description>
-        <type>1</type>
-        <size>16</size>
-        <definitional>false</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>quantity</key>
-        <displayName>Quantity</displayName>
-        <description>single, multiple or partial -- lower case
-only</description>
-        <type>1</type>
-        <size>10</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -84,25 +61,6 @@ only</description>
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
         <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>end_date</key>
-        <displayName>End Date</displayName>
-        <description>Use this along with start date to limit a set by date.  Accepts 
-a UTC datetime of the form yyyy-mm-dd.</description>
-        <type>1</type>
-        <size>16</size>
-        <definitional>false</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>collection_names</key>
-        <displayName>Names</displayName>
-        <description>Used for naming the AU</description>
-        <type>1</type>
-        <size>100</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
