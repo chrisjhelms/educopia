@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>11</string>
+    <string>12</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -21,7 +21,7 @@
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>2419200000</long>
+    <long>7257600000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
