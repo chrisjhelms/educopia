@@ -1,5 +1,9 @@
 <map>
   <entry>
+    <string>plugin_version</string>
+    <string>2</string>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -22,10 +26,6 @@
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>2</string>
-  </entry>
-  <entry>
     <string>au_name</string>
     <string>&quot;Auburn University Historical Maps:%s&quot;, volume_name</string>
   </entry>
@@ -34,20 +34,20 @@
     <string>&quot;%smanifest.html&quot;, base_url</string>
   </entry>
   <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>15724800000</long>
   </entry>
   <entry>
-    <string>plugin_notes</string>
-    <string>Auburn University Treasure Maps Collection harvester. The collection is organized the same way as the physical collection: an AU = Contents of a Map Drawer. Hence, the volume parameter will be set to the Drawer# to set up the AU&apos;s. BaseURL currently is http://rbdnas2.lib.auburn.edu/alamaps/Raw%20Tiffs/ and the volume would be set this way: volume=drawer1 or volume=drawer12, etc.</string>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
     <string>Auburn Historical Maps</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>Auburn University Treasure Maps Collection harvester. The collection is organized the same way as the physical collection: an AU = Contents of a Map Drawer. Hence, the volume parameter will be set to the Drawer# to set up the AU&apos;s. BaseURL currently is http://rbdnas2.lib.auburn.edu/alamaps/Raw%20Tiffs/ and the volume would be set this way: volume=drawer1 or volume=drawer12, etc.</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -56,7 +56,7 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>3,&quot;%s&quot;, base_url</string>
+      <string>4,&quot;%s&quot;, base_url</string>
       <string>1,&quot;%smanifest\.html&quot;, base_url</string>
       <string>1,&quot;^%s%s/&quot;, base_url, volume_name</string>
       <string>1,&quot;.*\.html&quot;</string>
