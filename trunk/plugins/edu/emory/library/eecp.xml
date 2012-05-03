@@ -13,19 +13,19 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;Early Emory College Photographs: %d&quot;, year</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>EECP Plugin</string>
+    <string>&quot;Early Emory College Photographs&quot;</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>15724800000</long>
   </entry>
   <entry>
+    <string>plugin_name</string>
+    <string>EECP Plugin</string>
+  </entry>
+  <entry>
     <string>plugin_notes</string>
-    <string>Given a baseURL and year, this plugin is designed specifically for the EECP website to harvest the web pages and images for the given year.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at [baseURL]/metaarchive/manifest.html.  A separate plugin is designed to harvest master images from a different domain.  Little potential for use with other collections.</string>
+    <string>Given a baseURL, this plugin is designed specifically for the EECP website to harvest the web pages and images on the site.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at [baseURL]/metaarchive/manifest.html.  A separate plugin is designed to harvest master images from a different domain.  Little potential for use with other collections.</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -34,11 +34,11 @@
       <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s/$&quot;, base_url</string>
       <string>1,&quot;^%s/pages/[browse_by|administration|conserv_|tech][0-9a-zA-Z._]*.[Hh][Tt][Mm]&quot;, base_url</string>
-      <string>1,&quot;^%s/pages/%d[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url, year</string>
-      <string>1,&quot;^%s/pages/small/%d[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url, year</string>
-      <string>1,&quot;^%s/pages/large/%d[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url, year</string>
-      <string>1,&quot;^%s/images/small/%d[0-9a-zA-Z._]*.[Jj][Pp][Gg]$&quot;, base_url, year</string>
-      <string>1,&quot;^%s/images/large/%d[0-9a-zA-Z._]*.[Jj][Pp][Gg]$&quot;, base_url, year</string>
+      <string>1,&quot;^%s/pages/[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url</string>
+      <string>1,&quot;^%s/pages/small/[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url</string>
+      <string>1,&quot;^%s/pages/large/[0-9a-zA-Z._]*.[Hh][Tt][Mm]$&quot;, base_url</string>
+      <string>1,&quot;^%s/images/small/[0-9a-zA-Z._]*.[Jj][Pp][Gg]$&quot;, base_url</string>
+      <string>1,&quot;^%s/images/large/[0-9a-zA-Z._]*.[Jj][Pp][Gg]$&quot;, base_url</string>
       <string>1,&quot;^%s/images/[0-9a-zA-Z._]*.[JjGg][PpIi][GgFf]$&quot;, base_url</string>
     </list>
   </entry>
@@ -55,15 +55,6 @@
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
         <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>year</key>
-        <displayName>Year</displayName>
-        <description>Four digit year (e.g., 2004)</description>
-        <type>4</type>
-        <size>4</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
