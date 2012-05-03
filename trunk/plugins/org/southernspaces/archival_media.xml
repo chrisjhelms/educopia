@@ -12,16 +12,20 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>1</int>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;Southern Spaces Media: %s %d&quot;, author_name, year</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>Southern Spaces Archival Media Files Plugin</string>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>15724800000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Southern Spaces Archival Media Files Plugin</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
@@ -32,6 +36,7 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/metaarchive/README.txt$&quot;, base_url</string>
       <string>1,&quot;^%s/?$&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
       <string>2,&quot;Thumbs.db$&quot;</string>
