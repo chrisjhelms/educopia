@@ -1,11 +1,11 @@
 == Subversion Layout ==
 
-  # trunk/
-    # plugins    -- plugin xml files of plugins not yet active in test or production network 
+  * trunk
+    * plugins    -- plugin xml files of plugins not yet active in test or production network 
  
-  # branches 
-    # test 
-      # plugins    -- plugin xml files of plugins active in test network 
+  * branches 
+    * test 
+      * plugins    -- plugin xml files of plugins active in test network 
  
     # release 
       # cache      -- scripts for LOCKSS cache administrators 
