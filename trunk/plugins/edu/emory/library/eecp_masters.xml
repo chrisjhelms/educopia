@@ -13,19 +13,19 @@
   </entry>
   <entry>
     <string>au_crawl_depth</string>
-    <int>3</int>
+    <int>99</int>
   </entry>
   <entry>
     <string>au_name</string>
     <string>&quot;Early Emory College Photographs Image Masters&quot;</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>EECP Masters Plugin</string>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>15724800000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>EECP Masters Plugin</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
