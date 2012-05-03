@@ -1,0 +1,8 @@
+manifest.html			main manifest page 
+manifest_volume50-55.html       manifest page  for au with volume=50
+manifest_volume40-49.html	manifest page  for au with volume=40
+
+VTLibraries.xml			a revised plugin  that uses a volume parameter 
+                                to decide whihc of the archival unit manifest 
+                                pages to fetch 
+CrawlTrace-Volume=50	        trace of a crawl done with the plugintool 	
