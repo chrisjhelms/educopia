@@ -16,7 +16,7 @@ cat metaarchive_header.xml
 # generate archival units definition
 echo "\t<\!-- Archival Units: -->"
 echo "\t<property name='title'>"
-cat "$AU_DIR/*" 
+cat $AU_DIR/* 
 echo "\t</property>"
 
 cat metaarchive_footer.xml

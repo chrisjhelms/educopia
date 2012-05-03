@@ -35,6 +35,8 @@ You can also start the daemon without the predefined titles from metaarchive_aus
   ./start -notitle 
 
 ./clean removes all files written by the LOCKSS daemon (log files, cache content, ...)
+./check checks whether the aml config files are proper xml 
+        and prints whether the daemon is running (as indicated by the dpid file)
 
 To add a new/changed plugins to the LOCKSS daemon's configuration 
 and/or to update the daemons archival units list on the basis of conspectus data
