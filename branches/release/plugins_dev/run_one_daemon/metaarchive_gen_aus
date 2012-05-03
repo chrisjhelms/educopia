@@ -1,6 +1,6 @@
 #!/bin/csh
 
-set SOURCE = "http://callimachus.library.emory.edu:3002"
+set SOURCE = "http://www.metaarchive.org/conspectus"
 set AU_DIR = "/tmp/aus.$$"
 mkdir $AU_DIR 
 
