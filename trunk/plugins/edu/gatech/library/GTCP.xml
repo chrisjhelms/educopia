@@ -17,15 +17,15 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;SMARTech %s_%s&quot;, collection, start_date</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>GT Campus Publications</string>
+    <string>&quot;SMARTech %s&quot;, collection_names</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>2592000000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>GT Campus Publications</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -69,21 +69,21 @@ a UTC datetime of the form yyyy-mm-dd.</description>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>base_url</key>
-        <displayName>Base URL</displayName>
-        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
-        <type>3</type>
-        <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
         <key>quantity</key>
         <displayName>Quantity</displayName>
         <description>single, multiple or partial -- lower case
 only</description>
         <type>1</type>
         <size>10</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -95,6 +95,15 @@ a UTC datetime of the form yyyy-mm-dd.</description>
         <type>1</type>
         <size>16</size>
         <definitional>false</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>collection_names</key>
+        <displayName>Names</displayName>
+        <description>Used for naming the AU</description>
+        <type>1</type>
+        <size>100</size>
+        <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
