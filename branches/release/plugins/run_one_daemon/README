@@ -2,13 +2,28 @@ run_one_daemon runs a standalone development daemon.  Useful for testing
 basic daemon behavior through the UI, and crawling behavior of plugins
 (crawl rules, URL normalizers, etc.).
 
-To set up run_one_daemon:
-  svn co  https://svn.library.emory.edu/oss/metasource/trunk/plugins/xml plugins 
+This README file has three secions: 
+SETUP, USAGE, TOURBLE SHOOTING 
+
+--------------------------------------------------------------------------------
+SETUP: 
+--------------------------------------------------------------------------------
+If you want to use run_one_daemon 
+  to work on a new, test, or released plugins please check them out from the 
+  respective subversion branch which are documented on the metawiki at 
+  http://www.metaarchive.org/metawiki/index.php?title=PluginsAndSubversion
+  run the command: 
+           svn co SVN-URL-FOR-PLUGIN-XML  plugins 
+
+After setting up the plugins directory update the configuration 
   ./update_config  
-         # creates metaarchive_plugins.xml, metaarchive_aus.xml, plugins/metaaive.jar)
+         # creates metaarchive_plugins.xml, metaarchive_aus.xml, metaarchive_plugins.jar
 
 The daemon uses the user name and password defined in ./lockss.opt
 
+--------------------------------------------------------------------------------
+USAGE: 
+--------------------------------------------------------------------------------
 To run the daemon: 
   ./start
   ...   (connect to daemon on port 8081)
@@ -53,4 +68,12 @@ To start a Crawl on an ArchivalUnit
 Always commit changes to your plugins to subversion 
 
 
+--------------------------------------------------------------------------------
+TROUBLE SHOOTING
+--------------------------------------------------------------------------------
+To see which daemons are running use: ps aux | fgrep LockssDaemon
+Make sure there is always at most one daemon active. 
 
+The start script seomtimes complains that a daemon is already running because the dpid file exists, but the daemon process did in fact die without cleaning the dpid file up. Remove dpid and try again if this is the case. Be careful not to start more than one LOCKSS daemon. 
+
+If you have no idea what is going on  check the LOCKSS daemons log messages in test.out. 

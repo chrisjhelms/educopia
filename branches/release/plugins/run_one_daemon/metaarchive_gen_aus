@@ -1,15 +1,24 @@
-#!/bin/sh
+#!/bin/csh
 
-wget -O /tmp/aus.$$ 'http://metaarchive.org/tools/conspectus_dev/config_data.php?au_only'
+set SOURCE = "http://callimachus.library.emory.edu:3002"
+set AU_DIR = "/tmp/aus.$$"
+mkdir $AU_DIR 
+
+wget -q --no-check-certificate -O "$AU_DIR/SDC.preserved" "$SOURCE/archives/find/SDC/archival_units/preserved.xml"  
+wget -q --no-check-certificate -O "$AU_DIR/SDC.ingest" "$SOURCE/archives/find/SDC/archival_units/ingest.xml"  
+wget -q --no-check-certificate -O "$AU_DIR/SDC.test" "$SOURCE/archives/find/SDC/archival_units/test.xml"  
+wget -q --no-check-certificate -O "$AU_DIR/ETD.preserved" "$SOURCE/archives/find/ETD/archival_units/preserved.xml"  
+wget -q --no-check-certificate -O "$AU_DIR/ETD.ingest" "$SOURCE/archives/find/ETD/archival_units/ingest.xml"  
+wget -q --no-check-certificate -O "$AU_DIR/ETD.test" "$SOURCE/archives/find/ETD/archival_units/test.xml"  
 
 cat metaarchive_header.xml 
 
 # generate archival units definition
-echo "\t<!-- Archival Units: -->"
+echo "\t<\!-- Archival Units: -->"
 echo "\t<property name='title'>"
-cat /tmp/aus.$$
+cat "$AU_DIR/*" 
 echo "\t</property>"
 
 cat metaarchive_footer.xml
 
-/bin/rm /tmp/aus.$$
+/bin/rm -r $AU_DIR

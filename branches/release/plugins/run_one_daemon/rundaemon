@@ -55,7 +55,7 @@ if [ -z "$args" ]; then
 fi
 
 # NB leading space meaningful here
-PROP_URL_LIST="metaarchive_plugins.xml ${TITLE_DBS} lockss.txt"
+PROP_URL_LIST="metaarchive_plugins.xml ${TITLE_DBS} lockss.txt lockss.opt"
 PROP_ARGS=`echo " " $PROP_URL_LIST | sed 's/ [ ]*/ -p /g'`
 
 # local copy of lockss jars allows recompile while we're running

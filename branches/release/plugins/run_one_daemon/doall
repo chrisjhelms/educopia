@@ -9,7 +9,6 @@ if [ "$1" = "start" ] ; then
     shift
     if [ -f dpid ] ; then
         echo daemon already running
-        echo check ./dpid file for process id
     else
         ( ./rundaemon "$@" ; rm -f dpid ) &
         echo daemon started
