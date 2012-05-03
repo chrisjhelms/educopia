@@ -1,3 +1,0 @@
-If you add directories at this root level of the repository, please update the wiki at https://www.metaarchive.org/metawiki/index.php?title=MetaSource_Subversion_Repository to explain what the directory is for.
-
-plugins/     plugin xml files not part of the test or production network
