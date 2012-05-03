@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.emory.library.tast</string>
+    <string>org.slavevoyages.tast</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -39,6 +39,7 @@
       <string>1,&quot;^%s/$&quot;, base_url</string>
       <string>1,&quot;^%s/images-database/*&quot;, base_url</string>
       <string>1,&quot;^%s/downloads/*&quot;, base_url</string>
+      <string>2,&quot;/\?[^/]*$&quot;</string>
     </list>
   </entry>
   <entry>
