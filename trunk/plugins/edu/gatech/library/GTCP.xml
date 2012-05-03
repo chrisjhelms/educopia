@@ -9,11 +9,11 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>41</string>
+    <string>42</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
-    <int>3</int>
+    <int>2</int>
   </entry>
   <entry>
     <string>au_name</string>
