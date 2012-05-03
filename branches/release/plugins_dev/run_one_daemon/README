@@ -21,6 +21,12 @@ After setting up the plugins directory update the configuration
   ./update_config  
          # creates metaarchive_plugins.xml, metaarchive_aus.xml, metaarchive_plugins.jar
 
+ArchivalUnit definitions are retrieved from the MetaArchive 
+   * conspectus  (http://metaarchive.org/conspectus)
+    * all archives, all archival units in test, ingest, and preserved status
+   * conspectoy  (http://metaarchive.org/conspectoy
+    * all archival units in test status from the DOC archive 
+
 The daemon uses the user name and password defined in ./lockss.opt
 
 --------------------------------------------------------------------------------
