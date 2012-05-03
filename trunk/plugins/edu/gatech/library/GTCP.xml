@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -17,7 +17,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;SMARTech %s&quot;, volume_name</string>
+    <string>&quot;SMARTech %s&quot;, full_name</string>
   </entry>
   <entry>
     <string>plugin_name</string>
@@ -62,6 +62,24 @@
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>full_name</key>
+        <displayName>Full Name</displayName>
+        <description>Descriptive name of AU.</description>
+        <type>1</type>
+        <size>30</size>
+        <definitional>false</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>coll_list</key>
+        <displayName>Collection List</displayName>
+        <description>SMARTech collections included.</description>
+        <type>1</type>
+        <size>100</size>
+        <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
