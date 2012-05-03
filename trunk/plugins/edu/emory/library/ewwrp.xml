@@ -1,0 +1,67 @@
+<map>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.emory.library.ewwrp</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;EWWRP: %s&quot;, sub_collection</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Emory Women Writers Resource Project</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>7862400000</long>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>Given a baseURL and sub_collection, this plugin will harvest a section of the EWWRP web site.    The Base URL is expected to not contain a trailing slash [/]. The manifest page must be located at [baseURL]/metaarchive/manifest.html.  Little potential for use with other collections.</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/$&quot;, base_url</string>
+      <string>2,&quot;^%s/images/*$&quot;, base_url</string>
+      <string>1,&quot;^%s/%s/*&quot;, base_url, sub_collection</string>
+    </list>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/metaarchive/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>sub_collection</key>
+        <displayName>Sub-collection</displayName>
+        <description>EWWRP is organized into several thematic sub-collections</description>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+</map>
