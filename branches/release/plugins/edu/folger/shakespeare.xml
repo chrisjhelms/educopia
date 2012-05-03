@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>5</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -74,11 +74,11 @@
     <string>au_crawlwindow_ser</string>
     <org.lockss.daemon.CrawlWindows-Interval>
       <start>
-        <time>1268067618953</time>
+        <time>1279170045481</time>
         <timezone>America/New_York</timezone>
       </start>
       <end>
-        <time>1268046018953</time>
+        <time>1279188045481</time>
         <timezone>America/New_York</timezone>
       </end>
       <fieldMask>3</fieldMask>
