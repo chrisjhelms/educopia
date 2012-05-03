@@ -1,0 +1,83 @@
+<map>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.emory.library.sospaces_masters</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>2</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>10</int>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;Southern Spaces Media: %s %d&quot;, author_name, year</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Southern Spaces Media Files Plugin</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>15724800000</long>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>Given a baseURL, year, and author_name, this plugin will harvest all files in the subdirectory [baseURL]/[year]/[author_name]/.  The Base URL is expected to not contain a trailing slash [/].  Plugin assumes that the web server auto-generates directory indexes. The manifest page must be located at [baseURL]/metaarchive/manifest.html.  Potentially useful for collections organized by year, and within year, by author.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin.  </string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/?$&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>2,&quot;Thumbs.db$&quot;</string>
+      <string>1,&quot;^%s/%d/?$&quot;, base_url, year</string>
+      <string>1,&quot;^%s/%d/%s/?$&quot;, base_url, year, author_name</string>
+      <string>1,&quot;^%s/%d/%s/.*$&quot;, base_url, year, author_name</string>
+    </list>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/metaarchive/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>author_name</key>
+        <displayName>Author Name</displayName>
+        <description></description>
+        <type>1</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>year</key>
+        <displayName>Year</displayName>
+        <description>Four digit year (e.g., 2004)</description>
+        <type>4</type>
+        <size>4</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+</map>
