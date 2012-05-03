@@ -12,8 +12,12 @@
     <string>1</string>
   </entry>
   <entry>
+    <string>au_crawl_depth</string>
+    <int>3</int>
+  </entry>
+  <entry>
     <string>au_name</string>
-    <string>&quot;Early Emory College Photographs Image Masters: %d&quot;, year</string>
+    <string>&quot;Early Emory College Photographs Image Masters&quot;</string>
   </entry>
   <entry>
     <string>plugin_name</string>
@@ -25,7 +29,7 @@
   </entry>
   <entry>
     <string>plugin_notes</string>
-    <string>Given a baseURL and year, this plugin will harvest all EECP master image files for that year.  The Base URL is expected to not contain a trailing slash [/].  Plugin assumes that the web server auto-generates directory indexes. The manifest page must be located at [baseURL]/metaarchive/manifest.html.  Little potential for use with other collections.  </string>
+    <string>Given a baseURL, this plugin will harvest all EECP master image files.  The Base URL is expected to not contain a trailing slash [/].  Plugin assumes that the web server auto-generates directory indexes. The manifest page must be located at [baseURL]/metaarchive/manifest.html.  Little potential for use with other collections.  </string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -33,7 +37,9 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/metaarchive/manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s/$&quot;, base_url</string>
-      <string>1,&quot;^%s/%d[0-9a-zA-Z._]*.[Tt][Ii][Ff]$&quot;, base_url, year</string>
+      <string>2,&quot;^%s/Thumbs.db$&quot;, base_url</string>
+      <string>2,&quot;/\?[^/]*$&quot;</string>
+      <string>1,&quot;^%s/[0-9a-zA-Z._-]*.[Tt][Ii][Ff]$&quot;, base_url</string>
     </list>
   </entry>
   <entry>
@@ -43,15 +49,6 @@
   <entry>
     <string>plugin_config_props</string>
     <list>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>year</key>
-        <displayName>Year</displayName>
-        <description>Four digit year (e.g., 2004)</description>
-        <type>4</type>
-        <size>4</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
