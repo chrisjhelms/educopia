@@ -20,12 +20,12 @@
     <string>&quot;SMARTech %s&quot;, collection</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>GT Campus Publications</string>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>2592000000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>GT Campus Publications</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -38,7 +38,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/MACmanifest/manifest.php?collection=%s&amp;quantity=%s&amp;start=%s&amp;end=&quot;, base_url, collection, quantity, start_date</string>
+    <string>&quot;%s/MACmanifest/manifest.php?collection=%s&amp;quantity=%s&amp;start=%s&amp;end=%s&quot;, base_url, collection, quantity, start_date, end_date</string>
   </entry>
   <entry>
     <string>plugin_crawl_type</string>
@@ -78,16 +78,6 @@ a UTC datetime of the form yyyy-mm-dd.</description>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>end_date</key>
-        <displayName>End Date</displayName>
-        <description>Use this to limit a set by date.  Accepts 
-a UTC datetime of the form yyyy-mm-dd.</description>
-        <type>1</type>
-        <size>16</size>
-        <definitional>false</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
         <key>quantity</key>
         <displayName>Quantity</displayName>
         <description>single, multiple or partial -- lower case
@@ -95,6 +85,16 @@ only</description>
         <type>1</type>
         <size>10</size>
         <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>end_date</key>
+        <displayName>End Date</displayName>
+        <description>Use this along with start date to limit a set by date.  Accepts 
+a UTC datetime of the form yyyy-mm-dd.</description>
+        <type>1</type>
+        <size>16</size>
+        <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
