@@ -67,11 +67,11 @@ CLASSPATH=lib/lockss.jar:./metaarchive_plugins.jar:`cat "test-classpath"`
 export CLASSPATH
 
 echo running at `date`
-#echo CLASSPATH=$CLASSPATH
+echo CLASSPATH=$CLASSPATH
 # for large caches, need to pass "-ms4m -mx64m" to java
 #java org.lockss.app.LockssDaemon ${PROP_ARGS} >>test.out 2>&1 &
 if [ -z "$jdb" ]; then
- #echo java -mx256m $args org.lockss.app.LockssDaemon ${PROP_ARGS}
+ echo java -mx256m $args org.lockss.app.LockssDaemon ${PROP_ARGS}
  java -mx256m $args org.lockss.app.LockssDaemon ${PROP_ARGS} >>test.out 2>&1 &
  echo $! >dpid
  wait `cat dpid`
