@@ -1,51 +1,7 @@
 <map>
   <entry>
-    <string>plugin_identifier</string>
-    <string>edu.folger.shakespeare</string>
-  </entry>
-  <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
-  </entry>
-  <entry>
     <string>plugin_version</string>
-    <string>3</string>
-  </entry>
-  <entry>
-    <string>au_crawl_depth</string>
-    <int>3</int>
-  </entry>
-  <entry>
-    <string>au_name</string>
-    <string>&quot;IMAGES %d and up&quot;, from</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>All Shakespeare Image Files</string>
-  </entry>
-  <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>8121600000</long>
-  </entry>
-  <entry>
-    <string>plugin_notes</string>
-    <string>This plugin starts to crawl at Base_URL/manifest.html  proceeds to Masters/*/manifest.html, to manifest-FROM-*.html, to all listed images 
-  </string>
-  </entry>
-  <entry>
-    <string>au_crawlrules</string>
-    <list>
-      <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;^%s/manifest.html$&quot;, base_url</string>
-      <string>1,&quot;/manifest-%d-.+\.html$&quot;, from</string>
-      <string>1,&quot;/[0-9]+.[a-zA-Z]+&quot;</string>
-      <string>1,&quot;.*\.[xX][mM][lL]&quot;</string>
-      <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
-    </list>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s/manifest.html&quot;, base_url</string>
+    <string>4</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -69,5 +25,64 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;Folger IMAGES %d and up&quot;, from</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>3</int>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>8121600000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>folger:  Shakespeare Image Files</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin starts to crawl at Base_URL/manifest.html  proceeds to Masters/*/manifest.html, to manifest-FROM-*.html, to all listed images 
+  </string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.folger.shakespeare</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;^%s/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;/manifest-%d-.+\.html$&quot;, from</string>
+      <string>1,&quot;/[0-9]+.[a-zA-Z]+&quot;</string>
+      <string>1,&quot;.*\.[xX][mM][lL]&quot;</string>
+      <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
+    </list>
+  </entry>
+  <entry>
+    <string>au_crawlwindow_ser</string>
+    <org.lockss.daemon.CrawlWindows-Interval>
+      <start>
+        <time>1268067618953</time>
+        <timezone>America/New_York</timezone>
+      </start>
+      <end>
+        <time>1268046018953</time>
+        <timezone>America/New_York</timezone>
+      </end>
+      <fieldMask>3</fieldMask>
+      <timeZoneId>US/Eastern</timeZoneId>
+    </org.lockss.daemon.CrawlWindows-Interval>
   </entry>
 </map>
