@@ -4,6 +4,10 @@
     <string>doc.plugins.allContent</string>
   </entry>
   <entry>
+    <string>plugin_version</string>
+    <string>2</string>
+  </entry>
+  <entry>
     <string>au_crawl_depth</string>
     <int>5</int>
   </entry>
