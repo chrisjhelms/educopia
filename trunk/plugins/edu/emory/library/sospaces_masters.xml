@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.southernspaces.Media</string>
+    <string>edu.emory.library.sospaces_masters</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
