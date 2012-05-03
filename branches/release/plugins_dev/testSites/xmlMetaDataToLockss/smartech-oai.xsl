@@ -163,7 +163,7 @@ p.intro {
 More information about this XSLT is at the <a href="#moreinfo">bottom of the page</a>.</p>
     <xsl:apply-templates select="/oai:OAI-PMH" />
     <h2><a name="moreinfo">About the XSLT</a></h2>
-    <p>This stylesheet is used to convert OAI:DC XML produced by DSPACE instances into HTML pages that link to DSPACE item pages showing the full item record, ie to a URL with '?mode=full'. See more info at <a href="./manifest.html"> manifest.html </a>.
+    <p>This stylesheet is used to convert OAI:DC XML produced by DSPACE instances into HTML pages that link to DSPACE item pages showing the full item record, ie to a URL with '?mode=full'. See more info at <a href="./manifestSmartech.html"> manifestSmartech.html </a>.
 	</p> <p> 
 The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people/cjg">Christopher Gutteridge</a> at the University of Southampton as part of the <a href="http://software.eprints.org">GNU EPrints system</a>, and is freely redistributable under the <a href="http://www.gnu.org">GPL</a>.</p>
 
