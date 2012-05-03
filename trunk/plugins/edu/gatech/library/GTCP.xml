@@ -13,19 +13,23 @@
   </entry>
   <entry>
     <string>au_crawl_depth</string>
-    <int>4</int>
+    <int>3</int>
   </entry>
   <entry>
     <string>au_name</string>
     <string>&quot;SMARTech %s&quot;, volume_name</string>
   </entry>
   <entry>
+    <string>plugin_name</string>
+    <string>GT Campus Publications</string>
+  </entry>
+  <entry>
     <string>au_def_new_content_crawl</string>
     <long>2592000000</long>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>GT Campus Publications</string>
+    <string>plugin_notes</string>
+    <string></string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -48,6 +52,15 @@
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
+        <key>coll_list</key>
+        <displayName>Collection List</displayName>
+        <description>SMARTech collections included.</description>
+        <type>1</type>
+        <size>1000</size>
+        <definitional>false</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
@@ -62,15 +75,6 @@
         <type>1</type>
         <size>20</size>
         <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>coll_list</key>
-        <displayName>Collection List</displayName>
-        <description>SMARTech collections included.</description>
-        <type>1</type>
-        <size>1000</size>
-        <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
