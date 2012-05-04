@@ -503,7 +503,7 @@ The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people
 	<td class="key">resumptionToken:</td>
      	<td class="value"><xsl:value-of select="."/>
         	<xsl:text> </xsl:text>
-		<a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;webIndex={$dspacehome}&amp;webOAIif={$dspaceoai}&amp;resumptionToken={.}">Resume</a>
+		<a class="link" href="?webIndex={$dspacehome}&amp;webOAIif={$dspaceoai}&amp;verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a>
     	</td>
      </tr>
       <tr>
