@@ -8,19 +8,23 @@
     <string>&quot;%s/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>folger:  Shakespeare Image Files</string>
-  </entry>
-  <entry>
     <string>plugin_notes</string>
     <string>This plugin starts to crawl at Base_URL/manifest.html  proceeds to Masters/*/manifest.html, to manifest-FROM-*.html, to all listed images 
   </string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>folger:  Shakespeare Image Files</string>
   </entry>
   <entry>
     <string>plugin_cache_result_list</string>
     <list>
       <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
     </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>11</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -46,16 +50,8 @@
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>10</string>
-  </entry>
-  <entry>
     <string>au_crawl_depth</string>
     <int>3</int>
-  </entry>
-  <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
@@ -71,25 +67,25 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;^%s/manifest.html$&quot;, base_url</string>
       <string>1,&quot;/manifest-%s-.+\.html$&quot;, from</string>
-      <string>1,&quot;/[0-9a-zA-Z_]+.[a-zA-Z]+&quot;</string>
+      <string>2,&quot;manifest&quot;</string>
       <string>1,&quot;.*\.[xX][mM][lL]&quot;</string>
       <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
+      <string>1,&quot;/[0-9a-zA-Z_]+.[a-zA-Z]+&quot;</string>
     </list>
   </entry>
   <entry>
-     <string>au_crawlwindow_ser</string>
-     <org.lockss.daemon.CrawlWindows-Interval>
-       <start>
-         <time>1279170045481</time>
-         <timezone>America/New_York</timezone>
-       </start>
-       <end>
-         <time>1279188045481</time>
-         <timezone>America/New_York</timezone>
-       </end>
-       <fieldMask>3</fieldMask>
-       <timeZoneId>US/Eastern</timeZoneId>
-     </org.lockss.daemon.CrawlWindows-Interval>
-   </entry>
+    <string>au_crawlwindow_ser</string>
+    <org.lockss.daemon.CrawlWindows-Interval>
+      <start>
+        <time>1279170045481</time>
+        <timezone>America/New_York</timezone>
+      </start>
+      <end>
+        <time>1279188045481</time>
+        <timezone>America/New_York</timezone>
+      </end>
+      <fieldMask>3</fieldMask>
+      <timeZoneId>US/Eastern</timeZoneId>
+    </org.lockss.daemon.CrawlWindows-Interval>
+  </entry>
 </map>
-
