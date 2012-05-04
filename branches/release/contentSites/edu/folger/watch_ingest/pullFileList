@@ -11,6 +11,7 @@ else
    set ids = $2
 endif 
 
+echo  $ids 
 foreach id ($ids) 
  pullTable -server $server  -u $MATSTCACHE_USER -p $MATSTCACHE_PWD -page  "$pagepre$id" -O - > ./urllists/$id  
 end 

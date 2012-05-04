@@ -1,3 +1,5 @@
+if you are a plugin developer please use run_one_daemon from /branches/release
+
 run_one_daemon runs a standalone development daemon.  Useful for testing
 basic daemon behavior through the UI, and crawling behavior of plugins
 (crawl rules, URL normalizers, etc.).
@@ -23,7 +25,7 @@ After setting up the plugins directory update the configuration
 
 ArchivalUnit definitions are retrieved from the MetaArchive 
    * conspectus  (http://metaarchive.org/conspectus)
-    * all archives, all archival units in test, ingest, and preserved status
+    * all archives, all archival units in test or restest status
    * conspectoy  (http://metaarchive.org/conspectoy
     * all archival units in test status from the DOC archive 
 

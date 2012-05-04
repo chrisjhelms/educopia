@@ -39,7 +39,7 @@ LOCKSS starts crawling at this page expecting that it is called
 </p><ul><li> 
     manifest.html 
 </li></ul> 
-It harvests only content/images that are referenced on pages that are accessible through  
+It harvests only content/images that are referenced on manifest pages  with URLs: 
 <ul>
 <li> http://metaarchive.folger.edu/*/manifest-FROM*.html, where FROM is a number, and </li>
 <li> http://metaarchive.folger.edu/*/manifest-FROM*-TO.html, where FROM  and TO are numbers </li>
@@ -47,10 +47,10 @@ It harvests only content/images that are referenced on pages that are accessible
 
 <p> 
 Please add any additional images or remove references to deleted images to/from the corresponding manifest pages. 
-
-<font color="red">
- Only images referenced in a manifest-FROM-TO.html page reachable from 
-this manifest page are preserved in the MetaArchive network.  </font> 
+<p style='color: red; padding-left: 5eX;'>
+  Only images referenced in a manifest page reachable from this page are preserved in the MetaArchive network.  
+  Referenced images must match the crawl pattens given in the LOCKSS plugin used for this collection; please refer to the collections page in the MetaArchive conspectus mentioned above.  </font> 
+</p> 
 </p> 
 
 <p>Links for LOCKSS to start crawling</p>
