@@ -158,7 +158,7 @@ unless( $out->param ) {
                         	           -attachment  => 'AU_comm'.$commID.'.csv' );
  					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
 
-            		print "dspace_instance, coll_hdl_id, base_url2, oai_interface\n";
+            		print "dspace_instance, coll_hdl_id, base_url2\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
    		} else {

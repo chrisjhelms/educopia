@@ -1,16 +1,17 @@
 #!/usr/bin/perl -w
 
 #
-# Script CGI per a processar dinàmicament l'ouput de les peticions de LOCKSS 
+# Script CGI per a processar dinàmicament l'ouput de les peticions de LOCKSS i
+# Aquesta és la versió genèrica de l'script, que espera sempre webIndex i webOAIif com a paràmetres (per això fa servir una fulla XSLT concreta i ha de ser cridat pel Plugin genèric)
 # Si li arriba un valor del paràmetre "set" concret actua de renderer HTML de l'interfície OAI-MPH per a aquell set,
 # si li arriba un valor del paràmetre "comm2csv" concret, l'interpreta com a un handle_id de DSpace corresponent a una communitat i treu com a output el CSV que defineix les seves col·leccions (que seran les AUs dins d'aquella Col·lecció Metaarchive), necessari per el registre al Conspectus. 
 # ...altrament, actua com a generador dinàmic per defecte de la Manifest Page, exposant totes les coleccions de la instància DSPACE 
 #
 # Es pot testar a la línia de comandes directament amb:
-#  ./Cgi4Lockss (> ManifestPage.html)
-#  ./Cgi4Lockss set=hdl_xxxxxx_xxxx (> OAIListRecordsSetxxxx.html )
-#  ./Cgi4Lockss resumptionToken=xxxxxx ( > OAIListRecordsSetxxxx2.html)
-#  ./Cgi4Lockss comm2csv=xxxx (> commxxxx.csv)
+#  ./Cgi4Lockss (webIndex=<URL>&webOAIif=<URL>) (> ManifestPage.html)
+#  ./Cgi4Lockss (webIndex=<URL>&webOAIif=<URL>) set=hdl_xxxxxx_xxxx (> OAIListRecordsSetxxxx.html )
+#  ./Cgi4Lockss (webIndex=<URL>&webOAIif=<URL>) resumptionToken=xxxxxx ( > OAIListRecordsSetxxxx2.html)
+#  ./Cgi4Lockss (webIndex=<URL>&webOAIif=<URL>) comm2csv=xxxx (> commxxxx.csv)
 #
 # O bé a través de localhost:8080/LOCKSS(?var=val) si aixequem l'aplicació amb Plack des del directori que conté l'script i el XSLT
 #
@@ -118,7 +119,7 @@ unless( $out->param ) {
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif '&set=' . $set  }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif . '&set=' . $set  }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
