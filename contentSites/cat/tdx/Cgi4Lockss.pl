@@ -158,15 +158,15 @@ unless( $out->param ) {
 	for my $sublink ( @collections ) {
    		if ( $sublink eq $collections[0] ) {
            		print $out->header(-type=>'application/x-download',
-                        	           -attachment  => 'AU_comm'.$commID.'.csv' );
+                        	           -attachment  => 'AU_comm'.$commID.' ('.$sublink->text.').csv' );
  					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
 
-            		print "dspace_instance,coll_hdl_id,base_url2,oai_interface\n";
+            		print "coll_hdl_id,dspace_instance,base_url2,oai_interface\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
    		} else {
         		$sublink->url =~ m{/handle/(\d+)/(\d+)/?$}i;
-        		printf ("%s,%s,%s,%s\n", $1, $2, $webIndex, $webOAIif );
+        		printf ("%s,%s,%s,%s\n", $2, $1, $webIndex, $webOAIif );
    		}	
 	}
 
