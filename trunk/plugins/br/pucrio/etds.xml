@@ -62,10 +62,10 @@
       <string>1,&quot;^%s:8081/MetaArchive/transform$&quot;, base_url</string>
       <string>1,&quot;^%s:8081/MetaArchive/transform.php?dcxml=%s-.*/*.xml&quot;, base_url, from</string>
       <string>1,&quot;%s-.*/.*.xml&quot;, from</string>
-      <string>1,&quot;^%s/.*.XSL$&quot;, base_url</string>
-      <string>1,&quot;^%s/.*.xsl$&quot;, base_url</string>
-      <string>1,&quot;^%s/.*.PDF$&quot;, base_url</string>
-      <string>1,&quot;^%s/.*.pdf$&quot;, base_url</string>
+      <string>1,&quot;^%s:8001/.*.XSL$&quot;, base_url</string>
+      <string>1,&quot;^%s:8001/.*.xsl$&quot;, base_url</string>
+      <string>1,&quot;^%s:8001/.*.PDF$&quot;, base_url</string>
+      <string>1,&quot;^%s:8001/.*.pdf$&quot;, base_url</string>
     </list>
   </entry>
   <entry>
