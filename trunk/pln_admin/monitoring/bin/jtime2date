@@ -15,17 +15,16 @@ import getopt
 
 def main(argv):                         
 	try:                                
-		args = getopt.getopt(argv, "ht:", ["help", "time="])
+		opts, args = getopt.getopt(argv, "h", ["help"])
 	except getopt.error, msg:
         	usage(1, msg)
 
-	for opt, arg in argv:                
+	for opt, arg in opts:                
 		if opt in ("-h", "--help"):  
 			usage(0)                     
 
 	try: 
-		tm = argv[1]
-		tm = int(arg) / 1000; 
+		tm = int(args[0]) / 1000;
 		print time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(tm)) 
 	except  (ValueError, IndexError): 
 		usage(1)
