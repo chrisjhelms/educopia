@@ -61,7 +61,11 @@ our DSpace repository</description>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>99</int>
   </entry>
   <entry>
     <string>au_name</string>
@@ -73,7 +77,7 @@ our DSpace repository</description>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>1209600000</long>
+    <long>7776000000</long>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
