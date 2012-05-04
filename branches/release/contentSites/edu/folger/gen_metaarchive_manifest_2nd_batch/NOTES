@@ -1,0 +1,97 @@
+*** ESTIMATE SIZES 
+link disk to root of folger content on disk 
+ln -s disk/Masters-* .
+du -s -hg Mast* > SIZES   
+awk -f partition.awk SIZES > PARTITIONS ; sort -n PARTITIONS
+# computes partitioning plan - aka how many aus per directory 
+
+*** MAKE DIRS FOR MANIFEST
+link up with content 
+so we have writable dirs to put manifest pages 
+
+#!/bin/tcsh 
+foreach f (Mas*) 
+   rm $f; 
+   mkdir $f
+end 
+foreach f  (Ma*) 
+   echo "(cd $f; ln -s ../disk/$f/* . )"  
+   (cd $f; ln -s ../disk/$f/* . )  
+end 
+rm Mas*/*.db 
+
+
+*** SUBVESRION DIRS
+add dirs to subversion 
+svn add -N Ma* 
+
+
+now svn ignoring files we will preserve
+#!/bin/tcsh 
+foreach f  (Ma*) 
+   (cd $f; svn propset svn:ignore -F ../IGNOREFILES .) 
+end 
+svn status 
+
+*.TIF
+*.gif
+*.tif
+*.tiff
+*.jpg
+*.psd
+*.PSD
+
+getting rid  stray file 
+?       Masters-037001-038000/~ps2B.tmp
+
+*** COLLECT NUMBER OF FILES IN DIRS 
+use addlinecount.awk   to produce command file 
+and then sourc the command file 
+awk -f addlinecount.awk PARTITIONS > COMMANDS
+edit COMMANDS   dir /MANIFESTALL --> dir/MANIFESTALL 
+source commands 
+
+use results to generate partition plan 
+awk -f splitfilelist.awk PARTITIONSLINES > PARTITION-PLAN
+
+use partition plant to SPLIT into lists of files so we can generate submanifest pages
+./splitManifests.py PARTITION-PLAN
+execute te commands that are printed 
+
+now we have */MANIFEST[a-z][a-z] files 
+
+*** generate submanifest pages 
+foreach f  ( `ls Masters-*/MANIFEST[a-z][a-z]` )
+   gensubmanifest $f
+end
+
+*** GET MANIFEST
+wget http://metaarchive.folger.edu/CollectionImages/ImageMasters/manifest.html
+
+** add newsubmenifest pages to main manifest 
+foreach f ( `ls Masters-0*/manifest*html` )
+   echo "	<li><a href='$f'> $f </a></li>" >> SUBMANIFEST.html
+end
+
+edit SUBMANIFEST.html so that text on link is Images: FROM=-TO 
+and combine with main manifest page 
+
+
+*** CHECK WHETHER EACH IMAGES IS IN FACT MENTIONED ON  MANIFEST PAGE IN SAME DIRECTORY 
+reproduced list of all files with find . -type f >> folger_all_files 
+now checking whether each is mentioned in a manifest page 
+do chechmention  > TRACE 
+fgrep -v :1  TRACE 
+
+*** GENERATE AUS defs in csv format for conspectus
+ls *//manifest* | sed s'/.*manifest-//' | sed 's/-.*//' > AUDEFS.csv
+
+** define in conspectus 
+define test collection 
+use UNT url 
+add aus from AUIODS.csv 
+use ruby console on admin server to move to test state 
+   c = Collection.find(THE_ID)
+   archival_units.each { |au| au.au_state_id = 4; au.save! } 
+
+
