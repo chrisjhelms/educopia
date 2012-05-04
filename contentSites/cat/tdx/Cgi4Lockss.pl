@@ -23,6 +23,8 @@
 # $ env PERL_MM_USE_DEFAULT=1 cpan install CGI WWW::Mechanize XSLT XML:LibXSLT Plack Plack::Handler::Starman CGI::Emulate::PSGI   
 # (si no tenim la CLI cpan, directament amb perl -MCPAN -e 'install <mòdul>'. ' 
 #
+# Written by Marc Miranda <nightswimming84@gmail.com>
+#
 
 use strict;
 use utf8;
@@ -43,6 +45,7 @@ my $out = new CGI;
 
 
 ### VARIABLES ###
+my $regexpFirstRecSubmi = qr/<div\sclass="Enviaments">.*?<a\shref="(.*?)">/si; #REGEXP que identifica el primer Recent Submission Link del output HTML
 $out->delete('webIndex') unless $out->param('webIndex'); #Això elimina els paràmetres de la query si estan buits. És útil perquè el plugin construeix les 
 $out->delete('webOAIif') unless $out->param('webOAIif'); #                             URL per defecte amb els paràmetres tinguin un valor explícit o no.
 my $webIndex = $out->param('webIndex') || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
@@ -50,6 +53,7 @@ my $webOAIif = $out->param('webOAIif') || 'http://' . URI::URL->new($webIndex)->
 my $xslSheet = './OaiMph2Html.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 $out->delete('webIndex','webOAIif','verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
 #################
+
 
 # L'script actua com a generador de la ManifestPage (comportament per defecte, és a dir, quan no sol·licitem exlpícitament cap set) 
 # Unless (If not) defined any of the 3 expected parameters
@@ -99,7 +103,7 @@ unless( $out->param ) {
             } or do {error($out,"Error de connexió/URL en seguir l'enllaç a una pàgina d'una comunitat.")};
  	    $mech->success or error($out,"El repositori ha tornat un missatge d'error en intentar seguir l'enllaç a la pàgina de la comunitat ".$commID.".");
 	
-  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)
+  	    $mech->content =~ $regexpFirstRecSubmi; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)
 	    my $firstRecSubmi = $1;
 
 	    my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
@@ -148,8 +152,8 @@ unless( $out->param ) {
                 1;
         } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.". Existeix?")};	
 	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID.". Existeix?");
-	
-	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
+
+ 	$mech->content =~ $regexpFirstRecSubmi; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)	
 	my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );

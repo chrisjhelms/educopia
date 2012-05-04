@@ -27,6 +27,8 @@
 # $ env PERL_MM_USE_DEFAULT=1 cpan install CGI WWW::Mechanize XSLT XML:LibXSLT Plack Plack::Handler::Starman CGI::Emulate::PSGI   
 # (if we don't got cpan CLI, directly with perl -MCPAN -e 'install <module>'. ' 
 #
+# Written by Marc Miranda <nightswimming84@gmail.com>
+#
 
 use strict;
 use utf8;
@@ -46,7 +48,8 @@ my $sublink;
 my $out = new CGI;
 
 
-### VARIABLES ###
+### VARIABLES ##
+my $regexpFirstRecSubmi = qr/<div\sclass="Recent">.*?<a\shref="(.*?)">/si; #This is the REGEXP matching first Recent Submission Link on the HTML output
 $out->delete('webIndex') unless $out->param('webIndex'); #This deletes the request parameters if they are empty. It is useful because the plugin builds 
 $out->delete('webOAIif') unless $out->param('webOAIif'); #                             URLs by default from parameters, either they have a value or not.
 my $webIndex = $out->param('webIndex') || $out->url(-base => 1); # By default, we assume REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
@@ -102,8 +105,8 @@ unless( $out->param ) {
 	    	1;
             } or do {error($out,"URL/connection error when following a link to a community page.")};
  	    $mech->success or error($out,"Repository has replied an error message while trying to follow a link to the community/institution ".$commID."'s page.");
-	
-  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si; # Identify and save the first link which does not correpsond to a collection (First Recent Submissions area's link)
+	    # We identify first of Recent Submission Links, in order to discard them later	
+	    $mech->content =~ $regexpFirstRecSubmi;
 	    my $firstRecSubmi = $1;
 
 	    my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
@@ -152,9 +155,10 @@ unless( $out->param ) {
                 1;	
         } or do {error($out,"URL/connection error when following the link to community/institution ".$commID.".'s main page. Does it exist?")};
  	$mech->success or error($out,"Repository has replied an error message while trying to follow a link to the community/institution ".$commID."'s page. Does it exist?");
-	
-	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
-	my $firstRecSubmi = $1;
+
+	# We identify first of Recent Submission Links, in order to discard them later      
+        $mech->content =~ $regexpFirstRecSubmi; 
+        my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
         error($out,"No links to collections were found on the community ".$commID."'s page.") unless ( @collections );
