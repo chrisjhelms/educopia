@@ -1,14 +1,14 @@
 #!/bin/tcsh -f 
 source ~/.metaarchive.rc 
 
-set server = `cachedns test`
+set server =  $1 
 set pagepre="ListObjects?type=files&auid=edu%7Cfolger%7Cshakespeare%26base_url%7Ehttp%253A%252F%252Fmetaarchive%252Elibrary%252Eunt%252Eedu%252Ffolger_staging%252F%26from%7E"; 
 
 mkdir -p ./urllists
-if ($1 == "") then 
-   set ids = `sed 's/.*au=.*from\\=//' $DATE/CrawlStatus.noerrors | sed 's/,.*//'`
+if ($2 == "") then 
+   set ids = `sed 's/.*au=.*from\\=//' $DATE/$server/CrawlStatus.noerrors | sed 's/,.*//'`
 else 
-   set ids = $1
+   set ids = $2
 endif 
 
 foreach id ($ids) 
