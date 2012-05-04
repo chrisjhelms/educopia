@@ -69,7 +69,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^(%s|http://www.tdx.cat)&quot;, base_url</string>
-      <string>1,&quot;%s/manifest%d.html$&quot;, volume</string>
+      <string>1,&quot;%s/manifest%d.html$&quot;, base_url, volume</string>
       <string>1,&quot;^http://www.tdx.cat/LOCKSS.txt$&quot;</string>
       <string>1,&quot;set=hdl_10803_[0-9]+$&quot;</string>
       <string>1,&quot;^http://www.tdx.cat/handle/10803/[0-9]+\?mode=full&quot;</string>
