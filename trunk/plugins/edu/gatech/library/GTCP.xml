@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>50</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -35,9 +35,9 @@
     <string>au_crawlrules</string>
     <list>
       <string>1,&quot;^%s/MACmanifest/manifest%s.php&quot;, base_url, volume_name</string>
-      <string>1,&quot;^%s/bitstream/1853/*/*/*&quot;, base_url</string>
-      <string>1,&quot;^%s/handle/1853/[0-9]+\?mode=full&amp;submit_simple=Show\+full\+item\+record&quot;, base_url</string>
-      <string>2,&quot;^%s/1853/[0-9]+$&quot;, base_url</string>
+      <string>1,&quot;^%s/bitstream/*&quot;, base_url</string>
+      <string>1,&quot;^%s/handle/1853/[0-9]+\?show=full&quot;, base_url</string>
+      <string>2,&quot;^%s$&quot;, base_url</string>
     </list>
   </entry>
   <entry>
