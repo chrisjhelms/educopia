@@ -47,7 +47,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>9</string>
+    <string>10</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -76,4 +76,20 @@
       <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
     </list>
   </entry>
+  <entry>
+     <string>au_crawlwindow_ser</string>
+     <org.lockss.daemon.CrawlWindows-Interval>
+       <start>
+         <time>1279170045481</time>
+         <timezone>America/New_York</timezone>
+       </start>
+       <end>
+         <time>1279188045481</time>
+         <timezone>America/New_York</timezone>
+       </end>
+       <fieldMask>3</fieldMask>
+       <timeZoneId>US/Eastern</timeZoneId>
+     </org.lockss.daemon.CrawlWindows-Interval>
+   </entry>
 </map>
+
