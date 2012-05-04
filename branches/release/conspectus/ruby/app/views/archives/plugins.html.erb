@@ -1,0 +1,19 @@
+<h1> Archive: <%=h @archive.title %> </h1> 
+
+<p>
+    <b>Description:</b>
+    <%=h @archive.description %>
+</p>
+
+<%= left_right_title(
+             "Plugins used for collections in this archive" + "<br/>" + 
+             content_tag( 'font', 
+                  links_to_retired_state_listers("/archives/#{@archive.id}/#{params['action']}"), 
+                  :size => "-1" ), 
+             link_to('List Collections', archives_show_path(@archive))  + " <br/>" + 
+             link_to('List Archival Units', archives_archival_units_path(@archive)))
+%>
+
+<div class=indent>
+    <%= render :partial => "/plugins/instance_list" %>
+</div>

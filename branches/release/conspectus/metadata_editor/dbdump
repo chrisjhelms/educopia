@@ -1,0 +1,5 @@
+#!/bin/tcsh 
+set db = ~/db_backups/$1_`date +%Y-%m-%d-%R`.sql
+echo "creating database dump in $db";  
+`php dbdump.php` >  $db;
+

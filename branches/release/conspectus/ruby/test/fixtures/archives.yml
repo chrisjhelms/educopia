@@ -1,0 +1,28 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+arch1:
+  id: 1
+  title: arch1
+  description: Electronic Theses and Dissertations
+  created_at: 2009-07-25 18:59:42
+  updated_at: 2009-11-12 19:31:57
+  create_url_pattern: http://admin.metaarchive.org/co_metadata/create.php
+  update_url_pattern: http://admin.metaarchive.org/co_metadata/edit.php?coll_id=<ID>&title=<TITLE>
+  show_url_pattern: http://admin.metaarchive.org/co_metadata/view.php?coll_id=<ID>&title=<TITLE>
+arch2:
+  id: 2
+  title: arcch2
+  description: Southern Digital Culture Collections
+  created_at: 2009-07-25 18:59:42
+  updated_at: 2010-03-09 15:30:43
+  create_url_pattern: http://localhost/~mmevenk/co_metadata/create.php
+  update_url_pattern: http://localhost/~mmevenk/co_metadata/edit.php?coll_id=<ID>&title=<TITLE>
+  show_url_pattern: http://localhost/~mmevenk/co_metadata/view.php?coll_id=<ID>&title=<TITLE>
+arch3:
+  id: 3
+  title: arch3
+  description: Early Modern Literature
+  created_at: 2009-12-07 19:42:47
+  updated_at: 2010-03-11 13:49:10
+  create_url_pattern: http://admin.metaarchive.org/co_metadata/create.php
+  update_url_pattern: http://admin.metaarchive.org/co_metadata/edit.php?coll_id=<ID>&title=<TITLE>
+  show_url_pattern: http://localhost/~mmevenk/co_metadata//view.php?coll_id=<ID>&title=<TITLE>

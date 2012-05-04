@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>apply_elems (LockssTitleDb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/lockss_title_db.rb, line 38</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">apply_elems</span>(<span class="ruby-identifier">nprop_level</span>)
+    <span class="ruby-identifier">pattern</span> = <span class="ruby-value str">&quot;lockss-config&quot;</span>
+     (<span class="ruby-value">1</span> <span class="ruby-operator">..</span> <span class="ruby-identifier">nprop_level</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern</span> = <span class="ruby-identifier">pattern</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;/property&quot;</span> }
+    <span class="ruby-ivar">@elements</span> = <span class="ruby-ivar">@doc</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-identifier">pattern</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> 
+      <span class="ruby-identifier">n</span>= <span class="ruby-identifier">e</span>.<span class="ruby-identifier">attribute</span>(<span class="ruby-value str">'name'</span>)
+      <span class="ruby-identifier">v</span>= <span class="ruby-identifier">n</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">attribute</span>(<span class="ruby-value str">'name'</span>).<span class="ruby-identifier">value</span> 
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/title$/</span>)) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">title</span> = <span class="ruby-identifier">e</span>; 
+        <span class="ruby-identifier">title</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">'property'</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">au</span><span class="ruby-operator">|</span> 
+          <span class="ruby-keyword kw">begin</span> 
+            <span class="ruby-keyword kw">yield</span>(<span class="ruby-identifier">au</span>)  
+          <span class="ruby-keyword kw">rescue</span> 
+            <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;ERROR: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$!</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span> 
+      <span class="ruby-keyword kw">elsif</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Skipping #{n}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

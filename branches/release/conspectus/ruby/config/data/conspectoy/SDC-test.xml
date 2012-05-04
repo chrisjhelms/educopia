@@ -1,0 +1,37 @@
+<lockss-config>
+<property name="lockss.org">
+<property name="title">
+
+  <property >
+    <property name="journalTitle" value="YearBooks"/>
+    <property name="plugin" value="edu.some.depositAllByVolume"/>
+    <property name="param.1">
+      <property name="key" value="base_url"/>
+      <property name="value" value="http://scholar.some.edu/year_books/"/>
+    </property>
+    <property name="param.2">
+      <property name="key" value="volume_name"/>
+      <property name="value" value="pre1800"/>
+    </property>
+  </property>
+
+  <property >
+    <property name="journalTitle" value="StateElectionPolls"/>
+    <property name="plugin" value="edu.some.pollData"/>
+    <property name="param.1">
+      <property name="key" value="base_url"/>
+      <property name="value" value="http://statepolls.know.edu/"/>
+    </property>
+    <property name="param.2">
+      <property name="key" value="state"/>
+      <property name="value" value="GA"/>
+    </property>
+    <property name="param.2">
+      <property name="key" value="year_range"/>
+      <property name="value" value="1700-1900"/>
+    </property>
+  </property>
+
+</property>
+</property>
+</lockss-config>

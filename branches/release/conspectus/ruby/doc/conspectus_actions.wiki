@@ -1,0 +1,52 @@
+Done means done without ownership/user/role checks  or checking content_proivider plugin prefixes ... 
+
+|| '''Component''' || '''Action''' || '''Rake''' || '''GUI''' || '''User/Role'''  || '''More Info''' || '''Status''' ||
+|| Archives        || List-All ||  -   || yes || any        ||  - || Done ||
+|| Archives        || List-All    || yes   ||  -  || cmd line      ||  ||  #533 || ||
+|| Archive         || Create   || yes  ||  -  || cmd line   || unique name || #533 ||
+|| Archive         || Show-Coll(:id) ||  -   || yes || any        ||  use id to identify   || Done ||
+|| Archive         || Show-Coll(:title) ||  -   || yes || any        || use title to identify || #569 ||
+|| Archive         || Show-Coll(:title).xml ||  -   || yes || any        ||  list aus in lockss title db format  || #598 ||
+|| Archive         || List-Plugins ||  -   || yes || any        || - || #585 ||
+|| Archive         || List-Aus ||  -   || yes || any        ||  - || Done ||
+|| Archive         || Configure ||  -   || yes || admin        ||  metadata and plugin xml files  || - ||
+|| Archive         || Edit:Title.Description   ||  -   || yes || admin        ||  - || Done ||
+|| Archive         || Delete   || yes  ||  -  || cmd line   || if empty  || #533 ||
+
+|| '''Component''' || '''Action''' || '''Rake''' || '''GUI''' || '''User/Role'''  || '''More info''' || '''Status''' ||
+|| Content Providers   || List-All ||  -   || yes || any         ||  - || Done ||
+|| Content Providers || List-All    || yes   ||  -  || cmd line      ||  - || #532 ||
+|| Content Providers || List-All.xml ||  -   || yes || any        ||  list as title sets with plugins in lockss title db format  || #598 ||
+|| Content Provider || Show-Coll(:id)    ||  -   || yes || any        ||  - || Done ||
+|| Content Provider || Show-Coll(:acronym)    ||  -   || yes || any        ||  use acronym to identify || #581 ||
+|| Content Provider || List-Aus     ||  -   || yes || any        ||  - || Done ||
+|| Content Provider || List-Plugins ||  -   || yes || any        ||  - || Done ||
+|| Content Provider || Edit         ||  -   || yes || admin      ||  prefix (only if no plugins)  || #534 ||
+|| Content Provider || Delete       || yes  ||  -  || cmd line      || if no plugins || Done ||
+|| Content Provider || Create       || yes  ||  -  || cmd line      ||  -  || Done ||
+
+|| '''Component''' || '''Action''' || '''Rake''' || '''GUI''' || '''User/Role'''  || '''More info''' || '''Status''' ||
+|| Collections     || List-All ||  -    || yes || any        ||  - || Done ||
+|| Collection      || Create   ||  -    || yes || user       ||  if plugin onwer  || Done ||
+|| Collection      || Create   || yes   ||  -  ||  -         ||  by reading title database  || Done ||
+|| Collection      || Show(:id)     ||  -    || yes || any         || - || Done   ||
+|| Collection      || Delete   ||  -    || yes || user        || if plugin owner , if no aus || Done ||
+|| Collection      || Add Au   ||  -    || yes || user        || if plugin owner  || #545 ||
+|| Collection      || Del Au   ||  -    || yes || user        || if plugin owner  || Done ||
+|| Collection      || Edit:Title.Archive.Description     ||  -    || yes || user        || if plugin owner  || Done ||
+|| Collection      || Edit:base_url.plugin     ||  -    || yes || user        || if plugin owner, if no aus  || Done ||
+
+
+|| '''Component''' || '''Action''' || '''Rake''' || '''GUI''' || '''User/Role'''  || '''More info''' || '''Status''' ||
+|| Plugins     || List-All ||  -   || yes || any        ||  - || Done ||
+|| Plugin      || Create   || yes   ||  -  ||  -         ||  by reading plugin xml A || Done ||
+|| Plugin      || Create   ||  -    || yes || user       ||  if plugin name starts with prefix of user's content_provider  || #548 ||
+|| Plugin      || Delete   ||  -    || yes || user       ||  if plugin owner and plugin has no collections  || Done || 
+|| Plugin      || Show(:id)     ||  -    || yes || any         ||   || Done ||
+|| Plugin      || Show(:name)     ||  -    || yes || any         ||   || #574 ||
+|| Plugin      || Edit.Name   ||  -    || yes || user       ||  if plugin owner, if plugin has no aus || need to check naming scheme  ||
+|| Plugin      || Edit.Add Param   ||  -    || yes || user       ||  if plugin owner, if plugin has no aus || #541||
+|| Plugin      || Edit.Del Param   ||  -    || yes || user       ||  if plugin owner, if plugin has no aus || #541 || 
+|| Plugin      || Edit.Change Param   ||  -    || yes || user       ||  if plugin owner, if plugin has no aus || #546  || 
+
+

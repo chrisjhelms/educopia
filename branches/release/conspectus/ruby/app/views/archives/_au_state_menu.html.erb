@@ -1,0 +1,7 @@
+<span class='submenu'> 
+<% for n in AuState.names do %>
+   <%= link_to n ,  :controller => "archives", :id => @archive, :action => :archival_units, :states => n %> 
+<% end %>
+&middot; 
+ <%= link_to "List All" , :controller => "archives", :id => @archive, :action => :archival_units   %> 
+</span>

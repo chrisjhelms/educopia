@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Conspectus MetaDataEditor</title>
+</head>
+<body>
+
+<style type="text/css"> @import "creator.css"; </style>
+<script type="text/javascript" src="creator.js"> </script>
+<script type="text/javascript" src="mimetypes.js"> </script>
+<script type="text/javascript" src="subjects.js"> </script>
+
+
+   <div class="page_title"> 
+      <h1> Conspectus </h1>
+   </div>   
+   
+<p>
+
+<div class="menu">
+   <span> <a href="{CONSPECTUS_URL}/archives">archives</a> </span> 
+   | 
+   <span> <a href="{CONSPECTUS_URL}/content_providers">content providers</a> </span> 
+   | 
+   <span> <a href="{CONSPECTUS_URL}/collections">collections</a> </span> 
+   | 
+   <span> <a href="{CONSPECTUS_URL}/plugins">plugins</a> </span> 
+</div>  
+</p>
+
+
+
+
+
+
+<div class="metadata_editor"> 
+

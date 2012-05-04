@@ -1,0 +1,10 @@
+<table class='layout_table'> 
+<% for inst in @plugin_params %>
+	 <tr> 
+	 <td>   <b> <%= inst.name %> <b> </td>  
+	 <td> | <b> <%= inst.kind %> <b> </td>  
+     <td> | <%= inst.descr%>  </td>
+  </tr> 
+<% end %>
+</table>
+

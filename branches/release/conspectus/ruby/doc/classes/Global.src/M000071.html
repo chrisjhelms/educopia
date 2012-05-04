@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>update (Global)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/global.rb, line 28</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">site</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;--- #{self.name}.update&quot;</span>;
+    <span class="ruby-ivar">@@cache</span> = {};
+    <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">site</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">vals</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-node">&quot;config/data/#{site}/globals.yml&quot;</span>)
+      <span class="ruby-identifier">vals</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">h</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">g</span> = <span class="ruby-constant">Global</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">h</span>[<span class="ruby-value str">&quot;name&quot;</span>], <span class="ruby-identifier">h</span>[<span class="ruby-value str">&quot;value&quot;</span>]);
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&gt; set #{h[&quot;name&quot;]} #{h['value']}&quot;</span>;  }
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;app_title&quot;</span>, <span class="ruby-value str">&quot;Conspectus&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;app_title&quot;</span>);
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;data_source&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;data_source&quot;</span>);
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;show_params&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;show_params&quot;</span>);
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;skin_css&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;skin_css&quot;</span>);
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;test_plugin_url&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;test_plugin_url&quot;</span>);
+    <span class="ruby-identifier">set</span>(<span class="ruby-value str">&quot;production_plugin_url&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">get</span>(<span class="ruby-value str">&quot;production_plugin_url&quot;</span>);
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

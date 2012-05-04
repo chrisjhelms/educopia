@@ -1,0 +1,24 @@
+highwire:
+   name:  'HighWire'
+   plugin_prefix:  'org.lockss.plugin.highwire'
+   acronym:  'hw'
+nature:
+   name:  'Nature'
+   plugin_prefix:  'org.lockss.plugin.nature'
+   acronym:  'ntr'
+museorg:
+   name:  'Project Muse'
+   plugin_prefix:  'org.lockss.plugin.projmuse'
+   acronym:  'muse'
+chem:
+   name:  'Royal Society of Chemistry'
+   plugin_prefix:  'org.lockss.plugin.royalsocietyofchemistry'
+   acronym:  'rsc'
+wiley:
+   name:  'Wiley'
+   plugin_prefix:  'org.lockss.plugin.wiley'
+   acronym:  'wly'
+bpress:
+   name:  'Berkely Press'
+   plugin_prefix:  'org.lockss.plugin.bepress'
+   acronym:  'bp'

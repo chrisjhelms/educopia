@@ -1,0 +1,34 @@
+<lockss-config>
+<property name="lockss.org">
+<property name="title">
+
+ <property >
+    <property name="journalTitle" value="StateElectionPolls"/>
+    <property name="plugin" value="edu.some.pollData"/>
+    <property name="param.1">
+      <property name="key" value="base_url"/>
+      <property name="value" value="http://statepolls.know.edu/"/>
+    </property>
+    <property name="param.2">
+      <property name="key" value="state"/>
+      <property name="value" value="NY"/>
+    </property>
+    <property name="param.2">
+      <property name="key" value="year_range"/>
+      <property name="value" value="2001-2210"/>
+    </property>
+  </property>
+
+ <property >
+    <property name="journalTitle" value="WarOfTheWorlds"/>
+    <property name="journalDescription" value="Original Audio Recording of Orson Wells War Of The World and related cultural documents pertaining to the broadcast, its preparation, reception, media coverage ..."/>
+    <property name="plugin" value="edu.some.depositAll"/>
+    <property name="param.1">
+      <property name="key" value="base_url"/>
+      <property name="value" value="http://staging.know.edu/war_of_the_worlds"/>
+    </property>
+  </property>
+
+</property>
+</property>
+</lockss-config>

@@ -1,0 +1,9 @@
+<% form_for (@global) do |f| %>
+  <%= f.error_messages %>
+	<%= f.label :name %><br />
+	<%= f.label @global.name %><br />
+	<br /> 
+	<%= f.label :value %><br />
+	<%= f.text_field :value %><br />
+  <%= f.submit "Update" %>
+<% end %>

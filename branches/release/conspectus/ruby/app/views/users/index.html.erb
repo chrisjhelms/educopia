@@ -1,0 +1,42 @@
+<script type="text/javascript">
+     $(document).ready(function(){
+				if (!$.browser.msie) {
+                	$(".tablesorter").tablesorter();
+				}
+            })
+</script>
+
+<%= instance_table_start(%w(Login Name  Email Rights ContentProvider Updated Created)) %>
+
+<% for user in @users %>
+<tr>
+    <td>
+        <%= link_to(user.login, user) %>
+    </td>
+    <td>
+        <%= user.first_name %>  <%= user.last_name %>
+    </td>
+    <td>
+        <%= user.email %>
+    </td>
+    <td>
+        <%= user.rights %>
+    </td>
+    <td> <%= user.content_provider.name %> </td>
+    <td>
+        <%= user.updated_at.strftime("%m/%d/%Y") %>
+    </td>
+    <td>
+        <%= user.created_at.strftime("%m/%d/%Y")  %>
+    </td>
+    <td>
+        <%= link_to('Delete',  { :controller => :users,
+        :action => :destroy,
+        :id => user},
+        :method => :delete,
+        :confirm => "Are you sure ?"); %>
+    </td>
+</tr>
+<% end %>
+
+<%= instance_table_stop() %>

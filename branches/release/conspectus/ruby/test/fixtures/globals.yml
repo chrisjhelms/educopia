@@ -1,0 +1,20 @@
+t:
+  id: 1
+  name: app_title
+  value: Conspectus
+ds:
+  id: 2
+  name: data_source
+  value: Test Data from Fixtures
+sp:
+  id: 3
+  name: show_params
+  value: false
+turl:
+  id: 5
+  name: test_plugin_url
+  value: http://code.google.com/p/metaarchive/source/browse/trunk/plugins/<PLUGIN_FILE>
+purl:
+  id: 6
+  name: production_plugin_url
+  value: http://code.google.com/p/metaarchive/source/browse/branches/release/plugins/<PLUGIN_FILE>

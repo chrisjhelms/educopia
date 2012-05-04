@@ -1,0 +1,24 @@
+<tr>
+    <td colspan="1">
+    	 &nbsp; <br/>
+        <% if @managing_aus then %>
+        Manage Archival Units <% else %>
+        Archival units <% end %>
+        <%= au_states_list_names(@state_name_list, "in the states") %>
+    </td>
+    <td colspan="1">
+       <%= error_messages_for 'collection', 
+                                  :header_message  => 'Archival Unit Management Errors',
+                                  :message  => ""  %>
+   
+    </td>
+</tr> 
+
+<tr>
+    <td>
+        &nbsp; 
+    </td>
+    <td>
+        <%= render :partial => "/archival_units/instance_list" %>
+    </td>
+</tr>
