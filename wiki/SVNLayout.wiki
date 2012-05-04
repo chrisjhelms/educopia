@@ -2,6 +2,12 @@
 
   * trunk/
     * plugins/    -- plugin xml files of plugins not yet active in the production network 
+    * plugins_dev  
+        * plugins 
+           * ext     -- example plugins documented in [http://wiki.metaarchive.org metawiki]'s plugins sections 
+        * run_one_daemon -- LOCKSS run one daemin setup adapted for metaarchive content
+        * scripts  -- scripts that may be useful to plugin developers 
+        * testSites  -- web site mockups used in [http://wiki.metaarchive.org metawiki]'s plugins sections 
  
   * branches/ 
       * release/ 
@@ -14,6 +20,6 @@
            * run_one_daemon   -- LOCKSS run_one_daemon setup which integrates with MetaArchive's conspectus tool  
            * scripts/  -- miscellaneous scripts that may be used for plugin developers when analyzing a web site 
            * testSites/ -- toy web sites - the project wiki refers to these sites in its plugin documentation  
-      * webserver/      -- scripts for web server administrators 
+         * webserver/      -- scripts for web server administrators 
        
  
