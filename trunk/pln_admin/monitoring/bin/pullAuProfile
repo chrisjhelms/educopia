@@ -46,7 +46,6 @@ sub usage
 {
 print   "usage: pullAuProfile OPTIONS\n"; 
 print "OPTIONS:\n"; 
-print "\t-dir dir: output directory (default $DATADIR) \n";
 print "\t-id id: (partial) lockss archival unit keystring (REQUIRED)\n"; 
 print "\t-name name: (partial) au name (REQUIRED)\n"; 
 print "\t-u user: name of LOCKSS UI user (REQUIRED)\n"; 
@@ -141,7 +140,7 @@ sub trace
    my $str = join(' ', @_); 
    $str =~ s/$PWD/XXX/g; 
    $str =~ s/$USER/XXX/g; 
-   if ($DOTRACE != 0) { 
+   if ($DOTRACE) { 
       print $str . "\n"; 
    } 
 }
