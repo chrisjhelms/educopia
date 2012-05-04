@@ -30,8 +30,8 @@ my $out = new CGI;
 
 
 # VARIABLES #
-my $webIndex = $out->param('webIndex') // 'http://84.88.13.203:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina que el repositori  
-my $webOAIif = $out->param('webOAIif') // $webIndex . '/oai/request';
+my $webIndex = $out->param('webIndex') || 'http://allanita.cadiretes.cesca.cat:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina que el repositori  
+my $webOAIif = $out->param('webOAIif') || $webIndex . '/oai/request';
 my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 $out->delete('webIndex','webOAIif');
 #############
