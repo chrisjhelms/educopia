@@ -54,7 +54,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 <xsl:output method="html"/>
 
 <xsl:param name="dspacehome">.</xsl:param>
-<xsl:param name="dspaceoai">.</xsl:param>
 
 <xsl:template name="style">
 td.value {
@@ -501,7 +500,7 @@ The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people
      <tr><td class="key">resumptionToken:</td>
      <td class="value"><xsl:value-of select="."/>
 <xsl:text> </xsl:text>
-<a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;webIndex={$dspacehome}&amp;webOAIif={$dspaceoai}&amp;resumptionToken={.}">Resume</a></td></tr>
+<a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a></td></tr>
    </table>
 </xsl:template>
 

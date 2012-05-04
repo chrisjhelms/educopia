@@ -42,12 +42,10 @@ my $out = new CGI;
 
 
 ### VARIABLES ###
-$out->delete('webIndex') unless $out->param('webIndex'); #Això elimina els paràmetres de la query si estan buits. És útil perquè el plugin construeix les 
-$out->delete('webOAIif') unless $out->param('webOAIif'); #                             URL per defecte amb els paràmetres tinguin un valor explícit o no.
-my $webIndex = $out->param('webIndex') || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
-my $webOAIif = $out->param('webOAIif') || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
+my $webIndex = 'http://allanita.cadiretes.cesca.cat:8080' || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
+my $webOAIif = 'http://allanita.cadiretes.cesca.cat:8080/oai/request' || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
 my $xslSheet = './OaiMph2Html.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
-$out->delete('webIndex','webOAIif','verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
+$out->delete('verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
 #################
 
 # L'script actua com a generador de la ManifestPage (comportament per defecte, és a dir, quan no sol·licitem exlpícitament cap set) 
@@ -107,7 +105,7 @@ unless( $out->param ) {
 		if ( $sublink eq $collections[0] ) { # Si primera iteració, hauria d'apareixer el propi link de la comunitat com el primer 'vist'
 		    ( $link->url_abs eq $sublink->url_abs ) or error($out, "El primer enllaç de la col·leció s'esperava idèntic al de la comunitat. Revisar el format esperat.");
 	       	     print $out->br,
-                           $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) , $out->a({ -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif . '&comm2csv=' . $commID }, ' (CSV) ') );
+		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) , $out->a({ -href => $out->url . '?comm2csv=' . $commID  }, ' (CSV) ') );
 	       } elsif ( $sublink->url eq $firstRecSubmi ){
 			last;
 	       } else {
@@ -118,7 +116,7 @@ unless( $out->param ) {
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif '&set=' . $set  }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url . '?&set=' . $set }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
@@ -165,7 +163,7 @@ unless( $out->param ) {
 			last;
    		} else {
         		$sublink->url =~ m{/handle/(\d+)/(\d+)/?$}i;
-        		printf ("%s, %s, %s, %s\n", $1, $2, $webIndex, $webOAIif );
+        		printf ("%s, %s, %s, %s\n", $1, $2, $webIndex );
    		}	
 	}
 
@@ -178,7 +176,7 @@ unless( $out->param ) {
 	  my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
 	  my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
-				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'", dspaceoai=> "'$webOAIif'");
+				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'"); 
                                # Norm. del link del Token només va canviant l'última centena
           print $out->header(),
           $stylesheet->output_string($results);
