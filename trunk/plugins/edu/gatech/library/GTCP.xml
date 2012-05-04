@@ -32,7 +32,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>44</string>
+    <string>45</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -44,7 +44,7 @@
   </entry>
   <entry>
     <string>au_crawl_depth</string>
-    <int>3</int>
+    <int>4</int>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
