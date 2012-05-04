@@ -2,7 +2,7 @@
   <entry>
     <string>au_manifest</string>
     <list>
-      <string>&quot;%s?webIndex=%s&amp;webOAIif=%s&quot;, base_url, base_url2, oai_interface</string>
+      <string>&quot;%s&quot;, base_url</string>
       <string>&quot;%s/LOCKSS.txt&quot;, base_url2</string>
     </list>
   </entry>
@@ -12,7 +12,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
-        <description>Public URL to the dynamic Manifest Page script</description>
+        <description>Public URL to the dynamic Manifest Page script which should appoint exlcusively to the expected Dspace instance (URLs hardcoded)</description>
         <type>3</type>
         <size>40</size>
         <definitional>false</definitional>
@@ -38,15 +38,6 @@ DSpace repository instance&apos;s links</description>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>oai_interface</key>
-        <displayName>OAI Interface Public URL</displayName>
-        <description>Repository OAI Interface Public URL</description>
-        <type>3</type>
-        <size>40</size>
-        <definitional>false</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
         <key>coll_hdl_id</key>
         <displayName>Dspace&apos;s Collection Handle Id</displayName>
         <description>Handle ID that identifies a particular 
@@ -69,7 +60,7 @@ our DSpace repository</description>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s?webIndex=%s&amp;webOAIif=%s&quot;, base_url, base_url2, oai_interface</string>
+    <string>&quot;%s&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
@@ -86,17 +77,17 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>Generic DSpace Repository Plugin</string>
+    <string>Concrete DSpace Repository Plugin</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>cat.tdx.DspaceRepoPlugin</string>
+    <string>cat.tdx.ConcreteDspacePlugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^(%s|%s)&quot;, base_url, base_url2</string>
-      <string>1,&quot;%s\?webIndex=%s&amp;webOAIif=%s$&quot;, base_url, base_url2, oai_interface</string>
+      <string>1,&quot;%s$&quot;, base_url</string>
       <string>1,&quot;^%s/LOCKSS.txt$&quot;, base_url2</string>
       <string>1,&quot;set=hdl_%d_%d$&quot;, dspace_instance, coll_hdl_id</string>
       <string>1,&quot;^%s/handle/%d/[0-9]+\?mode=full&quot;, base_url2, dspace_instance</string>
