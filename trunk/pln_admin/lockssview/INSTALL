@@ -1,0 +1,9 @@
+link  locksslib -> /../lockss-daemon/test/frameworks/lib/
+
+if using non standard python: 
+   use  env.rc to modify path so that the correct pythonversion is called 
+   call scripts as  lks script params 
+
+
+
+
