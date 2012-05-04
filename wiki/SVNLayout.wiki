@@ -4,9 +4,8 @@
     * plugins/    -- plugin xml files of plugins not yet active in the production network 
     * plugins_dev  -- all things related to plugin development 
         * plugins 
-           * ext     -- example plugins documented in [http://wiki.metaarchive.org 
-metawiki]'s plugins sections 
-           * <OTHER>  -- plugins being tested by plugin developers 
+           * ext     -- example plugins documented in [http://wiki.metaarchive.org metawiki]'s plugins sections 
+           * OTHER  -- plugin xml being tested by plugin developers 
         * run_one_daemon -- LOCKSS run one daemon development instance used by MetaArchive staff (only in existence while staff works on updates)
         * scripts  -- scripts that may be useful to plugin developers 
         * testSites  -- web site mockups used in [http://wiki.metaarchive.org metawiki]'s plugins sections 
