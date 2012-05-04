@@ -1,5 +1,9 @@
 <map>
   <entry>
+    <string>plugin_version</string>
+    <string>4</string>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -32,24 +36,24 @@
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>4</string>
-  </entry>
-  <entry>
     <string>au_name</string>
     <string>&quot;The Virgnia Tech Bugle %ds&quot;, year</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>5</int>
   </entry>
   <entry>
     <string>au_start_url</string>
     <string>&quot;%slockss/%dmanifest.html&quot;, base_url, year</string>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>2592000000</long>
-  </entry>
-  <entry>
     <string>au_def_pause_time</string>
     <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>2592000000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
