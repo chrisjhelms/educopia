@@ -107,7 +107,7 @@ unless( $out->param ) {
 		if ( $sublink eq $collections[0] ) { # Si primera iteració, hauria d'apareixer el propi link de la comunitat com el primer 'vist'
 		    ( $link->url_abs eq $sublink->url_abs ) or error($out, "El primer enllaç de la col·leció s'esperava idèntic al de la comunitat. Revisar el format esperat.");
 	       	     print $out->br,
-		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) , $out->a({ -href => $out->url . '?comm2csv=' . $commID }, ' (CSV) ') );
+		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) , $out->a({ -href => $out->url . '?comm2csv=' . $commID . '&webIndex=' . $webIndex . '&webOAIif=' . $webOAIif }, ' (CSV) ') );
 	       } elsif ( $sublink->url eq $firstRecSubmi ){
 			last;
 	       } else {
@@ -118,7 +118,7 @@ unless( $out->param ) {
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => $out->url . '?set=' . $set }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url . '?set=' . $set . '&webIndex=' . $webIndex . '&webOAIif=' . $webOAIif }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
@@ -178,7 +178,7 @@ unless( $out->param ) {
 	  my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
 	  my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
-				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'"); 
+				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'", dspaceoai=> "'$webOAIif'"); 
                                # Norm. del link del Token només va canviant l'última centena
           print $out->header(),
           $stylesheet->output_string($results);
