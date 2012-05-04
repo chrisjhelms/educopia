@@ -12,7 +12,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
-        <description>This is the URL of the host hsoting the ManifestPage. Usually of the form http://myauxhost.cat/myscripts/</description>
+        <description>This is the URL of the machine hosting the ManifestPage ( i.g; http://myauxhost.cat/myscripts )</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
@@ -21,20 +21,10 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url2</key>
         <displayName>Second Base URL</displayName>
-        <description>This is used for the actual URL of the repository (i.g; http://myrepohost.cat/dspace/))</description>
+        <description>This is used for the actual URL of the repository ( i.g; http://myrepohost.cat/dspace )</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>DSP_INST</key>
-        <displayName>Dspace Instance ID</displayName>
-        <description>Serial ID that identifies that particular 
-DSpace repository instance&apos;s links</description>
-        <type>2</type>
-        <size>10</size>
-        <definitional>false</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
@@ -48,6 +38,16 @@ our DSpace repository</description>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>DSP_INST</key>
+        <displayName>Dspace Instance ID</displayName>
+        <description>Serial ID that identifies that particular
+DSpace repository instance&apos;s links</description>
+        <type>2</type>
+        <size>10</size>
+        <definitional>true</definitional>
+        <defaultOnly>true</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
     </list>
   </entry>
   <entry>
@@ -56,7 +56,7 @@ our DSpace repository</description>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;CBUC_Colleccio_%d&quot;, HDL_ID</string>
+    <string>&quot;CBUC_Colleccio_hdl%d&quot;, HDL_ID</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -72,7 +72,7 @@ our DSpace repository</description>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>CbucTesis</string>
+    <string>Arxiu TDX del CBUC</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
@@ -81,7 +81,7 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>cat.cbuc.TesiPlugin</string>
+    <string>cat.cbuc.CbucPlugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
