@@ -17,21 +17,6 @@
   </string>
   </entry>
   <entry>
-    <string>au_crawlwindow_ser</string>
-    <org.lockss.daemon.CrawlWindows-Interval>
-      <start>
-        <time>1279170045481</time>
-        <timezone>America/New_York</timezone>
-      </start>
-      <end>
-        <time>1279188045481</time>
-        <timezone>America/New_York</timezone>
-      </end>
-      <fieldMask>3</fieldMask>
-      <timeZoneId>US/Eastern</timeZoneId>
-    </org.lockss.daemon.CrawlWindows-Interval>
-  </entry>
-  <entry>
     <string>plugin_cache_result_list</string>
     <list>
       <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
@@ -62,7 +47,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>7</string>
+    <string>8</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
