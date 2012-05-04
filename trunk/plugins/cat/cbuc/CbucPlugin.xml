@@ -2,8 +2,8 @@
   <entry>
     <string>au_manifest</string>
     <list>
-      <string> &quot;%s/manifest.html&quot;, base_url</string>
-      <string> &quot;%s/permission.txt&quot;, base_ur2</string>
+      <string> &quot;%s/LOCKSS&quot;, base_url</string>
+      <string> &quot;%s/LOCKSSpermission.txt&quot;, base_url2</string>
     </list>
   </entry>
   <entry>
@@ -12,7 +12,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
-        <description>This is the URL of the machine hosting the ManifestPage ( i.g; http://myauxhost.cat/myscripts )</description>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
@@ -21,7 +21,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url2</key>
         <displayName>Second Base URL</displayName>
-        <description>This is used for the actual URL of the repository ( i.g; http://myrepohost.cat/dspace )</description>
+        <description>Use if AU spans two hosts</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
@@ -56,11 +56,11 @@ DSpace repository instance&apos;s links</description>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;CBUC_Colleccio_Dept_hdl%d&quot;, HDL_ID</string>
+    <string>&quot;CBUC_Coll_Dept_hdl_%d&quot;, HDL_ID</string>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/manifest.html&quot;, base_url</string>
+    <string>&quot;%s/LOCKSS&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -87,11 +87,11 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^(%s|%s)&quot;, base_url, base_url2</string>
-      <string>1,&quot;^%s/manifest.html&quot;, base_url</string>
-      <string>1,&quot;^%s/manifest/permission.txt&quot;, base_url2</string>
-      <string>1,&quot;set=hdl_%d_%d&quot;, DSP_INST, HDL_ID</string>
-      <string>1,&quot;^%s/handle/%d/[0-9]+\?mode=full&quot;, base_url, DSP_INST</string>
-      <string>1,&quot;^%s/bitstream/handle/%d/&quot;, base_url, DSP_INST</string>
+      <string>1,&quot;^%s/LOCKSS$&quot;, base_url</string>
+      <string>1,&quot;^%s/LOCKSSpermission.txt$&quot;, base_url2</string>
+      <string>1,&quot;set=hdl_%d_%d$&quot;, DSP_INST, HDL_ID</string>
+      <string>1,&quot;^%s/handle/%d/[0-9]+\?mode=full&quot;, base_url2, DSP_INST</string>
+      <string>1,&quot;^%s/bitstream/handle/%d/&quot;, base_url2, DSP_INST</string>
       <string>1,&quot;&amp;resumptionToken=[0-9]+$&quot;</string>
     </list>
   </entry>
