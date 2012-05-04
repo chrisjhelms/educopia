@@ -32,7 +32,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>45</string>
+    <string>46</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -74,7 +74,6 @@
       <string>1,&quot;^%s/MACmanifest/GTCP/itemListPage.php&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/1853/*/*/*&quot;, base_url</string>
       <string>1,&quot;^%s/handle/1853/[0-9]+\?mode=full&amp;submit_simple=Show\+full\+item\+record&quot;, base_url</string>
-      <string>2,&quot;^%s/1853/[0-9]+$&quot;, base_url</string>
     </list>
   </entry>
   <entry>
