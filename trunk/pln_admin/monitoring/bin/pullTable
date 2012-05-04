@@ -65,7 +65,7 @@ sub parseargs
      if ($DOXSLT) { 
         if ($FORMAT ne "xml") {
             $DOXSLT = 0; 
-            print "Turning XSLT processing off; output not in xml format\n"; 
+            print STDERR  "Turning XSLT processing off; output not in xml format\n"; 
         } 
      } 
      if (! $UIPAGE) { 
@@ -107,25 +107,25 @@ sub parseargs
  
 sub usage 
 {
-print   "usage: pullTable OPTIONS\n"; 
-print "OPTIONS:\n"; 
-print "\t-u user: name of LOCKSS UI user (REQUIRED)\n"; 
-print "\t-p pwd: LOCKS UI password (REQUIRED)\n"; 
-print "\t-dir dirname: name of output directory\n"; 
-print "\t-format format: the format setting for the LOCKSS ui request\n"; 
-print "\t-help topic: print help about topic,\n" . 
+print STDERR   "usage: pullTable OPTIONS\n"; 
+print STDERR "OPTIONS:\n"; 
+print STDERR "\t-u user: name of LOCKSS UI user (REQUIRED)\n"; 
+print STDERR "\t-p pwd: LOCKS UI password (REQUIRED)\n"; 
+print STDERR "\t-dir dirname: name of output directory\n"; 
+print STDERR "\t-format format: the format setting for the LOCKSS ui request\n"; 
+print STDERR "\t-help topic: print STDERR help about topic,\n" . 
       "\t             where topic is table, format, defaults\n"; 
-print "\t-help: print this help msgs\n"; 
-print "\t-out outFilePrefix: name of output file\n"; 
-print "\t-page pageName: the page to request from the LOCKSS ui\n"; 
-print "\t-table tableName: the UI table  to request from the LOCKSS ui\n"; 
-print "\t-timeout sec: the number of seconds to wait before timing out\n";
-print "\t-tries t: the number of tries if connection fails\n";
-print "\t-server server: pull table from given server only (required)\n";
-print "\t-t: whether to trace the script's actions\n"; 
-print "\t-xslt: apply transformations to xml files\n"; 
-print "\n"; 
-print "Request the defined <page> in the given format from the LOCKSS UI\n" . 
+print STDERR "\t-help: print this help msgs\n"; 
+print STDERR "\t-out outFilePrefix: name of output file\n"; 
+print STDERR "\t-page pageName: the page to request from the LOCKSS ui\n"; 
+print STDERR "\t-table tableName: the UI table  to request from the LOCKSS ui\n"; 
+print STDERR "\t-timeout sec: the number of seconds to wait before timing out\n";
+print STDERR "\t-tries t: the number of tries if connection fails\n";
+print STDERR "\t-server server: pull table from given server only (required)\n";
+print STDERR "\t-t: whether to trace the script's actions\n"; 
+print STDERR "\t-xslt: apply transformations to xml files\n"; 
+print STDERR "\n"; 
+print STDERR "Request the defined <page> in the given format from the LOCKSS UI\n" . 
       "of the given LOCKSS server and save the results in \n" . 
       "\t\t<dirname>/<outFilePrefix>.<format>.<server>\n"; 
 }
@@ -137,32 +137,32 @@ sub usage_defaults
 
 sub usage_table 
 {
-   print "available tables: \n"; 
+   print STDERR "available tables: \n"; 
    while ( ($table, $uitable) = each(%tables) ) {
         if ($uitable) { 
-           print "\t$table (meaning /DaemonStatus?table=$uitable)\n"; 
+           print STDERR "\t$table (meaning /DaemonStatus?table=$uitable)\n"; 
         } else { 
-           print "\tERROR\n"; 
+           print STDERR "\tERROR\n"; 
         }
    } 
 }
 
 sub usage_format 
 {
-   print "available formats: text, csv, xml, html\n"; 
+   print STDERR "available formats: text, csv, xml, html\n"; 
 }
 
 
 sub showargs
 {
-   print "LOG=$LOG\n";
-   print "DATADIR=$DATADIR \n";  
-   print "OUTNAME=$OUTNAME \n";  
-   print "UIPAGE=$UIPAGE\n"; 
-   print "FORMAT=$FORMAT\n";  
-   print "TIMEOUT=$TIMEOUT\n";  
-   print "TRY=$TRY\n";  
-   print "DOTRACE=$DOTRACE \n";  
+   print STDERR "LOG=$LOG\n";
+   print STDERR "DATADIR=$DATADIR \n";  
+   print STDERR "OUTNAME=$OUTNAME \n";  
+   print STDERR "UIPAGE=$UIPAGE\n"; 
+   print STDERR "FORMAT=$FORMAT\n";  
+   print STDERR "TIMEOUT=$TIMEOUT\n";  
+   print STDERR "TRY=$TRY\n";  
+   print STDERR "DOTRACE=$DOTRACE \n";  
 }
  
 sub doit
@@ -170,11 +170,25 @@ sub doit
    $rc = 0 ;
    while ( ($node, $url) = each(%servers) ) {
        my $page = "http://" . $url . ":" . $PORT . "/" . $UIPAGE ; 
-       $file = $DATADIR . "/" . $OUTNAME . "_" . $node;  
-       print "QUERY $node => $file ". ($DOXSLT ? "(xslt)" : "") . "-> "; 
+       if ($OUTNAME == "-")  {
+          $file = "-"; 
+       } else { 
+          $file = $DATADIR . "/" . $OUTNAME . "_" . $node;  
+       } 
+       print STDERR  "QUERY $node => $file ". ($DOXSLT ? "(xslt)" : "") . "-> "; 
        $rc =  (sget($page, $file, $FORMAT) or $rc); 
    }
    return $rc; 
+}
+
+sub storefile
+{
+   my($filem,$ext) = @_;  
+   if ($file == "-") {
+      return "-"; 
+   } else {
+      return $file . $ext ;
+   }
 }
 
 sub sget
@@ -185,9 +199,9 @@ sub sget
    my($cmd) = ""; 
    if ($xsl ne "") {
       $cmd = "wget -S -O -"; 
-      $postprocess = " | xsltproc $xsl - > $file-xsl.$FORMAT"; 
+      $postprocess = " | xsltproc $xsl - > '" . storefile($file, "-xsl.$FORMAT") . "'"; 
    } else {
-      $cmd = "wget -S -O '$file.$FORMAT'"; 
+      $cmd = "wget -S -O '" . storefile($file, ".$FORMAT") . "'"; 
    }
    $cmd .= " --http-user " . $USER . 
                " --http-passwd " . $PWD . 
@@ -232,7 +246,7 @@ sub trace
    $str =~ s/$PWD/XXX/g; 
    $str =~ s/$USER/XXX/g; 
    if ($DOTRACE) { 
-      print $str . "\n"; 
+      print STDERR  $str . "\n"; 
    } 
 }
 
