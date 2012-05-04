@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>4</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -54,10 +54,8 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/manifest.html$&quot;, base_url</string>
-      <string>2,&quot;/\?[^/]*$&quot;</string>
-      <string>1,&quot;^%s$&quot;, base_url</string>
-      <string>1,&quot;^%s/&quot;, base_url</string>
+      <string>2,&quot;/\?[A-Z=;]*$&quot;</string>
+      <string>1,&quot;^%s&quot;, base_url</string>
     </list>
   </entry>
 </map>
