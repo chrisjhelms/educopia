@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -80,7 +80,8 @@
       <string>1,&quot;^%s/.*%s/?$&quot;, base_url, batch</string>
       <string>1,&quot;^%s/.*%s/.*.xml$&quot;, base_url, batch</string>
       <string>1,&quot;^%s/.*%s/%s/?$&quot;, base_url, batch, folder</string>
-      <string>4,&quot;^%s/.*%s/%s/%s.*&quot;, base_url, batch, folder, reel</string>
+      <string>1,&quot;^%s/.*%s/%s/%s/?$&quot;, base_url, batch, folder, reel</string>
+      <string>1,&quot;^%s/.*%s/%s/%s/.*&quot;, base_url, batch, folder, reel</string>
     </list>
   </entry>
 </map>
