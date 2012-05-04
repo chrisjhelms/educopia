@@ -1,0 +1,98 @@
+[Status]
+
+# --------------------------------------------------------
+# Universal arguments for all scripts 
+
+# config (-c) read another config file 
+# config = foo.rc 
+
+# 1 maximum logging 
+# loglevel = 1 
+
+# --------------------------------------------------------
+# scripts that deal with one lockss cache 
+
+# which server to deal with i terms of retrieving data and 
+# in terms of locating archival units 
+# server =  gt1-ma-cache.library.gatech.edu:8081
+# server =  rbdadmin.lib.auburn.edu:8081
+
+
+# --------------------------------------------------------
+# arguments related to how connections should be treated
+
+#Lockks UI username  / password
+#username = snoop
+#password=XXX
+
+# Sleep time (seconds) between UI requests.
+sleep = 10
+
+# Timeout (seconds) before giving up on UI. Default:
+timeout=60
+
+# how often to retry retrieving data from a LOCKSS cache  
+trials=3
+
+# --------------------------------------------------------
+# selecting archival units to work on 
+
+# all known archival units starting with given prefix 
+# auidprefixlist = edu.bc
+
+# list of individuak archival units 
+# auids = edu|louisville|depositAllByVolume&base_url~http%3A%2F%2Fdigital%2Elibrary%2Elouisville%2Eedu%2Fharvest%2FAugust2009FloodCollection&volume_name~Volume1
+#        edu|vt|library|monthlytheses&base_url~http%3A%2F%2Fscholar%2Elib%2Evt%2Eedu%2Ftheses%2F&month~08&year~2009
+
+# -----------------------------------------------------------
+# cacheaustatus settings 
+# run cacheaustatus --help to get list of available options 
+
+# use getauidlist action for a given server to get to 'know' 
+# the server's archival units  aka to store them in the database 
+# scripts that work on archival units work only match given auids 
+# and auidprefix values against known archival units, aka those 
+# stored in the database
+# cachaustatus retrives status information from a cache and stores 
+# the results in the database; its can also print *.tsv files in 
+# in output files in a given directory 
+
+# output directory  - defaults to the given server's domain name 
+# dir = .
+
+# ACTIONS
+actionlist= 
+ 	getauidlist 
+ 	geturllist
+ 	getcrawlstatus 
+ 	getausummary
+ 	printauidlist 
+ 	printcrawlstatus 
+ 	printausummary
+ 	printurllist
+
+# noquit  applies to getausummary and getcrawlstatus action 
+# default: false
+#    print auids for which data retrieval was unsuccesfull to the file
+#    <dir>/errorIds-<ACTION>.rc 
+# otherwise 
+#    after breaking fort sleep seconds retry for unsucessfull 
+#    archival units until all data was retrieved 
+
+# PRTURLLIST  settings
+# urlsort: sort field (default size) 
+# urlheaders: which column to include
+# run cacheaustatus --help to get list of available options 
+
+# PRTAUSUAMMRY  settings
+ausummarysort = agreement 
+# run cacheaustatus --help to get list of available options 
+
+# PRTCRAWLSTATUS  settings
+# crawlsort : sort criterion
+# crawlheaders : which column to include 
+# ncrawllimit: how many crawl status rows per archival unit (default 1), -1 means all  
+#             printer chooses the most recent crawl status info, based on startTime
+# run cacheaustatus --help to get list of available options 
+
+

@@ -1,0 +1,21 @@
+# date 2011-11-22
+# /home/metaarchive/tools/lockssview/conspectuslib/genrc.py --root=/home/metaarchive/tools/data/conspectus_status --url=http://conspectus.metaarchive.org --state=preserved --provider=all
+#
+# content provider:    id=1 (bc) Boston College
+# collection:          id=127 Boston College electronic theses and dissertations
+# archival unit state: preserved
+# 
+
+[Status]
+ausetname=Boston College electronic theses and dissertations
+
+ausetname=Boston College electronic theses and dissertations
+auseturl=http://conspectus.metaarchive.org/collections/127
+
+# list of individuak archival units 
+auidlist = edu|bc|DigiToolPlugin&base_url~http%3A%2F%2Fdcollections%2Ebc%2Eedu&volume_name~etdbc
+
+trials=10
+
+
+
