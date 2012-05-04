@@ -4,8 +4,8 @@ set SOURCE = "http://www.metaarchive.org/conspectus"
 set AU_DIR = "/tmp/aus.$$"
 mkdir $AU_DIR 
 
-curl -s -L -o  "$AU_DIR/test.xml" "$SOURCE/archival_units/list/test,ingest,preserved.xml"
-curl -s -L -o "$AU_DIR/doc.xml" "http://metaarchive.org/conspectoy/archives/find/DOC/archival_units.xml"
+curl -s -L -o  "$AU_DIR/test.xml" "$SOURCE/archival_units/austates/test,retest.xml"
+curl -s -L -o "$AU_DIR/doc.xml" "http://metaarchive.org/conspectoy/archives/find/DOC/archival_units/austates/test,retest.xml"
 
 cat metaarchive_header.xml
 # generate archival units definition
