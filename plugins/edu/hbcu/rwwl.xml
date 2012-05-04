@@ -1,9 +1,6 @@
 <map>
-
-      <!-- base_url, http://hbdudigitallibrary.auctr.edu/ -->
-      <!-- base_url2, http://hbcudigitallibrary.auctr.edu:2312/ -->
+      <!-- base_url, http://hbcudigitallibrary.auctr.edu -->
       <!-- collection, rwwl (for single-collection au's like this one) -->
-
       <entry>
     <string>plugin_identifier</string>
     <string>edu.auctr.hbcu_rwwl-auc</string>
@@ -48,15 +45,6 @@
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>base_url2</key>
-        <displayName>Second Base URL</displayName>
-        <description>Use if AU spans two hosts</description>
-        <type>3</type>
-        <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
     </list>
   </entry>
   <entry>
@@ -71,8 +59,7 @@
 
   <string>au_crawlrules</string>
     <list>
-      <string>4,&quot;^%s&quot;, base_url</string> <!-- http://hbdudigitallibrary.auctr.edu/ -->
-      <string>4,&quot;^%s&quot;, base_url2</string> <!-- http://hbcudigitallibrary.auctr.edu:2312/ -->
+      <string>4,&quot;^%s:2312&quot;, base_url</string> <!-- http://hbdudigitallibrary.auctr.edu/ -->
       <string>1,&quot;[^/]+cdm&quot;</string>
       <string>1,&quot;[^/]+search&quot;</string>
       <string>1,&quot;[^/]+singleitem&quot;</string>
