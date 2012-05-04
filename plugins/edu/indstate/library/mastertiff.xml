@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s:8080/mastertiff-manifestISU.html&quot;, base_url</string>
+    <string>&quot;%s:8080/mastertiff/mastertiff-manifestISU.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -60,10 +60,10 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;^%s:8080/mastertiff-manifestISU.html$&quot;, base_url</string>
-      <string>1,&quot;^%s:8080/?$&quot;, base_url</string>
+      <string>1,&quot;^%s:8080/mastertiff/mastertiff-manifestISU.html$&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
-      <string>1,&quot;^%s:8080/%s/?$&quot;, base_url, volume_name</string>
+      <string>1,&quot;^%s:8080/mastertiff[/]$&quot;, base_url</string>
+      <string>1,&quot;^%s:8080/mastertiff/%s&quot;, base_url, volume_name</string>
     </list>
   </entry>
 </map>
