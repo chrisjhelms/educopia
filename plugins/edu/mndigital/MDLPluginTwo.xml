@@ -54,7 +54,6 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,"^%s", base_url</string>
-      <string>1,"%s/index.html", base_url</string>
       <string>1,"au[0-9]+"</string>
     </list>
   </entry>
