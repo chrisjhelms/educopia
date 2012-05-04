@@ -51,9 +51,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
     xmlns:str="http://xsltsl.sourceforge.net/string"
 >
 
-<xsl:output method="html"/>
-
+<xsl:output method="html" encoding="UTF-8"/>
 <xsl:param name="dspacehome">.</xsl:param>
+<xsl:param name="dspaceoai">.</xsl:param>
 
 <xsl:template name="style">
 td.value {
@@ -493,16 +493,28 @@ The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people
 
 
 <!-- oai resumptionToken -->
+<!-- There is a bug on Dspace, when the results are exactly 100, resumptionToken is shown but it doesn't bring you anywhere -->
 
-<xsl:template match="oai:resumptionToken">
-   <p>There are more results.</p>
-   <table class="values">
-     <tr><td class="key">resumptionToken:</td>
-     <td class="value"><xsl:value-of select="."/>
-<xsl:text> </xsl:text>
-<a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a></td></tr>
-   </table>
+<xsl:template match="oai:resumptionToken[(normalize-space(text()))]">
+  <p>There are more results.</p>
+  <table class="values">
+     <tr>
+        <td class="key">resumptionToken:</td>
+        <td class="value"><xsl:value-of select="."/>
+                <xsl:text> </xsl:text>
+                <a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a>
+        </td>
+     </tr>
+      <tr>
+        <td class="key">Raw XML:</td>
+        <td class="value">
+                <xsl:text> </xsl:text>
+                <a class="link" href="{$dspaceoai}?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">XML Output for Preserving Purposes</a>
+        </td>
+     </tr>
+  </table>
 </xsl:template>
+
 
 <!-- unknown metadata format -->
 
