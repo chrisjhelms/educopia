@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>12</string>
+    <string>13</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -72,5 +72,20 @@
       <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
       <string>1,&quot;/[0-9a-zA-Z_]+.[a-zA-Z]+&quot;</string>
     </list>
+  </entry>
+  <entry>
+    <string>au_crawlwindow_ser</string>
+    <org.lockss.daemon.CrawlWindows-Interval>
+      <start>
+        <time>1333767685340</time>
+        <timezone>America/New_York</timezone>
+      </start>
+      <end>
+        <time>1333710025340</time>
+        <timezone>America/New_York</timezone>
+      </end>
+      <fieldMask>3</fieldMask>
+      <timeZoneId>America/New_York</timeZoneId>
+    </org.lockss.daemon.CrawlWindows-Interval>
   </entry>
 </map>
