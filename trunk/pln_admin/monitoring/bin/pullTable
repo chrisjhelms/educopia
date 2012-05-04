@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl 
 
 use Getopt::Long; 
 $CONFIG_DIR = "/home/metaarchive/bin/pullTable.conf"; 
@@ -11,6 +11,7 @@ $FORMAT = "text" ;
 $TIMEOUT=180; 
 $TRY=3;
 $DOTRACE = 1; 
+$DOSHOWPWD = 0; 
 
 $DOXSLT= 0; 
 $XSLFILE; 
@@ -51,6 +52,7 @@ sub parseargs
             "try=i" => \$TRY,
             "help=s" => \$HELP,
             "out=s" => \$OUTNAME, 
+            "pwd" => \$DOSHOWPWD ,
             "page=s" => \$UIPAGE, 
             "server=s" => \$SERVER, 
             "table=s" => \$UITABLE, 
@@ -97,12 +99,11 @@ sub parseargs
             return 1; 
         }
         return usage(); 
-        return 1; 
      }
   } else {
-     usage(); 
-     return 1; 
+     return usage(); 
   }
+  return 0; 
 }
  
 sub usage 
@@ -118,6 +119,7 @@ print STDERR "\t-help topic: print STDERR help about topic,\n" .
 print STDERR "\t-help: print this help msgs\n"; 
 print STDERR "\t-out outFilePrefix: name of output file\n"; 
 print STDERR "\t-page pageName: the page to request from the LOCKSS ui\n"; 
+print STDERR "\t-pwd show login and password\n"; 
 print STDERR "\t-table tableName: the UI table  to request from the LOCKSS ui\n"; 
 print STDERR "\t-timeout sec: the number of seconds to wait before timing out\n";
 print STDERR "\t-tries t: the number of tries if connection fails\n";
@@ -128,6 +130,7 @@ print STDERR "\n";
 print STDERR "Request the defined <page> in the given format from the LOCKSS UI\n" . 
       "of the given LOCKSS server and save the results in \n" . 
       "\t\t<dirname>/<outFilePrefix>.<format>.<server>\n"; 
+return 1; 
 }
 
 sub usage_defaults 
@@ -163,10 +166,12 @@ sub showargs
    print STDERR "TIMEOUT=$TIMEOUT\n";  
    print STDERR "TRY=$TRY\n";  
    print STDERR "DOTRACE=$DOTRACE \n";  
+   print STDERR "DOSHOWPWD=$DOSHOWPWD \n";  
 }
  
 sub doit
 {
+   showargs(); 
    $rc = 0 ;
    while ( ($node, $url) = each(%servers) ) {
        my $page = "http://" . $url . ":" . $PORT . "/" . $UIPAGE ; 
@@ -230,8 +235,10 @@ sub systm
 {
    my $cmd = join(' ', @_); 
    my($rc) = system($cmd); 
-   $cmd =~ s/$USER/XXX/g; 
-   $cmd =~ s/$PWD/XXX/g; 
+   if (!$DOSHOWPWD) { 
+      $cmd =~ s/$USER/XXX/g; 
+      $cmd =~ s/$PWD/XXX/g; 
+   }
    trace($cmd); 
    if ($rc != 0) {
        print STDERR "FAILED: $cmd\n"; 
