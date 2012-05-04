@@ -1,0 +1,75 @@
+<map>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.louisville.depositAllByVolume</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>99</int>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;DepositAll: %12s-%s&quot;, base_url, volume_name</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>31449600000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>LOU Deposit All</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin starts at BASE_URL/manifest.html, follows all links it encounters in html files, and includes all urls encountered, that start with BASE_URL/VOLUME_NAME. It has a recrawl interval of 1 year. It is a good plugin for static collections that (almost) never change, that wish to include all broawsable content reachable from the manifest page under BASE_URL/VOLUME_NAME. The combined size of included content should stay within the recommended archival unit size. </string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/?$&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;^%s/%s$&quot;, base_url, volume_name</string>
+      <string>1,&quot;^%s/%s/&quot;, base_url, volume_name</string>
+    </list>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_crawl_type</string>
+    <string>HTML Links</string>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>volume_name</key>
+        <displayName>Volume Name</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+</map>
