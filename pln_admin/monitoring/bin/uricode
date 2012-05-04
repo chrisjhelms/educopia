@@ -15,7 +15,7 @@ Options:
 import sys
 import os
 import getopt
-import urllib2
+import urllib
 
 def main(argv):                         
 	try:                                
@@ -37,9 +37,9 @@ def main(argv):
 	try: 
                 for str in args:
 			if  encode: 
-				print urllib2.quote(str)
+				print urllib.quote(str)
 			else:
-				print urllib2.unquote(str)
+				print urllib.unquote(str)
 	except  (ValueError, IndexError): 
 		usage(1)
 
