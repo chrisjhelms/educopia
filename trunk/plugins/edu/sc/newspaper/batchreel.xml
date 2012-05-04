@@ -1,39 +1,5 @@
 <map>
   <entry>
-    <string>plugin_identifier</string>
-    <string>edu.sc.newspaper.batchreel</string>
-  </entry>
-  <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
-  </entry>
-  <entry>
-    <string>au_name</string>
-    <string>&quot;News Paper Content Batch %s Reel %s&quot;, batch, reel </string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>MetaArchive AllFilesInSubdirectory</string>
-  </entry>
-  <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>1209600000</long>
-  </entry>
-  <entry>
-    <string>au_crawlrules</string>
-    <list>
-      <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/metaarchive_manifest.html$&quot;, base_url</string>
-      <string>1,&quot;^%s/.*%s[/]$&quot;, base_url, batch</string>
-      <string>1,&quot;^%s/.*%s/.*.xml$&quot;, base_url, batch</string>
-      <string>4,&quot;^%s/.*%s/%s&quot;, base_url, batch, reel</string>
-    </list>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s/metaarchive_manifest.html&quot;, base_url</string>
-  </entry>
-  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -46,21 +12,67 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>batch</key>
-        <displayName>Volume Name</displayName>
+        <key>reel</key>
+        <displayName>Reel</displayName>
+        <description></description>
         <type>1</type>
         <size>20</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>reel</key>
-        <displayName>Volume Name</displayName>
+        <key>batch</key>
+        <displayName>Batch</displayName>
+        <description></description>
         <type>1</type>
         <size>20</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>folder</key>
+        <displayName>Folder</displayName>
+        <description>Folder</description>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;News Paper Content Batch %s Reel %s&quot;, batch, reel </string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/metaarchive_manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>edu.sc News Paper Batch Reel</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.sc.newspaper.batchreel</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/metaarchive_manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/.*%s/?$&quot;, base_url, batch</string>
+      <string>1,&quot;^%s/.*s/.*.xml$&quot;, base_url, batch</string>
+      <string>1,&quot;^%s/.*%s/%s/?$&quot;, base_url, batch, folder</string>
+      <string>4,&quot;^%s/.*%s/%s/%s.*&quot;, base_url, batch, folder, reel</string>
     </list>
   </entry>
 </map>
