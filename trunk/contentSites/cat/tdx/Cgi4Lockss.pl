@@ -72,8 +72,8 @@ unless( $out->param ) {
  	error($out,"No s'han trobat enllaços a comunitats a la web del repositori proporcionada ".$webIndex.".") unless ( @communities ); 	
 
 	print $out->header(), #$out->header(-charset => 'utf-8'), s'ho carrega extranyament
-	      $out->start_html('Col·leccions a Preservar'),
-	      $out->h2('Col·leccions a Preservar'),
+	      $out->start_html('TDX LOCKSS Manifest Page'),
+	      $out->h2('TDX (Theses and Dissertations Online) Collections'),
 	      $out->h4(
 		  $out->img( { alt => 'MetaArchive logo' , src => 'http://www.metaarchive.org/public/images/favicon.ico' } ),
 		  'Manifest Page to Allow preservation by LOCKSS daemons in the ',
@@ -85,12 +85,26 @@ unless( $out->param ) {
 	      $out->p('Collection Info:'),
 	      $out->ul( 
 		  $out->li( 
-		            [ 'Conspectus Collection(s): This demonstration site has no conspectus entry CANVIAR!', 
-		              'Institution: MetaArchive Org', 
-		              'Contact Info: ' . $out->a( { -href => 'mailto:support@metaarchive.org' }, 'support at metaarchive.org' ) 
+		            [ 'Conspectus Collection(s): ' . $out->a( { -href => 'http://conspectus.metaarchive.org/content_providers/20' }, 'TDX (Theses and Dissertations Online)' ), 
+		              'Institution: CBUC/CESCA', 
+		              'Contact Info: ' . $out->a( { -href => 'mailto:metaarchive@support.cesca.cat' }, 'Jesús Martín' ) 
 		            ]
 		  ) 
-	      );
+	      ),
+	     $out->p('TDX (Theses and Dissertations Online) is a digital cooperative
+repository of doctoral theses presented at some Spanish universities.
+The consultation of theses is opened and allows the user to construct
+searches on the complete text of the files by author, advisor, title,
+knowledge area, university and department of publication, year of
+defense, etc. This repository is managed by the Consortium of University
+Libraries of Catalonia (CBUC) and the Supercomputing Centre of Catalonia
+(CESCA), and sponsored by the Generalitat (government) of Catalonia.
+
+For more information about TDX, please, click the link below:
+http://www.tdx.cat/quees'),
+	     $out->br,
+	     $out->h2({-align=>'center'}, 'Links for LOCKSS to start its crawl:');
+	     $out->br;
 
 	for my $link ( @communities ) {
 	
