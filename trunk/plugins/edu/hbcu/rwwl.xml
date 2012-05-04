@@ -1,0 +1,116 @@
+<map>
+
+      <!-- base_url, http://hbdudigitallibrary.auctr.edu/ -->
+      <!-- base_url2, http://hbcudigitallibrary.auctr.edu:2312/ -->
+      <!-- collection, rwwl (for single-collection au's like this one) -->
+
+      <entry>
+    <string>plugin_identifier</string>
+    <string>edu.auctr.hbcu_rwwl-auc</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;HBCU Digital Library Alliance CONTENTdm Collection:&quot;, collection_name</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>HBCU_RWWL-AUC Plugin</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>7776000000</long>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>collection_name</key>
+        <displayName>Collection</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url2</key>
+        <displayName>Second Base URL</displayName>
+        <description>Use if AU spans two hosts</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+
+    <!-- Here's we're interleaving rules in falldown order for three types of url in CDM
+
+    http://hbcudigitallibrary.auctr.edu/cdm/search/collection/rwwl
+    http://hbcudigitallibrary.auctr.edu/cdm/singleitem/collection/rwwl/id/95/rec/1
+    http://hbcudigitallibrary.auctr.edu:2012/dmwebservices/index.php?q=dmGetItemInfo/rwwl/95/json
+    
+    -->
+
+  <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string> <!-- http://hbdudigitallibrary.auctr.edu/ -->
+      <string>4,&quot;^%s&quot;, base_url2</string> <!-- http://hbcudigitallibrary.auctr.edu:2312/ -->
+      <string>1,&quot;[^/]+cdm&quot;</string>
+      <string>1,&quot;[^/]+search&quot;</string>
+      <string>1,&quot;[^/]+singleitem&quot;</string>
+      <string>1,&quot;[^/]+collection&quot;</string>
+      <string>1,&quot;[^/]+dmwebservices&quot;</string>
+      <string>1,&quot;[^/]+index\.php\?q=&quot;</string>
+      <string>1,&quot;^dmGetItemInfo&quot;</string>
+
+      <!-- <string>1,&quot;[^/]&quot;, collection;</string> --> <!-- rwwl -->
+      <string>1,&quot;[^/]+rwwl&quot;</string>
+
+      <!-- <string>1,&quot;[^/]+asud|ASUD|bchd|BCHD|fupp|FUPP|gsbg|GSBG|hamu|HAMU|rwwl|RWWL|lumo|LUMO|ssld|SSLD|lupa|LUPA|mhmc|MHMC|mctb|MCTB|msmd|MSMD|nccu|NCCU|pcld|PCLD|stad|STAD|schc|SCHC|suam|SUAM|tsul|TSUL|txdc|TXDC|tuld|TULD|udcw|UDCW|vsud|VSUD&quot;</string>-->
+    <!-- check this one again against compound object -->
+      <string>1,&quot;[^/]+page&quot;</string>
+
+      <string>1,&quot;[^/]+id&quot;</string>
+      <string>1,&quot;[^/]+[0-9]+&quot;</string>
+      <string>1,&quot;[^/]+json$&quot;</string>
+      <string>1,&quot;[^/]+rec&quot;</string>
+      <string>1,&quot;[^/]+[0-9]+$&quot;</string>
+
+      <!-- compare: artifact? -->
+      <!-- <string>1,&quot;[^/]+&quot;</string> -->
+
+      <!--tifs -->
+      <!-- auc.oo1.bgx1.18800000.pho0001.tif -->
+      <!-- these^ are actually zeroes, or no -->
+      <string>1,&quot;[^/]+auc.&quot;</string>
+      <string>1,&quot;[^/]+[0-9]+&quot;</string>
+      <!-- Which regex syntax here? -->
+      <!-- + -->
+      <string>1,&quot;[^/]+.ti[f]+$&quot;</string>
+
+
+    </list>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;rwwl&quot;</string>
+  </entry>
+</map>
