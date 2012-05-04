@@ -1,0 +1,95 @@
+<map>
+  <entry>
+    <string>au_manifest</string>
+    <list>
+      <string> &quot;%s/manifest.html&quot;, base_url</string>
+      <string> &quot;%s/permission.txt&quot;, base_ur2</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url2</key>
+        <displayName>Second Base URL</displayName>
+        <description>Use if AU spans two hosts</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>HDL_ID</key>
+        <displayName>Dspace&apos;s Collection Handle Id</displayName>
+        <description></description>
+        <type>2</type>
+        <size>4</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>DSP_INST</key>
+        <displayName>Dspace Instance ID</displayName>
+        <description>ff</description>
+        <type>2</type>
+        <size>10</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;CBUC_AU_%d&quot;, HDL_ID</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>CbucTesis</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>If content changes every n time units (weeks,days), set the &apos;New content Crawl Interval&apos; to n/2 time units (weeks/month). Please consult with the MetaArchive staff, if you feel that your content should be recrawled more frequently.
+Archival unit sizes should range between 1GB and not much bigger than 20GB.</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>cat.cbuc.TesiPlugin</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^(%s|%s)&quot;, base_url, base_url2</string>
+      <string>1,&quot;^%s/manifest.html&quot;, base_url</string>
+      <string>1,&quot;^%s/manifest/permission.txt&quot;, base_url2</string>
+      <string>1,&quot;set=hdl_%d_%d&quot;, DSP_INST, HDL_ID</string>
+      <string>1,&quot;^%s/handle/%d/[0-9]+\?mode=full&quot;, base_url, DSP_INST</string>
+      <string>1,&quot;^%s/bitstream/handle/%d/&quot;, base_url, DSP_INST</string>
+      <string>1,&quot;&amp;resumptionToken=[0-9]+$&quot;</string>
+    </list>
+  </entry>
+</map>
