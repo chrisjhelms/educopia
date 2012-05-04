@@ -1,0 +1,11 @@
+#!/bin/tcsh -f 
+source ~/.metaarchive.rc 
+mkdir -p $DATE 
+pullTable -u $MACACHE_USER -p $MACACHE_PWD -server `cachedns test` -table AU_Status -O - | fgrep 'Folger Images 2nd Batch' > $DATE/Status
+fgrep -v "AuLastCrawl=-1" $DATE/Status | awk '{FS=","; OFS="\t"; print $5, $6, $8, $11, $1}' | sed 's/DiskUsage=//' | sort -r -n > $DATE/Status.sizes
+fgrep  "AuLastCrawl=-1" $DATE/Status | awk '{FS=","; OFS="\t"; print $1}' > $DATE/Status.crawling
+
+echo ">>> Sizes  " 
+cat $DATE/Status.sizes
+echo  ">>> Crawling " `wc -l $DATE/Status.crawling` 
+
