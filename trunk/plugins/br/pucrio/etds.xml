@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>5</string>
+    <string>6</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -58,7 +58,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;^%s:8081/MetaArchive/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s:8001/MetaArchive/manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s:8081/MetaArchive/transform$&quot;, base_url</string>
       <string>1,&quot;^%s:8081/MetaArchive/transform.php?dcxml=%s-.*/*.xml&quot;, base_url, from</string>
       <string>1,&quot;%s-.*/.*.xml&quot;, from</string>
