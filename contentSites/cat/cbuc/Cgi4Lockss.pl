@@ -3,9 +3,15 @@
 #
 # Script CGI per a processar dinàmicament l'ouput de les peticions de LOCKSS 
 # Si li arriba un valor del paràmetre "set" concret actua de renderer HTML de l'interfície OAI-MPH per a aquell set,
+#  si li arriba un valor del paràmetre "comm2csv" concret, l'interpreta com a un handle_id de DSpace corresponent a una communitat i treu com a output #  el CSV que defineix les seves col·leccions (que seran les AUs dins d'aquella Col·lecció Metaarchive), necessari per el registre al Conspectus. 
 #   altrament, actua com a generador dinàmic per defecte de la Manifest Page, exposant totes les coleccions de la instància DSPACE 
 #
-
+# Es pot testar a la línia de comandes directament amb:
+#  ./Cgi4Lockss (> ManifestPage.html)
+#  ./Cgi4Lockss set=hdl_xxxxxx_xxxx (> OAIListRecordsSetxxxx.html )
+#  ./Cgi4Lockss resumptionToken=xxxxxx ( > OAIListRecordsSetxxxx2.html)
+#  ./Cgi4Lockss comm2csv=xxxx (> commxxxx.csv)
+#
 # Prerequisits:
 # sudo aptitude install libwww-mechanize-perl libxml-libxslt-perl 
 # Si falla tradicional -MCPAN -e 'install WWW::Mechanize' -e 'XML:LibXSLT' o bé XML:LibXSLT::Easy, que no està al apt però encara és més fàcil
@@ -22,26 +28,51 @@ my $webOAIif = $webIndex . '/oai/request';
 my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 my $cgiCntxt = '/lockss';
 
+my $mech;
+my $sublink;
 my $out = new CGI;
 
- 
-# Aquest script no entén de la jerarquia lògica del repositori. quan se li passa com a paràmetre un handle de DSpace, sol·licita tots els objectes finals que depenen d'aquest. És a dir, tenint en compte que a DSpace el format dels handles és igual per a tot tipus de nodes, si li passem el handle d'una communitat ens retornarà tot el set d'objectes que són fulles d'aquest arbre obviant els nodes intermitjos, de manera que tindrem tots els documents fills de les seves subcomunitats, col·leccions, subcol·leccions, etc. sense tenir informació del seu parentesc. Per això, en la lògica amb què aplicarem aquest script, el nostre repositori serà dissenyat per contemplar solament tres nivells: comunitats (univesitats) > n col·leccions (departaments) > n bitsreams (recursos). Només demanarem els sets corresponents al handle de les col·leccions=departaments. 
- 
+
 # L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]
-if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken')){ 
-	#Approach XML::LibXSLT::Easy hagués estat mñes facil, però no està instal·lada per defecte
+if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){ 
+	#Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
 	my $parser = XML::LibXML->new;
 	my $xslt = XML::LibXSLT->new;
 	my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
-	my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&' . 
-                 ("" ne $out->param('resumptionToken')) ? ('resumptionToken=' . $out->param('resumptionToken')) : ( 'set=' . $out->param('set')) ) );
+	my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . 
+		 (("" ne $out->param('resumptionToken')) ? 
+				('resumptionToken=' . $out->param('resumptionToken')) : 
+				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) ); # Norm. del link del Token només va canviant l'última centena
 	print $stylesheet->output_string($results);
+# Aquest script no entén de la jerarquia lògica del repositori. quan se li passa com a paràmetre un handle de DSpace, sol·licita tots els objectes finals que depenen d'aquest. És a dir, tenint en compte que a DSpace el format dels handles és igual per a tot tipus de nodes, si li passem el handle d'una communitat ens retornarà tot el set d'objectes que són fulles d'aquest arbre obviant els nodes intermitjos, de manera que tindrem tots els documents fills de les seves subcomunitats, col·leccions, subcol·leccions, etc. sense tenir informació del seu parentesc. Per això, en la lògica amb què aplicarem aquest script, el nostre repositori serà dissenyat per contemplar solament tres nivells: comunitats (univesitats) > n col·leccions (departaments) > n bitsreams (recursos). Només demanarem els sets corresponents al handle de les col·leccions=departaments. 
+
+
+
+# L'script actua com a generador del fitxer csv que enumera tots els Handle IDs corresponents a Col.leccions de DSpace (=AUs=Dept. d'una Universitats), per a aquell HandleID d'una communitat concreta que se li passi comm2csv=hdl_id_comm. El csv resultant és el fitxer que s'haurà de pujar al conspectus per a indicar quines col·leccions de DSpace composen les AUs d'una col·lecció nostra a Metaarchive.
+} elsif ( "" ne $out->param('comm2csv') ) {
+
+	$mech = WWW::Mechanize->new;
+
+	$mech->get( "$webIndex" );
+	$mech->follow_link ( url_regex => qr/handle\/\d+\/180\/?$/i );
+
+	my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
+
+	for my $sublink ( @collections ) {
+   		if ( $sublink eq $collections[0] ) {
+           		print $out->header(-type=>'application/octet-stream',
+                        	           -attachment=>'foo.csv');
+            		print "base_url2, instance_id, hdl_id\n";
+   		} else {
+        		$sublink->url =~ /\/handle\/(\d+)\/(\d+)\/?/;
+        		printf ("%s, %s, %s\n", 'URL aquest script',$1, $2 );
+   		}	
+	}
 
 # L'script actua com a generador de la ManifestPage (comportament per defecte, és a dir, quan no sol·licitem exlpícitament cap set) 
 } else {
 
-	my $sublink;
-	my $mech = WWW::Mechanize->new;
+	$mech = WWW::Mechanize->new;
 
 	$mech->get( "$webIndex" );
 	# Per títol en comptes de per URL seria:
@@ -79,7 +110,7 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken')){
 		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) );
 	       } else {
 
-		  s/\/handle/hdl/ , tr/\//_/  for my $set = $sublink->url;
+		  s/^(.*)handle/hdl/ , tr/\//_/  for my $set = $sublink->url;
                  
 		  print $out->h3('Archival Unit: ', $out->a( { -href => $sublink->url_abs }, $sublink->text ) ),   
 		        $out->ul(
@@ -96,3 +127,17 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken')){
 	print $out->hr,
 	      $out->end_html;
 }
+# PENDENT:
+#URL d'on està el contexti
+# Canviar el 180 pel $out->param('comm2csv') pero com si és objecte)?
+#Eliminar links recently addedi
+# Utf8 Error Wide Character in print
+#Uninitialized Warnings -> Parseih dels param per comprovar que no hi hagi error i treure un 404 o algo
+# my $error = $q->cgi_error;
+ #   if ($error) {
+#	print $q->header(-status=>$error),
+#	      $q->start_html('Problems'),
+ #             $q->h2('Request not processed'),
+#	      $q->strong($error);
+  #      exit 0;
+ #   }
