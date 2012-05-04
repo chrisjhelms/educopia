@@ -21,10 +21,10 @@ function genSubManifestPage($title, $subtitle, $manifest, $colls)
 	echo " <td> &nbsp; </td> \n";
 	echo " </tr> \n";
 	foreach ($colls as $id)  {
-		print " <tr><td> \n";
-		print "<a href='http://smartech.gatech.edu/handle/1853/$id'> hdl_id: $id </a>\n";
+		print "<tr><td> \n";
+		print "  <a href='http://smartech.gatech.edu/handle/1853/$id'> hdl_id: $id </a>\n";
 		print "</td><td>\n";
-		print "<a href='itemListPage.php?hdlid=$id&manifest=$manifest&title=$title&subtitle=$subtitle'> items </a>"  ;
+		print "  <a href='itemListPage.php?hdlid=$id&manifest=$manifest&title=$title&subtitle=$subtitle'> items </a>"  ;
 		print "</td></tr> \n";
 	}
 	echo "</table> \n";
@@ -50,6 +50,25 @@ function genItemListPage($title, $subtitle, $manifest, $hdlid)
     
 	echo "</html>\n";
 }
+
+function genPartialItemPage($title, $subtitle, $manifest, $hdlid, $start, $stop)
+{
+	echo "<html>\n";
+	echo "<head>\n";
+	echo "<title>Item List: $title / $subtitle / $hdlid </title>\n";
+	echo "</head>\n";
+
+	echo "<body>\n";
+	echo "<h2>Item List: $title / $subtitle / $hdlid </h2>\n";
+    permission();
+	echo "<p>Part of <a href='$manifest'>$title Manifest Page</a> </p> \n";
+	echo "<p>Links for LOCKSS to continue crawling </p> \n";
+	gen_partial($hdlid, $start, $stop); 
+	echo "</body>\n";
+    
+	echo "</html>\n";
+}
+
 
 function permission()
 {
