@@ -85,7 +85,7 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken')){
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => './' . $cgiCntxt . '?set=' . $set }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => '.' . $cgiCntxt . '?set=' . $set }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
