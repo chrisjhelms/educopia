@@ -1,0 +1,19 @@
+manifests/ 		contains the manifest pages used to organize 
+			the images into archivel units 
+
+prep_aus_second_batch/NEWAUS
+			contains list of au paraeters
+
+prep_aus_second_batch/shakespeare.xml
+			is the plugin used for testing 
+			which corresponds to the plugin in metaarchive's google code rspository 
+			http://metaarchive.googlecode.com/ 
+                        at trunk/plugins/edu/folger/shakespeare.xml   rev 294
+
+
+prep_aus_second_batch/watch_ingest/Status.ods  
+prep_aus_second_batch/watch_ingest/Status.sizes
+			Status summary for each archival units testing  includes au sizes 
+
+prep_aus_second_batch/watch_ingest/urllists/
+			contains urllists reported aber test ingesting archival units
