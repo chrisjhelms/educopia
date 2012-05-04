@@ -4,9 +4,11 @@ source ~/.metaarchive.brc
 LOG="$MASTATUS/$DATE/pullStatus.log";
 
 echo "#report cache down" ; 
-echo "#caches: " `fgrep 'Overview' $LOG |  wc -l `
-echo "#caches UP: " `fgrep 'Overview' $LOG | fgrep "OK" |  wc -l `
-echo "#caches DOWN: " `fgrep 'Overview' $LOG | fgrep -v "OK" |  wc -l `
+STATS="/tmp/reportCacheStatus.$$"; 
+egrep '^pullCacheTable.*Overview' $LOG  | sort -u > $STATS; 
+echo "#caches: " `cat $STATS | wc -l `; 
+echo "#caches UP: " `fgrep "OK" $STATS |  wc -l `
+echo "#caches DOWN: " `fgrep -v "OK" $STATS |  wc -l `
 
 
 

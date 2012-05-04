@@ -5,7 +5,7 @@ set LOG = "$MASTATUS/$DATE/pullStatus.log";
 echo "> `date`  Start Network Status"; 
 
 foreach f (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
-   echo "pullCacheStatus $f"; 
+   echo "pullCacheStatus $f 'silent' "  >>& $LOG ;
    pullCacheStatus $f 'silent'  >>& $LOG ;
 end 
 echo "< `date` Stop Network Status"

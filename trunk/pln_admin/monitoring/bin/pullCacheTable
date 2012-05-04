@@ -1,6 +1,5 @@
 #!/bin/csh  -f
 source ~/.metaarchive.rc 
-set echo 
 
 set PULL = "pullTable";
 set DATA_TARGET_DIR = "$MASTATUS/$DATE";
