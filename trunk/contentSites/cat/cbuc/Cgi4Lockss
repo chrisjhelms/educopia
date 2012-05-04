@@ -19,7 +19,7 @@
 use strict;
 use utf8;
 use CGI; #Passar-ho a CGI:Pretty si el Benchmark en temps de generació no es veu molt perjudicat
-use CGI::Carp; # Debug mode: qw( fatalsToBrowser );
+#use CGI::Carp; # Debug mode: qw( fatalsToBrowser ); #Plack ja té un debugger 
 use XML::LibXML;
 use XML::LibXSLT;
 use WWW::Mechanize;
@@ -49,7 +49,7 @@ unless( $out->param ) {
 	# Per títol en comptes de per URL seria:
 	# my @links = $mech->find_all_links( text_regex => qr/Universi/i );
 	my @communities = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
- 	error($out,"No s'han trobat enllaços a comunitats a la web del repsoitori proporcionada") unless ( @communities ); 	
+ 	error($out,"No s'han trobat enllaços a comunitats a la web del repositori proporcionada.") unless ( @communities ); 	
 
 	print $out->header(), #$out->header(-charset => 'utf-8'),
 	      $out->start_html('Col·leccions a Preservar'),
@@ -98,7 +98,7 @@ unless( $out->param ) {
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => $out->url() . '?set=' . $set }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url . '?set=' . $set }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
@@ -125,19 +125,21 @@ unless( $out->param ) {
 	eval{
 		$mech->follow_link ( url_regex => qr/handle\/\d+\/$commID\/?$/i );
                 1;
-        } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució $commID.")};	
-	$mech->success or error ($out, "El repositori aha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució $commID");
+        } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.".Existeix?")};	
+	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID."Existeix?");
 	
 	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
 	my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
-        error($out,"No s'han trobat enllaços a col·leccions a la pàgina de la comunitat $commID") unless ( @collections );
+        error($out,"No s'han trobat enllaços a col·leccions a la pàgina de la comunitat".$commID.".") unless ( @collections );
 
 	for my $sublink ( @collections ) {
    		if ( $sublink eq $collections[0] ) {
-           		print $out->header(-type=>'application/octet-stream',
-                        	           -attachment=>'foo.csv');
+           		print $out->header(-type=>'application/x-download',
+                        	           -attachment  => 'AUs_comm'.$commID.'.csv' );
+ 					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
+
             		print "base_url2, instance_id, hdl_id\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
@@ -147,17 +149,21 @@ unless( $out->param ) {
    		}	
 	}
 
-# L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]
-} elsif ( $out->param == 1 && ( $out->param('set') || $out->param('resumptionToken') )) { 
-
-	#Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
-	my $parser = XML::LibXML->new;
-	my $xslt = XML::LibXSLT->new;
-	my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
-	my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
+# L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'verb+resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. Precedència al statement condicional: eq > && > ||. 
+} elsif ( $out->param == 1 && $out->param('set') || $out->param == 2 && $out->param('resumptionToken') && out->param('verb') eq 'ListRecords' ) { 
+	
+	eval{ #Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
+	  my $parser = XML::LibXML->new;
+	  my $xslt = XML::LibXSLT->new;
+	  my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
+	  my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
 				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) ); # Norm. del link del Token només va canviant l'última centena
-	print $stylesheet->output_string($results);
+          print $out->header(),
+          $stylesheet->output_string($results);
+	  1;
+
+        } or do {error($out,"Error transformant l'ouput OAI-MPH a HTML. Comproveu que tant la interfície OAI-MPH delrepositori remot com la fulla XSTL local siguin accessibles des de l'script.")};
 
 # Aquest script no entén de la jerarquia lògica del repositori. quan se li passa com a paràmetre un handle de DSpace, sol·licita tots els objectes finals que depenen d'aquest. És a dir, tenint en compte que a DSpace el format dels handles és igual per a tot tipus de nodes, si li passem el handle d'una communitat ens retornarà tot el set d'objectes que són fulles d'aquest arbre obviant els nodes intermitjos, de manera que tindrem tots els documents fills de les seves subcomunitats, col·leccions, subcol·leccions, etc. sense tenir informació del seu parentesc. Per això, en la lògica amb què aplicarem aquest script, el nostre repositori serà dissenyat per contemplar solament tres nivells: comunitats (univesitats) > n col·leccions (departaments) > n bitsreams (recursos). Només demanarem els sets corresponents al handle de les col·leccions=departaments. 
 
