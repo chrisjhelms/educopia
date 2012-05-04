@@ -42,8 +42,8 @@ my $out = new CGI;
 
 
 ### VARIABLES ###
-my $webIndex = 'http://allanita.cadiretes.cesca.cat:8080' || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
-my $webOAIif = 'http://allanita.cadiretes.cesca.cat:8080/oai/request' || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
+my $webIndex = 'http://84.88.13.203:8080' || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
+my $webOAIif = 'http://84.88.13.203:8080/oai/request' || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
 my $xslSheet = './OaiMph2HtmlParticular.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 $out->delete('verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
 #################
