@@ -7,7 +7,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -46,7 +46,7 @@
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>3628800000</long>
+    <long>2592000000</long>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
