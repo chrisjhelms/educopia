@@ -4,6 +4,7 @@ use strict;
 
 use Getopt::Long; 
 use LWP::Simple;
+use HTTP::Date;
 
 my $url  = 'http://www.booktv.org/schedule/';
 my $file = 'booktv.html';
@@ -72,7 +73,7 @@ sub doit
    print "$URL"; 
    if ($DOTYPE)    { print "\tContent-Type=$content_type"; } 
    if ($DOLENGTH)  { print "\tDocument-Length=$doc_length"; } 
-   if ($DOMOD)     { print "\tLast-Modified=$mod_time"; } 
+   if ($DOMOD)     { print "\tLast-Modified=" . time2str($mod_time); } 
    if ($DOEXPIRES) { print "\tExpires=$expires"; } 
    if ($DOSERVER)  { print "\tServer=$server\n";  }
    print "\n";
