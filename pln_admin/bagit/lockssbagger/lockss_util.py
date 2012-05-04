@@ -116,7 +116,7 @@ def unescapeEntities(text):
         return text # leave as is
     return re.sub("&#?\w+;", fixup, text)
 
-def makeFileDictList(fileListString, hashListString):
+def makeFileDictList(fileListString, hashListString, zapDirectories=False):
     #break fileList into a list of urls
     fileDictList = []
     fileLines = fileListString.splitlines()
@@ -161,6 +161,18 @@ def makeFileDictList(fileListString, hashListString):
                 fileDict['digest'] = hashDigest
                 break
     
+    if zapDirectories:
+        zapList = []
+        for fileDict in fileDictList:
+            fullName = os.path.join(fileDict["path"], fileDict["name"])
+            for otherDict in fileDictList:
+                if otherDict == fileDict:
+                    continue
+                if fullName == otherDict["path"]: #if this is true, then our full path is something else's directory
+                    zapList.append(fileDict)
+                    break
+        for zap in zapList:
+            fileDictList.remove(zap)
     return fileDictList
 
 def getAUIDList(lockssURL, name, password):

@@ -39,7 +39,7 @@ def makeBag(auid, fileDictList, bagPath, fetchProxy = None, bagInfoOriginal = No
     for fileDict in fileDictList:
         localPath = os.path.join("data", fileDict["path"])
         localName = os.path.join(localPath, fileDict["name"])
-        manifestEntry = "%s %s" % ( fileDict["digest"], localName )
+        manifestEntry = "%s  %s" % ( fileDict["digest"], localName ) #need exactly two spaces between hash and filename
         manifestLines.append(manifestEntry)
         if fetchProxy:
             fetchURL = "%s?url=%s&norewrite=1&auid=%s" % ( fetchProxy, urllib.quote(fileDict['url']), urllib.quote(auid))
@@ -103,7 +103,9 @@ def addMD5Manifest(bagPath, fileDictList):
             md5.update(chunk)
             chunk = inFile.read(2048)
         hashString = md5.hexdigest()
-        MD5ManifestFile.write("%s %s\n" % (hashString, os.path.join("data", fileDict["path"], fileDict["name"])))
+        
+        #the two spaces between hash and filename is critical
+        MD5ManifestFile.write("%s  %s\n" % (hashString, os.path.join("data", fileDict["path"], fileDict["name"])))
     
     MD5ManifestFile.close()
             
@@ -118,7 +120,7 @@ def makeBagFromAUID(lockssURL, auid, name, password, newBagPath, fetchProxy, fil
     fileString = getFileString(lockssURL, auid, name, password)
     #print fileString
     hashString = getHashString(lockssURL, auid, name, password)
-    fileDictList = makeFileDictList(fileString, hashString)
+    fileDictList = makeFileDictList(fileString, hashString, True)
     
     makeBag(auid, fileDictList, newBagPath, fetchProxy, None, fill)
     
