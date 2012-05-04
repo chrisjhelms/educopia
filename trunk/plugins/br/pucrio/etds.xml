@@ -1,9 +1,5 @@
 <map>
   <entry>
-    <string>plugin_version</string>
-    <string>1</string>
-  </entry>
-  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -16,24 +12,23 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>base_url2</key>
-        <displayName>Base URL</displayName>
-        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
-        <type>3</type>
-        <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
         <key>set</key>
         <displayName>Set</displayName>
         <description>String indicating the subest of etds, often indicating  year/date range </description>
-        <type>3</type>
+        <type>1</type>
         <size>40</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;PUCRIO Etds%  s&quot;, set, set</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -45,7 +40,7 @@
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>31536000000</long>
+    <long>3628800000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>
@@ -63,9 +58,11 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/lockss/manifest.html$&quot;, base_url</string>
-      <string>1,&quot;^%s/?$&quot;, base_url</string>
-      <string>6,&quot;/\?&quot;</string>
+      <string>1,&quot;^%s/MetaArchive/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/MetaArchive/transform*$&quot;, base_url</string>
+      <string>1,&quot;%s/.*.xml&quot;, set</string>
+      <string>1,&quot;^%s/.*.xsl$&quot;, base_url</string>
+      <string>1,&quot;^%s/.*.pdf$&quot;, base_url</string>
     </list>
   </entry>
 </map>
