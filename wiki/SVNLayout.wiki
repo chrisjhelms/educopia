@@ -5,7 +5,7 @@
     * plugins_dev  
         * plugins 
            * ext     -- example plugins documented in [http://wiki.metaarchive.org metawiki]'s plugins sections 
-        * run_one_daemon -- LOCKSS run one daemin setup adapted for metaarchive content
+        * run_one_daemon -- LOCKSS run one daemon setup adapted for metaarchive content (development instance used by MetaArchive staff)
         * scripts  -- scripts that may be useful to plugin developers 
         * testSites  -- web site mockups used in [http://wiki.metaarchive.org metawiki]'s plugins sections 
  
@@ -17,7 +17,7 @@
            * manifest_template.html -- a manifest page template 
            * plugintool/  -- LOCKSS plugin tool 
            * plugins/  -- example plugins and templates 
-           * run_one_daemon   -- LOCKSS run_one_daemon setup which integrates with MetaArchive's conspectus tool  
+           * run_one_daemon   -- LOCKSS run_one_daemon setup which integrates with MetaArchive's conspectus tool  (for plugin developers)
            * scripts/  -- miscellaneous scripts that may be used for plugin developers when analyzing a web site 
            * testSites/ -- toy web sites - the project wiki refers to these sites in its plugin documentation  
          * webserver/      -- scripts for web server administrators 
