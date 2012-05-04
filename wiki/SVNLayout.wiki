@@ -5,7 +5,7 @@
     * plugins_dev  
         * plugins 
            * ext     -- example plugins documented in [http://wiki.metaarchive.org metawiki]'s plugins sections 
-        * run_one_daemon -- LOCKSS run one daemon setup adapted for metaarchive content (development instance used by MetaArchive staff)
+        * run_one_daemon -- LOCKSS run one daemon development instance used by MetaArchive staff
         * scripts  -- scripts that may be useful to plugin developers 
         * testSites  -- web site mockups used in [http://wiki.metaarchive.org metawiki]'s plugins sections 
  
