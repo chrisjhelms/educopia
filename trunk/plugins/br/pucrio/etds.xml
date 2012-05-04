@@ -1,9 +1,5 @@
 <map>
   <entry>
-    <string>plugin_version</string>
-    <string>2</string>
-  </entry>
-  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -27,6 +23,10 @@
     </list>
   </entry>
   <entry>
+    <string>plugin_version</string>
+    <string>4</string>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;PUC RIO Etds %s ...&quot;, from</string>
   </entry>
@@ -35,20 +35,20 @@
     <string>&quot;%s:8081/MetaArchive/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>3628800000</long>
-  </entry>
-  <entry>
     <string>au_def_pause_time</string>
     <long>6000</long>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>PUC RIO etds </string>
+    <string>au_def_new_content_crawl</string>
+    <long>3628800000</long>
   </entry>
   <entry>
     <string>plugin_notes</string>
     <string>This plugin harvests all *.PDF, *.xml, *.xsl file it encounters during its crawl </string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>PUC RIO etds </string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -59,8 +59,9 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;^%s:8081/MetaArchive/manifest.html$&quot;, base_url</string>
-      <string>1,&quot;^%s:8081/MetaArchive/transform*$&quot;, base_url</string>
-      <string>1,&quot;%s/.*.xml&quot;, set</string>
+      <string>1,&quot;^%s:8081/MetaArchive/transform$&quot;, base_url</string>
+      <string>1,&quot;^%s:8081/MetaArchive/transform.php?dcxml=%s-.*/*.xml&quot;, base_url, from</string>
+      <string>1,&quot;%s-.*/.*.xml&quot;, from</string>
       <string>1,&quot;^%s/.*.xsl$&quot;, base_url</string>
       <string>1,&quot;^%s/.*.pdf$&quot;, base_url</string>
     </list>
