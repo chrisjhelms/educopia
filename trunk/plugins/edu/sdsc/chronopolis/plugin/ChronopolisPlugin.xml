@@ -20,7 +20,7 @@ http://&lt;journal-name&gt;.com/</description>
 </entry>
 <entry>
 <string>au_start_url</string>
-<string>&quot;%s.html&quot;, base_url</string>
+<string>&quot;%s/ICPSR_data/chronopolisLOCKSS_manifest.html&quot;, base_url</string>
 </entry>
 <entry>
 <string>au_def_new_content_crawl</string>
