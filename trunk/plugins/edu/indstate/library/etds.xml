@@ -1,13 +1,29 @@
 <map>
   <entry>
+    <string>au_name</string>
+    <string>&quot;INDSTATE-DSPACE/ETDs %d&quot;, hdl_id</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s:8080/etd/manifestISU.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>INDSTATE DSPACE/ETDs</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin is modelled after the DSPACe ingest documented at http://wiki.metaarchive.org/metawiki/index.php/HarvestDSPACESites</string>
+  </entry>
+  <entry>
     <string>au_manifest</string>
     <list>
-      <string>&quot;%s:8080/15/manifestISU.html&quot;, base_url</string>
+      <string>&quot;%s:8080/etd/manifestISU.html&quot;, base_url</string>
     </list>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -33,16 +49,8 @@
     </list>
   </entry>
   <entry>
-    <string>au_name</string>
-    <string>&quot;INDSU-DSPACE %d&quot;, hdl_id</string>
-  </entry>
-  <entry>
     <string>au_crawl_depth</string>
-    <int>4</int>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s:8080/15/manifestISU.html&quot;, base_url</string>
+    <int>6</int>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -53,17 +61,13 @@
     <long>2592000000</long>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>INDSTATE DSPACE</string>
-  </entry>
-  <entry>
     <string>plugin_identifier</string>
-    <string>edu.indstate.library.etds </string>
+    <string>edu.indstate.library.etds</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;%s:8080/15/manifestISU.html&quot;, base_url</string>
+      <string>1,&quot;%s:8080/etd/manifestISU.html&quot;, base_url</string>
       <string>1,&quot;set=hdl_10484_%d&quot;, hdl_id</string>
       <string>1,&quot;^%s/handle/10484/[0-9]+\?mode=full&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/10484/*/*/*&quot;, base_url</string>
