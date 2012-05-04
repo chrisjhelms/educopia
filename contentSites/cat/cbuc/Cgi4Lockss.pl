@@ -12,7 +12,7 @@
 #  ./Cgi4Lockss resumptionToken=xxxxxx ( > OAIListRecordsSetxxxx2.html)
 #  ./Cgi4Lockss comm2csv=xxxx (> commxxxx.csv)
 #
-# Prerequisits:
+# Pre-requisits:
 # sudo aptitude install libwww-mechanize-perl libxml-libxslt-perl 
 # Si falla tradicional -MCPAN -e 'install WWW::Mechanize' -e 'XML:LibXSLT' o bé XML:LibXSLT::Easy, que no està al apt però encara és més fàcil
 
@@ -26,21 +26,22 @@ use WWW::Mechanize;
 my $webIndex = 'http://84.88.13.203:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina del repositori  
 my $webOAIif = $webIndex . '/oai/request';
 my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
-my $cgiCntxt = '/lockss';
 
 my $mech;
 my $sublink;
 my $out = new CGI;
 
-
 # L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]
-if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){ 
+if ( defined($out->param('set')) || defined($out->param('resumptionToken')) ){ 
+
+        die "CGI Bad Request (paràmetres comm2csv, set i resumptionToken incompatibles)." if (defined($out->param('comm2csv')) || (defined($out->param('set')) && defined($out->param('resumptionToken'))));
+ 	
 	#Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
 	my $parser = XML::LibXML->new;
 	my $xslt = XML::LibXSLT->new;
 	my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
 	my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . 
-		 (("" ne $out->param('resumptionToken')) ? 
+		 ( defined($out->param('resumptionToken')) ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
 				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) ); # Norm. del link del Token només va canviant l'última centena
 	print $stylesheet->output_string($results);
@@ -49,12 +50,19 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
 
 
 # L'script actua com a generador del fitxer csv que enumera tots els Handle IDs corresponents a Col.leccions de DSpace (=AUs=Dept. d'una Universitats), per a aquell HandleID d'una communitat concreta que se li passi comm2csv=hdl_id_comm. El csv resultant és el fitxer que s'haurà de pujar al conspectus per a indicar quines col·leccions de DSpace composen les AUs d'una col·lecció nostra a Metaarchive.
-} elsif ( "" ne $out->param('comm2csv') ) {
-
+} elsif ( defined($out->param('comm2csv')) ) {
+		
+	my $commID = $out->param('comm2csv'); 
 	$mech = WWW::Mechanize->new;
 
 	$mech->get( "$webIndex" );
-	$mech->follow_link ( url_regex => qr/handle\/\d+\/180\/?$/i );
+	die "Error accedint a la pàgina principal del repositori", $mech->response->status_line unless $mech->success;
+
+	$mech->follow_link ( url_regex => qr/handle\/\d+\/$commID\/?$/i );
+	die "Error accedint a la pàgina d'una comunitat: No s'ha trobat l'Id de la comunitat indicat.", $mech->response->status_line unless $mech->success;
+	
+	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
+	my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
 
@@ -63,9 +71,11 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
            		print $out->header(-type=>'application/octet-stream',
                         	           -attachment=>'foo.csv');
             		print "base_url2, instance_id, hdl_id\n";
+		} elsif ( $sublink->url eq $firstRecSubmi ) { 
+			last;
    		} else {
-        		$sublink->url =~ /\/handle\/(\d+)\/(\d+)\/?/;
-        		printf ("%s, %s, %s\n", 'URL aquest script',$1, $2 );
+        		$sublink->url =~ m!/handle/(\d+)/(\d+)/?!i;
+        		printf ("%s, %s, %s\n", $webIndex, $1, $2 );
    		}	
 	}
 
@@ -75,6 +85,8 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
 	$mech = WWW::Mechanize->new;
 
 	$mech->get( "$webIndex" );
+	die "Error accedint a la pàgina principal del repositori", $mech->response->status_line unless $mech->success;
+
 	# Per títol en comptes de per URL seria:
 	# my @links = $mech->find_all_links( text_regex => qr/Universi/i );
 	my @communities = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
@@ -102,12 +114,19 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
 
 	for my $link ( @communities ) {
 	    $mech->get($link->url_abs);
+ 	    die "Error accedint a la pàgina d'una comunitat", $mech->response->status_line unless $mech->success;
+	 
+  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
+	    my $firstRecSubmi = $1;
+
 	    my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
 
 	    for my $sublink ( @collections ) {
 	       if ( $sublink eq $collections[0] ) { 
 	       	     print $out->br,
 		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) );
+	       } elsif ( $sublink->url eq $firstRecSubmi ){
+			last;
 	       } else {
 
 		  s/^(.*)handle/hdl/ , tr/\//_/  for my $set = $sublink->url;
@@ -116,7 +135,7 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => '.' . $cgiCntxt . '?set=' . $set }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url() . '?set=' . $set }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
@@ -127,17 +146,4 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken') ){
 	print $out->hr,
 	      $out->end_html;
 }
-# PENDENT:
-#URL d'on està el contexti
-# Canviar el 180 pel $out->param('comm2csv') pero com si és objecte)?
-#Eliminar links recently addedi
-# Utf8 Error Wide Character in print
-#Uninitialized Warnings -> Parseih dels param per comprovar que no hi hagi error i treure un 404 o algo
-# my $error = $q->cgi_error;
- #   if ($error) {
-#	print $q->header(-status=>$error),
-#	      $q->start_html('Problems'),
- #             $q->h2('Request not processed'),
-#	      $q->strong($error);
-  #      exit 0;
- #   }
+# * Exception handling: http://search.cpan.org/~lds/CGI.pm-3.43/CGI.pm#RETRIEVING_CGI_ERRORS i http://docstore.mik.ua/orelly/linux/cgi/ch05_05.htm
