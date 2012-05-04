@@ -1,0 +1,55 @@
+#!/bin/csh  -f
+source ~/.metaarchive.rc 
+
+set PULL = "pullTable";
+set DATA_TARGET_DIR = "$MASTATUS/$DATE";
+set DATA_LOG="$DATA_TARGET_DIR/log";
+mkdir -p  $DATA_TARGET_DIR;
+
+set CACHE = $1 
+if ($CACHE == "") then 
+   echo "usage: $0 CACHE TABLE FORMAT";
+   echo "available caches are: "; 
+   cat $MASERVERS; 
+   exit 1; 
+endif 
+
+set TABLE = $2 
+if ($TABLE == "") then 
+   echo "usage: $0 CACHE TABLE FORMAT";
+   echo "available tables are: "; 
+   echo "  Space (meaning /DaemonStatus?table=RepositorySpace)";
+   echo "  AU_Ids (meaning /DaemonStatus?table=AuIds)";
+   echo "  CrawlStatus (meaning /DaemonStatus?table=crawl_status_table)";
+   echo "  Polls (meaning /DaemonStatus?table=V3PollerTable)";
+   echo "  Plugins (meaning /DaemonStatus?table=Plugins)";
+   echo "  Repository (meaning /DaemonStatus?table=RepositoryTable)";
+   echo "  Overview (meaning /DaemonStatus?table=OverviewStatus); xml format only";
+   echo "  AU_Status (meaning /DaemonStatus?table=ArchivalUnitStatusTable)";
+   exit 1; 
+endif 
+
+set FORMAT = $3 
+if ($FORMAT == "") then 
+   echo "usage: $0 CACHE TABLE FORMAT";
+   echo "available formats are: "; 
+   echo "  xml "; 
+   echo "  csv "; 
+   echo "  text "; 
+   exit 1; 
+endif 
+
+set SILENT = $4 
+
+$PULL -server $CACHE -t -u $MACACHE_USER -p $MACACHE_PWD -format $FORMAT -dir $DATA_TARGET_DIR   -table $TABLE   >>& $DATA_LOG 
+if ($status == 0) then 
+   echo "pullCacheTable $CACHE	$TABLE $FORMAT OK";  
+else 
+   echo "pullCacheTable $CACHE	$TABLE $FORMAT FAILURE";  
+   exit 1; 
+endif
+
+if ($SILENT == "") then 
+echo "#Find output at $DATA_TARGET_DIR/$TABLE*$CACHE*$FORMAT";  
+endif 
+

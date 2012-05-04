@@ -1,0 +1,23 @@
+#!/bin/csh  -f
+source ~/.metaarchive.rc 
+
+#set echo 
+set PULL=pullTable;
+set SILENT=$1
+
+set DATA_TARGET_DIR = "$MASTATUS/$DATE";
+set DATA_LOG="$DATA_TARGET_DIR/log";
+mkdir -p  $DATA_TARGET_DIR;
+
+echo "#report full disk across network" ; 
+
+foreach s (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
+    set f =   "$MASTATUS/$DATE/Space*$s*csv"
+    set percent = `fgrep "local:" $f| cut -d, -f5 | fgrep ".9"`
+    if ($percent != "") then 
+         echo "$s : $percent"; 
+    endif 
+end 
+
+
+

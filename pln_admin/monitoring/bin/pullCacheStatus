@@ -1,0 +1,19 @@
+#!/bin/csh  -f
+source ~/.metaarchive.rc 
+set CACHE = $1 
+if ($CACHE == "") then 
+   echo "available caches are: "; 
+   cat $MASERVERS; 
+   exit 1; 
+endif 
+
+set SILENT = $2 
+
+pullCacheTable $CACHE Overview xml $SILENT; 
+if ($status == 0) then 
+   pullCacheTable $CACHE AU_Ids csv $SILENT; 
+   pullCacheTable $CACHE AU_Status csv $SILENT; 
+   pullCacheTable $CACHE Space csv $SILENT; 
+endif
+
+

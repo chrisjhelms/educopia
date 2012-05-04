@@ -1,0 +1,9 @@
+This directory contains files used on the server  
+to setup the GTCP collection preservation from 
+DSPACE/SMARTech available at http://smartech.gatech.edu/
+
+files are accessible to LOCKSS/MetaArchive at 
+http://smartech.gatech.edu/MACmanifest/
+
+the php code relies on XSLTProcessor
+

@@ -1,0 +1,5 @@
+Paper in Pdf format: greedyMethod.pdf
+Paper in text format: greedyMethod.tex
+Algorithm implementations in java: greedyMethod.java 
+Sample input Data: greedyMethod.tgz
+Performance Statistics: greedyMethod.xsl

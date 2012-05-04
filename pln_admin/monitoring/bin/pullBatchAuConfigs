@@ -1,0 +1,28 @@
+#!/bin/csh  -f
+source ~/.metaarchive.rc 
+set rc = 0; 
+set PULL = "pullTable"; 
+set DATA_TARGET_DIR = "$MABATCHSTATUS/$DATE"; 
+set DATA_LOG="$MABATCHSTATUS/$DATE/log";
+mkdir -p  $DATA_TARGET_DIR;
+
+echo "> `date`  Start Network Status"
+echo "> `date`  Start Network Status"  > $DATA_LOG; 
+
+echo `date` " Harvesting to $DATA_TARGET_DIR" 
+echo `date` " Logging to $DATA_LOG"
+echo `date` " Find it at $MASTATUSURL/BatchAuConfig/$DATE/log" 
+
+foreach CACHE (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
+   $PULL -server $CACHE -t -u $MACACHE_USER -p $MACACHE_PWD -page 'BatchAuConfig?lockssAction=Backup' -dir $DATA_TARGET_DIR -format 'out' >>& $DATA_LOG; 
+  if ($status == 0) then 
+     echo "pullBatchAuConfigs $CACHE	OK";  
+  else 
+     echo "pullBatchAuConfigs $CACHE	FAILURE";  
+     set rc = 1; 
+  endif
+end 
+
+echo "< `date`  Stop Network Status"
+echo "< `date`  Stop Network Status"  >> $DATA_LOG; 
+exit $rc; 
