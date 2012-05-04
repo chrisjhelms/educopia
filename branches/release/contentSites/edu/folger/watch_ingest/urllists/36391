@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head><title>LOCKSS: List Objests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<style type="text/css"> <!--
+sup {font-weight: normal; vertical-align: super; }
+a.colhead, a.colhead:link, a.colhead:visited { text-decoration: none; font-weight: bold; color: blue; }
+td.colhead { font-weight: bold; background: #e0e0e0; }
+--> </style>
+</head>
+<body  bgcolor="#ffffff">
+<table border=0 cellspacing="2" cellpadding="0" width="100%"><tr><td valign="top" align="center" width="20%"><a href="http://www.lockss.org/"><img src="/images/lockss-logo-small.gif" height=81 width=80 border=0></a
+><img src="/images/tm.gif" height=16 width=16 border=0><a href="http://www.metaarchive.org/"><img src="http://admin.metaarchive.org/lockss_test/config/metaarchive-logo.gif" border=0></a
+></td
+><td valign="top" align="center" width="60%"><br><font size="+2"><b>List Objests</b></font><br><b>gt-ma-testcache.library.gatech.edu</b>&nbsp;&nbsp;(<b>metaarchive</b>, <b>doc</b> groups)<br>20:36:04 11/15/10, up 3d1h14m</td
+><td valign="center" align="center" width="20%"><table border=0 cellspacing="2" cellpadding="0"><tr><td colspan="3"><font size="-1"><a href="/BatchAuConfig">Journal Configuration</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/AdminIpAccess">Admin Access Control</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/ProxyIpAccess">Content Access Control</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/ProxyAndContent">Content Access Options</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/info/ProxyInfo">Proxy Info</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/DaemonStatus">Daemon Status</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/DebugPanel">Debug Panel</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/ExpertConfig">Expert Config</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/log">Logs</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="/ThreadDump">Thread Dump</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="mailto:support@metaarchive.org">Contact Us</a
+></font></td
+></tr
+><tr><td colspan="3"><font size="-1"><a href="http://www.lockss.org/lockss/Cache_Help">Help</a
+></font></font></td
+></tr
+></table
+></td
+></tr
+></table
+><br><center><font color=red size=+1>No such AU: edu|folger|shakespeare&base_url~http%3A%2F%2Fmetaarchive%2Elibrary%2Eunt%2Eedu%2Ffolger_staging%2F&from~36391</font></center><br><p><table border=0 cellspacing="0" cellpadding="0" align="center"><tr valign="top"><td><img src="/images/lockss-type-red.gif" height=31 width=595 border=0></td
+><td><img src="/images/tm.gif" height=16 width=16 border=0></td
+></tr
+><tr><td colspan="2"><center><font size="-1">Daemon 1.47.3 built 14-Sep-10 12:59:45 on dlvargas-lockss, Linux RPM 1</font></center></td
+></tr
+></table
+>
+</body>
+</html>
