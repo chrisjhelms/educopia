@@ -40,11 +40,11 @@ http://&lt;journal-name&gt;.com/</description>
 </entry>
 <entry>
 <string>au_crawlrules</string>
-<list>
-<string>4,&quot;^%s&quot;, base_url</string>
-<string>1,&quot;%s.html&quot;, base_url</string>
-<string>1,&quot;%sArchive0/.*&quot;, base_url</string>
-<string>1,&quot;%s.*&quot;, base_url</string>
-</list>
-</entry>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>4,&quot;^%s/ICPSR_data&quot;, base_url</string>
+      <string>1,&quot;^%s/ICPSR_data/chronopolisLOCKSS_manifest.html&quot;, base_url</string>
+      <string>1,&quot;%s/ICPSR_data/&quot;, base_url</string>
+    </list>
+  </entry>
 </map>
