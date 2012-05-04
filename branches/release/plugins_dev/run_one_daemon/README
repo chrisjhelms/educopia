@@ -109,3 +109,11 @@ Make sure there is always at most one daemon active.
 The start script seomtimes complains that a daemon is already running because the dpid file exists, but the daemon process did in fact die without cleaning the dpid file up. Remove dpid and try again if this is the case. Be careful not to start more than one LOCKSS daemon. 
 
 If you have no idea what is going on  check the LOCKSS daemons log messages in test.out. 
+
+-----
+Dealing with IP connection error: 
+-----
+On some systems daemons cwproduce the following error upon startup: 
+Warning: 4-IpAccess: Error checking IP: org.lockss.util.IpFilter$MalformedException: Illegal number: "0:0:0:0:0:0:0:1" at org.lockss.util.IpFilter$Mask.<init>(IpFilter.java:216)
+This is due to operating system configuration which enables the ipv6 protocol which needs to be disabled for LOCKSS daemons to start: 
+UBUNTU:  add the line 'net.ipv6.conf.all.disable_ipv6=1' to /etc/sysctl.conf 
