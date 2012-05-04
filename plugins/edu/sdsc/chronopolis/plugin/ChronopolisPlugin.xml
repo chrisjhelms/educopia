@@ -1,50 +1,51 @@
+<?xml version="1.0"?>
 <map>
-<entry>
-<string>plugin_config_props</string>
-<list>
-<org.lockss.daemon.ConfigParamDescr>
-<key>base_url</key>
-<displayName>Base URL</displayName>
-<description>Usually of the form
-http://&lt;journal-name&gt;.com/</description>
-<type>3</type>
-<size>40</size>
-<definitional>true</definitional>
-<defaultOnly>false</defaultOnly>
-</org.lockss.daemon.ConfigParamDescr>
-</list>
-</entry>
-<entry>
-<string>au_name</string>
-<string>&quot;Chronopolis (%s) &quot;, base_url</string>
-</entry>
-<entry>
-<string>au_start_url</string>
-<string>&quot;%s/ICPSR_data/chronopolisLOCKSS_manifest.html&quot;, base_url</string>
-</entry>
-<entry>
-<string>au_def_new_content_crawl</string>
-<long>1209600000</long>
-</entry>
-<entry>
-<string>au_def_pause_time</string>
-<long>6000</long>
-</entry>
-<entry>
-<string>plugin_name</string>
-<string>Chronopolis Plugin</string>
-</entry>
-<entry>
-<string>plugin_identifier</string>
-<string>edu.sdsc.chronopolis.plugin.ChronopolisPlugin</string>
-</entry>
-<entry>
-<string>au_crawlrules</string>
+  <entry>
+    <string>plugin_config_props</string>
     <list>
-      <string>4,&quot;^%s&quot;, base_url</string>
-      <string>4,&quot;^%s/ICPSR_data&quot;, base_url</string>
-      <string>1,&quot;^%s/ICPSR_data/chronopolisLOCKSS_manifest.html&quot;, base_url</string>
-      <string>1,&quot;%s/ICPSR_data/&quot;, base_url</string>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form
+http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>"Chronopolis (%s) ", base_url</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>"%s/ICPSR_data/chronopolisLOCKSS_manifest.html", base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Chronopolis Plugin</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.sdsc.chronopolis.plugin.ChronopolisPlugin</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,"^%s", base_url</string>
+      <string>4,"^%s/ICPSR_data", base_url</string>
+      <string>1,"^%s/ICPSR_data/chronopolisLOCKSS_manifest.html", base_url</string>
+      <string>1,"%s/ICPSR_data/", base_url</string>
     </list>
   </entry>
 </map>
