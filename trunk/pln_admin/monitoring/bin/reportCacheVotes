@@ -1,0 +1,18 @@
+#!/bin/csh  -f
+source ~/.metaarchive.rc 
+set PULL=pullTable;
+set SILENT=$1
+
+set DATA_TARGET_DIR = "$MASTATUS/$DATE";
+set DATA_LOG="$DATA_TARGET_DIR/log";
+mkdir -p  $DATA_TARGET_DIR;
+
+echo "#report full disk across network" ; 
+
+foreach s (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
+    set f =   "$MASTATUS/$DATE/Overview*$s*xml"
+    echo $s "		" `fgrep "votes" $f | sed s'/<st:value>//' | sed 's/<\/st:value>//'` ; 
+end 
+
+
+

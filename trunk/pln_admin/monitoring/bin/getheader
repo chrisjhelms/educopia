@@ -1,0 +1,90 @@
+#!/usr/bin/perl  
+
+use strict;
+
+use Getopt::Long; 
+use LWP::Simple;
+
+my $url  = 'http://www.booktv.org/schedule/';
+my $file = 'booktv.html';
+
+my $URL; 
+my $DOTRACE = 0; 
+my $DOTYPE = 0; 
+my $DOLENGTH = 0; 
+my $DOMOD = 0; 
+my $DOSERVER = 0; 
+my $DOEXPIRES = 0; 
+my $HELP = 0; 
+
+if (0 == parseargs()) {
+   my($rc) = doit(); 
+   exit($rc); 
+}
+exit(1) ;
+
+sub parseargs 
+{
+ my $result = GetOptions( 
+            "help" => \$HELP ,
+            "content-type" => \$DOTYPE ,
+            "document-length" => \$DOLENGTH ,
+            "expires" => \$DOEXPIRES ,
+            "last-modified" => \$DOMOD ,
+            "server" => \$DOSERVER ,
+	    "t" => \$DOTRACE 
+	    ); 
+
+  if ($result == 1) { 
+     if ($HELP || $#ARGV != 0 ) { 
+        usage(); 
+        return !$HELP ;
+     }
+     $URL = shift(@ARGV); 
+     trace("URL $URL\n"); 
+     if  (($DOTYPE + $DOLENGTH +  $DOMOD +  $DOSERVER  + $DOEXPIRES ) == 0) { 
+        ($DOTYPE, $DOLENGTH,  $DOMOD,  $DOSERVER , $DOEXPIRES)  = ( 1, 1, 1, 1, 1); 
+     }
+  } else {
+    return usage(); 
+  }
+  return 0; 
+}
+
+sub usage 
+{
+print   "usage: getheader OPTIONS URL \n"; 
+print "\t-content-type:\t\t print Content_Type header info\n";
+print "\t-document-length:\t print Document-Length header info\n";
+print "\t-expires:\t\t print Expires header info\n";
+print "\t-last-modified:\t\t print Last-Modified header info\n";
+print "\t-server:\t\t print Server header info\n";
+print "\t-help:\t\t\t print this help msgs\n"; 
+print "\t-t:\t\t\t whether to trace the script's actions\n"; 
+print "\nGet HTTP HEADER and print the requested fields (or all if none are selected) \n"; 
+return 1; 
+}
+
+sub doit
+{
+   trace("headers $URL\n"); 
+   my($content_type, $doc_length, $mod_time, $expires, $server) = head($URL);
+   print "$URL"; 
+   if ($DOTYPE)    { print "\tContent-Type=$content_type"; } 
+   if ($DOLENGTH)  { print "\tDocument-Length=$doc_length"; } 
+   if ($DOMOD)     { print "\tLast-Modified=$mod_time"; } 
+   if ($DOEXPIRES) { print "\tExpires=$expires"; } 
+   if ($DOSERVER)  { print "\tServer=$server\n";  }
+   print "\n";
+   return 0; 
+}
+
+sub trace
+{
+   if ($DOTRACE) { 
+      my $str = join(' ', @_); 
+      print $str . "\n"; 
+   }
+}
+
+

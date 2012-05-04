@@ -1,0 +1,13 @@
+#!/bin/bash  -f
+source ~/.metaarchive.brc 
+
+LOG="$MASTATUS/$DATE/pullStatus.log";
+
+echo "#report cache down" ; 
+echo "#caches: " `fgrep 'Overview' $LOG |  wc -l `
+echo "#caches UP: " `fgrep 'Overview' $LOG | fgrep "OK" |  wc -l `
+echo "#caches DOWN: " `fgrep 'Overview' $LOG | fgrep -v "OK" |  wc -l `
+
+
+
+

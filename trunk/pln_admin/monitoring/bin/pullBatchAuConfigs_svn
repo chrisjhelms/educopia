@@ -1,0 +1,30 @@
+#!/bin/csh  -f
+set USER=madebug; 
+set PWD='XXX';
+set SILENT=$1
+set PULL="/home/metaarchive/bin/pullTable";
+set STATUS="/home/metaarchive/admin/network/BatchAuConfig"; 
+set SERVERS="/home/metaarchive/admin/network/ips/lockss_caches.annotated"; 
+
+set DATE=`date +%Y/%m/%d`
+set date=`date +%Y%m%d`
+
+set DATA_TARGET_DIR = "$STATUS/$DATE"; 
+set DATA_LOG="$STATUS/$DATE/log";
+mkdir -p  $DATA_TARGET_DIR;
+
+echo "Network Status"
+if ($SILENT != 'silent') then 
+   echo `date` " Harvesting to $DATA_TARGET_DIR" 
+   echo `date` " Logging to $DATA_LOG"
+   echo `date` " Find it at http://admin.metaarchive.org/network/BatchAuConfig/$DATE/log" 
+endif  
+if ($SILENT != 'silent') then 
+   echo "\n\n--- Harvesting `date`\n" >>& $DATA_LOG;
+endif
+
+foreach f (`fgrep -v "#" $SERVERS | awk '{ print $2 " " }' `) 
+   echo ">>>> $f "; 
+   $PULL -server $f -t -u $USER -p $PWD -page 'BatchAuConfig?lockssAction=Backup' -dir $DATA_TARGET_DIR -format 'out'; 
+end 
+

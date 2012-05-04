@@ -1,0 +1,122 @@
+#!/usr/bin/perl   -w
+use strict;
+
+use Getopt::Long; 
+
+my $OUT="-"; 
+my $TIMEOUT=180; 
+my $TRY=3;
+my $HELP = 0; 
+my $DOTRACE = 1; 
+
+my $URL; 
+my $XSLFILE = ""; 
+
+my $USER = ""; 
+my $PWD = ""; 
+
+sub prtargs 
+{
+   print "OUT= $OUT\n"; 
+   print "TIMEOUT= $TIMEOUT\n"; 
+   print "TRY= $TRY\n";
+   print "URL= $URL\n";
+   print "XSLFILE= $XSLFILE\n";
+   print "USER= $USER\n";
+   print "PWD=...\n";
+}
+
+if (0 == parseargs()) {
+    if ($DOTRACE) {
+       prtargs(); 
+    } 
+    exit(doit()); 
+}
+exit(1) ;
+
+sub parseargs 
+{
+ my $result = GetOptions( 
+            "u=s" => \$USER, 
+            "p=s" => \$PWD, 
+            "timeout=i" => \$TIMEOUT,
+            "try=i" => \$TRY,
+            "help=s" => \$HELP,
+            "out=s" => \$OUT, 
+            "u=s" => \$URL, 
+            "xsl=s" => \$XSLFILE, 
+            "t" => \$DOTRACE 
+           ); 
+  if ($result != 1 || $HELP || !$URL) { 
+        usage(); 
+        return $result == 1; 
+  } 
+}
+ 
+sub usage 
+{
+print   "usage: pullUrl OPTIONS\n"; 
+print "OPTIONS:\n"; 
+print "\t-u user: name of user to be passwed to wget \n";
+print "\t-p pwd: password to be passed to wget\n";
+print "\t-help:  print help\n";  
+print "\t-out file: output file (DEFAULT - for stdout)\n";
+print "\t-timeout sec: the number of seconds to wait before timing out\n";
+print "\t-tries t: the number of tries if connection fails\n";
+print "\t-t: whether to trace the script's actions\n"; 
+print "\t-u url: the url to fetch (REQUIRED)\n"; 
+print "\t-xsl file: apply given csl transformation file\n";
+print "\n"; 
+print "Request the defined <url> ; \n" . 
+      "Apply the optional xslfile and \n" . 
+      "Print to stdout or the given output file\n";
+}
+
+sub doit
+{
+   print ("QUERY $URL\n");
+   my($cmd) = ""; 
+   my($postprocess) = ""; 
+   if ($XSLFILE) {
+      $cmd = "wget -O -"; 
+      $postprocess = " | xsltproc $XSLFILE - "; 
+      if ($OUT !~ "-") { 
+         $postprocess = " | xsltproc $XSLFILE - > $OUT "; 
+      } 
+   } else {
+      $cmd = "wget -O '$OUT'"; 
+   }
+   if ($USER) { 
+      $cmd .= " --http-user " . $USER; 
+   } 
+   if ($PWD) { 
+      $cmd .= " --http-passwd " . $PWD ; 
+   } 
+   $cmd .= " --timeout=" . $TIMEOUT . 
+           " --tries=" . $TRY . 
+           " $URL"; 
+   $cmd .= $postprocess;
+   systm($cmd); 
+}
+
+sub systm
+{
+   my $cmd = join(' ', @_); 
+   my($rc) = system($cmd); 
+   if ($USER) { $cmd =~ s/$USER/XXX/g; }  
+   if ($PWD) { $cmd =~ s/$PWD/XXX/g;  }
+   trace($cmd); 
+   if ($rc != 0) {
+       print STDERR "FAILED: $cmd\n"; 
+   } 
+   return $rc;
+}
+
+sub trace
+{
+   my $str = join(' ', @_); 
+   if ($DOTRACE) { 
+      print $str . "\n"; 
+   } 
+}
+

@@ -1,0 +1,238 @@
+#!/usr/bin/perl  
+
+use Getopt::Long; 
+$CONFIG_DIR = "/home/metaarchive/bin/pullTable.conf"; 
+
+$UIPAGE ;
+$UITABLEPAGE="DaemonStatus?"; 
+$UITABLE="AU_Status";
+$DATADIR = "."; 
+$FORMAT = "text" ; 
+$TIMEOUT=180; 
+$TRY=3;
+$DOTRACE = 1; 
+
+$DOXSLT= 0; 
+$XSLFILE; 
+
+$USER; 
+$PWD; 
+
+%tables= (
+   "AU_Status",  "ArchivalUnitStatusTable", 
+   "AU_Ids",  "AuIds", 
+   "Overview","OverviewStatus", 
+   "Plugins", "Plugins", 
+   "Polls", "V3PollerTable", 
+   "Repository",  "RepositoryTable", 
+   "Space", "RepositorySpace", 
+   "CrawlStatus", "crawl_status_table"
+); 
+
+$PORT = 8081; 
+
+# stanford "sul-lockss27.stanford.edu"
+
+
+if (0 == parseargs()) {
+    $rc = doit(); 
+    exit($rc == 0 ? 0 : 1); 
+}
+exit(1) ;
+
+sub parseargs 
+{
+ $result = GetOptions( 
+            "u=s" => \$USER, 
+            "p=s" => \$PWD, 
+            "dir=s" => \$DATADIR, 
+            "format=s" => \$FORMAT,
+            "timeout=i" => \$TIMEOUT,
+            "try=i" => \$TRY,
+            "help=s" => \$HELP,
+            "out=s" => \$OUTNAME, 
+            "page=s" => \$UIPAGE, 
+            "server=s" => \$SERVER, 
+            "table=s" => \$UITABLE, 
+            "xslt" => \$DOXSLT, 
+            "t" => \$DOTRACE 
+           ); 
+  if (!$HELP && (!$USER || !$PWD || !$SERVER)) {
+    $result = 0; 
+  }
+  if ($result == 1) { 
+     %servers = ($SERVER, $SERVER); 
+     if ($DOXSLT) { 
+        if ($FORMAT ne "xml") {
+            $DOXSLT = 0; 
+            print "Turning XSLT processing off; output not in xml format\n"; 
+        } 
+     } 
+     if (! $UIPAGE) { 
+        if (!$OUTNAME) {
+            $OUTNAME = $UITABLE; 
+        } 
+        if ($tables{$UITABLE}) { 
+            $UIPAGE = $UITABLEPAGE . "table=" . $tables{$UITABLE} . "&output=" . $FORMAT ; 
+        } else {
+            $UIPAGE = $UITABLEPAGE . "output=" . $FORMAT ; 
+        } 
+     }  else { 
+        if (!$OUTNAME) {
+            $OUTNAME = $UIPAGE; 
+            $OUTNAME =~ s/\//_/g;
+        } 
+     } 
+     if ($HELP) { 
+        if ($HELP eq "defaults") {
+            usage_defaults(); 
+            return 1; 
+        }
+        if ($HELP eq "table") {
+            usage_table(); 
+            return 1; 
+        }
+        if ($HELP eq "format") {
+            usage_format(); 
+            return 1; 
+        }
+        return usage(); 
+        return 1; 
+     }
+  } else {
+     usage(); 
+     return 1; 
+  }
+}
+ 
+sub usage 
+{
+print   "usage: pullTable OPTIONS\n"; 
+print "OPTIONS:\n"; 
+print "\t-u user: name of LOCKSS UI user (REQUIRED)\n"; 
+print "\t-p pwd: LOCKS UI password (REQUIRED)\n"; 
+print "\t-dir dirname: name of output directory\n"; 
+print "\t-format format: the format setting for the LOCKSS ui request\n"; 
+print "\t-help topic: print help about topic,\n" . 
+      "\t             where topic is table, format, defaults\n"; 
+print "\t-help: print this help msgs\n"; 
+print "\t-out outFilePrefix: name of output file\n"; 
+print "\t-page pageName: the page to request from the LOCKSS ui\n"; 
+print "\t-table tableName: the UI table  to request from the LOCKSS ui\n"; 
+print "\t-timeout sec: the number of seconds to wait before timing out\n";
+print "\t-tries t: the number of tries if connection fails\n";
+print "\t-server server: pull table from given server only (required)\n";
+print "\t-t: whether to trace the script's actions\n"; 
+print "\t-xslt: apply transformations to xml files\n"; 
+print "\n"; 
+print "Request the defined <page> in the given format from the LOCKSS UI\n" . 
+      "of the given LOCKSS server and save the results in \n" . 
+      "\t\t<dirname>/<outFilePrefix>.<format>.<server>\n"; 
+}
+
+sub usage_defaults 
+{
+     showargs();    
+}
+
+sub usage_table 
+{
+   print "available tables: \n"; 
+   while ( ($table, $uitable) = each(%tables) ) {
+        if ($uitable) { 
+           print "\t$table (meaning /DaemonStatus?table=$uitable)\n"; 
+        } else { 
+           print "\tERROR\n"; 
+        }
+   } 
+}
+
+sub usage_format 
+{
+   print "available formats: text, csv, xml, html\n"; 
+}
+
+
+sub showargs
+{
+   print "LOG=$LOG\n";
+   print "DATADIR=$DATADIR \n";  
+   print "OUTNAME=$OUTNAME \n";  
+   print "UIPAGE=$UIPAGE\n"; 
+   print "FORMAT=$FORMAT\n";  
+   print "TIMEOUT=$TIMEOUT\n";  
+   print "TRY=$TRY\n";  
+   print "DOTRACE=$DOTRACE \n";  
+}
+ 
+sub doit
+{
+   $rc = 0 ;
+   while ( ($node, $url) = each(%servers) ) {
+       my $page = "http://" . $url . ":" . $PORT . "/" . $UIPAGE ; 
+       $file = $DATADIR . "/" . $OUTNAME . "_" . $node;  
+       print "QUERY $node => $file ". ($DOXSLT ? "(xslt)" : "") . "-> "; 
+       $rc =  (sget($page, $file, $FORMAT) or $rc); 
+   }
+   return $rc; 
+}
+
+sub sget
+{
+   my($page, $file) = @_; 
+   my($postprocess) = ""; 
+   my($xsl) =  get_xsl($UITABLE); 
+   my($cmd) = ""; 
+   if ($xsl ne "") {
+      $cmd = "wget -S -O -"; 
+      $postprocess = " | xsltproc $xsl - > $file-xsl.$FORMAT"; 
+   } else {
+      $cmd = "wget -S -O '$file.$FORMAT'"; 
+   }
+   $cmd .= " --http-user " . $USER . 
+               " --http-passwd " . $PWD . 
+               " --timeout=" . $TIMEOUT . 
+               " --tries=" . $TRY . 
+          " '" .  $page . "'"; 
+   $cmd .= $postprocess;
+   $rc =  systm($cmd); 
+   return $rc;
+}
+
+sub get_xsl
+{
+  my($table) = @_; 
+  if ($DOXSLT) {
+     $xsl = "$CONFIG_DIR/$table.xsl";
+     if (-r $xsl) { 
+         return $xsl; 
+     } else { 
+          trace("$xsl unreadable => turning off xslt transform for $table"); 
+     } 
+  }  
+  return ""; 
+}
+
+sub systm
+{
+   my $cmd = join(' ', @_); 
+   my($rc) = system($cmd); 
+   $cmd =~ s/$USER/XXX/g; 
+   $cmd =~ s/$PWD/XXX/g; 
+   trace($cmd); 
+   if ($rc != 0) {
+       print STDERR "FAILED: $cmd\n"; 
+   } 
+   return $rc; 
+}
+
+sub trace
+{
+   my $str = join(' ', @_); 
+   $str =~ s/$PWD/XXX/g; 
+   $str =~ s/$USER/XXX/g; 
+   if ($DOTRACE) { 
+      print $str . "\n"; 
+   } 
+}
+
