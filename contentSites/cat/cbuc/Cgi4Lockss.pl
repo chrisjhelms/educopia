@@ -125,14 +125,14 @@ unless( $out->param ) {
 	eval{
 		$mech->follow_link ( url_regex => qr/handle\/\d+\/$commID\/?$/i );
                 1;
-        } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.".Existeix?")};	
-	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID."Existeix?");
+        } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.". Existeix?")};	
+	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID.". Existeix?");
 	
 	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
 	my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
-        error($out,"No s'han trobat enllaços a col·leccions a la pàgina de la comunitat".$commID.".") unless ( @collections );
+        error($out,"No s'han trobat enllaços a col·leccions a la pàgina de la comunitat.".$commID.".") unless ( @collections );
 
 	for my $sublink ( @collections ) {
    		if ( $sublink eq $collections[0] ) {
@@ -150,7 +150,7 @@ unless( $out->param ) {
 	}
 
 # L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'verb+resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. Precedència al statement condicional: eq > && > ||. 
-} elsif ( $out->param == 1 && $out->param('set') || $out->param == 2 && $out->param('resumptionToken') && out->param('verb') eq 'ListRecords' ) { 
+} elsif ( $out->param == 1 && $out->param('set') || $out->param == 2 && $out->param('resumptionToken') && $out->param('verb') eq 'ListRecords' ) { 
 	
 	eval{ #Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
 	  my $parser = XML::LibXML->new;
