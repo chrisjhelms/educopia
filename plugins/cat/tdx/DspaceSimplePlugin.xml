@@ -2,7 +2,7 @@
   <entry>
     <string>au_manifest</string>
     <list>
-      <string>&quot;%s/manifests/manifest%d.html&quot;, base_url, volume</string>
+      <string>&quot;%s/manifests/manifest%s.html&quot;, base_url, volume</string>
       <string>&quot;http://www.tdx.cat/LOCKSS.txt&quot;</string>
     </list>
   </entry>
@@ -12,7 +12,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
-        <description>Public URL to the dynamic Manifest Page script</description>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
@@ -22,8 +22,8 @@
         <key>volume</key>
         <displayName>Volume</displayName>
         <description>Collection Volume No. or part</description>
-        <type>6</type>
-        <size>3</size>
+        <type>1</type>
+        <size>20</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -31,35 +31,35 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;TDX_Part_%d&quot;, volume</string>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s/manifests/manifest%d.html&quot;, base_url, volume</string>
+    <string>&quot;TDX_Part_%s&quot;, volume</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
     <int>99</int>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>7776000000</long>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifests/manifest%s.html&quot;, base_url, volume</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
     <long>6000</long>
   </entry>
   <entry>
-    <string>plugin_notes</string>
-    <string>Simple Plugin for TDX DSpace</string>
+    <string>au_def_new_content_crawl</string>
+    <long>7776000000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>DSpace Simple TDX Plugin</string>
+    <string>cat: DSpace Simple TDX Plugin</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>Simple Plugin for TDX DSpace</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -69,7 +69,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^(%s|http://www.tdx.cat)&quot;, base_url</string>
-      <string>1,&quot;^%s/manifests/manifest%d.html$&quot;, base_url, volume</string>
+      <string>1,&quot;^%s/manifests/manifest%s.html$&quot;, base_url, volume</string>
       <string>1,&quot;^http://www.tdx.cat/LOCKSS.txt$&quot;</string>
       <string>1,&quot;set=hdl_10803_[0-9]+&quot;</string>
       <string>1,&quot;^http://www.tdx.cat/handle/10803/[0-9]+\?mode=full&quot;</string>
