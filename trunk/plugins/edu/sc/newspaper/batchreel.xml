@@ -1,5 +1,13 @@
 <map>
   <entry>
+    <string>plugin_version</string>
+    <string>2</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>3</int>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -70,7 +78,7 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/metaarchive_manifest.html$&quot;, base_url</string>
       <string>1,&quot;^%s/.*%s/?$&quot;, base_url, batch</string>
-      <string>1,&quot;^%s/.*s/.*.xml$&quot;, base_url, batch</string>
+      <string>1,&quot;^%s/.*%s/.*.xml$&quot;, base_url, batch</string>
       <string>1,&quot;^%s/.*%s/%s/?$&quot;, base_url, batch, folder</string>
       <string>4,&quot;^%s/.*%s/%s/%s.*&quot;, base_url, batch, folder, reel</string>
     </list>
