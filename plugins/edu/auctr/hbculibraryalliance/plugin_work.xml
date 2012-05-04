@@ -1,0 +1,90 @@
+<map>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url2</key>
+        <displayName>Second Base URL</displayName>
+        <description>Use if AU spans two hosts</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>collection</key>
+        <displayName>Collection</displayName>
+        <description>Name of ArchiveIt collection</description>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;%s/cdm/search/collection/%s&quot;, base_url, collection</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;&quot;</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+		<long>7776000000</long>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>HBCU Library Alliance PITTest</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.auctr.hbculibraryalliance</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+		<list>
+			<!-- Reflects CONTENTdm 6.1.1 URLs -->
+			<!-- NB Per ?config error <string>1,&quot;[^/|^//]+page&quot;</string>, and below. -->
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>4,&quot;^%s&quot;, base_url2</string>
+      <string>1,&quot;[^/]+cdm&quot;</string>
+      <string>1,&quot;[^/]+search&quot;</string>
+      <string>1,&quot;[^/]+singleitem&quot;</string>
+      <string>1,&quot;[^/]+collection&quot;</string>
+      <!-- Example webservice call: http://hbcudigitallibrary.auctr.edu:2012/dmwebservices/index.php?q=dmGetItemInfo/rwwl/95/json -->
+      <string>1,&quot;[^/]+dmwebservices&quot;</string>
+      <string>1,&quot;[^/]+index\.php\?q=&quot;</string>
+      <string>1,&quot;^dmGetItemInfo&quot;</string>
+      <!-- NB this configuration will lightly change as we finalize where to store the script and what to store beneath it.
+           Presumably, one script with collection named underneath. -->
+      <string>1,&quot;[^/]+asud|ASUD|bchd|BCHD|fupp|FUPP|gsbg|GSBG|hamu|HAMU|rwwl|RWWL|lumo|LUMO|ssld|SSLD|lupa|LUPA|mhmc|MHMC|mctb|MCTB|msmd|MSMD|nccu|NCCU|pcld|PCLD|stad|STAD|schc|SCHC|suam|SUAM|tsul|TSUL|txdc|TXDC|tuld|TULD|udcw|UDCW|vsud|VSUD&quot;</string>
+      <string>1,&quot;[^/]+page&quot;</string>
+			<string>1,&quot;[^/]+id&quot;</string>
+			<string>1,&quot;[^/]+[0-9]+&quot;</string>
+      <string>1,&quot;[^/]+json$&quot;</string>
+      <string>1,&quot;[^/]+rec&quot;</string>
+      <string>1,&quot;[^/]+[0-9]+$&quot;</string>
+
+			<!-- auc.oo1.bgx1.18800000.pho0001.tif -->
+      <!-- Worth noting that, it seems, not everybody followed this protocol -->
+      <!-- NB this configuration will change. TODO: Audit the arriving tifs to determine if this can be more restrictive. -->
+      <string>1,&quot;(asu|auc|ben|ful|gsu|vhi|subr|tsu|tul|vsu|liu|mlc|msm|ncc|pne|susla|sgw|nra|txi|udc)\.*\.(tif|TIF|tiff|TIFF|pdf|PDF)&quot;</string>
+
+		</list>
+  </entry>
+</map>
