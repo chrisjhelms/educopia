@@ -24,16 +24,17 @@ use XML::LibXML;
 use XML::LibXSLT;
 use WWW::Mechanize;
 
-
-my $webIndex = 'http://84.88.13.203:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina que el repositori  
-my $webOAIif = $webIndex . '/oai/request';
-my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
-
 my $mech;
 my $sublink;
 my $out = new CGI;
 
 
+# VARIABLES #
+my $webIndex = $out->param('webIndex') // 'http://84.88.13.203:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina que el repositori  
+my $webOAIif = $out->param('webOAIif') // $webIndex . '/oai/request';
+my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
+$out->delete('webIndex','webOAIif');
+#############
 
 # L'script actua com a generador de la ManifestPage (comportament per defecte, és a dir, quan no sol·licitem exlpícitament cap set) 
 # Unless (If not) defined any of the 3 expected parameters
@@ -140,7 +141,7 @@ unless( $out->param ) {
                         	           -attachment  => 'AUs_comm'.$commID.'.csv' );
  					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
 
-            		print "base_url2, instance_id, hdl_id\n";
+            		print "base_url2, DSP_INST, HDL_ID\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
    		} else {
