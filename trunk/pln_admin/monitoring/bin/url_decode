@@ -1,5 +1,0 @@
-#!/usr/bin/perl 
-use URI::Escape;
-my $escaped = $ARGV[0]; 
-my $unescaped = uri_unescape( $escaped );
-print "$unescaped \n"; 
