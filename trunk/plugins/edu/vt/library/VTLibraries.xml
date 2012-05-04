@@ -1,9 +1,5 @@
 <map>
   <entry>
-    <string>plugin_version</string>
-    <string>3</string>
-  </entry>
-  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -17,17 +13,22 @@
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>volume</key>
-        <displayName>Volume No.</displayName>
-        <type>6</type>
-        <size>8</size>
+        <displayName>Volume</displayName>
+        <description>indicate which submanifest/volume range you want</description>
+        <type>1</type>
+        <size>10</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
   </entry>
   <entry>
+    <string>plugin_version</string>
+    <string>4</string>
+  </entry>
+  <entry>
     <string>au_name</string>
-    <string>&quot;Virginia Libraries&quot;</string>
+    <string>&quot;Virginia Libraries: Volume: %s&quot;, volume</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -42,6 +43,10 @@
     <long>7776000000</long>
   </entry>
   <entry>
+    <string>plugin_notes</string>
+    <string>Replacement for old VA Libs plugin. Harvests by tens of volumes, instead of single volume.</string>
+  </entry>
+  <entry>
     <string>plugin_name</string>
     <string>VTLibraries</string>
   </entry>
@@ -52,17 +57,11 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%slockss/manifest.html&quot;, base_url</string>
-      <string>1,&quot;%sv%d_n[0-9]+/v%dn[0-9]+\.pdf&quot;, base_url, volume, volume</string>
-      <string>1,&quot;%stoc/v%d_n[0-9]+\.html&quot;, base_url, volume</string>
-      <string>1,&quot;%sv%d_n[0-9]+/&quot;, base_url, volume</string>
-      <string>1,&quot;%s$&quot;, base_url</string>
-      <string>1,&quot;%scontents\.html&quot;, base_url</string>
-      <string>1,&quot;%spubstate\.html&quot;, base_url</string>
-      <string>1,&quot;%ssubmission\.html&quot;, base_url</string>
-      <string>1,&quot;%sstaff\.html&quot;, base_url</string>
-      <string>1,&quot;%sindex\.html&quot;, base_url</string>
+      <string>1,&quot;%slockss/manifest_volume%s.*html&quot;, base_url, volume</string>
+      <string>1,&quot;%sv%s.*/.*&quot;, base_url, volume</string>
+      <string>1,&quot;%sv%s.*\.pdf&quot;, base_url, volume</string>
+      <string>1,&quot;%stoc/v%s.*&quot;, base_url, volume</string>
     </list>
   </entry>
 </map>
