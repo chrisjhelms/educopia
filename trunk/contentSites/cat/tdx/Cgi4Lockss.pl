@@ -67,7 +67,7 @@ unless( $out->param ) {
 	my @communities = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
  	error($out,"No s'han trobat enllaços a comunitats a la web del repositori proporcionada ".$webIndex.".") unless ( @communities ); 	
 
-	print $out->header(), #$out->header(-charset => 'utf-8'),
+	print $out->header(), #$out->header(-charset => 'utf-8'), s'ho carrega extranyament
 	      $out->start_html('Col·leccions a Preservar'),
 	      $out->h2('Col·leccions a Preservar'),
 	      $out->h4(
@@ -119,7 +119,7 @@ unless( $out->param ) {
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif . '&set=' . $set  }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => $out->url . '?webIndex=' . $webIndex . '&webOAIif=' . $webOAIif . '&set=' . $set   }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
