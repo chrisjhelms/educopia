@@ -20,12 +20,12 @@
     <string>&quot;Rice University Pamphlets&quot;</string>
   </entry>
   <entry>
-    <string>plugin_name</string>
-    <string>Rice Epherma Archive</string>
-  </entry>
-  <entry>
     <string>au_def_new_content_crawl</string>
     <long>1209600000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Rice Pamphlets</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -46,6 +46,13 @@
   <entry>
     <string>plugin_crawl_type</string>
     <string>HTML Links</string>
+  </entry>
+  <entry>
+    <string>au_manifest</string>
+    <list>
+      <string>&quot;%s/manifest.html&quot;, base_url2</string>
+      <string>&quot;%s/lockss/permission.txt&quot;, base_url</string>
+    </list>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -86,13 +93,6 @@
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
-    </list>
-  </entry>
-  <entry>
-    <string>au_manifest</string>
-    <list>
-      <string>&quot;%s/manifest.html&quot;, base_url2</string>
-      <string>&quot;%s/lockss/permission.txt&quot;, base_url</string>
     </list>
   </entry>
 </map>
