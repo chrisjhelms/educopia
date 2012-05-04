@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.rice.library.wrcrice</string>
+    <string>edu.rice.library.wrc</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
