@@ -1,0 +1,14 @@
+#!/bin/csh 
+foreach xml (metaarchive_aus.xml  metaarchive_plugins.xml) 
+   xmllint --noout $xml 
+   if ($status != 0) then 
+      echo  "$xml is not a valid xml file"
+      echo  "update your configuratiobs ! "
+   endif 
+end 
+if (-e dpid) then 
+  echo "LOCKSS daemon is running" 
+else 
+  echo "LOCKSS daemon is NOT running" 
+endif
+

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cat metaarchive_header.xml 
+
+# generate plugins definitions 
+echo "\t<!-- Plugin Registry:"
+echo "\tList the plugins that should be included in UI menus. -->"
+echo "\t<property name='plugin.registry'>"
+echo "\t<list>"
+cd plugins 
+for  f in `find . -name \*xml | sed 's,^./,,' | sed 's/.xml$//' | sed s',/,.,g'`
+do
+   echo "\t\t<value>$f</value>"
+done 
+cd ..
+echo "\t</list>"
+echo "\t</property>"
+
+cat metaarchive_footer.xml
