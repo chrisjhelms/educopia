@@ -1,0 +1,5 @@
+Paper in Pdf format: divideAndConquer.pdf
+Paper in text format: divideAndConquer.tex
+Algorithm implementations in java: divideAndConquer.java 
+Sample input Data: divideAndConquer.tgz
+Performance Statistics: divideAndConquer.xsl

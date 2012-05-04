@@ -1,0 +1,79 @@
+<map>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;Folger IMAGES %s and up&quot;, from</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>folger:  Shakespeare Image Files</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin starts to crawl at Base_URL/manifest.html  proceeds to Masters/*/manifest.html, to manifest-FROM-*.html, to all listed images 
+  </string>
+  </entry>
+  <entry>
+    <string>plugin_cache_result_list</string>
+    <list>
+      <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>from</key>
+        <displayName>FROM</displayName>
+        <description>A string identifying the submanifest page. In most cases this is an integer value denoting which is the first image in a series of images</description>
+        <type>1</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>9</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>3</int>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>8121600000</long>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.folger.shakespeare</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;^%s/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;/manifest-%s-.+\.html$&quot;, from</string>
+      <string>1,&quot;/[0-9a-zA-Z_]+.[a-zA-Z]+&quot;</string>
+      <string>1,&quot;.*\.[xX][mM][lL]&quot;</string>
+      <string>1,&quot;.*\.[fF][pP][0-9]&quot;</string>
+    </list>
+  </entry>
+</map>

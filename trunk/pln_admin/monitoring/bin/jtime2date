@@ -1,0 +1,40 @@
+#!/usr/bin/python
+"""Convert an integer (Java time value) to human readable date 
+
+Usage: jtime2date [options] time 
+
+Options:
+    -h / --help
+        Print this message and exit.
+"""
+
+import sys
+import os
+import time 
+import getopt
+
+def main(argv):                         
+	try:                                
+		opts, args = getopt.getopt(argv, "h", ["help"])
+	except getopt.error, msg:
+        	usage(1, msg)
+
+	for opt, arg in opts:                
+		if opt in ("-h", "--help"):  
+			usage(0)                     
+
+	try: 
+		tm = int(args[0]) / 1000;
+		print time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(tm)) 
+	except  (ValueError, IndexError): 
+		usage(1)
+
+def usage(code, msg=''):
+    print >> sys.stderr, __doc__
+    if msg:
+        print >> sys.stderr, msg
+    sys.exit(code)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+

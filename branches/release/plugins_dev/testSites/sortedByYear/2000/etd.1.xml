@@ -1,0 +1,21 @@
+<metadata
+  xmlns="http://example.org/myapp/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://example.org/myapp/ http://example.org/myapp/schema.xsd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <dc:title>
+    Thesis Number 1
+  </dc:title>
+  <dc:description>
+    This masters these deals with the number one topic of importance to the learned community.
+  </dc:description>
+  <dc:publisher>
+    The University
+  </dc:publisher>
+  <dc:identifier>
+    http://etds.university.edu/id/1 
+  </dc:identifier>
+
+</metadata>
+

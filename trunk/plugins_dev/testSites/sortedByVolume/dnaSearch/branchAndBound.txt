@@ -1,0 +1,5 @@
+Paper in Pdf format: branchAndBound.pdf
+Paper in text format: branchAndBound.tex
+Algorithm implementations in java: branchAndBound.java 
+Sample input Data: branchAndBound.tgz
+Performance Statistics: branchAndBound.xsl

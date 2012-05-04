@@ -1,0 +1,93 @@
+<map>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>month</key>
+        <displayName>Month</displayName>
+        <description>Two digit month</description>
+        <type>2</type>
+        <size>2</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>year</key>
+        <displayName>Year</displayName>
+        <description>Four digit year (e.g., 2004)</description>
+        <type>4</type>
+        <size>4</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;Virginia Tech ETD&apos;s by Month- %d - %d&quot;, year, month</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>5</int>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%slockss/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>31536000000</long>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>The expected base URL is http://scholar.lib.vt.edu/theses/
+The configuration parameter is a 4 digit year and 2 digit month.
+
+The ETD&apos;s@VT collection is separated into three different collections within Conspectus due to the complexity of requiring three different plugins for a complete crawl. The first collection, ETD&apos;s@VT, is divided into AU&apos;s by year, and harvests available, restricted and withheld ETD&apos;s from 1997 to 2008 inclusive. The second collection, monthly ETDS@VT, is divided into AU&apos;s by year and month, and harvests available, restricted and withheld ETD&apos;s from 2009 on. Each individual ETD has a folder in either theses/available or theses/withheld.  Restricted ETD&apos;s are in the available folder but only readable by Virginia Tech IP&apos;s and MA nodes. Only IP&apos;s on the MA list of servers are allowed to get a directory listing of theses/withheld; this is updated by a cron job.
+
+The naming convention for the majority of past ETD&apos;s and future ETD&apos;s follows a variant of the format /etd-mmddyyyy-tttttt based on the timestamp they are added to the collection.
+
+Anything that does not match the above structure is harvested by a separate collection and plugin, called ETD&apos;s@VT - pre 2000 unsorted and edu.vt.library.thesesearly, respectively. This third collection is static as no new ETD&apos;s are being added with the old naming conventions. This third collection also harvests the non-ETD content in the /theses directory as it merely excludes pages that follow the above format.</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>monthly ETD&apos;s@VT</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.vt.library.monthlytheses</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%slockss/manifest.html$&quot;, base_url</string>
+      <string>1,&quot;^%swithheld/?$&quot;, base_url</string>
+      <string>1,&quot;%sbrowse/by_author/all.html&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;%savailable/etd-%.02d+[0-9]+%d-[0-9]+/.*&quot;, base_url, month, year</string>
+      <string>1,&quot;%swithheld/etd-%.02d+[0-9]+%d-[0-9]+/.*&quot;, base_url, month, year</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_crawl_type</string>
+    <string>HTML Links</string>
+  </entry>
+</map>
