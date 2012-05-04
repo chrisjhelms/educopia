@@ -53,10 +53,11 @@ my @AUs;
 my $ANSWER='';
 my ($select) = $mech->find_all_inputs( type => 'option', name => 'Title' ); # Converting to list (if not it only shows #elements)
 
-if ($select){ 
+if ($select){
+   while ('exit' ne $ANSWER ){ 
 	until ('ingest!' eq $ANSWER){
-		print "\n>>>> Please, introduce a REGEXP pattern for matching AUs to be ingested [i.g, 'College.*Year(199[5-9]|200[0-5])' ].\n";
-		print "\n     (CASE SENSITIVE is ".($CASE_SENSITIVE_REGEXP ? 'ON' : 'OFF')." on hardcoded initial params): ";
+		print "\n>>>> Please, introduce a REGEXP pattern for matching AUs to be ingested from Conspectus (i.g, 'College.*Year(199[5-9]|200[0-5])' ):\n";
+		print "\n     [CASE SENSITIVE is ".($CASE_SENSITIVE_REGEXP ? 'ON' : 'OFF')." on hardcoded initial params] : ";
 		chomp (my $REGEXP = <>);
 
 		@AUs = grep(($CASE_SENSITIVE_REGEXP? /$REGEXP/ : /$REGEXP/i ), $select->value_names);
@@ -81,7 +82,7 @@ if ($select){
 
 		eval{
 			$mech->content =~ /<body.*?<center.*?<font.*?>(.*?)<\/font>/si; # Identifiquem el missatge de retorn
-			print "\n\t--- [Action Reply Msg]: $1";
+			print "\n\t--- [Reply Msg]: $1";
 		} or die "\n\n\t*** Title '$_' . It could not be added.\n\n";
 		
 		eval{
@@ -92,7 +93,11 @@ if ($select){
 		$mech->success or die "\n\n\t*** ERROR!: LOCKSS returned an error message when trying to acess AuConfig's LOCKSS page '$LOCKSS_ADMIN_UI?lockssAction=Add' after ingesting previous AU.\n\n";
 	}
 
-	print "\n\n>>>> Finished! You can check again all AUs are ingested right-clicking at '$LOCKSS_ADMIN_UI'.\n\n";
+	print "\n\n>>>> Finished! You can check again all AUs are ingested right-clicking at '$LOCKSS_ADMIN_UI'.";
+	print "\n\n>>>> Type any string or just press <Enter> if you want to keep on adding AUs. Otherwise enter 'exit': ";
+	chomp ($ANSWER = <>);
+	print "\n";
+   }
 }else{
 	print "\n*** Error figuring SELECT (dropdown) options out for Archival Unit\n\n";
 }
