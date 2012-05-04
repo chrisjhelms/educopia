@@ -14,9 +14,9 @@ endif
 
 if (0) then 
 # get crawl status  table 
-pullTable -u $MACACHE_USER -p $MACACHE_PWD -server `cachedns test` -table CrawlStatus -O - | fgrep 'Folger Images 2nd Batch' > $DATE/CrawlStatus
+pullTable -u $MACACHE_USER -p $MACACHE_PWD -server `cachedns test` -table CrawlStatus -format=text -O - | fgrep 'Folger Images 2nd Batch' > $DATE/CrawlStatus
 endif 
-awk '/num_urls_with_errors=0/  { FS=","; OFS="\t";  print $6, $7, $8, $10, $11, $14, $9 }' $DATE/CrawlStatus | sed 's/au=/AuName=/' > $DATE/CrawlStatus.noerrors 
+awk '/num_urls_with_errors=0/  { FS=","; OFS="\t";  print }' $DATE/CrawlStatus  > $DATE/CrawlStatus.noerrors 
 
 #echo ">>> Sizes  " 
 #cat $DATE/Status.sizes
