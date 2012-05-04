@@ -2,13 +2,13 @@
 
   * trunk/
     * plugins/    -- plugin xml files of plugins not yet active in the production network 
-    * plugins_dev/  
+    * plugins_dev  
         * plugins 
            * ext     -- example plugins documented in [http://wiki.metaarchive.org metawiki]'s plugins sections 
         * run_one_daemon -- LOCKSS run one daemon development instance used by MetaArchive staff
         * scripts  -- scripts that may be useful to plugin developers 
         * testSites  -- web site mockups used in [http://wiki.metaarchive.org metawiki]'s plugins sections 
-    * contentSites/  -- contains subdirectories (one for each content provider) to keep <br/>  scripts/files/manifest pages that are kept on web servers  <br/> for the benefit of LOCKSS crawlers
+    * contentSites/  -- contains subdirectories (one for each content provider) to keep scripts/files/manifest pages <br/> that are kept on web servers for the benefit of LOCKSS crawlers
 
   * branches/ 
       * release/ 
@@ -19,9 +19,9 @@
            * plugintool/  -- LOCKSS plugin tool 
            * plugins/  -- example plugins and templates 
            * run_one_daemon   -- LOCKSS run_one_daemon setup which integrates with MetaArchive's conspectus tool  (for plugin developers)
-           * scripts/  -- miscellaneous scripts that may be used for plugin developers when analyzing a web site 
+           * scripts/  -- miscellaneous scripts that may be used for plugin developers when analysing a web site 
            * testSites/ -- toy web sites - the project wiki refers to these sites in its plugin documentation  
          * webserver/      -- scripts for web server administrators 
-     * contentSites/  -- same as in trunk - except these are the files on actively preserved sites 
+     * contentSites/  -- same as in trunk - except these are files kept on actively preserved sites
       
  
