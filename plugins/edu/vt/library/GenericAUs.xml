@@ -12,11 +12,11 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>volume</key>
-        <displayName>Volume</displayName>
-        <description>indicate which submanifest/volume range you want</description>
+        <key>DirName</key>
+        <displayName>Directory Name</displayName>
+        <description></description>
         <type>1</type>
-        <size>10</size>
+        <size>30</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -24,44 +24,47 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>1</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;Virginia Libraries: Volume: %s&quot;, volume</string>
+    <string>&quot;All Files for Collection contained in %s/%s&quot;, base_url, DirName</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>999</int>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%slockss/manifest.html&quot;, base_url</string>
+    <string>&quot;%s/lockss/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
-    <long>6000</long>
+    <long>3000</long>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
-    <long>7776000000</long>
-  </entry>
-  <entry>
-    <string>plugin_notes</string>
-    <string>Replacement for old VA Libs plugin. Harvests by tens of volumes, instead of single volume.</string>
+    <long>31449600000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>VTLibraries</string>
+    <string>GenericAUs</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin will harvest all files in a given subdirectory of a given base URL. The base URL is expected to not contain a trailing slash [/]. The manifest page must be located at /lockss/manifest.html of the base directory.</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.vt.library.VTLibraries</string>
+    <string>edu.vt.library.GenericAUs</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;%slockss/manifest.html&quot;, base_url</string>
-      <string>1,&quot;%slockss/manifest_volume%s.*html&quot;, base_url, volume</string>
-      <string>1,&quot;%sv%s.*/.*&quot;, base_url, volume</string>
-      <string>1,&quot;%sv%s.*\.pdf&quot;, base_url, volume</string>
-      <string>1,&quot;%stoc/v%s.*&quot;, base_url, volume</string>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/lockss/manifest.html$&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;^%s/%s/.*$&quot;, base_url, DirName</string>
     </list>
   </entry>
 </map>
