@@ -53,6 +53,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 <xsl:output method="html"/>
 
+<xsl:param name="dspacehome">.</xsl:param>
+
 <xsl:template name="style">
 td.value {
 	vertical-align: top;
@@ -163,7 +165,7 @@ p.intro {
 More information about this XSLT is at the <a href="#moreinfo">bottom of the page</a>.</p>
     <xsl:apply-templates select="/oai:OAI-PMH" />
     <h2><a name="moreinfo">About the XSLT</a></h2>
-    <p>This stylesheet is used to convert OAI:DC XML produced by DSPACE instances into HTML pages that link to DSPACE item pages showing the full item record, ie to a URL with '?mode=full'. See more info at <a href="./manifestSmartech.html"> manifestSmartech.html </a>.
+    <p>This stylesheet is used to convert OAI:DC XML produced by DSPACE instances into HTML pages that link to DSPACE item pages showing the full item record, ie to a URL with '?mode=full'. See more info at <a href="./LOCKSS"> the main script's page </a>.
 	</p> <p> 
 The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people/cjg">Christopher Gutteridge</a> at the University of Southampton as part of the <a href="http://software.eprints.org">GNU EPrints system</a>, and is freely redistributable under the <a href="http://www.gnu.org">GPL</a>.</p>
 
@@ -552,9 +554,9 @@ The original XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people
 <xsl:template match="dc:identifier" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <tr><td class="key">Resource Identifier</td><td class="value">
   <xsl:choose>
-    <xsl:when test='starts-with(.,"http" )'>
-        <xsl:variable name='dspaceitem' select="substring-after(.,'1853/')" />
-        <a class="link" href="http://smartech.gatech.edu/handle/1853/{$dspaceitem}?mode=full"> <xsl:value-of select="."/> </a> 
+    <xsl:when test='starts-with(.,"http://hdl.handle.net" )'>
+        <xsl:variable name='dspaceitem' select="substring-after(.,'http://hdl.handle.net/')" />
+        <a class="link" href="{$dspacehome}/handle/{$dspaceitem}?mode=full"> <xsl:value-of select="."/> </a> 
     </xsl:when>
     <xsl:otherwise>
        <xsl:value-of select="."/>

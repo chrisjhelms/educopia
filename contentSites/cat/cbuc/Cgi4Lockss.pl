@@ -158,7 +158,7 @@ unless( $out->param ) {
 	  my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
 	  my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
-				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) ); # Norm. del link del Token només va canviant l'última centena
+				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'"); # Norm. del link del Token només va canviant l'última centena
           print $out->header(),
           $stylesheet->output_string($results);
 	  1;
