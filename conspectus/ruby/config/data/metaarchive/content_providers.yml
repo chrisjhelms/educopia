@@ -1,0 +1,60 @@
+aub: 
+   name:  "Auburn University"
+   plugin_prefix:  "edu.auburn"
+   acronym:  "aub" 
+
+bc: 
+   name:  "Boston College"
+   plugin_prefix:  "edu.boston"
+   acronym:  "bc" 
+
+clem: 
+   name:  "Clemson University"
+   plugin_prefix:  "edu.clemson"
+   acronym:  "clem" 
+
+em: 
+   name:  "Emory University"
+   plugin_prefix:  "edu.emory"
+   acronym:  "em" 
+
+fsu: 
+   name:  "Florida State"
+   plugin_prefix:  "edu.fsu"
+   acronym:  "fsu" 
+
+folger: 
+   name:  "Folger Shakespeare Library"
+   plugin_prefix:  "edu.folger"
+   acronym:  "fsl" 
+
+gt: 
+   name:  "Georgia Institute of Technology"
+   plugin_prefix:  "edu.gatech"
+   acronym:  "gt" 
+
+hull: 
+   name:  "Hull University"
+   plugin_prefix:  "edu.hull"
+   acronym:  "hull" 
+
+lou: 
+   name:  "University of Louisville"
+   plugin_prefix:  "edu.louisville"
+   acronym:  "lou" 
+
+ma: 
+   name:  "Meta* Content From Emory University"
+   plugin_prefix:  "org"
+   acronym:  "ma" 
+
+rice: 
+   name:  "Rice University"
+   plugin_prefix:  "edu.rice"
+   acronym:  "rice" 
+
+vt: 
+   name:  "Virginia Tech"
+   plugin_prefix:  "edu.vt"
+   acronym:  "vt" 
+

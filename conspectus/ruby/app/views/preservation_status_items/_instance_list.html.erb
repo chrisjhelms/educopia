@@ -1,0 +1,77 @@
+    <div class='instance_list'>
+    <%
+    headers = %w()
+    headers << 'Cache'
+    headers << 'Size (MB)'
+    headers << 'DiskUsage (MB)'
+    headers << 'Last Crawl'
+    headers << 'Crawl Result'
+    headers << 'Last Poll'
+    headers << 'Agreement'
+    %>
+    <%= instance_table_start(headers) %>
+    <% for pi in @preservation_status_items %>
+    <tr>
+        <%= content_tag('td', link_to(pi.cache, "http://#{pi.hostname}:#{pi.ui_port}")) %>
+        <%= content_tag('td', pi.size_mb, :align => 'right') %>
+		<%= content_tag('td', pi.disk_usage, :align => 'right')  %>
+        <%= content_tag('td', pi.last_crawl) %>
+        <%= content_tag('td', pi.last_crawl_result) %>
+        <%= content_tag('td', pi.last_poll) %>
+        <%= content_tag('td', pi.agreement.nil? ? "&nbsp;" : pi.agreement, :align => 'right') %>
+        <%= content_tag('td', pi.num_recent_polls, :align => 'right') if (@show_all) %>
+    </tr>
+    <% end %>
+    <% n = @preservation_status_items.length %>
+    <% sizesum =  @preservation_status_items.collect{|pi| pi.size_mb}.sum %>
+    <% pollssum = @preservation_status_items.collect{|pi| pi.num_recent_polls}.sum %>
+    <% disksum = @preservation_status_items.collect{|pi| pi.disk_usage_mb}.sum %>
+    <% agreesum = @preservation_status_items.collect{|pi| pi.agreement}.select{|a| !a.nil?}.sum  %>
+
+    <tr>
+        <td colspan="10">
+            
+        </td>
+    </tr>
+	<% if (n != 0) then %>
+    <tr>
+        <td>
+            Average 
+        </td>
+        <%= content_tag('td', (sizesum / n), :align => 'right' ) %>
+        <%= content_tag('td', (disksum / n), :align => 'right' ) %>
+		<td>
+            &nbsp; 
+        </td>
+        <td>
+            &nbsp; 
+        </td>
+        <td>
+            &nbsp; 
+        </td>
+        <%= content_tag('td', (agreesum / n), :align => 'right' ) %>
+        <%= content_tag('td', (pollssum / n), :align => 'right' )  if (@show_all) %>
+    </tr>
+	<%end %>
+    <tr>
+        <td>
+            Total 
+        </td>
+        <%= content_tag('td', sizesum, :align => 'right') %>
+        <%= content_tag('td', disksum, :align => 'right') %>
+        <td>
+            &nbsp; 
+        </td>
+        <td>
+            &nbsp; 
+        </td>
+        <td>
+            &nbsp; 
+        </td>
+        <td>
+            &nbsp; 
+        </td>
+        <%= content_tag('td', pollssum, :align => 'right')  if (@show_all) %>
+    </tr>
+    <%= instance_table_stop() %>
+</div>

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lockss-config [
+<!ELEMENT lockss-config (if|property)+>
+<!ELEMENT property (property|list|value|if)*>
+<!ELEMENT list (value)+>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT test EMPTY>
+<!ELEMENT and (and|or|not|test)*>
+<!ELEMENT or (and|or|not|test)*>
+<!ELEMENT not (and|or|not|test)*>
+<!ELEMENT if (and|or|not|then|else|property)*>
+<!ELEMENT then (property)*>
+<!ELEMENT else (property)*>
+<!ATTLIST property name CDATA #REQUIRED>
+<!ATTLIST property value CDATA #IMPLIED>
+<!ATTLIST test hostname CDATA #IMPLIED>
+<!ATTLIST test group CDATA #IMPLIED>
+<!ATTLIST test daemonVersionMin CDATA #IMPLIED>
+<!ATTLIST test daemonVersionMax CDATA #IMPLIED>
+<!ATTLIST test daemonVersion CDATA #IMPLIED>
+<!ATTLIST test platformVersionMin CDATA #IMPLIED>
+<!ATTLIST test platformVersionMax CDATA #IMPLIED>
+<!ATTLIST test platformVersion CDATA #IMPLIED>
+<!ATTLIST if hostname CDATA #IMPLIED>
+<!ATTLIST if group CDATA #IMPLIED>
+<!ATTLIST if daemonVersionMin CDATA #IMPLIED>
+<!ATTLIST if daemonVersionMax CDATA #IMPLIED>
+<!ATTLIST if daemonVersion CDATA #IMPLIED>
+<!ATTLIST if platformVersionMin CDATA #IMPLIED>
+<!ATTLIST if platformVersionMax CDATA #IMPLIED>
+<!ATTLIST if platformVersion CDATA #IMPLIED>
+]>
+<!-- LOCKSS & LCAP tuning parameters -->
+<lockss-config>
+
+  <!-- enclosing "org.lockss" so we don't have to repeat it -->
+  <property name="org.lockss">
+
+    <property name="ui.users.1">
+      <property name="user" value="madebug"/>
+      <property name="password" value="SHA1:54a054df7fcfacc5f83715dd25f1798e8786199b"/>
+      <property name="roles" value="debugRole,adminRole"/>
+    </property>
+
+    <property name="ui.users.2">
+      <property name="user" value="snoop"/>
+      <property name="password" value="SHA1:202883c1e5debda369cdfb93fa82866792ea943a"/>
+      <property name="roles" value="debugRole"/>
+    </property>
+
+    <!-- Use new UI Home servlet -->
+    <property name="admin.redirectRoot" value="Home"/>
+
+    <!-- Enable global node caches (disable per-AU caches) -->
+    <property name="repository.globalNodeCache.enabled" value="true"/>
+    <property name="repository.globalNodeCache.size" value="500"/>
+    <property name="state.globalNodeCache.enabled" value="true"/>
+    <property name="state.globalNodeCache.size" value="500"/>
+
+    <!-- Raise UI and Proxy priority -->
+    <property name="jetty.Proxy.priority" value="6"/>
+    <property name="jetty.LocalUI.priority" value="6"/>
+
+    <property name="plugin.load.timeout" value="5m"/>
+    <!-- uncomment to return to default settings
+    <property name="app.exitOnce" value="true" /> 
+    -->
+    <property name="app.exitOnce" value="false"/>
+
+    <property name="crawler.maxRepairRate" value="5/1d"/>
+
+    <!-- reduce node & state cache size -->
+    <property name="state.cache.size" value="10"/>
+    <property name="repository.nodeCache.size" value="10"/>
+
+    <!-- Contact Info -->
+    <property name="admin.contactEmail" value="metaarchive-admin@listserv.emory.edu"/>
+    <!-- Bug in 1.5 -->
+    <property name="admin.admin.contactEmail" value="metaarchive-admin@listserv.emory.edu"/>
+
+    <property name="comm.router.dupMsgHashSize" value="100"/>
+
+    <!-- Logging -->
+    <property name="log">
+      <property name="default.level" value="debug"/>
+      <property name="Scheduler.level" value="info"/>
+      <property name="GoslingCrawlerImpl.level" value="info"/>
+      <property name="CrawlerImpl.level" value="info"/>
+    </property>
+
+    <!-- Mail -->
+    <property name="mail.enabled" value="true"/>
+
+    <!-- Hasher -->
+    <property name="hasher">
+      <property name="estimate.pad.constant" value="5000"/>
+      <property name="nameHashEstimate" value="5000"/>
+    </property>
+
+    <!-- Protocol -->
+    <property name="protocol.hashAlgorithm" value="SHA-1"/>
+
+    <!-- Scheduler tuning -->
+    <property name="scheduler.maxBackgroundLoad" value="50"/>
+    <property name="treewalk.use.scheduler" value="true"/>
+    <property name="hasher.use.scheduler" value="true"/>
+
+    <!-- base au -->
+    <property name="baseau">
+      <property name="toplevel.poll.interval.min" value="8w"/>
+      <property name="toplevel.poll.interval.max" value="10w"/>
+    </property>
+
+    <!-- comm settings -->
+    <property name="comm">
+      <property name="multicast.group" value="239.4.5.6"/>
+      <property name="multicast.port" value="7777"/>
+      <property name="unicast.port" value="7776"/>
+      <property name="multicast.verify" value="no"/>
+      <property name="router.defaultPartnerList">
+	<list>
+		<value>131.204.172.41</value>
+		<value>131.204.172.67</value>
+		<value>170.140.223.93</value>
+		<value>170.140.223.104</value>
+		<value>170.140.208.43</value>
+		<value>128.186.59.187</value>
+		<value>128.186.59.192</value>
+		<value>130.207.50.26</value>
+		<value>130.207.50.28</value>
+		<value>140.147.249.60</value>
+		<value>136.165.115.74</value>
+		<value>136.165.115.88</value>
+		<value>128.173.124.194</value>
+		<value>128.173.125.42</value>
+		<value>150.237.196.200</value>
+		<value>136.167.71.86</value>
+		<value>128.42.174.18</value>
+	</list>
+      </property>
+
+
+      <!-- Disable the old v1 comm settings -->
+      <property name="id.v1Enabled" value="false"/>
+      <property name="comm.enabled" value="false"/>
+
+      <property name="router.maxHopCount" value="2"/>
+      <property name="router.maxPartners" value="3"/>
+      <property name="router.partnerAddProbability" value="03"/>
+      <property name="router.beacon.interval" value="30m"/>
+
+      <property name="router.maxForwardMessageRate" value="1/1s"/>
+
+      <property name="router.dupMsgHashSize" value="200"/>
+    </property>
+
+      <!-- Settings for SSL -->
+      <!-- Enable V3 over SSL -->
+      <property name="scomm.v3OverSsl" value="true"/>
+      <!-- use permanent SSL keystore -->
+      <property name="scomm.SslTempKeystore" value="false"/>
+
+      <!-- Settings for SSL Keystore Files are local to each cache  -->
+    <!-- Poll settings -->
+    <property name="poll">
+	<!--
+      <property name="quorum" value="3" />
+      <property name="agreeVerify" value="02" />
+      <property name="disagreeVerify" value="02" />
+      <property name="namepoll.deadline" value="6h" />
+      <property name="contentpoll.min" value="2d" />
+      <property name="contentpoll.max" value="2w" />
+      <property name="voteMargin" value="80" />
+      <property name="trustedMargin" value="51" />
+      <property name="trustedWeight" value="350" />
+      <property name="expireVerifier" value="12h" />
+      <property name="defaultPollProtocol" value="3" />
+	-->
+      <property name="v3">
+         <property name="quorum" value="3"/>
+         <property name="enableDiscovery" value="false"/>
+         <property name="minNominationSize" value="0"/>
+         <property name="maxNominationSize" value="0"/>
+         <property name="maxPollDuration" value="5w"/>
+         <property name="maxSimultaneousV3Pollers" value="6"/>
+         <property name="maxSimultaneousV3Voters" value="320"/>
+         <property name="timeBetweenInvitations" value="5m"/>
+         <property name="repairFromCachePercent" value="25"/>
+	 <property name="toplevelPollInterval" value="8w"/>
+      </property>
+    </property>
+
+    <!-- Treewalk settings -->
+    <property name="treewalk">
+      <property name="interval.min" value="2h"/>
+      <property name="interval.min" value="8h"/>
+      <property name="initial.estimate" value="10s"/>
+    </property>
+
+    <!-- Hash Metrics -->
+    <property name="metrics.hash.duration" value="1m"/>
+
+    <!-- Default loadable plugin registries list -->
+    <property name="plugin.registries">
+      <list>
+	       <value>http://admin.metaarchive.org/plugins/ </value>
+	       <value>http://128.173.124.194/vtplugins/</value>
+	       <value>http://130.207.50.26/gtPlugins/</value>
+      </list>
+	<property name="crawlInterval" value="6h"/>
+    </property>
+    
+
+  <property name="plugin.keystore">
+    <property name="location" value="http://admin.metaarchive.org/lockss/config/keystore.ks"/>
+    <property name="password" value="!NV5Vp"/>
+  </property>
+
+    <!-- Configuration reload interval -->
+    <property name="config.reloadInterval" value="15m"/>
+    
+    <!-- Plugin Registry:
+    List the plugins that should be included in UI menus -->
+    <property name="plugin.registry">
+      <list>
+      </list>
+    </property>
+
+    <!-- Access Control -->
+    <property name="ui.access">
+      <property name="ip.logForbidden" value="true"/>
+      <property name="ip.include">
+	<list>
+	  <value>171.66.236.0/26</value>
+	  <value>170.140.223.23</value>
+	  <value>170.140.208.245</value>
+	  <value>170.140.210.152</value>
+	</list>
+      </property>
+    </property>
+
+    <!-- Maximum file upload settings (for BAtchAuConfig)  -->
+    <!-- Set to 2 MB for entire NW    --> 
+    <property name="org.lockss.ui.maxUploadFileSize" value="2000000"/>
+
+    <property name="proxy">
+      <property name="port" value="8080"/>
+      <property name="audit.port" value="8082"/>
+      <property name="access">
+	<property name="ip.logForbidden" value="true"/>
+	<property name="ip.include">
+	  <list>
+	  </list>
+	</property>
+      </property>
+    </property>
+    
+    <property name="serialization.compatibilityMode" value="1"/>
+
+    <property name="scomm.enabled" value="true"/>
+    <property name="scomm.channelIdleTime" value="30s"/>
+    <property name="scomm.maxChannels" value="200"/>
+    <property name="scomm.maxMessageSize" value="536870912"/>
+    <property name="id.initialV3PeerList">
+	<list>
+		<value>TCP:[131.204.172.41]:9729</value>
+		<value>TCP:[131.204.172.67]:9729</value>
+		<value>TCP:[170.140.223.93]:9729</value>
+		<value>TCP:[170.140.223.104]:9729</value>
+		<value>TCP:[170.140.208.43]:9729</value>
+		<value>TCP:[128.186.59.187]:9729</value>
+		<value>TCP:[128.186.59.192]:9729</value>
+		<value>TCP:[130.207.50.26]:9729</value>
+		<value>TCP:[130.207.50.28]:9729</value>
+		<value>TCP:[140.147.249.60]:9729</value>
+		<value>TCP:[136.165.115.74]:9729</value>
+		<value>TCP:[136.165.115.88]:9729</value>
+		<value>TCP:[128.173.124.194]:9729</value>
+		<value>TCP:[128.173.125.42]:9729</value>
+		<value>TCP:[150.237.196.200]:9729</value>
+		<value>TCP:[136.167.71.86]:9729</value>
+		<value>TCP:[128.42.174.18]:9729</value>
+	</list>
+    </property> 
+
+
+
+
+<if group="metaarchive">
+<property name="titleSet">
+<property name="alltitles">
+<property name="class" value="alltitles"/>
+</property>
+<property name="activeaus">
+<property name="class" value="activeaus"/>
+</property>
+<property name="inactiveaus">
+<property name="class" value="inactiveaus"/>
+</property>
+<property name="Emory">
+<property name="name" value="All Emory Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='org.southernspaces.Media' or pluginName='edu.emory.library.multimedia.SouthernChanges' or pluginName='edu.emory.library.multimedia.iln' or pluginName='org.metaarchive.conspectus' or pluginName='org.metascholar.MOSC' or pluginName='org.southernspaces.Media' or pluginName='org.southernspaces.Media']"/>
+</property>
+<property name="Louisville">
+<property name="name" value="All Louisville Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='edu.louisville.KentuckyQuiltProject' or pluginName='edu.louisville.JeanThomas' or pluginName='edu.louisville.bernheimTapes' or pluginName='edu.louisville.OwenPostcards' or pluginName='edu.louisville.Maps' or pluginName='edu.louisville.Matthews' or pluginName='edu.louisville.Afamoh']"/>
+</property>
+<property name="FSU">
+<property name="name" value="All FSU Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='edu.fsu.HonorsPlugin' or pluginName='edu.fsu.FSUCircusPhotosPlugin']"/>
+</property>
+<property name="Auburn">
+<property name="name" value="All Auburn Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='edu.auburn.contentdm' or pluginName='edu.auburn.glomeratas' or pluginName='edu.auburn.glomeratatif2' or pluginName='edu.auburn.football2' or pluginName='edu.auburn.contentdm' or pluginName='edu.auburn.SledgePapersPlugin' or pluginName='edu.auburn.150thLectureSeries']"/>
+</property>
+<property name="VATech">
+<property name="name" value="All VATech Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='edu.vt.library.iawa' or pluginName='edu.vt.library.VTLibraries' or pluginName='edu.vt.plugin.Bugle' or pluginName='edu.vt.plugin.TinHorn' or pluginName='edu.vt.library.Spectrum' or pluginName='edu.vt.plugin.BburgBicent' or pluginName='edu.vt.plugin.HistoricalVT' or pluginName='edu.vt.library.cumcs' or pluginName='edu.vt.plugin.SolitudeFHAC' or pluginName='edu.vt.plugin.JohnMcBryde' or pluginName='edu.vt.plugin.PaulBarringer' or pluginName='edu.vt.plugin.Eggleston' or pluginName='edu.vt.plugin.Newman' or pluginName='edu.vt.plugin.HahnTM' or pluginName='edu.vt.plugin.VPIandSU' or pluginName='edu.vt.plugin.CadetUniforms' or pluginName='edu.vt.plugin.VAMCC' or pluginName='edu.vt.plugin.CampusUnrestVT' or pluginName='edu.vt.plugin.ResearchPubVAES' or pluginName='edu.vt.library.VTConductor' or pluginName='edu.vt.plugin.LibraryFriends' or pluginName='edu.vt.plugin.BiblioTech' or pluginName='edu.vt.plugin.ValentineScrap' or pluginName='edu.vt.plugin.LoveLetters' or pluginName='edu.vt.plugin.Fenwick' or pluginName='edu.vt.plugin.BlackJournal' or pluginName='edu.vt.plugin.PapersOfHarris' or pluginName='edu.vt.plugin.VPIThanksgiving' or pluginName='edu.vt.plugin.VPISpanishWar' or pluginName='edu.vt.library.SAHC' or pluginName='edu.vt.plugin.WhiteSulphur' or pluginName='edu.vt.plugin.JohnHilton' or pluginName='edu.vt.plugin.ChurchMinutes' or pluginName='edu.vt.plugin.NancyRecipe' or pluginName='edu.vt.plugin.HomeRemedies' or pluginName='edu.vt.plugin.SpecialCollections' or pluginName='edu.vt.plugin.MountainSlavery' or pluginName='edu.vt.plugin.NutritionCentral' or pluginName='edu.vt.library.VirginianPilot' or pluginName='edu.vt.library.WDBJ7' or pluginName='edu.vt.plugin.CookingRecipes' or pluginName='edu.vt.plugin.ReceiptBook' or pluginName='edu.vt.plugin.Dessy' or pluginName='edu.vt.plugin.YellowSulphur' or pluginName='edu.vt.library.singlefile' or pluginName='edu.vt.library.singlefile' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.singlefile' or pluginName='edu.vt.library.generic' or pluginName='edu.vt.library.contentdm' or pluginName='edu.vt.library.generic']"/>
+</property>
+<property name="GATech">
+<property name="name" value="All GATech Titles"/>
+<property name="class" value="xpath"/>
+<property name="xpath" value="[pluginName='edu.gatech.library.BarnardPlugin' or pluginName='edu.gatech.library.griffinPlugin' or pluginName='edu.gatech.library.AdsPlugin' or pluginName='edu.gatech.library.GTBuildingsPlugin' or pluginName='edu.gatech.library.HABSPlugin' or pluginName='edu.gatech.library.GeometryPlugin' or pluginName='edu.gatech.library.DecFacPlugin' or pluginName='edu.gatech.library.GTPhotoPlugin' or pluginName='edu.gatech.library.SMARTechPlugin']"/>
+</property>
+
+</property>
+</if>
+
+<property name="title">
+<property name="metaarchive31-1">
+   <property name="title" value="SMARTech: volume=45"/>
+   <property name="journalTitle" value="SMARTech"/>
+   <property name="plugin" value="edu.gatech.library.SMARTechPlugin"/>
+   <property name="param.1">
+      <property name="key" value="base_url"/>
+      <property name="value" value="http://smartech.gatech.edu"/>
+   </property>
+   <property name="param.2">
+      <property name="key" value="volume"/>
+      <property name="value" value="45"/>
+   </property>
+</property>
+
+</property>  </property>
+    <!-- End org.lockss -->
+</lockss-config>

@@ -1,0 +1,40 @@
+body { 
+   background: #C6C6C6; 
+   color: black;  
+}
+
+.container  {
+   background: red;
+}
+
+.pageheader  {
+    height: 101px;    /* logo height + 2 * padding of elem (8px by default); */
+    background: #01a9cd;
+    color: white; 
+}
+
+.pagesubheader {
+ 	background: #CEEEF5;
+    color: black; 
+}
+
+.pagemenu  {
+   background: #e6e6e6;
+}
+
+.pagenomenu,
+.pagemain {
+   background: #f6f6f5;
+}
+
+* a:link {color: #0b3866;}
+* a:visited {color:#0b3866;}
+* a:active {color: #0b3866;}
+.pageheader a:link {color: white;}
+.pageheader a:visited {color: white;}
+.pageheader a:active {color: white;}
+
+.notice { 
+   color:  #0b3866;
+}
+

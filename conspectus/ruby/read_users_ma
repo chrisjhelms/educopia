@@ -1,0 +1,5 @@
+#!/bin/tcsh -f 
+set echo 
+rake conspectus:update RAILS_ENV=prod_ma INSTANCE=metaarchive USERS=true CONTENT_PROVIDERS=false ARCHIVES=false 
+
+rake user:list RAILS_ENV=prod_ma 

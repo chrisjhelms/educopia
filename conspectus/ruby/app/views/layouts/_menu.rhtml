@@ -1,0 +1,139 @@
+<% the_col = (params['controller'] == 'collections') && (@collection) && (!@collection.new_record?) ? @collection : nil;
+the_plugin = (params['controller'] == 'plugins') && (defined? @plugin) && (!@plugin.new_record?) ? @plugin : nil;
+@au_state_params = [AuState::DRAFT,
+[AuState::TEST, AuState::RETEST].join(","),
+[AuState::PRESERVED, AuState::RETEST].join(","),
+AuState::RETIRED  ] %>
+<div class="menu">
+    <a href="/content_providers">Content Providers</a>
+</div>
+<form  style='margin: 0; padding: 0' action="/content_providers/search" method="post">
+       <a href="#" onclick="parentNode.submit()">Search</a>
+       <input id="name" name="name" size="16" type="text" />
+</form>
+
+<div class="super"> 
+	<div class="submenu">
+	    <a href="/content_providers/new">Create New</a>
+	</div>
+	<% if ((params['controller'] == 'content_providers') && @content_provider) then %>
+	<div class="submenu">
+	    <%= link_to "Edit", edit_content_provider_path(@content_provider) if not @content_provider.new_record? %>
+	</div>
+	<div class="submenu">
+	    <%= link_to ("Delete",  
+           {:controller => :content_providers,
+	    	:action => :destroy,
+	    	:id => @content_provider}, { :method => :delete,
+	    	:confirm => "Are you sure you want to delete this content_provider ?"}) if @content_provider.may_destroy? %>
+	</div>
+	<% end %>
+</div>
+<div class="menu">
+    &nbsp;
+</div>
+	
+
+<div class="menu">
+    <a href="/archives">Archives</a>
+</div>
+<div class="super">
+<div class="submenu">
+   <%= link_to "Create New", new_archive_path  %>
+</div>
+<% if (params['controller'] == 'archives' && @archive) then %>
+<div class="submenu">
+   <%= link_to "Edit", edit_archive_path(@archive) if not @archive.new_record? %>
+</div>
+<div class="submenu">
+   <%= link_to ("Delete",  {:controller => :archives, 
+                        :action => :destroy, 
+                        :id => @archive}, { :method => :delete, 
+                        :confirm => "Are you sure you want to delete this archive ?"}) if @archive.may_destroy? %>
+</div>
+<% end %>
+</div>
+
+<div class="menu">
+    &nbsp;
+</div>
+<div class="menu">
+    <a href="/collections/index/state/active">All Collections</a>
+</div>
+<div class="menu">
+    <a href="/collections/mine/state/active">My Collections</a>
+</div>
+	<% if (User.edit?(current_user))  then %>
+<div class="submenu">
+    <a href="/collections/new">Create New</a>
+</div>
+<% end %>
+<form  style='margin: 0; padding: 0' action="/collections/search" method="post">
+  <a href="#" onclick="parentNode.submit()">Search</a>
+  <input id="name" name="name" size="16" type="text" />
+</form>
+<% if (current_user)  then %>
+<%= collection_obj_menu(params, the_col) %>
+<% end %>
+
+<div class="menu">
+    &nbsp;
+</div>
+<div class="menu">
+    <a href="/plugins/index/state/active">All Plugins</a>
+</div>
+<div class="menu">
+    <a href="/plugins/mine/state/active">My Plugins</a>
+</div>
+<% if (User.edit?(current_user))  then %>
+<div class="submenu">
+    <a href="/plugins/new">Create New</a>
+</div>
+<% end %>
+<% if (current_user)  then %>
+<%= plugin_obj_menu(params, the_plugin) %>
+<% end %>
+<div class="menu">
+    &nbsp;
+</div>
+<div class="super">
+    <div class="menu">
+        <a href="/users">Users</a>
+    </div>
+    <div class="submenu">
+        <a href="/users/new">Create New</a>
+    </div>
+    <div class="submenu">
+        <a href="/users/guess">Check Pwd</a>
+    </div>
+    <div class="menu">
+        &nbsp;
+    </div>
+    <div class="menu">
+        <a href="/globals">Globals</a>
+    </div>
+    <div class="menu">
+        &nbsp;
+    </div>
+    <div class="menu">
+        <a href="/archival_units">Archival Units</a>
+    </div>
+    <div class="submenu">
+    	<a href="/archival_units/search"> Search </a>
+    </div>
+    <div class="submenu">
+        <a href="/archival_units/update_lockss_au_ids">Upload LOCKSS IDS</a>
+    </div>
+    <div class="submenu">
+        <a href="/archival_units/austates/draft">List Draft</a>
+    </div>
+    <div class="submenu">
+        <a href="/archival_units/austates/test,retest">List Test,retest</a>
+    </div>
+    <div class="submenu">
+        <a href="/archival_units/austates/preserved,retest">List Preserved,retest</a>
+    </div>
+    <div class="submenu">
+        <a href="/archival_units/austates/retired">List Retired</a>
+    </div>
+</div>

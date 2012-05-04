@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>stringToParamHash (ArchivalUnit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/archival_unit.rb, line 39</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">stringToParamHash</span>(<span class="ruby-identifier">param_string</span>, <span class="ruby-identifier">check</span>= <span class="ruby-keyword kw">true</span>)
+     <span class="ruby-identifier">hsh</span> = {}; 
+     <span class="ruby-identifier">last_key</span> = <span class="ruby-keyword kw">nil</span>;
+     <span class="ruby-identifier">param_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">PARAM_SPLIT</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> 
+              <span class="ruby-identifier">p</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'='</span>, <span class="ruby-value">2</span>); 
+              <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">check</span>) <span class="ruby-keyword kw">then</span> 
+                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">p</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">p</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">then</span>  
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;malformed parameter string '#{param_string}' contains empty name&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">p</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">p</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">then</span> 
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;malformed parameter string '#{param_string}' contains empty value&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">p</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">last_key</span>) <span class="ruby-keyword kw">then</span> 
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;malformed parameter string '#{param_string}' contains #{p[0]} twice&quot;</span>
+                <span class="ruby-keyword kw">end</span>
+              <span class="ruby-keyword kw">end</span>
+              <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">p</span>[<span class="ruby-value">0</span>]] = <span class="ruby-identifier">p</span>[<span class="ruby-value">1</span>];
+              <span class="ruby-identifier">last_key</span> = <span class="ruby-identifier">p</span>[<span class="ruby-value">0</span>];
+     } 
+     <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">hsh</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+                <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;malformed parameter string '#{param_string}'&quot;</span>
+     <span class="ruby-keyword kw">end</span>
+     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">hsh</span>; 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

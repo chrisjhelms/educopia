@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>content_providers_menu (MenusHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/helpers/menus_helper.rb, line 46</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">content_providers_menu</span>(<span class="ruby-identifier">params</span>) 
+    <span class="ruby-identifier">html</span> = <span class="ruby-value str">&quot;UNDEFINED&quot;</span>; 
+    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:controller</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">'content_providers'</span>) <span class="ruby-keyword kw">then</span> 
+      <span class="ruby-identifier">html</span> =  <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+      <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:content_providers</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:list</span>)); 
+    <span class="ruby-keyword kw">else</span> 
+      <span class="ruby-identifier">html</span> =  <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, <span class="ruby-value str">'content_providers'</span>);
+      <span class="ruby-identifier">submenu</span> = <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+      <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'list-all'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:list</span>));
+      <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">defined?</span>(<span class="ruby-ivar">@content_provider</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@content_provider</span>.<span class="ruby-identifier">new_record?</span> <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">submenu</span> =  <span class="ruby-identifier">submenu</span> <span class="ruby-operator">+</span> 
+        <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+        <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'collections'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:show</span>)) <span class="ruby-operator">+</span>
+        <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+        <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'archival_units'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">:archival_units</span>)) <span class="ruby-operator">+</span>
+        <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+        <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'plugins'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:plugins</span>)) <span class="ruby-operator">+</span>
+        <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+        <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'edit'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:edit</span>)); 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">super?</span>) <span class="ruby-keyword kw">then</span> 
+         <span class="ruby-identifier">submenu</span> =  <span class="ruby-identifier">submenu</span> <span class="ruby-operator">+</span> 
+          <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, 
+            <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'new'</span>, <span class="ruby-identifier">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'content_providers'</span>, <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:new</span>));
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">submenu</span> = <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'div'</span>, <span class="ruby-identifier">submenu</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'indent'</span>)
+      <span class="ruby-identifier">html</span> = <span class="ruby-identifier">html</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">submenu</span>;
+    <span class="ruby-keyword kw">end</span> 
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">html</span>; 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<h1> Archive: <%=h @archive.title %></h1>
+<p>
+    <b>Description:</b>
+    <%=h @archive.description %>
+</p>
+<%= left_right_title(
+links_to_au_state_listers(), 
+link_to('List Collections', archives_show_path(@archive))  + " <br/>" +
+link_to('List Plugins', archives_plugins_path(@archive))) %>
+
+<div class='indent'>
+    <%= render :partial => "/archival_units/instance_list" %>
+</div>

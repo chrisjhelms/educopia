@@ -1,0 +1,23 @@
+#!/bin/tcsh -f 
+setenv INSTANCE lockss 
+setenv RAILS_ENV development 
+setenv RAILS_ROOT /home/mmevenk/workspace-eclipse/conspectus/ruby
+cd $RAILS_ROOT 
+#rake db:redo
+#rake conspectus:update   USERS=true
+
+# get plugins (if there are new ones) 
+#(cd config/data/$INSTANCE; \
+    #cp -r ~metaarchive/lockss/lockss-daemon/plugins/src plugins;  \
+    #ln -s  ~metaarchive/lockss/lockss-daemon/test/frameworks/title_db_files/clockss/  ) 
+
+#rake lockss:import_plugins CHOPDIR=4 PLUGINS=config/data/$INSTANCE/plugins 
+
+#rake lockss:import_content_defs  ARCHIVE=MUSE DO_COLLS=true DO_AUS=true FILE=test/files/muse_titles.xml
+
+foreach f ( config/data/$INSTANCE/clockss/*.xml ) 
+   echo "-----"
+   echo $f 
+   rake lockss:import_content_defs  ARCHIVE=CLOCKSS \
+            DO_COLLS=true DO_AUS=true FILE=$f 
+end 

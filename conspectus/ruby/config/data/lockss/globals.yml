@@ -1,0 +1,15 @@
+title: 
+   name:  "app_title"
+   value:  "C-LOCKSS"
+   
+src: 
+   name:  "data_source"
+   value:  "PLugin Defs and TitleDB snippets from Lockss.sourceforge"
+   
+skin: 
+   name:  "production"
+   value:  "yellow"
+
+url: 
+   name: production_plugin_url
+   value: "http://lockss.cvs.sourceforge.net/viewvc/lockss/lockss-daemon/plugins/src/?view=markup" 

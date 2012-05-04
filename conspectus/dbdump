@@ -1,0 +1,3 @@
+#!/bin/tcsh 
+(cd ruby; dbdump)
+(cd metadata_editor; dbdump php)

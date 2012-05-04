@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        if (!$.browser.msie) {
+            $(".tablesorter").tablesorter({
+                headers: {
+                    // Disable sorting 1rst and 2nd column  
+                    0: {
+                        sorter: false
+                    },
+                    1: {
+                        sorter: false
+                    }
+                }
+            });
+        }
+    })
+</script>
+
+<div class=instance_list>
+    <%= instance_table_start(["", "Name", "PluginPrefix", "#Plugins", "#Collections"]) %>
+    <% for content_provider in @content_providers %>
+    <tr>
+        <td>
+            <%= content_provider_image_tag(content_provider) %>
+            <%= content_provider.acronym %>
+        </td>
+        <td>
+            <%= link_to  content_provider.name, content_provider %>
+        </td>
+        <td>
+            <%= content_provider.plugin_prefix %>
+        </td>
+        <td align="right">
+            <%= content_provider.plugin_count %>
+        </td>
+        <td align="right">
+            <%= content_provider.collections_count %>
+        </td>
+    </tr>
+    <% end %>
+    <%= instance_table_stop() %>
+</div>

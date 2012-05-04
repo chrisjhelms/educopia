@@ -1,0 +1,46 @@
+instructions for migrating this conspectus
+
+-------------------------------------------------------------------
+STEP 0 
+-------------------------------------------------------------------
+check conspectus code out from subversion 
+   svn co https://svn.library.emory.edu/svn/metaarchive/conspectus/branches/for_ruby
+
+-------------------------------------------------------------------
+STEP 1 
+-------------------------------------------------------------------
+create database for conspectus  
+make accessible/writable for metaarchive dbuser 
+
+create file  mysql_includes.php in conspctus' root directory 
+as follows (fill in database name and metaarchive's password   
+<?php
+	define("dbname", "xxxxx");
+	define("dbuser", "metaarchive");
+	define("dbpass", "yyyy");
+	define("dbhost", "localhost");
+?>
+
+
+fill database with mysqldump from original instance 
+currently on callimachus in ma_conspectus 
+use: mysqldump --user=metaarchive -p ma_conspectus > data.sql 
+     cat data.ql | mysql --user=metaarchive -p  toyddatabase 
+
+	
+-------------------------------------------------------------------
+STEP 2 
+-------------------------------------------------------------------
+configure Apache 
+for testing - not using subdomain 
+   Alias /conspectoy_php /home/metaarchive/tools/conspectoy/php
+   <directory /home/metaarchive/tools/conspectoy/php>
+      allow from all
+   </directory>
+
+-------------------------------------------------------------------
+STEP 3 
+-------------------------------------------------------------------
+test by visiting url: http://..../conspectoy_php/info.php 
+
+

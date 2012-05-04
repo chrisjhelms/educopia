@@ -1,0 +1,20 @@
+#!/bin/tcsh -ef 
+setenv INSTANCE conspectoy
+setenv PLUGINS http://metaarchive.googlecode.com/svn/trunk/plugins
+setenv INSTANCE conspectoy
+
+rake db:redo
+rake conspectus:update  INSTANCE=$INSTANCE  USERS=true GLOBALS=false
+rake conspectus:update  ARCHIVES=true
+
+# get plugins (if there are new ones) 
+if (-e  config/data/$INSTANCE/plugins) then 
+   svn up config/data/$INSTANCE/plugins
+else 
+   (cd config/data/$INSTANCE; svn co $PLUGINS plugins) 
+endif 
+rake lockss:import_plugins CHOPDIR=4 PLUGINS=config/data/$INSTANCE/plugins 
+rake plugin:cleanup_base_url_params 
+
+rake db:info
+

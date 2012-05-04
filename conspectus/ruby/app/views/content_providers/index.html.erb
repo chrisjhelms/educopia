@@ -1,0 +1,6 @@
+<h1> Content Providers  </h1>
+
+<%= content_tag('h2', "with '#{@search_name}' in their name, acronym, or plugin_prefix ") if defined? @search_name %>	
+
+
+ <%= render :partial => "/content_providers/instance_list" %>

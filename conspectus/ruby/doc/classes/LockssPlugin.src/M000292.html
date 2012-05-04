@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_from_file (LockssPlugin)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/lockss_plugin.rb, line 50</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_from_file</span>(<span class="ruby-identifier">fname</span>, <span class="ruby-identifier">chopdir</span>) 
+    <span class="ruby-keyword kw">begin</span>  
+      <span class="ruby-identifier">path</span>, <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">get_xml_from_file</span>(<span class="ruby-identifier">fname</span>); 
+      
+      <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">chopdir</span>, <span class="ruby-identifier">path</span>.<span class="ruby-identifier">length</span>) 
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">path</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;file parameter must contain at least two directory entries beyond the first CHOPDIR (#{chopdir}) entries&quot;</span>; 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">name</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-value">-1</span>); 
+      
+      <span class="ruby-identifier">cp</span> = <span class="ruby-keyword kw">nil</span>;
+      <span class="ruby-identifier">path</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">1</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> 
+        <span class="ruby-identifier">plugin_prefix</span> =   <span class="ruby-identifier">path</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span>,<span class="ruby-identifier">i</span>).<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;.&quot;</span>); 
+        <span class="ruby-identifier">cp</span> = <span class="ruby-constant">ContentProvider</span>.<span class="ruby-identifier">find_by_plugin_prefix</span>(<span class="ruby-identifier">plugin_prefix</span>)
+        <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cp</span>
+        <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>; 
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Could not find content provider for #{fname}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cp</span>.<span class="ruby-identifier">nil?</span>
+      
+      <span class="ruby-identifier">name</span> = <span class="ruby-node">&quot;#{path.join(&quot;.&quot;)}.#{name}&quot;</span>;
+      <span class="ruby-identifier">p</span> = <span class="ruby-identifier">ingest_plugin</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">cp</span>, <span class="ruby-identifier">xml</span>); 
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">p</span>;
+    <span class="ruby-keyword kw">rescue</span> 
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">$!</span> 
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>;
+    <span class="ruby-keyword kw">end</span> 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

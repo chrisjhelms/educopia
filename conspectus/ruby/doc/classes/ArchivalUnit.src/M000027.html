@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>hashToParamString (ArchivalUnit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/archival_unit.rb, line 22</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">hashToParamString</span>(<span class="ruby-identifier">param_values</span>) 
+     <span class="ruby-identifier">pvs</span> = []; 
+     <span class="ruby-identifier">param_values</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> 
+        <span class="ruby-identifier">v</span> = <span class="ruby-identifier">param_values</span>[<span class="ruby-identifier">k</span>]; 
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">k</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;empty parameter name '#{k}' =&gt; '#{v}'&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">param</span> =  <span class="ruby-node">&quot;#{k}=#{v}&quot;</span>
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">param</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">PARAM_SPLIT</span>)) <span class="ruby-keyword kw">then</span> 
+             <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;malformed parameter name '#{k}' =&gt; '#{v}' contains #{PARAM_SPLIT}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">pvs</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-node">&quot;#{k}=#{v}&quot;</span>
+     }
+     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">pvs</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">PARAM_SPLIT</span>); 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
