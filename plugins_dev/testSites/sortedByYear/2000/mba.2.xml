@@ -1,1 +1,21 @@
-Wed Feb 27 12:02:52 EST 2008
+<metadata
+  xmlns="http://example.org/myapp/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://example.org/myapp/ http://example.org/myapp/schema.xsd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <dc:title>
+    Business Modles for Secondary Markets
+  </dc:title>
+  <dc:description>
+    This these deals with the number one topic of importance for any business in second ary markets .
+  </dc:description>
+  <dc:publisher>
+    The University
+  </dc:publisher>
+  <dc:identifier>
+    http://etds.university.edu/id/mba/2 
+  </dc:identifier>
+
+</metadata>
+

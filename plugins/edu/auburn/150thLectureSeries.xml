@@ -1,0 +1,60 @@
+<map>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.auburn.150thLectures</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>"Auburn 150th Lecture Series: %s", volume_name</string>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Auburn 150th Lecture Series</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>Each Lecture is an AU containing 3 or more movie files. The Metadata for each movie is included in the manifest page. The manifest pages are named the same as the folders for the lectures: 01draughon.html, etc; parameters: 1) BaseUrl (http://fortissimo.lib.auburn.edu/sesq ) 2) Volume Name - this is the same as the folder name, like 01draughon;</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,"^%s", base_url</string>
+      <string>1,"%s/%s.html", base_url, volume_name</string>
+      <string>1,"%s/.*\.mov", volume_name</string>
+    </list>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>"%s/%s.html", base_url, volume_name</string>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>volume_name</key>
+        <displayName>Volume Name</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+</map>

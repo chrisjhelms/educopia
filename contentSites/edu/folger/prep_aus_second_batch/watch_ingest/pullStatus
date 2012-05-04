@@ -1,0 +1,21 @@
+#!/bin/tcsh -f 
+source ~/.metaarchive.rc 
+set cache = $1 
+mkdir -p $DATE/$cache 
+
+# get au status table 
+pullTable -pwd -u $MATSTCACHE_USER -p $MATSTCACHE_PWD -server $cache -table AU_Status -O - | fgrep 'Folger Images 2nd Batch' > $DATE/$cache/Status
+fgrep -v "AuLastCrawl=-1" $DATE/$cache/Status | awk '{FS=","; OFS="\t"; print $5, $6, $8, $11, $1}' | sed 's/DiskUsage=//' | sort -r -n > $DATE/$cache/Status.sizes
+fgrep  "AuLastCrawl=-1" $DATE/$cache/Status | awk '{FS=","; OFS="\t"; print $1}' > $DATE/$cache/Status.crawling
+echo ">>> Sizes  " 
+cat $DATE/$cache/Status.sizes
+echo  ">>> Crawling " `wc -l $DATE/$cache/Status.crawling` 
+
+# get crawl status  table 
+pullTable -pwd -u $MATSTCACHE_USER -p $MATSTCACHE_PWD -server $cache -table CrawlStatus -format=text -O - | fgrep 'Folger Images 2nd Batch' > $DATE/$cache/CrawlStatus
+awk '/num_urls_with_errors=0/  { FS=","; OFS="\t";  print }' $DATE/$cache/CrawlStatus  > $DATE/$cache/CrawlStatus.noerrors 
+
+echo ">>> Sizes  " 
+cat $DATE/$cache/Status.sizes
+echo  ">>> Crawling " `wc -l $DATE/$cache/Status.crawling` 
+

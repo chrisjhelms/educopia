@@ -1,0 +1,6 @@
+#!/bin/tcsh 
+source ~/.metaarchive.rc 
+
+foreach c ( `cachedns test` `cachedns rbdadmin` `cachedns metaarchive.lib.vt.edu`) 
+   pullStatus $c 
+end 
