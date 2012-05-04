@@ -166,7 +166,7 @@ unless( $out->param ) {
 			last;
    		} else {
         		$sublink->url =~ m{/handle/(\d+)/(\d+)/?$}i;
-        		printf ("%s, %s, %s, %s\n", $1, $2, $webIndex, $webOAIif );
+        		printf ("%s,%s,%s,%s\n", $1, $2, $webIndex, $webOAIif );
    		}	
 	}
 
