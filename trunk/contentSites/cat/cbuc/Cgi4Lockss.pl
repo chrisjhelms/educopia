@@ -3,8 +3,8 @@
 #
 # Script CGI per a processar dinàmicament l'ouput de les peticions de LOCKSS 
 # Si li arriba un valor del paràmetre "set" concret actua de renderer HTML de l'interfície OAI-MPH per a aquell set,
-#  si li arriba un valor del paràmetre "comm2csv" concret, l'interpreta com a un handle_id de DSpace corresponent a una communitat i treu com a output #  el CSV que defineix les seves col·leccions (que seran les AUs dins d'aquella Col·lecció Metaarchive), necessari per el registre al Conspectus. 
-#   altrament, actua com a generador dinàmic per defecte de la Manifest Page, exposant totes les coleccions de la instància DSPACE 
+# si li arriba un valor del paràmetre "comm2csv" concret, l'interpreta com a un handle_id de DSpace corresponent a una communitat i treu com a output el CSV que defineix les seves col·leccions (que seran les AUs dins d'aquella Col·lecció Metaarchive), necessari per el registre al Conspectus. 
+# ...altrament, actua com a generador dinàmic per defecte de la Manifest Page, exposant totes les coleccions de la instància DSPACE 
 #
 # Es pot testar a la línia de comandes directament amb:
 #  ./Cgi4Lockss (> ManifestPage.html)
@@ -12,29 +12,42 @@
 #  ./Cgi4Lockss resumptionToken=xxxxxx ( > OAIListRecordsSetxxxx2.html)
 #  ./Cgi4Lockss comm2csv=xxxx (> commxxxx.csv)
 #
+# O bé a través de localhost:8080/LOCKSS(?var=val) si aixequem l'aplicació amb Plack des del directori que conté l'script i el XSLT
+#
+# /dirScripts$ plackup -D -s Starman -MPlack::App::WrapCGI -MPlack::Builder -e 'builder { mount "/LOCKSS" => Plack::App::WrapCGI->new(script => "./Cgi4Lockss.pl")}' --preload-app --port 8080
+#
 # Pre-requisits:
-# sudo aptitude install libwww-mechanize-perl libxml-libxslt-perl 
-# Si falla tradicional -MCPAN -e 'install WWW::Mechanize' -e 'XML:LibXSLT' o bé XML:LibXSLT::Easy, que no està al apt però encara és més fàcil
+# sudo yum install perl-Plack perl-XML-LibXSLT perl-XML-LibXML perl-WWW-Mechanize #sudo aptitude install libwww-mechanize-perl libxml-libxslt-perl libplack-perl 
+# Si falla fer-ho des de perl, tot i que pot haver algun fitxer necessari que només es trobi en els paquets anteriors que sigui estrictament driver del OS:
+# $ env PERL_MM_USE_DEFAULT=1 cpan install CGI WWW::Mechanize XSLT XML:LibXSLT Plack Plack::Handler::Starman CGI::Emulate::PSGI   
+# (si no tenim la CLI cpan, directament amb perl -MCPAN -e 'install <mòdul>'. ' 
+#
 
 use strict;
 use utf8;
-use CGI; #Passar-ho a CGI:Pretty si el Benchmark en temps de generació no es veu molt perjudicat
+use CGI; #Passar-ho a CGI:PSGI el Benchmark en temps de generació no es veu molt perjudicat
 #use CGI::Carp; # Debug mode: qw( fatalsToBrowser ); #Plack ja té un debugger 
+use URI::URL;
 use XML::LibXML;
 use XML::LibXSLT;
 use WWW::Mechanize;
+
+$| = 1; #No Output Buffering
+$CGI::DISABLE_UPLOADS = 1; # Disable uploads
+$CGI::POST_MAX        = 0;
 
 my $mech;
 my $sublink;
 my $out = new CGI;
 
 
-# VARIABLES #
-my $webIndex = $out->param('webIndex') || 'http://allanita.cadiretes.cesca.cat:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina que el repositori  
-my $webOAIif = $out->param('webOAIif') || $webIndex . '/oai/request';
-my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
-$out->delete('webIndex','webOAIif');
-#############
+### VARIABLES ###
+my $webIndex = $out->param('webIndex') || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
+my $webOAIif = $out->param('webOAIif') || 'http://' . URI::URL->new($webIndex)->netloc . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
+
+my $xslSheet = './OaiMph2Html.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
+$out->delete('webIndex','webOAIif','verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
+#################
 
 # L'script actua com a generador de la ManifestPage (comportament per defecte, és a dir, quan no sol·licitem exlpícitament cap set) 
 # Unless (If not) defined any of the 3 expected parameters
@@ -44,13 +57,13 @@ unless( $out->param ) {
 	eval {
 		$mech->get( "$webIndex" );
      		1;
-	} or do {error($out,"Error de connexió/URL a la pàgina principal del repositori.")};
-	$mech->success or error($out,"El repositori ha tornat una missatge d'error en intentar accedir a la pàgina principal.");
+	} or do {error($out,"Error de connexió/URL a la pàgina principal del repositori ".$webIndex.".")};
+	$mech->success or error($out,"El repositori ha tornat una missatge d'error en intentar accedir a la pàgina principal ".$webIndex.".");
 
-	# Per títol en comptes de per URL seria:
+	# Per títol, si fos uniforme, en comptes de per URL seria:
 	# my @links = $mech->find_all_links( text_regex => qr/Universi/i );
-	my @communities = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
- 	error($out,"No s'han trobat enllaços a comunitats a la web del repositori proporcionada.") unless ( @communities ); 	
+	my @communities = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
+ 	error($out,"No s'han trobat enllaços a comunitats a la web del repositori proporcionada ".$webIndex.".") unless ( @communities ); 	
 
 	print $out->header(), #$out->header(-charset => 'utf-8'),
 	      $out->start_html('Col·leccions a Preservar'),
@@ -74,21 +87,26 @@ unless( $out->param ) {
 	      );
 
 	for my $link ( @communities ) {
+	
+	    $link->url_abs =~ m{/handle/\d+/(\d+)/?}i;    #Identifiquem la ID de la comunitat
+	    my $commID = $1;
+
 	    eval{
 		$mech->get($link->url_abs);
 	    	1;
             } or do {error($out,"Error de connexió/URL en seguir l'enllaç a una pàgina d'una comunitat.")};
- 	    $mech->success or error($out, "El repositori ha tornat una missatge d'error en intentar seguir l'enllaç a una pàgina d'una comunitat.");
-	 
-  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
+ 	    $mech->success or error($out,"El repositori ha tornat un missatge d'error en intentar seguir l'enllaç a la pàgina de la comunitat ".$commID.".");
+	
+  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)
 	    my $firstRecSubmi = $1;
 
-	    my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
+	    my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
 
 	    for my $sublink ( @collections ) {
-	       if ( $sublink eq $collections[0] ) { 
+		if ( $sublink eq $collections[0] ) { # Si primera iteració, hauria d'apareixer el propi link de la comunitat com el primer 'vist'
+		    ( $link->url_abs eq $sublink->url_abs ) or error($out, "El primer enllaç de la col·leció s'esperava idèntic al de la comunitat. Revisar el format esperat.");
 	       	     print $out->br,
-		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) );
+		     	   $out->h2( 'Comunitat: ', $out->a({ -href => $link->url_abs }, $link->text) , $out->a({ -href => $out->url . '?comm2csv=' . $commID }, ' (CSV) ') );
 	       } elsif ( $sublink->url eq $firstRecSubmi ){
 			last;
 	       } else {
@@ -120,11 +138,11 @@ unless( $out->param ) {
 	eval{
 		$mech->get( "$webIndex" );
         	1;
-        } or do {error($out,"Error de connexió/URL a la pàgina principal del repositori.")};
-	$mech->success or error ($out, "El repositori ha tornat una missatge d'error en intentar accedir a la pàgina principal.");
+        } or do {error($out,"Error de connexió/URL a la pàgina principal del repositori ".$webIndex.".")};
+	$mech->success or error ($out, "El repositori ha tornat una missatge d'error en intentar accedir a la pàgina principal ".$webIndex.".");
 
 	eval{
-		$mech->follow_link ( url_regex => qr/handle\/\d+\/$commID\/?$/i );
+		$mech->follow_link ( url_regex => qr{/handle/\d+/$commID/?$}i );
                 1;
         } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.". Existeix?")};	
 	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID.". Existeix?");
@@ -132,51 +150,54 @@ unless( $out->param ) {
 	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
 	my $firstRecSubmi = $1;
 
-	my @collections = $mech->find_all_links( url_regex => qr/handle\/\d+\/\d+\/?$/i );
+	my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
         error($out,"No s'han trobat enllaços a col·leccions a la pàgina de la comunitat.".$commID.".") unless ( @collections );
 
 	for my $sublink ( @collections ) {
    		if ( $sublink eq $collections[0] ) {
            		print $out->header(-type=>'application/x-download',
-                        	           -attachment  => 'AUs_comm'.$commID.'.csv' );
+                        	           -attachment  => 'AU_comm'.$commID.'.csv' );
  					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
 
             		print "base_url2, DSP_INST, HDL_ID\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
    		} else {
-        		$sublink->url =~ m!/handle/(\d+)/(\d+)/?!i;
+        		$sublink->url =~ m{/handle/(\d+)/(\d+)/?$}i;
         		printf ("%s, %s, %s\n", $webIndex, $1, $2 );
    		}	
 	}
 
-# L'script actua com a HTML renderer del output OAI XML (si no rep els parametres GET 'set' o 'verb+resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. Precedència al statement condicional: eq > && > ||. 
-} elsif ( $out->param == 1 && $out->param('set') || $out->param == 2 && $out->param('resumptionToken') && $out->param('verb') eq 'ListRecords' ) { 
+# L'script actua com a HTML renderer del output OAI XML si rep els parametres GET 'set' o '(verb+)resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. 
+} elsif ( $out->param == 1 && ( $out->param('set') || $out->param('resumptionToken') )) { 
 	
-	eval{ #Approach XML::LibXSLT::Easy hagués estat més fàcil, però no està instal·lada per defecte
+	eval{ 
 	  my $parser = XML::LibXML->new;
 	  my $xslt = XML::LibXSLT->new;
 	  my $stylesheet = $xslt->parse_stylesheet( $parser->parse_file("$xslSheet") );
 	  my $results = $stylesheet->transform( $parser->parse_file( $webOAIif . '?verb=ListRecords&' . ( $out->param('resumptionToken') ? 
 				('resumptionToken=' . $out->param('resumptionToken')) : 
-				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'"); # Norm. del link del Token només va canviant l'última centena
+				( 'metadataPrefix=oai_dc&set=' . $out->param('set'))) ) , dspacehome => "'$webIndex'"); 
+                               # Norm. del link del Token només va canviant l'última centena
           print $out->header(),
           $stylesheet->output_string($results);
 	  1;
 
-        } or do {error($out,"Error transformant l'ouput OAI-MPH a HTML. Comproveu que tant la interfície OAI-MPH delrepositori remot com la fulla XSTL local siguin accessibles des de l'script.")};
+        } or do {error($out,"Error transformant l'ouput OAI-MPH a HTML. Comproveu que les rutes tant a la interfície OAI-MPH del repositori remot com a la fulla XSTL local siguin accessibles des d'aquest script que us està parlant.")};
 
 # Aquest script no entén de la jerarquia lògica del repositori. quan se li passa com a paràmetre un handle de DSpace, sol·licita tots els objectes finals que depenen d'aquest. És a dir, tenint en compte que a DSpace el format dels handles és igual per a tot tipus de nodes, si li passem el handle d'una communitat ens retornarà tot el set d'objectes que són fulles d'aquest arbre obviant els nodes intermitjos, de manera que tindrem tots els documents fills de les seves subcomunitats, col·leccions, subcol·leccions, etc. sense tenir informació del seu parentesc. Per això, en la lògica amb què aplicarem aquest script, el nostre repositori serà dissenyat per contemplar solament tres nivells: comunitats (univesitats) > n col·leccions (departaments) > n bitsreams (recursos). Només demanarem els sets corresponents al handle de les col·leccions=departaments. 
 
 
-}else{ error ($out, "CGI Bad Request Parameters (Paràmetres no tipificats, amb valor nul, o proveïts conjuntament essent de modes incompatibles).") }
+}else{ error ($out, "CGI Bad Request Parameters (Paràmetres no tipificats, amb valor nul, o proveïts conjuntament essent de modes incompatibles).", '400 Bad Request') }
 
 
 #Error Output Page
 sub error {
-    my( $q, $error_message ) = @_;
+    my( $q, $error_message, $status ) = @_;
 
-    print $q->header(),
+    $status='500 Internal Server Error' unless ($status);
+
+    print $q->header( -status=> $status ),
           $q->start_html( 'Error' ),
           $q->h2( 'Error' ),
           $q->hr,
@@ -185,4 +206,5 @@ sub error {
           $q->end_html;
     exit;
 }
+
 
