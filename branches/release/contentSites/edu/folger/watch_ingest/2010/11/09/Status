@@ -1,14 +1,14 @@
 AuName=Folger Images 2nd Batch: from\=00001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20382.7578125,AuSize=21307724420,AuLastCrawlAttempt=1289233733563,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289250334194,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=01001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22078.46484375,AuSize=23084218389,AuLastCrawlAttempt=1289253018192,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289269734918,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=07001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=07001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=07322,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=17529.1640625,AuSize=18346874733,AuLastCrawlAttempt=1289248764284,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289260955943,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=07667,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=40466.5234375,AuSize=42374756940,AuLastCrawlAttempt=1289282464633,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289308129124,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=08001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=24671.9296875,AuSize=25835990866,AuLastCrawlAttempt=1289266037912,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289282948193,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=08192,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=25083.265625,AuSize=26267024650,AuLastCrawlAttempt=1289253060838,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289270181968,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=08392,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=23639.9375,AuSize=24754939309,AuLastCrawlAttempt=1289283144129,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289296476132,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=08599,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=23510.296875,AuSize=24618973280,AuLastCrawlAttempt=1289262661869,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289279024007,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=08800,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=7488.31640625,AuSize=7780547197,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
-AuName=Folger Images 2nd Batch: from\=09001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=1918.6640625,AuSize=1914464780,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=08800,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=09001,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=09247,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=25312.796875,AuSize=26504869624,AuLastCrawlAttempt=1289296476884,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289315383613,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=09485,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22949.02734375,AuSize=24028653434,AuLastCrawlAttempt=1289266469740,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289282304450,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=09745,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
@@ -18,14 +18,14 @@ AuName=Folger Images 2nd Batch: from\=10504,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=10757,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=25258.84375,AuSize=26448527469,AuLastCrawlAttempt=1289282949655,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289297306968,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=11001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22130.5625,AuSize=23172809816,AuLastCrawlAttempt=1289292092677,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289306466941,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=11222,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22009.8828125,AuSize=23046309763,AuLastCrawlAttempt=1289276518851,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289289944534,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=11447,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=11447,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=11736,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21850.36328125,AuSize=22879560259,AuLastCrawlAttempt=1289251161327,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289265208472,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=12001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=12177,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=12366,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20250.16015625,AuSize=21205027535,AuLastCrawlAttempt=1289292097782,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289304432798,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=12539,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=12715,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=19067.77734375,AuSize=19966552936,AuLastCrawlAttempt=1289234343875,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289248624812,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=13031,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=13031,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20552.5390625,AuSize=21519864678,AuLastCrawlAttempt=1289306468033,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289322507824,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=13314,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=26383.2890625,AuSize=27627854106,AuLastCrawlAttempt=1289262235086,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289280005691,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=13533,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=26904.328125,AuSize=28173726761,AuLastCrawlAttempt=1289282306960,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289297115030,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=13752,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22406.4296875,AuSize=23461962680,AuLastCrawlAttempt=1289297307680,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289315318865,Damaged=Waiting for Poll
@@ -38,12 +38,12 @@ AuName=Folger Images 2nd Batch: from\=15001,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=15207,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20260.9296875,AuSize=21214892192,AuLastCrawlAttempt=1289268912416,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289283143790,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=15494,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=24459.55859375,AuSize=25613089881,AuLastCrawlAttempt=1289234347534,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289253060568,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=28001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=23263.109375,AuSize=24360205455,AuLastCrawlAttempt=1289253655294,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289268658425,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=28201,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=28201,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=28401,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=28601,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21368.01171875,AuSize=22374925479,AuLastCrawlAttempt=1289255165015,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289268911792,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=28801,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21497.203125,AuSize=22510314826,AuLastCrawlAttempt=1289253196953,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289267513989,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=29001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
-AuName=Folger Images 2nd Batch: from\=29250,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=29250,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=29499,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=25891.8203125,AuSize=27111704282,AuLastCrawlAttempt=1289264682363,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289282404441,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=29751,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=17037.671875,AuSize=17836523907,AuLastCrawlAttempt=1289269737344,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289281915381,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=30001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
@@ -53,7 +53,7 @@ AuName=Folger Images 2nd Batch: from\=30602,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=30802,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=22725.54296875,AuSize=23797032327,AuLastCrawlAttempt=1289294180209,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289310286297,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=31001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=18296.12109375,AuSize=19154706376,AuLastCrawlAttempt=1289292113700,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289303921936,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=31253,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=19135.75,AuSize=20034079155,AuLastCrawlAttempt=1289234346803,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289248763133,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=31497,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=31497,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=26414.05078125,AuSize=27658229184,AuLastCrawlAttempt=1289303923150,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289324667960,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=31747,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=27947.87109375,AuSize=29265035316,AuLastCrawlAttempt=1289280006443,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289296388144,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=32001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20483.40234375,AuSize=21449665682,AuLastCrawlAttempt=1289234345338,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289249558384,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=32160,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21677.73828125,AuSize=22700854920,AuLastCrawlAttempt=1289273671422,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289287507029,Damaged=Waiting for Poll
@@ -65,12 +65,12 @@ AuName=Folger Images 2nd Batch: from\=33001,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=33253,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=33501,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21819.3046875,AuSize=22845359313,AuLastCrawlAttempt=1289247662052,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289262234906,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=33752,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20508.453125,AuSize=21472291654,AuLastCrawlAttempt=1289297124543,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289312649271,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=34001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=9479.71875,AuSize=9853896257,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
-AuName=Folger Images 2nd Batch: from\=34201,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
-AuName=Folger Images 2nd Batch: from\=34401,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=34001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=9479.71875,AuSize=9853896257,AuLastCrawlAttempt=1289311402489,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289323083804,Damaged=Waiting for Poll
+AuName=Folger Images 2nd Batch: from\=34201,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20632.74609375,AuSize=21604694675,AuLastCrawlAttempt=1289308129241,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289323606378,Damaged=Waiting for Poll
+AuName=Folger Images 2nd Batch: from\=34401,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=34602,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21232.68359375,AuSize=22233235615,AuLastCrawlAttempt=1289265208973,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289280072512,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=34803,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
-AuName=Folger Images 2nd Batch: from\=35001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=6701.0390625,AuSize=6947842816,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=35001,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=35200,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21381.578125,AuSize=22389190228,AuLastCrawlAttempt=1289234343142,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289250437915,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=35403,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20947.08203125,AuSize=21934064454,AuLastCrawlAttempt=1289287507359,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289299482821,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=35602,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
@@ -83,11 +83,11 @@ AuName=Folger Images 2nd Batch: from\=36807,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=37001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=37205,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=37406,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
-AuName=Folger Images 2nd Batch: from\=37606,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=18699.6171875,AuSize=19500836713,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=37606,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=37806,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=38001,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=38251,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=27531.1875,AuSize=28828946575,AuLastCrawlAttempt=1289234348266,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289255104210,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=38501,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=8811.08984375,AuSize=9210557541,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=38501,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=38754,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=39001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21152.34375,AuSize=22146145210,AuLastCrawlAttempt=1289289945506,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289302659015,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=39264,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21483.6328125,AuSize=22493247834,AuLastCrawlAttempt=1289270182828,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289284723219,Damaged=Waiting for Poll
@@ -96,10 +96,10 @@ AuName=Folger Images 2nd Batch: from\=40001,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=40251,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20293.5,AuSize=21247140241,AuLastCrawlAttempt=1289297116201,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289312427533,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=40503,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20144.12109375,AuSize=21090561145,AuLastCrawlAttempt=1289249558618,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289262660647,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=40753,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=20497.37109375,AuSize=21460677457,AuLastCrawlAttempt=1289234339483,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289249411114,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=41001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
+AuName=Folger Images 2nd Batch: from\=41001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
 AuName=Folger Images 2nd Batch: from\=42041,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21176.45703125,AuSize=22174060160,AuLastCrawlAttempt=1289282486222,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289294439715,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=42227,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=25058.87890625,AuSize=26241042300,AuLastCrawlAttempt=1289234346071,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289253654937,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=42432,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=42432,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=1289309536397,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289324744401,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=42605HC,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=42808,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.0234375,AuSize=0,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Waiting for Crawl
 AuName=Folger Images 2nd Batch: from\=43001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=24645.515625,AuSize=25807851908,AuLastCrawlAttempt=1289234340946,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289253195642,Damaged=Waiting for Poll
@@ -114,6 +114,6 @@ AuName=Folger Images 2nd Batch: from\=44793,Peers=peers,AuPolls=0,AuLastPoll=-1,
 AuName=Folger Images 2nd Batch: from\=45001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=19065.1015625,AuSize=19963649941,AuLastCrawlAttempt=1289263705481,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289276517824,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=45700,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=18018.12109375,AuSize=18866815125,AuLastCrawlAttempt=1289284724811,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289294997308,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=46001,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=17815.234375,AuSize=18654493802,AuLastCrawlAttempt=1289281916370,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289292092019,Damaged=Waiting for Poll
-AuName=Folger Images 2nd Batch: from\=46301,Peers=peers,AuPolls=0,AuLastPoll=-1,AuLastCrawlAttempt=-1,AuLastCrawl=-1,Damaged=Crawling
+AuName=Folger Images 2nd Batch: from\=46301,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=21213.75390625,AuSize=22214652532,AuLastCrawlAttempt=1289304434577,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289321581326,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=46471,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=19671.84375,AuSize=20599532698,AuLastCrawlAttempt=1289283467333,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289294546135,Damaged=Waiting for Poll
 AuName=Folger Images 2nd Batch: from\=metadata,Peers=peers,AuPolls=0,AuLastPoll=-1,DiskUsage=0.203125,AuSize=55157,AuLastCrawlAttempt=1289233846656,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289233864972,Damaged=Waiting for Poll

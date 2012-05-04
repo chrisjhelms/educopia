@@ -3,6 +3,7 @@
 27531.1875	AuSize=28828946575	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=38251
 26904.328125	AuSize=28173726761	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=13533
 26894.93359375	AuSize=28162050621	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=33001
+26414.05078125	AuSize=27658229184	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=31497
 26383.2890625	AuSize=27627854106	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=13314
 25891.8203125	AuSize=27111704282	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=29499
 25668.7578125	AuSize=26877779245	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=10253
@@ -49,9 +50,12 @@
 21381.578125	AuSize=22389190228	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=35200
 21368.01171875	AuSize=22374925479	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=28601
 21232.68359375	AuSize=22233235615	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=34602
+21213.75390625	AuSize=22214652532	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=46301
 21176.45703125	AuSize=22174060160	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=42041
 21152.34375	AuSize=22146145210	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=39001
 20947.08203125	AuSize=21934064454	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=35403
+20632.74609375	AuSize=21604694675	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=34201
+20552.5390625	AuSize=21519864678	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=13031
 20508.453125	AuSize=21472291654	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=33752
 20497.37109375	AuSize=21460677457	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=40753
 20483.40234375	AuSize=21449665682	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=32001
@@ -72,5 +76,7 @@
 17577.5546875	AuSize=18404542296	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=36196
 17529.1640625	AuSize=18346874733	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=07322
 17037.671875	AuSize=17836523907	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=29751
+9479.71875	AuSize=9853896257	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=34001
 0.203125	AuSize=55157	AuLastCrawlResultMsg=Successful		AuName=Folger Images 2nd Batch: from\=metadata
 from\=00001,Peers=peers,AuPolls=0,AuLastPoll=-1,20382.7578125,AuSize=21307724420,AuLastCrawlAttempt=1289233733563,AuLastCrawlResultMsg=Successful,AuLastCrawl=1289250334194,Damaged=Waiting	for			AuName=Folger
+AuLastCrawlAttempt=1289309536397	AuLastCrawlResultMsg=Successful	Damaged=Waiting for Poll		AuName=Folger Images 2nd Batch: from\=42432
