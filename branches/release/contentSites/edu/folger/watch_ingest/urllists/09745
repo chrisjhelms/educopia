@@ -1,65 +1,261 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><head><title>LOCKSS: List Objests</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<style type="text/css"> <!--
-sup {font-weight: normal; vertical-align: super; }
-a.colhead, a.colhead:link, a.colhead:visited { text-decoration: none; font-weight: bold; color: blue; }
-td.colhead { font-weight: bold; background: #e0e0e0; }
---> </style>
-</head>
-<body  bgcolor="#ffffff">
-<table border=0 cellspacing="2" cellpadding="0" width="100%"><tr><td valign="top" align="center" width="20%"><a href="http://www.lockss.org/"><img src="/images/lockss-logo-small.gif" height=81 width=80 border=0></a
-><img src="/images/tm.gif" height=16 width=16 border=0><a href="http://www.metaarchive.org/"><img src="http://admin.metaarchive.org/lockss_test/config/metaarchive-logo.gif" border=0></a
-></td
-><td valign="top" align="center" width="60%"><br><font size="+2"><b>List Objests</b></font><br><b>gt-ma-testcache.library.gatech.edu</b>&nbsp;&nbsp;(<b>metaarchive</b>, <b>doc</b> groups)<br>20:36:05 11/15/10, up 3d1h14m</td
-><td valign="center" align="center" width="20%"><table border=0 cellspacing="2" cellpadding="0"><tr><td colspan="3"><font size="-1"><a href="/BatchAuConfig">Journal Configuration</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/AdminIpAccess">Admin Access Control</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/ProxyIpAccess">Content Access Control</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/ProxyAndContent">Content Access Options</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/info/ProxyInfo">Proxy Info</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/DaemonStatus">Daemon Status</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/DebugPanel">Debug Panel</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/ExpertConfig">Expert Config</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/log">Logs</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="/ThreadDump">Thread Dump</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="mailto:support@metaarchive.org">Contact Us</a
-></font></td
-></tr
-><tr><td colspan="3"><font size="-1"><a href="http://www.lockss.org/lockss/Cache_Help">Help</a
-></font></font></td
-></tr
-></table
-></td
-></tr
-></table
-><br><center><font color=red size=+1>No such AU: edu|folger|shakespeare&base_url~http%3A%2F%2Fmetaarchive%2Elibrary%2Eunt%2Eedu%2Ffolger_staging%2F&from~09745</font></center><br><p><table border=0 cellspacing="0" cellpadding="0" align="center"><tr valign="top"><td><img src="/images/lockss-type-red.gif" height=31 width=595 border=0></td
-><td><img src="/images/tm.gif" height=16 width=16 border=0></td
-></tr
-><tr><td colspan="2"><center><font size="-1">Daemon 1.47.3 built 14-Sep-10 12:59:45 on dlvargas-lockss, Linux RPM 1</font></center></td
-></tr
-></table
->
-</body>
-</html>
+# Files in Folger Images 2nd Batch: from=09745
+# URL	ContentType	size
+
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009745.tif	image/tiff	118465752
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009746.tif	image/tiff	118465784
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009747.tif	image/tiff	118465560
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009748.tif	image/tiff	118465420
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009749.tif	image/tiff	118465624
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009750.tif	image/tiff	118465448
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009751.tif	image/tiff	118465440
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009752.tif	image/tiff	118465244
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009753.tif	image/tiff	118465116
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009754.tif	image/tiff	118596440
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009755.tif	image/tiff	117857076
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009756.tif	image/tiff	117856280
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009757.tif	image/tiff	117856716
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009758.tif	image/tiff	98632024
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009759.tif	image/tiff	90304428
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009760.tif	image/tiff	91700988
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009761.tif	image/tiff	101439696
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009762.tif	image/tiff	101438440
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009763.tif	image/tiff	101438176
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009764.tif	image/tiff	101439484
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009765.tif	image/tiff	101439840
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009766.tif	image/tiff	101440688
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009767.tif	image/tiff	101441148
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009768.tif	image/tiff	101441132
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009769.tif	image/tiff	101440512
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009770.tif	image/tiff	101440712
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009771.tif	image/tiff	101440440
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009772.tif	image/tiff	101440956
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009773.tif	image/tiff	101441080
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009774.tif	image/tiff	101441476
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009775.tif	image/tiff	100623032
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009776.tif	image/tiff	100623200
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009777.tif	image/tiff	100622728
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009778.tif	image/tiff	100623160
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009779.tif	image/tiff	100622848
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009780.tif	image/tiff	102921780
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009781.tif	image/tiff	102922248
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009782.tif	image/tiff	102921656
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009783.tif	image/tiff	102922488
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009784.tif	image/tiff	103194528
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009785.tif	image/tiff	103750052
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009786.tif	image/tiff	103750452
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009787.tif	image/tiff	103750172
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009788.tif	image/tiff	103750324
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009789.tif	image/tiff	101657860
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009790.tif	image/tiff	101877028
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009791.tif	image/tiff	101875764
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009792.tif	image/tiff	101876372
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009793.tif	image/tiff	101875880
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009794.tif	image/tiff	101876400
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009795.tif	image/tiff	102543664
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009796.tif	image/tiff	102543768
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009797.tif	image/tiff	102543704
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009798.tif	image/tiff	102543868
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009799.tif	image/tiff	102872616
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009800.tif	image/tiff	102872728
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009801.tif	image/tiff	102873036
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009802.tif	image/tiff	103201416
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009803.tif	image/tiff	103201868
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009804.tif	image/tiff	103199284
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009805.tif	image/tiff	103198616
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009806.tif	image/tiff	103199020
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009807.tif	image/tiff	103200032
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009808.tif	image/tiff	93328092
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009809.tif	image/tiff	91798240
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009810.tif	image/tiff	76155808
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009811.tif	image/tiff	98020480
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009812.tif	image/tiff	98015332
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009813.tif	image/tiff	98017116
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009814.tif	image/tiff	98017080
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009815.tif	image/tiff	98018368
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009816.tif	image/tiff	98018544
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009817.tif	image/tiff	98018708
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009818.tif	image/tiff	98018348
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009819.tif	image/tiff	98018136
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009820.tif	image/tiff	98018208
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009821.tif	image/tiff	98018180
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009822.tif	image/tiff	98018044
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009823.tif	image/tiff	98582400
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009824.tif	image/tiff	98581852
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009825.tif	image/tiff	98582100
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009826.tif	image/tiff	98581948
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009827.tif	image/tiff	98581920
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009828.tif	image/tiff	98581892
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009829.tif	image/tiff	98997272
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009830.tif	image/tiff	98997372
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009831.tif	image/tiff	99437716
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009832.tif	image/tiff	99437504
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009833.tif	image/tiff	99437680
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009834.tif	image/tiff	99768104
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009835.tif	image/tiff	99767732
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009836.tif	image/tiff	99768044
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009837.tif	image/tiff	99767720
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009838.tif	image/tiff	99988380
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009839.tif	image/tiff	99988756
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009840.tif	image/tiff	99988632
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009841.tif	image/tiff	99988124
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009842.tif	image/tiff	99988260
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009843.tif	image/tiff	98920396
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009844.tif	image/tiff	98920452
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009845.tif	image/tiff	98919648
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009846.tif	image/tiff	98919880
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009847.tif	image/tiff	98919572
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009848.tif	image/tiff	98919880
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009849.tif	image/tiff	99682124
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009850.tif	image/tiff	99682468
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009851.tif	image/tiff	99682180
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009852.tif	image/tiff	99464436
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009853.tif	image/tiff	99462648
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009854.tif	image/tiff	99461848
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009855.tif	image/tiff	99466764
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009856.tif	image/tiff	104727968
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009857.tif	image/tiff	93370024
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009858.tif	image/tiff	106249240
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009859.tif	image/tiff	100116220
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009860.tif	image/tiff	100115360
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009861.tif	image/tiff	100117028
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009862.tif	image/tiff	100117040
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009863.tif	image/tiff	100118136
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009864.tif	image/tiff	100118524
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009865.tif	image/tiff	100118400
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009866.tif	image/tiff	100118072
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009867.tif	image/tiff	100611956
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009868.tif	image/tiff	100611772
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009869.tif	image/tiff	100611904
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009870.tif	image/tiff	100611752
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009871.tif	image/tiff	100612412
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009872.tif	image/tiff	100364780
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009873.tif	image/tiff	100365192
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009874.tif	image/tiff	100365336
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009875.tif	image/tiff	100365684
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009876.tif	image/tiff	100365408
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009877.tif	image/tiff	100365372
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009878.tif	image/tiff	100365592
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009879.tif	image/tiff	100365296
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009880.tif	image/tiff	100859272
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009881.tif	image/tiff	100859056
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009882.tif	image/tiff	100859040
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009883.tif	image/tiff	100858928
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009884.tif	image/tiff	100858988
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009885.tif	image/tiff	100858836
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009886.tif	image/tiff	100859296
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009887.tif	image/tiff	100859848
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009888.tif	image/tiff	101230092
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009889.tif	image/tiff	101229732
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009890.tif	image/tiff	101229464
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009891.tif	image/tiff	101230068
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009892.tif	image/tiff	101229460
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009893.tif	image/tiff	101229500
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009894.tif	image/tiff	101229176
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009895.tif	image/tiff	101229396
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009896.tif	image/tiff	101229192
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009897.tif	image/tiff	101229712
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009898.tif	image/tiff	101229604
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009899.tif	image/tiff	101229712
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009900.tif	image/tiff	101229560
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009901.tif	image/tiff	101227736
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009902.tif	image/tiff	101226928
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009903.tif	image/tiff	101226908
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009904.tif	image/tiff	101226888
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009905.tif	image/tiff	101226920
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009906.tif	image/tiff	101226904
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009907.tif	image/tiff	101226892
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009908.tif	image/tiff	101226880
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009909.tif	image/tiff	101226888
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009910.tif	image/tiff	101226860
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009911.tif	image/tiff	101226884
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009912.tif	image/tiff	101226876
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009913.tif	image/tiff	101226872
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009914.tif	image/tiff	101226884
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009915.tif	image/tiff	101226896
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009916.tif	image/tiff	101226860
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009917.tif	image/tiff	101226856
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009918.tif	image/tiff	101226864
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009919.tif	image/tiff	101226888
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009920.tif	image/tiff	101226896
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009921.tif	image/tiff	101856276
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009922.tif	image/tiff	101856688
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009923.tif	image/tiff	108832652
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009924.tif	image/tiff	38287150
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009925.TIF	image/tiff	38299730
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009926.TIF	image/tiff	38309278
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009927.TIF	image/tiff	38284688
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009928.TIF	image/tiff	38278730
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009929.TIF	image/tiff	38279258
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009930.tif	image/tiff	27251720
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009931.tif	image/tiff	26878428
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009932.tif	image/tiff	12963932
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009934.tif	image/tiff	33079648
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009935.tif	image/tiff	44631232
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009936.tif	image/tiff	94140404
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009937.tif	image/tiff	108172624
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009938.tif	image/tiff	102646112
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009939.tif	image/tiff	102641588
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009940.tif	image/tiff	103010072
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009941.tif	image/tiff	103010140
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009942.tif	image/tiff	103011284
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009943.tif	image/tiff	103011320
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009944.tif	image/tiff	103011816
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009945.tif	image/tiff	102248100
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009946.tif	image/tiff	101179788
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009947.tif	image/tiff	101179628
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009948.tif	image/tiff	101179964
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009949.tif	image/tiff	101180164
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009950.tif	image/tiff	101180264
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009951.tif	image/tiff	101180224
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009952.tif	image/tiff	101180080
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009953.tif	image/tiff	101180124
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009954.tif	image/tiff	101180584
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009955.tif	image/tiff	101180048
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009956.tif	image/tiff	101927188
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009957.tif	image/tiff	101927684
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009958.tif	image/tiff	101926864
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009959.tif	image/tiff	101927468
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009960.tif	image/tiff	101927284
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009961.tif	image/tiff	101927180
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009962.tif	image/tiff	101927472
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009963.tif	image/tiff	101927172
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009964.tif	image/tiff	101927388
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009965.tif	image/tiff	101926952
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009966.tif	image/tiff	101928032
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009967.tif	image/tiff	101927320
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009968.tif	image/tiff	101927620
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009969.tif	image/tiff	102436148
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009970.tif	image/tiff	102436200
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009971.tif	image/tiff	102436288
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009972.tif	image/tiff	102436120
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009973.tif	image/tiff	102436212
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009974.tif	image/tiff	102436416
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009975.tif	image/tiff	102436496
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009976.tif	image/tiff	102436572
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009977.tif	image/tiff	102436180
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009978.tif	image/tiff	102436616
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009979.tif	image/tiff	102436088
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009980.tif	image/tiff	102434872
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009981.tif	image/tiff	102433844
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009982.tif	image/tiff	102438324
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009983.tif	image/tiff	112127416
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009984.tif	image/tiff	94855960
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009985.tif	image/tiff	102746372
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009986.tif	image/tiff	114864708
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009987.tif	image/tiff	114699716
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009988.tif	image/tiff	116409028
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009989.tif	image/tiff	116409220
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009990.tif	image/tiff	116409648
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009991.tif	image/tiff	116410332
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009992.tif	image/tiff	116410020
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009993.tif	image/tiff	116409972
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009994.tif	image/tiff	116409628
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009995.tif	image/tiff	116409804
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009996.tif	image/tiff	116409752
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009997.tif	image/tiff	116410068
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009998.tif	image/tiff	117741496
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/009999.tif	image/tiff	116945504
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/010000.tif	image/tiff	116945400
+http://metaarchive.library.unt.edu/folger_staging/Masters-009001-010000/manifest-09745-10000.html	text/html; charset=UTF-8	16930
+http://metaarchive.library.unt.edu/folger_staging/manifest.html	text/html; charset=UTF-8	54128
+# end
