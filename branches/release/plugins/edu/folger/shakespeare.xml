@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>5</string>
+    <string>6</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -25,6 +25,12 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
     </list>
+  </entry>
+  <entry>
+   <string>plugin_cache_result_list</string>
+   <list>
+     <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
+   </list>
   </entry>
   <entry>
     <string>au_name</string>
