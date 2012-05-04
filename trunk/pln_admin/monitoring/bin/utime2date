@@ -2,7 +2,8 @@
 import sys
 import time 
 try: 
-	tm = float(sys.argv[1]) 
+	tm = int(sys.argv[1]) / 1000 
+        print tm
 	print time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(tm)) 
 except  (ValueError, IndexError): 
 	print "must give epoch time value"
