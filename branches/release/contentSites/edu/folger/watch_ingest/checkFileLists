@@ -1,2 +1,0 @@
-#!/bin/tcsh -f 
-fgrep -c "# end" urllists/*

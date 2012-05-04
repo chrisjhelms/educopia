@@ -1,6 +1,0 @@
-#!/bin/tcsh 
-foreach df  ( `cat folger_all_files` ) 
-   set d = $df:h 
-   set f =  $df:t
-   echo "$d	$f	" `fgrep -H -c $f $d/manifest*.html | fgrep -v :0 `
-end 
