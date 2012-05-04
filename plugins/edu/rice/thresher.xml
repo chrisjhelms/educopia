@@ -9,7 +9,11 @@
   </entry>
   <entry>
     <string>plugin_version</string>
+<<<<<<< .mine
+    <string>2.3</string>
+=======
     <string>3</string>
+>>>>>>> .r439
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -17,22 +21,22 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;thresher&quot;</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>Rice Thresher</string>
+    <string>&quot;Rice University Thresher&quot;</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>1209600000</long>
   </entry>
   <entry>
+    <string>plugin_name</string>
+    <string>Rice Thresher</string>
+  </entry>
+  <entry>
     <string>au_crawlrules</string>
     <list>
       <string>1,&quot;^%s/lockss/permission.txt&quot;, base_url</string>
       <string>1,&quot;^%s/manifest.html&quot;, base_url2</string>
-      <string>1,&quot;^%s/hdl_1911_%s_%d&quot;, base_url2, hdl_id, part</string>
+      <string>1,&quot;^%s/hdl_1911_%s&quot;, base_url2, hdl_id</string>
       <string>1,&quot;^%s/handle/1911/[0-9]+\?mode=full$&quot;, base_url</string>
       <string>1,&quot;^%s/dspace-oai&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/&quot;, base_url</string>
@@ -74,15 +78,6 @@
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
         <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>part</key>
-        <displayName>part</displayName>
-        <description></description>
-        <type>2</type>
-        <size>3</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
