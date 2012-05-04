@@ -1,0 +1,40 @@
+#!/usr/bin/python
+"""Convert utf to ascii string
+
+Usage: utf2ascii [options] str ...
+
+Options:
+    -h / --help
+        Print this message and exit.
+"""
+
+import sys
+import os
+import getopt
+import urllib2
+
+def main(argv):                         
+	try:                                
+		opts, args = getopt.getopt(argv, "h", ["help"])
+	except getopt.error, msg:
+        	usage(1, msg)
+
+	for opt, arg in opts:                
+		if opt in ("-h", "--help"):  
+			usage(0)                     
+
+	try: 
+                for str in args:
+			print urllib2.unquote(urllib2.unquote(str)) 
+	except  (ValueError, IndexError): 
+		usage(1)
+
+def usage(code, msg=''):
+    print >> sys.stderr, __doc__
+    if msg:
+        print >> sys.stderr, msg
+    sys.exit(code)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
+
