@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>7</string>
+    <string>8</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -67,5 +67,11 @@
       <string>1,&quot;^%s/.*.PDF$&quot;, base_url</string>
       <string>1,&quot;^%s/.*.pdf$&quot;, base_url</string>
     </list>
+  </entry>
+  <entry>
+   <string>plugin_cache_result_list</string>
+   <list>
+     <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
+   </list>
   </entry>
 </map>
