@@ -1,13 +1,17 @@
 #!/bin/csh  -f
 source ~/.metaarchive.rc 
-set PWD = dingDong
-set USER = mmevenk
-set DB = ma_cachemanager_prod;  
-echo "#CP	disk_usage	size";
-foreach f ($MACPS) 
-  set pre = `echo $f | sed 's/\./|/g'`;
-  echo -n "$pre	"; 
-  echo  "SELECT cache_archival_units.key_string, cache_archival_units.disk_usage, cache_archival_units.size, caches.name FROM cache_archival_units JOIN caches ON cache_archival_units.cache_id = caches.id WHERE cache_archival_units.key_string LIKE '$pre%'"  | mysql --user $USER --password=$PWD $DB    
-  # can't do sums since fields are strings with comma formated numbers
-  #echo  "SELECT SUM(cache_archival_units.disk_usage), SUM(cache_archival_units.size) FROM cache_archival_units WHERE cache_archival_units.key_string LIKE '$pre%'"  | mysql --user $USER --password=$PWD $DB     | fgrep -v SUM 
-end 
+if ($# != 2) then 
+   echo  "$0 DBUSER DBPWD"; 
+else 
+    set DBUSER = $1
+    set DBPWD = $2
+    set DB = ma_cachemanager_prod;  
+    echo "#CP	disk_usage	size";
+    foreach f ($MACPS) 
+      set pre = `echo $f | sed 's/\./|/g'`;
+      echo -n "$pre	"; 
+      echo  "SELECT cache_archival_units.key_string, cache_archival_units.disk_usage, cache_archival_units.size, caches.name FROM cache_archival_units JOIN caches ON cache_archival_units.cache_id = caches.id WHERE cache_archival_units.key_string LIKE '$pre%'"  | mysql --user $DBUSER --password=$DBPWD $DB    
+      # can't do sums since fields are strings with comma formated numbers
+      #echo  "SELECT SUM(cache_archival_units.disk_usage), SUM(cache_archival_units.size) FROM cache_archival_units WHERE cache_archival_units.key_string LIKE '$pre%'"  | mysql --user $DBUSER --password=$PWD $DB     | fgrep -v SUM 
+    end 
+endif 
