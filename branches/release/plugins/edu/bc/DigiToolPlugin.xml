@@ -49,6 +49,12 @@ It is useful for small sites that are to be harvested completely as they are del
     <string>&quot;%s/lockss/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
+    <string>plugin_cache_result_list</string>
+    <list>
+      <string>404=org.lockss.util.urlconn.CacheException$NoRetryDeadLinkException</string>
+    </list>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
