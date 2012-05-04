@@ -5,7 +5,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -33,7 +33,7 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/manifestIndex.html$&quot;, base_url</string>
       <string>1,&quot;^%s/?$&quot;, base_url</string>
-      <string>1,&quot;/\?&quot;</string>
+      <string>2,&quot;/\?&quot;</string>
       <string>1,&quot;^%s/%s$&quot;, base_url, volume_name</string>
       <string>1,&quot;^%s/%s/&quot;, base_url, volume_name</string>
     </list>
