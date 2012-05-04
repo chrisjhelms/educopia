@@ -77,11 +77,11 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>Concrete DSpace Repository Plugin</string>
+    <string>Particular DSpace Repository Plugin</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>cat.tdx.ConcreteDspacePlugin</string>
+    <string>cat.tdx.ParticularDspacePlugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -92,7 +92,7 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
       <string>1,&quot;set=hdl_%d_%d$&quot;, dspace_instance, coll_hdl_id</string>
       <string>1,&quot;^%s/handle/%d/[0-9]+\?mode=full&quot;, base_url2, dspace_instance</string>
       <string>1,&quot;^%s/bitstream/handle/%d/&quot;, base_url2, dspace_instance</string>
-      <string>1,&quot;&amp;resumptionToken=[0-9]+$&quot;</string>
+      <string>1,&quot;verb=listRecords&amp;resumptionToken=&quot;</string>
     </list>
   </entry>
 </map>
