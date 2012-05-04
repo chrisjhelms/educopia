@@ -1,5 +1,0 @@
-ULIMIT_DATA=unlimited
-ULIMIT_MEMORY=unlimited
-ULIMIT_STACK=14000
-ULIMIT_FILES=512
-JAVA_COMMAND_ARGS="-server `/usr/local/lib/maxheap` -Dsun.net.inetaddr.ttl=3600 -Dorg.lockss.synchronizeDns=true -showversion -Dorg.lockss.defaultLogLevel=debug2"

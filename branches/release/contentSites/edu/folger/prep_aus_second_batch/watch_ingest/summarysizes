@@ -1,7 +1,0 @@
-#!/bin/tcsh 
-foreach f (  `ls urllists`) 
-   fgrep -h $f `find 2010/11/*/Status.sizes  -name \*sizes`  > /tmp/$$ 
-   echo $f `wc -l /tmp/$$`
-   cat /tmp/$$ 
-end 
-
