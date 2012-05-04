@@ -34,7 +34,9 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
+      <string>1,&quot;^%s/MACmanifest/manifest.html&quot;, base_url</string>
       <string>1,&quot;^%s/MACmanifest/manifest%s.php&quot;, base_url, volume_name</string>
+      <string>1,&quot;^%s/MACmanifest/itemListPage.php&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/1853/*/*/*&quot;, base_url</string>
       <string>1,&quot;^%s/handle/1853/[0-9]+\?mode=full&amp;submit_simple=Show\+full\+item\+record&quot;, base_url</string>
       <string>2,&quot;^%s/1853/[0-9]+$&quot;, base_url</string>
