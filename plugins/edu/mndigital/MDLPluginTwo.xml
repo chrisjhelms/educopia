@@ -40,7 +40,7 @@
   </entry>
   <entry>
     <string>plugin_notes</string>
-    <string>This is an attempt to define a plugin to crawl everything and split into AUs as they are on the MDL site. First try.</string>
+    <string>This defines a plugin to crawl a single AU on the MDL site.</string>
   </entry>
   <entry>
     <string>plugin_name</string>
