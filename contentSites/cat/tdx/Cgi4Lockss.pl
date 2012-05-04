@@ -32,8 +32,8 @@ use XML::LibXML;
 use XML::LibXSLT;
 use WWW::Mechanize;
 
-$| = 1; #No Output Buffering
-$CGI::DISABLE_UPLOADS = 1; # Disable uploads
+$| = 1; # Output Buffering Off > ¿Fast::CGI?
+$CGI::DISABLE_UPLOADS = 1; # Disable uploads for security
 $CGI::POST_MAX        = 0;
 
 my $mech;
@@ -42,9 +42,10 @@ my $out = new CGI;
 
 
 ### VARIABLES ###
+$out->delete('webIndex') unless $out->param('webIndex'); #Això elimina els paràmetres de la query si estan buits. És útil perquè el plugin construeix les 
+$out->delete('webOAIif') unless $out->param('webOAIif'); #                             URL per defecte amb els paràmetres tinguin un valor explícit o no.
 my $webIndex = $out->param('webIndex') || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
-my $webOAIif = $out->param('webOAIif') || 'http://' . URI::URL->new($webIndex)->netloc . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
-
+my $webOAIif = $out->param('webOAIif') || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
 my $xslSheet = './OaiMph2Html.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 $out->delete('webIndex','webOAIif','verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
 #################
@@ -159,16 +160,16 @@ unless( $out->param ) {
                         	           -attachment  => 'AU_comm'.$commID.'.csv' );
  					   # -Content_length  => -s "$path_to_files/$file", # Per obtenir progressbar
 
-            		print "base_url2, DSP_INST, HDL_ID\n";
+            		print "dspace_instance, coll_hdl_id, base_url2, oai_interface\n";
 		} elsif ( $sublink->url eq $firstRecSubmi ) { 
 			last;
    		} else {
         		$sublink->url =~ m{/handle/(\d+)/(\d+)/?$}i;
-        		printf ("%s, %s, %s\n", $webIndex, $1, $2 );
+        		printf ("%s, %s, %s, %s\n", $1, $2, SwebIndex, $webOAIif );
    		}	
 	}
 
-# L'script actua com a HTML renderer del output OAI XML si rep els parametres GET 'set' o '(verb+)resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. 
+# L'script actua com a HTML renderer del output OAI XML si rep els parametres GET 'set' o 'resumptionToken' [que sol·licita els següents registres als mostrats per una acció 'set' anterior]. 
 } elsif ( $out->param == 1 && ( $out->param('set') || $out->param('resumptionToken') )) { 
 	
 	eval{ 
@@ -206,5 +207,3 @@ sub error {
           $q->end_html;
     exit;
 }
-
-
