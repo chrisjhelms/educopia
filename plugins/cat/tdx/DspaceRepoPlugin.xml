@@ -2,8 +2,8 @@
   <entry>
     <string>au_manifest</string>
     <list>
-      <string> &quot;%s/LOCKSS&quot;, base_url</string>
-      <string> &quot;%s/LOCKSSpermission.txt&quot;, base_url2</string>
+      <string> &quot;%s/LOCKSS.txt&quot;, base_url</string>
+      <string> &quot;%s&quot;, base_url2</string>
     </list>
   </entry>
   <entry>
@@ -28,10 +28,10 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>HDL_ID</key>
+        <key>handle_id</key>
         <displayName>Dspace&apos;s Collection Handle Id</displayName>
         <description>Handle ID that identifies a particular 
-collection (College department) inside
+collection (Institution department) inside
 our DSpace repository</description>
         <type>2</type>
         <size>10</size>
@@ -39,7 +39,7 @@ our DSpace repository</description>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>DSP_INST</key>
+        <key>dspace_instance</key>
         <displayName>Dspace Instance ID</displayName>
         <description>Serial ID that identifies that particular
 DSpace repository instance&apos;s links</description>
@@ -56,11 +56,11 @@ DSpace repository instance&apos;s links</description>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;CBUC_Coll_Dept_hdl_%d&quot;, HDL_ID</string>
+    <string>&quot;TDX_Coll_Dept_hdl_%d&quot;, HDL_ID</string>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/LOCKSS&quot;, base_url</string>
+    <string>&quot;%s&quot;, base_url2</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -72,7 +72,7 @@ DSpace repository instance&apos;s links</description>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>Arxiu TDX del CBUC</string>
+    <string>Generic DSpace Repository Plugin</string>
   </entry>
   <entry>
     <string>plugin_notes</string>
@@ -81,7 +81,7 @@ Archival unit sizes should range between 1GB and not much bigger than 20GB.</str
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>cat.cbuc.CbucPlugin</string>
+    <string>cat.tdx.DspaceRepoPlugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
