@@ -17,9 +17,10 @@ use XML::LibXML;
 use XML::LibXSLT;
 use WWW::Mechanize;
 
-my $webIndex = 'http://84.88.13.203:8080'; # Posar '.', indicant paths relatius, si aquest scritp s'emplaça a la mateixa màquina del repositori 
+my $webIndex = 'http://84.88.13.203:8080'; # = '.', si aquest script s'emplaça a la mateixa màquina del repositori  
 my $webOAIif = $webIndex . '/oai/request';
-my $xslSheet = $webIndex . '/OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
+my $xslSheet = './OaiMph2Html.xsl'; # Copia en local de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
+my $cgiCntxt = '/lockss';
 
 my $out = new CGI;
 
@@ -84,7 +85,7 @@ if ( "" ne $out->param('set') || "" ne $out->param('resumptionToken')){
 		        $out->ul(
 		           $out->li(
 		               [ $out->a( { -href => $webOAIif . '?verb=ListRecords&metadataPrefix=oai_dc&set=' . $set }, ' OAI:DC XML Set ' ),
-		                 $out->a( { -href => './cgi.pl?set=' . $set }, ' Crawlable HTML Set ' )
+		                 $out->a( { -href => './' . $cgiCntxt . '?set=' . $set }, ' Crawlable HTML Set ' )
 		               ]
 		           )
 		        );
