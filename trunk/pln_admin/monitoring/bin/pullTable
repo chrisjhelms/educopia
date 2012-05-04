@@ -170,9 +170,8 @@ sub doit
    $rc = 0 ;
    while ( ($node, $url) = each(%servers) ) {
        my $page = "http://" . $url . ":" . $PORT . "/" . $UIPAGE ; 
-       if ($OUTNAME == "-")  {
-          $file = "-"; 
-       } else { 
+       my $file = "-"; 
+       if ($OUTNAME ne "-")  {
           $file = $DATADIR . "/" . $OUTNAME . "_" . $node;  
        } 
        print STDERR  "QUERY $node => $file ". ($DOXSLT ? "(xslt)" : "") . "-> "; 
@@ -183,8 +182,8 @@ sub doit
 
 sub storefile
 {
-   my($filem,$ext) = @_;  
-   if ($file == "-") {
+   my($file,$ext) = @_;  
+   if ($file eq "-") {
       return "-"; 
    } else {
       return $file . $ext ;
