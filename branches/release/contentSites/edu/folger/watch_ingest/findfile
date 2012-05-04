@@ -1,8 +1,10 @@
 #!/bin/tcsh 
 set f = $1 
 cd urllists; fgrep $f * 
-if ($status == 1) then 
+set cnt = `fgrep $f * | wc -l`
+
+if ($cnt == 0) then 
    echo "NOT PRESERVED $f" 
 else 
-  echo "OK $f"
+  echo "OK $f $cnt"
 endif 
