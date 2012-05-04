@@ -42,8 +42,9 @@ my $out = new CGI;
 
 
 ### VARIABLES ###
-my $webIndex = 'http://allanita.cadiretes.cesca.cat:8080' || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
-my $webOAIif = 'http://allanita.cadiretes.cesca.cat:8080/oai/request' || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
+$regexpFirstRecSubmi = qr/<div\sclass="Enviaments">.*?<a\shref="(.*?)">/si; #REGEXP que identifica el primer Recent Submission Link del output HTML
+my $webIndex = 'http://elmeurepoallanit:8080' || $out->url(-base => 1); # Per defecte, assumim REPO_INDEX_URL=<CGISCRIPT_HOSTBASE>  
+my $webOAIif = 'http://elmeurepoallanit:8080/oai/request' || 'http://' . URI::URL->new($webIndex)->netloc || 'ErrorIdentificantHostDeURLWebIndex' . '/oai/request'; # Tb tindria sentit .$webIndex . '/oai/request', si /oai/ s'apendés sempre quin sigui el context principal del repositori (<host>/dspace -> <host/dspace>/oai/)
 my $xslSheet = './OaiMph2HtmlParticular.xsl'; # Còpia en local modificada de 'http://metaarchive.org/public/doc/testSites/xmlMetaDataToLockss/smartech-oai.xsl'
 $out->delete('verb'); # Obviem el codi de comanda que ens puguin passar de OAI-MPH, sempre fem ListRecords si ens arriba un Set/Token
 #################
@@ -95,8 +96,8 @@ unless( $out->param ) {
 	    	1;
             } or do {error($out,"Error de connexió/URL en seguir l'enllaç a una pàgina d'una comunitat.")};
  	    $mech->success or error($out,"El repositori ha tornat un missatge d'error en intentar seguir l'enllaç a la pàgina de la comunitat ".$commID.".");
-	
-  	    $mech->content =~ /Recent.*?<a\shref="(.*?)">/si; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)
+
+	    $mech->content =~ $regexpFirstRecSubmi; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)	
 	    my $firstRecSubmi = $1;
 
 	    my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
@@ -146,7 +147,7 @@ unless( $out->param ) {
         } or do {error($out,"Error de connexió/URL en seguir l'enllaç a la pàgina principal de la comunitat/institució ".$commID.". Existeix?")};	
 	$mech->success or error ($out, "El repositori ha tornat un error en intentar accedir a la pàgina principal de la comunitat/institució ".$commID.". Existeix?");
 	
-	$mech->content =~ /Recent.*?<a\shref="(.*?)">/si;
+ 	$mech->content =~ $regexpFirstRecSubmi; # Identifiquem i guardem el 1er enllaç que no correspon a una col·lecció (Recent Submissions)
 	my $firstRecSubmi = $1;
 
 	my @collections = $mech->find_all_links( url_regex => qr{/handle/\d+/\d+/?$}i );
