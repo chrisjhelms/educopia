@@ -23,12 +23,9 @@ my $mech = WWW::Mechanize->new( autocheck => 0 ); # Disable error checking from 
 print "\n>>>> Please, introduce the following data about your local LOCKSS cache: \n";
 print "\n\t- LOCKSS Host (FQDN/IP): ";
 chomp (my $HOST = <>); 
-#my $HOST='rovira.cesca.cat';
 print "\t- LOCKSS AdminUI User: ";
 chomp (my $USER = <>); 
-#my $USER='lockss9meta8';
 print "\t- LOCKSS AdminUI Pass: ";
-#my $PASS='c8ucl0ckssm3t99rch1v3';
 system "stty -echo";
 chomp (my $PASS = <>);
 system "stty echo";
