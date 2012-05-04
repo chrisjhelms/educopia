@@ -56,7 +56,7 @@ DSpace repository instance&apos;s links</description>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;CBUC_Colleccio_hdl%d&quot;, HDL_ID</string>
+    <string>&quot;CBUC_Colleccio_Dept_hdl%d&quot;, HDL_ID</string>
   </entry>
   <entry>
     <string>au_start_url</string>
