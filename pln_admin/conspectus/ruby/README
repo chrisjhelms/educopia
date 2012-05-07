@@ -1,0 +1,101 @@
+The conspectus is implemented with Ruby On Rails.  
+It comes with a configuration script to help you setup an (almost) empty database. 
+
+This installation is intended to be part of an Amazon AMI with the 
+following prerequisits already installed 
+
+      mysql    
+      apache server 
+      passenger_rails   to run under apache 
+      ruby on rails 
+      gems used by the conspectus 
+      virtual host config for apache: 
+             ~metaarchive/apache_config/vhost_conspectus_metaarchive.conf
+      a metaarchive unix user account 
+      a metaarchive subversion account (with read privileges only)
+      a metaarchive database account
+              with the privileges to create/destroy/modify databases 
+
+This code is installed under the metaarchive user's home. In the AMI it is placed at ~metaarchive/tools/conspectus/ruby. 
+
+For your convenience the AMI comes with several example databases. The comand 
+      echo "show databases;" | mysql -u metaarchive -p
+lists the available databases. Set the database fields in the included ruby/config/database.yml to the prefediuned dataase you wish to use, or create your own with the configuration script below.
+
+You may want to setup a few cronjobs for this user once the conspectus is fully installed and filled with data describing your preserved collections.
+
+To setup: 
+      > login as the metaarchive user 
+      > cd to this directory 
+      > script/configure 
+          and follow the prompts 
+          watch how the script uses rake tasks 
+          rake tasks may come in handy for maintenance later on
+          note the password printed for the admin user - you will need it 
+          to login to the web ui to add more users and to adjust some 
+          global settings
+
+      > script/enhance 
+          lets you (after configure) add archives and content_providers
+
+      > edit ~metaarchive/apache_config/vhost_conspectus_metaarchive.conf
+          so it refers to the correct server name  and to the correct RAILS_ENV
+      > restart apache 
+      > access web ui in browser 
+      > try to login as admin user 
+      
+Adjust to your own taste 
+      *) as super user you change a few global settings by accessing them at  
+         http://<YOUR_CONSPECTUS_DOMAIN_NAME>/globals
+      *) change the color scheme by setting the global skin_css value 
+         to an existing color stylesheet;
+      *) this distribution comes with default, metaarchive, and yellow, 
+          see public/stylesheets/*.ccs 
+      *) to change the logo used in the title area you can go ahead an replace 
+         ./images/logo-default-240x120.gif with your own image; make sure the
+         size is compatible
+      
+Fill with data  
+      *) users
+         upload from yml file by using 'rake user:load'
+         use the file ./config/data/user.yml  as a template 
+         or login into the web ui with the admin account to add users 
+      *) adding more archives and content_providers
+         run script/enhance
+      *) adding plugins
+         if you have plugin xml files on your file system you can run a 
+         rake task to create matching plugin description in the conspectus, eg
+           rake lockss:import_plugins CHOPSLASH=5 PLUGINS=/plugin_path/src/edu/harvard/ 
+         inspects all xml files it finds in the given directory and will try 
+         to create corresponding plugin descriptions.  The script attaches
+         the created plugins to the preexisting content_provider with the 
+         edu.harvard plugin prefix, or if no such provider exists it will try 
+         to locate the one with the prefix edu. 
+      *) adding collections and archival units from a title database 
+           rake lockss:import_content_defs ARCHIVE=GEN \ 
+               DO_AUS=true DO_COLS=true \
+               FILE=TITLE_DB_FILE  N_PROP_LEVEL=2
+         creates collections and archival units that correspond to the 
+         definitions in the given title database file ad attaches them to 
+         the archive with given arconym, in this case GEN. N_PROP_LEVELS 
+         governs at which level from the root of the XML tree the script will 
+         try to locate archival unit definitions. 
+      *) the conspectus can integrate with the LOCKSS cachemanager, such that users with an 
+         account may review the preservation status of archival units in the context of archival 
+         units in the conspectus. This feature is not fully documented and MetaArchive plans
+         to improve it in the future, possibly moving away from the cachemanager as the supplier
+         of status data, Thus we do not fully document the integration here. To see how this
+         status reporting is integrated, import the data from ./db_backups/metarchive_Mar2011.sql.gz
+
+
+Maintenance: 
+      The conspectus comes with many rake scripts that allow the creation of 
+      some content (archives, content_providers, users, ...) from the command-
+      line. To get a list of the available ones use: 
+      > rake --tasks arch
+      > rake --tasks coll
+      > rake --tasks cont
+      > rake --tasks users
+      > rake --tasks locks
+      > rake --tasks site
+      > rake --tasks db

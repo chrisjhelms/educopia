@@ -1,0 +1,37 @@
+<div class='instance_list'>
+    <%
+    headers = %w()
+    headers << 'Cache'
+    headers << 'Size (MB)'
+    %>
+	
+    <%= instance_table_start(headers) %>
+    <% for pi in @collection_status_items %>
+    <tr>
+        <%= content_tag('td', pi.cache) %>
+        <%= content_tag('td', pi.size_mb, :align => 'right') %>
+    </tr>
+    <% end %>
+    <% n = @collection_status_items.length %>
+    <% sizesum =  @collection_status_items.collect{|pi| pi.size_mb}.sum %>
+    <tr>
+        <td colspan="10">
+           
+        </td>
+    </tr>
+	<% if (n != 0) then %>
+    <tr>
+        <td>
+            Average 
+        </td>
+        <%= content_tag('td', (sizesum / n), :align => 'right' ) %>
+    </tr>
+	<%end %>
+    <tr>
+        <td>
+            Total 
+        </td>
+        <%= content_tag('td', sizesum, :align => 'right') %>
+    </tr>
+    <%= instance_table_stop() %>
+</div>

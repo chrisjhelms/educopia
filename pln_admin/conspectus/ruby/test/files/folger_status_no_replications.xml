@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archival_units>
+  <archival_unit>
+    <id type="integer">4148</id>
+    <plugin>edu.folger.shakespeare</plugin>
+    <base_url>http://metaarchive.folger.edu/CollectionImages/ImageMasters</base_url>
+    <paramList>
+      <property value="16101" name="from"/>
+    </paramList>
+    <cache_archival_units>
+    </cache_archival_units>
+  </archival_unit>
+</archival_units>

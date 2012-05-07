@@ -1,0 +1,27 @@
+<h1> Archive: <%=h @archive.title %></h1>
+<p>
+<div class="indent">
+    <table class="show_record_table">
+        <tr>
+            <td>
+                Description: 
+            </td>
+            <td>
+                <%=h @archive.description %>
+            </td>
+        </tr>
+    </table>
+</div>
+</p>
+
+<%= errors_for_obj(@archive) %>
+
+<%= left_right_title( "Collection in this Archive " + "<br/>" + 
+content_tag( 'font', 
+             links_to_retired_state_listers("/archives/#{@archive.id}/#{params['action']}"), 
+             :size => "-1" ),
+link_to('List Plugins', archives_plugins_path(@archive))  + " <br/>" +
+link_to('List Archival Units', archives_archival_units_path(@archive))) %>
+<div class=indent>
+    <%= render :partial => "/collections/instance_list" %>
+</div>

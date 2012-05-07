@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archival_units>
+  <archival_unit>
+    <id type="integer">4148</id>
+    <plugin>edu.folger.shakespeare</plugin>
+    <base_url>http://metaarchive.folger.edu/CollectionImages/ImageMasters</base_url>
+    <paramList>
+      <property value="16101" name="from"/>
+    </paramList>
+    <ahe_archival_units>
+      <cache_archival_unit>
+        <cache>fsu-cap</cache>
+        <hostname>clockss2.lib.fsu.edu</hostname>
+        <ui_port type="integer">8081</ui_port>
+        <disk_usage type="float">5461.6</disk_usage>
+        <size type="integer">5718866753</size>
+        <last_crawl type="datetime">09:10:09 02/17/10</last_crawl>
+        <last_crawl_result>Successful</last_crawl_result>
+        <last_crawl_attempt type="datetime">08:33:12 02/17/10</last_crawl_attempt>
+        <last_poll type="datetime">16:00:13 02/18/10</last_poll>
+        <num_recent_polls type="integer">1</num_recent_polls>
+        <agreement type="float">100.00</agreement>
+      </cache_archival_unit>
+    </he_archival_units>
+  </archival_unit>
+</archival_units>

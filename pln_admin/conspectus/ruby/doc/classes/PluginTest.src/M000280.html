@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_baseurl_param (PluginTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/unit/plugin_test.rb, line 44</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_baseurl_param</span> 
+    <span class="ruby-identifier">prov</span> = <span class="ruby-constant">ContentProvider</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:first</span>); 
+    <span class="ruby-identifier">p</span> = <span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot; #{prov.plugin_prefix}.plugin  &quot;</span>, <span class="ruby-identifier">prov</span>); 
+    <span class="ruby-identifier">base_url_param</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">plugin_params</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pp</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pp</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;base_url&quot;</span> }
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">base_url_param</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

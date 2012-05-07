@@ -1,0 +1,13 @@
+
+
+<%= content_tag('h1',
+      collection_list_title(params[:action] == "mine") + " <br/>" +
+      content_tag( 'font', 
+                   links_to_retired_state_listers("/collections/#{params['action']}"), 
+                  :size => "-1" ) )
+%>
+
+&nbsp; <br/> 
+
+<%= render :partial => "/collections/instance_list" %>
+

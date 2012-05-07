@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>validate (ArchivalUnit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/archival_unit.rb, line 109</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate</span>
+    <span class="ruby-comment cmt">#puts &quot;#{self.class.name}.validate&quot;;</span>
+    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">au_state</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword kw">then</span> 
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">au_state</span> = <span class="ruby-constant">AuState</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value str">'new'</span>); 
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span>  
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">collection</span>.<span class="ruby-identifier">new_record?</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-node">&quot;Can't attach to unsaved collection #{collection.name}&quot;</span> )
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># make sure its not offline unless collection is in a irreversible state </span>
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">off_line</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span> <span class="ruby-value str">&quot;Can't be offline and not yet ingested/preserved&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">au_state</span>.<span class="ruby-identifier">irreversible?</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">begin</span> 
+        <span class="ruby-identifier">param_hash</span> = <span class="ruby-constant">ArchivalUnit</span>.<span class="ruby-identifier">stringToParamHash</span>(<span class="ruby-identifier">param_values</span>);
+        <span class="ruby-comment cmt">#check whether base_url param matches collection base_url </span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">base_url</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">param_hash</span>[<span class="ruby-value str">&quot;base_url&quot;</span>] <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-node">&quot;base_url values does not match with base_url of collection '#{collection.title}'&quot;</span>)
+          <span class="ruby-keyword kw">return</span>; 
+        <span class="ruby-keyword kw">end</span> 
+        <span class="ruby-comment cmt"># check whether parameters match plugin definition </span>
+        <span class="ruby-identifier">errs</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">param_values_match?</span>(<span class="ruby-identifier">param_hash</span>)
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">errs</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">errs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> 
+              <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-identifier">e</span>)
+          }
+          <span class="ruby-keyword kw">return</span>; 
+        <span class="ruby-keyword kw">end</span> 
+        <span class="ruby-comment cmt"># check whether we already have au with same param setting and same plugin </span>
+        <span class="ruby-identifier">aus</span> = <span class="ruby-constant">ArchivalUnit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">:param_values</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">param_values</span>}); 
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">aus</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword kw">then</span>
+          <span class="ruby-identifier">same</span> = <span class="ruby-identifier">aus</span>.<span class="ruby-identifier">select</span>  { <span class="ruby-operator">|</span><span class="ruby-identifier">au</span><span class="ruby-operator">|</span> <span class="ruby-identifier">au</span>.<span class="ruby-identifier">collection</span>.<span class="ruby-identifier">plugin</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">plugin</span> }
+          <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">same</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+            <span class="ruby-identifier">same</span> = <span class="ruby-identifier">same</span>[<span class="ruby-value">0</span>];
+            <span class="ruby-identifier">same</span>.<span class="ruby-identifier">au_state</span> = <span class="ruby-constant">AuState</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value str">'new'</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-operator">!</span><span class="ruby-identifier">same</span>.<span class="ruby-identifier">au_state</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">same</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>) <span class="ruby-keyword kw">then</span> 
+              <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-node">&quot;Archival Unit with same parameters exists in #{same.collection.title}&quot;</span>)
+            <span class="ruby-keyword kw">elsif</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">same</span>.<span class="ruby-identifier">au_state</span>.<span class="ruby-identifier">allow_transition_to</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">au_state</span>, <span class="ruby-ivar">@assume_super_user</span>) ) <span class="ruby-keyword kw">then</span> 
+              <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-node">&quot;Can not change state #{same.au_state.name} to #{self.au_state.name}&quot;</span>); 
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+ 
+      <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">RuntimeError</span>
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-identifier">$!</span>)
+        <span class="ruby-keyword kw">return</span>;
+      <span class="ruby-keyword kw">end</span> 
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

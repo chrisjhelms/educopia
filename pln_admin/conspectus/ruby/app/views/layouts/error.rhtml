@@ -1,0 +1,27 @@
+<%= render :partial => "/layouts/head" %>
+<%= render :partial => "/layouts/topbar" %>
+<div class="pagenomenu">
+    &nbsp; 
+</div>
+<div class="pagemain">
+    <!-- Main page body -->
+	<br/>
+	<%= yield %>
+    <% if @error_detail then %>
+    <h3>Error Detail </h3>
+    <%= @error_detail %>
+    <% end %>
+</div>
+<%= render :partial => "/layouts/foot" %>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        menu = $(".page > .container > .pagenomenu");
+        main = $(".page > .container > .pagemain");
+        if (menu.height() < main.height()) {
+            menu.height(main.height());
+        }
+        else {
+            main.height(menu.height());
+        }
+    })
+</script>

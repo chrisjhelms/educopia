@@ -1,0 +1,42 @@
+<div class="debug"> 
+<%=h @data.inspect if @data %>
+</div> 
+
+<h1> Archival Units </h1>
+<h2> Upload Lockss Au Ids </h2>
+
+<h3> Upload from URL </h3> 
+<% form_tag(update_lockss_au_ids_from_url_url, :method => :post) do |f| %>
+<%= text_field_tag :url, @remote_url, :size => 40 %>
+&nbsp; 
+<%= submit_tag("Go !") %>
+<% end %>
+<% if @data && !@data.success then %>
+	<h3 class="error"> Could not retrieve data from given URL </h3>
+<% end %>
+
+<h3> Or list LOCKSS AU Ids </h3> 
+<% form_tag(update_lockss_au_ids_url, :method => :post) do |f| 
+   ids = @lockssauids.collect { |lid| lid.lockss_au_id }.join("\n"); %>
+<%= text_area_tag(:ids, ids, :cols => 100, :rows => 10 ) %>
+<br/>
+<%= submit_tag("Attach Ids") %>
+<% end %>
+
+<% if @lockssauids.select{|lid| !lid.saved}.length > 0 then %>
+<h2 class="error"> Attachement Errors: </h2>
+<table>
+    <% for r in @lockssauids do %>
+	    <% if  !r.saved then %>
+	    <tr valign="top">
+	        <td class="error">
+	            Error 
+	        </td>
+	        <td class="error">
+	            <%=h r.lockss_au_id %>
+	        </td>
+	    </tr>
+	    <% end %>
+    <% end %>
+</table>
+<% end %>

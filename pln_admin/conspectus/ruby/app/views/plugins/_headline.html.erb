@@ -1,0 +1,13 @@
+<h1>Plugin </h1> 
+
+<h2>  <%= content_provider_image_tag(@plugin.content_provider) %>  <%= plugin_display_name_link(@plugin) %></h2>
+
+<%if @plugin.retired then %>
+<h3 class="highlight"> 
+This plugin has been retired 
+</h3> 
+<% end %>
+
+
+
+

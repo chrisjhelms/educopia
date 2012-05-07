@@ -1,0 +1,36 @@
+<script type="text/javascript">
+     $(document).ready(function(){
+				if (!$.browser.msie) {
+                	$(".tablesorter").tablesorter();
+				}
+            })
+</script>
+
+<div class='instance_list'>
+
+<%
+   headers = %w() 
+   headers << 'Archive'  unless params['controller'] == 'archives'
+   headers << 'Title' 
+   headers << '#AU' 
+   headers << 'Plugin'  unless params['controller'] == 'plugins'
+   headers << 'Content Provider'  unless @content_provider
+%>
+
+<%= instance_table_start(headers) %>
+
+<% for collection in @collections %>
+  <tr>
+    <%= content_tag('td', link_to(collection.archive.title, collection.archive)) unless params['controller'] == 'archives' %>
+    <td><%= link_short(collection.title, collection) %></td>
+	<%= content_tag('td', collection.archival_units_count)   %> 
+	<%= content_tag('td', plugin_display_name_link(collection.plugin)) unless @plugin %> 
+ 
+    <%= content_tag('td', render(:partial => "/content_providers/name", 
+                                 :locals => { :content_provider => collection.content_provider })) unless @content_provider %>	  
+  </tr>
+<% end %>
+
+<%= instance_table_stop() %>
+
+</div>

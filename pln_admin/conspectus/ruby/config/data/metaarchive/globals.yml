@@ -1,0 +1,15 @@
+title: 
+   name:  "app_title"
+   value:  "Conspectus"
+   
+src: 
+   name:  "data_source"
+   value:  "Production Conspectus Data for MetaArchive PLN"
+
+params: 
+   name:  "show_params"
+   value:  ""
+
+skin: 
+   name:  "skin_css"
+   value:  ""

@@ -1,0 +1,34 @@
+<script type="text/javascript">
+     $(document).ready(function(){
+				if (!$.browser.msie) {
+                	$(".tablesorter").tablesorter();
+				}
+            })
+</script>
+
+<div class='instance_list'>
+<%
+   headers = %w(Name #Collections #Param); 
+   headers = headers  << 'Content Provider' unless @content_provider 
+%>
+
+<%= instance_table_start(headers) %>
+
+<% for plugin in @plugins %>
+  <% next if plugin.placeholder?  %>
+  <% rep = plugin.collections.count %>
+  <tr>
+    <td id="coll_<%=rep%>"> 
+	   <%= plugin_display_name_link(plugin, nil) %> </td> 
+	<td> <%=rep%>	</td>
+	<td> <%= plugin.plugin_params.count %> </td>
+    <td> 
+ 	   	  <%= render :partial => "/content_providers/name", 
+                     :locals => { :content_provider =>  plugin.content_provider} unless @content_provider  %>
+	</td> 
+  </tr>
+<% end %>
+
+<%= instance_table_stop() %>
+
+</div>

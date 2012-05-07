@@ -1,0 +1,144 @@
+<tr>
+  <td>Description:</td>
+  <td width="600px"> <%=h @collection.description %> </td> 
+</tr>
+
+<!--  see remote_id and xml generated as it is used by ajax below    -->
+<% if Global.get("show_params") == "true" then %>
+<div class="debug"> 
+Collection: remote_id: <%= @collection.remote_id %>   <br/> 
+</div> 
+<% end %>
+
+<!--  doctored by loading metadata from url   -->
+<tr class="metadata">
+    <td>
+        MetaData 
+    </td>
+    <td id="metadata_link">
+    	<span id="view">        
+		<a href='javascript:toggleMetadata()' id="metadata_toggle">Show </a>
+		</span>
+        <% if User.obj_edit?(@collection, current_user) then %>
+		<span id='edit'>
+            <% url = @collection.metadata_url(:update); %>
+        	&nbsp; <%= link_to "Edit", url unless url.nil? %>
+        </span>
+		<% end %>
+        <% if User.super?(current_user) then %>
+        &nbsp; &nbsp; <span class="super">
+        	(<%= link_to collections_metadata_path(@collection), collections_metadata_path(@collection) %>)
+        </span>
+        <% end %>
+    </td>
+</tr>
+	
+<tr class="metadata" id="metadata_show">
+	<td> &nbsp; </td>
+    <td>
+        <table class="show_record_table">
+            <tbody>
+                <tr>
+                    <td id="metadata_data">
+                        <%= collections_metadata_path(@collection) %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+
+<% if User.super?(current_user) then %>
+<!-- simply  pointing to premis_url corresponding to this collection  -->
+<tr class="premis super">
+    <td>
+        Premis 
+    </td>
+    <td id="premis_link">
+        <%= link_to_ext(@collection.premis_url, @collection.premis_url) if @collection.premis_url %>
+    </td>
+</tr>
+
+<tr class="status super">
+    <td>
+        Status 
+    </td>
+    <td id="status_link">
+        <%= link_to_ext(@collection.status_url, @collection.status_url) if @collection.status_url %>
+    </td>
+</tr>
+
+<% end %>
+
+
+<script type="text/javascript">
+// for debugging help 
+window.my_config = {
+    md_url: '',
+	data: ''
+}
+
+function toggleMetadata() 
+{   var row = $('#metadata_show').closest('tr'); 
+	if (row.is(':visible')) {
+		$('#metadata_toggle').html('Show'); 
+	} else {
+		$('#metadata_toggle').html('Hide'); 
+	}
+	row.toggle();
+}
+
+function digestMetadataXml(data) 
+{
+  var rows = '';
+  
+  var items = $(data).find('item'); 
+  window.my_config.data = data
+  items.each(function(){
+    rows = rows +
+    "<tr><td width='125px'>" +
+    $(this).find('label').text() +
+    "</td><td>" +
+    $(this).find('value').text() +
+    "</td></tr>";
+  });
+  return rows; 
+}
+
+function insertFromXml(data){
+    if (data) {
+        var rows = digestMetadataXml(data);
+        if (rows != '') {
+            $('#metadata_show').hide();
+            $('#metadata_data').html(rows);
+        }
+        else {
+            $('#metadata_show').html('');
+            $('#metadata_link #view').html("Undefined");
+        }
+    }
+    else {
+        $('#metadata_show').html('');
+        $('#metadata_link').html("Undefined");
+    }
+}
+
+jQuery(document).ready(function($){
+    // get  and then format metadata xml as a table 
+    var md_url = $("#metadata_data").html();
+    // get  and then format metadata xml as a table 
+    window.my_config.md_url = $("#metadata_data").html();
+    $.ajax({
+        url: window.my_config.md_url,
+        success: function(data){
+            insertFromXml(data);
+        },
+        error: function(){
+            insertFromXml(null);
+        }
+    });
+    return;
+});
+
+</script>
+

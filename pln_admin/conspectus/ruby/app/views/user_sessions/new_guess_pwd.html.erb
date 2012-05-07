@@ -1,0 +1,8 @@
+<h3> Check which users have given password </h3>
+
+<% form_for @user_session, :url => guess_pwd_user_session_path do |f| %>
+  <%= f.label :password %><br />
+  <%= f.password_field :password %><br />
+  <%= f.submit "Check" %> <br/> &nbsp; <br/>
+  <%= f.error_messages %>
+<% end %>

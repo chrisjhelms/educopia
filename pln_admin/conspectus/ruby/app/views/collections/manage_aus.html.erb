@@ -1,0 +1,17 @@
+
+<%= render :partial => "/collections/headline" %>
+<table class="show_record_table">
+<tr>
+  <td>Plugin:</td>
+  <td> <%= link_to plugin_display_name_link(@collection.plugin),@collection.plugin %>
+   by 
+  <%= link_to @collection.content_provider.name, @collection.content_provider %>
+  </td>
+</tr>
+<tr>
+  <td>Base Url:</td>
+  <td> <%= link_to_ext @collection.base_url,  @collection.base_url %>  </td> 
+</tr>
+
+<%= render :partial => "/collections/aus" %>
+<%= render :partial => "/collections/foot" %>

@@ -1,0 +1,4 @@
+#!/bin/tcsh 
+find . -name \*log > EXCLUDES 
+tar cvfzX $1 EXCLUDES .
+rm -f EXCLUDES 
