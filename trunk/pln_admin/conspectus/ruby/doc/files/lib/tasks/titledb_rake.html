@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: titledb.rake</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>titledb.rake</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>lib/tasks/titledb.rake
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Apr 20 10:10:31 -0400 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+namespace :titledb do
+</p>
+<pre>
+  require 'find'
+
+  require 'tasks/rake_option'
+  require 'tasks/task_helper'
+  include Task;
+
+  # imports plugin definition from plugin xml files
+  # TODO fix chop
+  desc &quot;import plugins from file/directory&quot;
+  task :import_plugins  =&gt; :environment do |t|
+    if (start_task(t, { 'PLUGINS' =&gt; &quot;&quot;, &quot;CHOPDIR&quot; =&gt; &quot;1&quot;})) then
+      LockssPlugin.find_and_create(@opts['PLUGINS'], @opts[ 'CHOPDIR'].to_i);
+    end
+  end
+
+  # imports collection information from title database
+  # create archival units if DO_AUS paameter is true
+  # TODO: archival units
+  desc &quot;ingest collections/archival unit information from title database &quot;
+  task :ingest_content_defs =&gt; :environment do |t|
+    if (start_task(t, { 'FILE' =&gt; &quot;&quot;,
+                        'ARCHIVE' =&gt; &quot;&quot;,
+                        'N_PROP_LEVEL' =&gt; &quot;1&quot;,
+                        'DO_COLLS' =&gt; &quot;true&quot;,
+                        'DO_AUS' =&gt; 'false'})) then
+      arch = Archive.find_by_title(@opts['ARCHIVE']);
+      if (arch.nil?) then
+        puts &quot;ARCHIVE \'#{@opts['ARCHIVE']}\' not defined&quot;
+        exit 1;
+      end
+      do_aus = @opts['DO_AUS'] == &quot;true&quot;;
+      do_colls =  @opts['DO_COLLS'] == &quot;true&quot;;
+      n_level =  @opts['N_PROP_LEVEL'].to_i;
+      if (n_level &lt; 1) then
+        puts &quot;N_PROP_LEVEL must be &gt;= 1&quot;;
+        exit(1);
+      end
+      file = @opts['FILE'];
+
+      LockssTitleDb.create_from_file(arch, file, do_colls, do_aus, n_level);
+    end
+
+  end
+</pre>
+<p>
+end
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

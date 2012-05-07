@@ -1,0 +1,12 @@
+uni: 
+   name:  "University At SomePlace"
+   plugin_prefix:  "edu.some"
+   acronym:  "sme" 
+   icon_url: /images/content_providers/some.ico
+odum: 
+   name:  "The Odum Institute"
+   plugin_prefix:  "edu.odum"
+   acronym:  "odm" 
+   icon_url: /images/content_providers/generic.ico
+
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>archival_unit_inst_table (ArchivalUnitsHelper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/helpers/archival_units_helper.rb, line 4</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">archival_unit_inst_table</span>(<span class="ruby-identifier">aus</span>, <span class="ruby-identifier">edit_me</span>, <span class="ruby-identifier">show_base_url</span> = <span class="ruby-keyword kw">true</span>) 
+    <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;NONE&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">aus</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">headers</span> = <span class="ruby-identifier">aus</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">au_param_names</span>.<span class="ruby-identifier">sort</span>
+    
+    <span class="ruby-identifier">html</span> = <span class="ruby-identifier">form_tag</span>( <span class="ruby-identifier">set_au_states_collection_url</span>(<span class="ruby-ivar">@collection</span>)) <span class="ruby-operator">+</span> 
+           <span class="ruby-identifier">instance_table_start</span>([]) 
+    <span class="ruby-identifier">first_row</span> = <span class="ruby-keyword kw">true</span>; 
+    <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">inst</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">aus</span>
+      <span class="ruby-identifier">row</span> = <span class="ruby-value str">&quot;&quot;</span>; 
+      <span class="ruby-identifier">spacer</span> = <span class="ruby-value str">&quot;&quot;</span>;  
+      <span class="ruby-identifier">irreversible</span> = <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">au_state</span>.<span class="ruby-identifier">irreversible?</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">edit_me</span> <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">deletable?</span> <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>,  
+          <span class="ruby-identifier">link_to</span>(<span class="ruby-value str">'Delete'</span>, [<span class="ruby-ivar">@collection</span>, <span class="ruby-identifier">inst</span>],  <span class="ruby-identifier">:method</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:delete</span>, <span class="ruby-identifier">:confirm</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'Are you sure?'</span>) )
+        <span class="ruby-keyword kw">else</span> 
+          <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>,  <span class="ruby-node">&quot;#{spacer} &amp;nbsp;&quot;</span>); 
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">spacer</span> = <span class="ruby-value str">&quot;| &quot;</span>; 
+      <span class="ruby-keyword kw">end</span> 
+      <span class="ruby-identifier">param_values</span> = <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">au_param_values</span>
+      
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">show_base_url</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-node">&quot;#{spacer} base_url: #{inst.collection.base_url}&quot;</span>) 
+        <span class="ruby-identifier">spacer</span> = <span class="ruby-value str">&quot;| &quot;</span>; 
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">headers</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">k</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">headers</span> <span class="ruby-keyword kw">do</span> 
+          <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-identifier">span_short</span>(<span class="ruby-node">&quot;#{spacer}#{k}: #{param_values[k]}&quot;</span>, <span class="ruby-value">45</span>)) 
+          <span class="ruby-identifier">spacer</span> = <span class="ruby-value str">&quot;| &quot;</span>; 
+        <span class="ruby-keyword kw">end</span> 
+      <span class="ruby-keyword kw">else</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-node">&quot;#{spacer}One AU Defined By Base_Url&quot;</span>) 
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">edit_me</span> <span class="ruby-keyword kw">and</span> (<span class="ruby-identifier">is_super_user</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">irreversible</span>)) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, 
+             <span class="ruby-node">&quot;#{spacer} status &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">select_one</span>(<span class="ruby-node">&quot;au_state[#{inst.id}]&quot;</span>, <span class="ruby-constant">AuState</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>, <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:level</span>), <span class="ruby-identifier">:name</span>, <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">au_state</span>, <span class="ruby-keyword kw">false</span>)); 
+      <span class="ruby-keyword kw">else</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-node">&quot;#{spacer} status= #{inst.au_state.name}&quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">edit_me</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">irreversible</span>) <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">url_selected</span> = <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">off_line</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot; selected &quot;</span>
+          <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-node">&quot;#{spacer} url available &quot;</span> <span class="ruby-operator">+</span> 
+                          
+                          <span class="ruby-identifier">select_tag</span>(<span class="ruby-node">&quot;on_state[#{inst.id}]&quot;</span>,  
+                            <span class="ruby-node">&quot;&lt;option #{inst.off_line ? &quot; selected&quot; : &quot;&quot;}&gt; false &lt;/option&gt;&quot;</span> <span class="ruby-operator">+</span>  
+                            <span class="ruby-node">&quot;&lt;option #{inst.off_line ? &quot;&quot; : &quot; selected&quot;}&gt; true &lt;/option&gt;&quot;</span>  ) ); 
+                                              
+           <span class="ruby-comment cmt"># row += &quot;\n\t\t&quot; + select_one(&quot;au_state[#{inst.id}]&quot;, [&quot;true&quot;, &quot;false&quot;], :off_line, inst.off_line, false)                           </span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">else</span> 
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">irreversible</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">inst</span>.<span class="ruby-identifier">off_line</span>) <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-node">&quot;#{spacer} url not available&quot;</span>)
+        <span class="ruby-keyword kw">end</span>   
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">edit_me</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">first_row</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">row</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'td'</span>, <span class="ruby-identifier">submit_tag</span>(<span class="ruby-value str">'Save'</span>))
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">html</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;\n\t&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'tr'</span>, <span class="ruby-identifier">row</span>); 
+      <span class="ruby-identifier">first_row</span> = <span class="ruby-keyword kw">false</span>;
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">html</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">instance_table_stop</span>() <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;&lt;/form&gt;&quot;</span>; 
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

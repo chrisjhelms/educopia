@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>validate (Collection)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/collection.rb, line 79</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate</span> 
+    <span class="ruby-comment cmt"># make sure base_url is a url</span>
+    <span class="ruby-comment cmt"># puts &quot;validate #{self.inspect}&quot;</span>
+    <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span>
+      <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">base_url</span>)
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span> <span class="ruby-operator">||</span>
+          <span class="ruby-operator">!</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;http&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;https&quot;</span>)) 
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-value str">&quot;base_url must be a valid url staring with http ot https&quot;</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">others</span> = <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">find_filter_by_title</span>(<span class="ruby-node">/^#{title}$/i</span>, <span class="ruby-identifier">content_provider</span>.<span class="ruby-identifier">collections</span>)
+      <span class="ruby-identifier">others</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-keyword kw">self</span>); 
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">others</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-node">&quot;content_provider #{content_provider.name} already has a collection with the given title&quot;</span>)        
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">new_record?</span>) <span class="ruby-keyword kw">then</span> 
+        <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">archival_units</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+           <span class="ruby-comment cmt"># can't change nase_url/plugin anymore </span>
+           <span class="ruby-identifier">stored</span> = <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>)
+           <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">stored</span>.<span class="ruby-identifier">plugin</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">plugin</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">stored</span>.<span class="ruby-identifier">base_url</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">base_url</span>) <span class="ruby-keyword kw">then</span> 
+             <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add_to_base</span>(<span class="ruby-value str">&quot;Collection has archival units; can't change plugin or base_url&quot;</span>);
+           <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

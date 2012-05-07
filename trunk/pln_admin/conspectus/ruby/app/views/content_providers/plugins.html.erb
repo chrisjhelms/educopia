@@ -1,0 +1,13 @@
+<%= render :partial => "/content_providers/show_basic" %>
+<%= left_right_title(
+             'Plugins defined for this Content provider' + '<br/>' + 
+             content_tag( 'font', 
+                  links_to_retired_state_listers("/content_providers/#{@content_provider.id}/#{params['action']}"), 
+                  :size => "-1" ), 
+             link_to('List Collections', content_providers_show_path(@content_provider))  + " <br/>" +
+             link_to('List Archival Units', content_providers_archival_units_path(@content_provider)))
+%>
+
+<div class=indent>
+    <%= render :partial => "/plugins/instance_list" %>
+</div>

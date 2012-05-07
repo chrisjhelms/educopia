@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/sbin/logrotate -status  ./config/logrotate.status ./config/logrotate.rules 

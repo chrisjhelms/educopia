@@ -1,0 +1,8 @@
+redo script reads plugins from subdir that must be setup so that 
+
+Path: lplugins
+URL: https://metaarchive.org/svn/metaarchive/tools.metaarchive.org/branches/cloud/conspectus/ruby/config/data/conspectoy/lplugins
+actually part of conspectus - they are based on example plugins in google project 
+
+plugins are  the ones from goog project trunk 
+

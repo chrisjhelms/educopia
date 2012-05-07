@@ -1,0 +1,56 @@
+This metadata editor is run as the companion to the ruby based 
+conspectus which takes care of the overall organization of content 
+and the metadata directly related to running a LOCKSS network. The
+metadata editor code in this directory takes care of additional 
+collecion metadata. The code in subersion is setup to run with a
+conspectus instance at http://conspectus.metaarchive.org
+
+FILES  
+
+*.php                    web ui files
+mysql_includes.php       has the database info, name, user, password, ... 
+includes/header.html     header file for edit.php and view.php; 
+includes/footer.html     footer file for edit.php and view.php; 
+                         header and footer use the $conspectus_url defined in config.php to 
+                         adjust links in header and footer 
+cleanup.php 		 run periodically to clean up empty stary collections 
+                         that result from too many exceutions of create.php  
+
+show_all.xsl             assumes that this is the metadata editor for consptus.metaarchive.org 
+                         links need to be adjusted when this is used with conspectoy.metaarchive.org
+
+INSTALL 
+   create a database 
+   use sql comands to upload the files in db.migration (in the order of their dates) 
+   copy mysql_includes-defaults.php to in mysql_includes.php (do not add lines!)
+   fill in the values in mysql_includes.php
+
+To install a metadata editor for a different conspectus 
+instance as is done for conspectoy.metaarchive.org, you need to 
+configure each archive the conspectus companion instance such 
+that it knows how to fullfill create, view, and edit operations.
+
+     URL_OF_THIS_SITE/create.php
+     URL_OF_THIS_SITE/edit.php?coll_id=<ID>&title=<TITLE>
+     URL_OF_THIS_SITE/view.php?coll_id=<ID>&title=<TITLE>
+
+You also need to edit two files:
+
+show_all.xsl:
+  replace all occurences of  
+	http://conspectus.metaarchive.org
+  with the url of the companion conspectus instance  
+ 
+config.php
+  replace 
+        $conspectus_url  = "http://conspectus.metaarchive.org"; 
+  with 
+        $conspectus_url  = "COMPANION CONSPECTUS URL"
+ 
+
+A good approach to installing: 
+*) check code out in its own directory 
+   svn co https://metaarchive.org/svn/metaarchive/tools.metaarchive.org/branches/cloud/conspectus/php DIRECTORY 
+*) make the changes described above 
+*) make sure those changes can not be checked in by making the .svn directory contents read only 
+

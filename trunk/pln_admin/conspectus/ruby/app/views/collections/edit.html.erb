@@ -1,0 +1,53 @@
+<%= render :partial => "/collections/headline" %>
+
+<% form_for(@collection) do |f| %>
+<p> 
+  <%= f.error_messages %>
+</p> 
+<table> 
+  <tr>
+    <td> <%= f.label :archive %> </td> 
+	<td>
+    <%= select_one 'collection[archive]', Archive.find(:all), :title, @collection.archive %>
+    <% url = @collection.metadata_url(:update); %>
+    &nbsp; &nbsp;&nbsp; <%= link_to "Edit Metadata", url unless url.nil? %>
+	</td>
+  </tr>
+
+  <tr>
+    <td> <%= f.label :title %>  </td> 
+	<td> <%= f.text_field :title %> </td>
+  </tr>
+  <tr>
+    <td> <%= f.label :plugin %> </td>
+	<% if @collection.editable? then %>
+	    <td> <%= select_one 'collection[plugin]', @collection.content_provider.plugins, :display_name, @collection.plugin %>
+	<% else %>
+	   <td> <%= @collection.plugin.name %></td>
+	<% end %>
+	</td>
+  </tr>
+  <tr>
+    <td> <%= f.label :base_url %> </td> 
+    <% if @collection.editable? then %>
+		<td> <%= f.text_field :base_url %>  <td> 
+	<% else %>
+		<td> <%= @collection.base_url %>  <td> 
+	<% end %>
+  </tr> 
+  
+   <tr>
+    <td> <%= f.label :description %> </td> 
+    <td> <%= f.text_area :description, :cols => 80, :rows => 6 %> </td>
+  </tr>
+  <tr>
+  	<td>
+  	<p>
+    <%= f.submit "Update" %>
+  </p>
+  </td>
+  </tr> 
+   
+  </table>
+ 
+<% end %>

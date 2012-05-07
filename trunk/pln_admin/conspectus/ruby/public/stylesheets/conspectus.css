@@ -1,0 +1,271 @@
+TD,SPAN,DIV,P,UL,LI, SELECT, INPUT, body {font-family: Verdana, Arial,sans-serif; font-size: 12px; }
+H1, H1 SPAN, H1 DIV  {font-family: Verdana, Arial,sans-serif; font-size: 24px;  margin: 0; }
+H2, H2 SPAN, H2 DIV  {font-family: Verdana, Arial,sans-serif; font-size: 18px; }
+H3 {font-family: Verdana, Arial,sans-serif; font-size: 14px; }
+img {border-width: 0px} 
+
+
+th {  text-align: left; }
+
+div, body { 
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-tpo: 0px;
+  margin-bottom: 0px;
+}
+
+.page {
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.container { 
+  width: 960px;
+  height:100%;
+  margin: 0 auto;
+} 
+
+.pageheader,
+.pagesubheader,
+.pagemenu,
+.pagenomenu, 
+.pagemain,
+.grid_5, 
+.grid_6,
+.grid_13, 
+.grid_14, 
+.grid_19  { 
+  display:inline;
+  float: left;
+  position: relative;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.pageheader { 
+   width: 100%; 
+}
+
+.pagesubheader { 
+   width: 100%; 
+}
+
+.pagemain, 
+.pagenomenu,
+.pagemenu { 
+   margin-bottom: -1500px; 
+   padding-bottom: 1500px;
+}
+.pagenomenu,
+.pagemenu {
+  width: 200px; 
+}
+.pagemain {
+  width: 760px;
+}
+.grid_5 {
+  width: 200px;
+}
+.grid_6 {
+  width: 240px;
+}
+.grid_13 {
+  width: 520px;
+}
+.grid_14 {
+  width: 560px;
+}
+.grid_19 {
+  width: 560px;
+}
+.elem .grid_14  {
+   width: 536px;
+}
+.elem { 
+  padding: 8px 12px 8px 12px;
+}
+
+* a:hover {text-decoration: underline;}
+* a {text-decoration: none;}
+
+.submenu {
+	padding-top: 1px;
+	padding-left: 12px;
+}
+
+#selected {
+	font-weight: bold; 
+}
+
+.indent {
+	padding-left: 24px;
+}
+.halfindent {
+	padding-left: 12px;
+}
+
+.layout_table {
+    width: 100%;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.headline_table {
+    padding: 0px;
+    margin: 0px;
+	width: 712px;
+}
+
+.headline_table td {
+  vertical-align: top;
+}
+
+.layout_table td { 
+	vertical-align: top 
+}
+
+.pagination { 
+	margin-bottom: .5em; 
+	margin-top: .5em; 
+	border-bottom: 1px dotted #b0bdcc;
+	border-top: 1px dotted #b0bdcc;
+}
+
+.pagination {
+	margin-top: 6px; 
+}
+
+.instance_table  {
+   margin-top: 6px; 
+}
+
+.instance_table td {
+  border-bottom: 1px dotted #b0bdcc;
+  border-left: 1px dotted #b0bdcc;
+  vertical-align: top;
+  padding-right: 3px; 
+  padding-left: 5px; 
+}
+
+.instance_table_first td {
+  border-left: 0px dotted #b0bdcc;
+}
+
+
+.instance_table th {  
+  padding-right: 5px; 
+  border-left: 0px dotted #b0bdcc;
+  border-bottom: 1px solid #b0bdcc;
+}
+
+.instance_table_l2 td {
+  border-bottom: 0px;
+  border-left: 0px;
+  vertical-align: top;
+  padding-right: 5px; 
+}
+
+.show_record_table td { 
+  vertical-align: top;
+  padding-right: 10px; 
+}
+
+.instance_list  {
+
+}
+
+/* sorted tables */
+table.tablesorter th.header {
+    background-image: url(/images/arrow_bg.gif);
+    cursor: pointer;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 20px;
+    margin-left: -1px;
+}
+
+table.tablesorter thead tr .headerSortUp {
+    background-image: url("/images/arrow_asc.gif")
+}
+
+table.tablesorter thead tr .headerSortDown {
+    background-image: url("/images/arrow_desc.gif")
+}
+
+.super {
+	font-weight: bold; 
+	display:none;
+}
+
+.debugcontainer { 
+	font-weight: bold; 
+}
+#debugcontainer { 
+	display:none;
+}
+
+.notice { 
+   text-align:right
+}
+
+.error {
+   font-weight: bold;
+   color: #990000;
+}
+
+.highlight {
+   font-weight: bold;
+   color: #990000;
+}
+
+
+fieldWithErrors {
+  padding: 2px;
+  background-color: #990000;
+  display: table;
+}
+
+#errorExplanation {
+  width: 450px;
+  border: 2px solid #990000;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #e6e6e6;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #990000;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#debugcontainer { 
+	background-color: #F5F4BF;
+}
+
+.favicon {
+	width: 16px; 
+	height: 16px; 
+	padding-right: 4px;
+}

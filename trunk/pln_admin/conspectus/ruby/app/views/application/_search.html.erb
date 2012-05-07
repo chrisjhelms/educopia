@@ -1,0 +1,11 @@
+
+<h1> Find  <%= params["controller"].camelize()  %> </h1>
+
+&nbsp; <br/> 
+
+
+<% url = "/#{params['controller']}/search" %>
+<form action=<%=url%> method="post">
+  <input id="name" name="name" size="60" type="text" />
+  <input name="commit" type="submit" value="Search" />
+</form>

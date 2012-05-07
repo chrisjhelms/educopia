@@ -1,0 +1,42 @@
+<%= render :partial => "/collections/head" %>
+<table class="layout_table">
+    <tr>
+        <td>
+        <% if (params['action'] == 'new_au') then %>
+        <p>
+            <b>Define Archival Unit parameters </b>
+        </p>
+        <%= archival_unit_param_form('au_param_values', params ) %>
+        <% else %>
+        <h3>Upload Archival Units From File </h3>
+        <% form_tag(upload_aus_from_file_collections_url,  :method => :post, :multipart => true) do |f| %>
+        <table class="layout_table">
+            <tr>
+                <td>
+                    <label for="file">
+                        CSV File to Upload
+                    </label>
+                    <br/>
+                    <%= @collection.csv_format_description %>
+                    <br/>
+                    <%= file_field_tag "data_file" %>
+                    <%= hidden_field_tag 'collection_id', params['collection_id'] %>
+                    <%= submit_tag 'Upload' %>
+                </td>
+            </tr>
+        </table>
+        <%= error_messages_for 'collection' %>
+        <% end %>
+        <% end %>
+        <td>
+            &nbsp;&nbsp;
+        </td>
+        <td>
+            <p>
+                <b>Existing Archival Units For The Same Plugin and BaseUrl </b>
+            </p>
+            <% @archival_units =  @collection.plugin.archival_units(@collection.base_url) %>
+            <%= render :partial => "/archival_units/instance_list" %>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,23 @@
+
+<h2> Users using password: <%= @pwd %></h2>
+
+<h3> Emails: </h3> 
+<%= @users.collect {|u| u.email }.join (", ")  %>
+
+<h3> Details </h3>
+<%= instance_table_start(%w(Login Name)) %>
+
+<% for user in @users %>
+  <tr>
+    <td><%= link_to(user.login, user) %></td>
+    <td><%= user.first_name %> <%= user.last_name %> </td>
+	<td><%= user.rights %></td>
+    <td> <%= link_to('Delete',  { :controller => :users, 
+                                    :action => :destroy, 
+                                    :id => user}, 
+                                  :method => :delete, 
+                                  :confirm => "Are you sure ?"); %> </td>
+</tr>
+<% end %>
+
+<%= instance_table_stop() %>

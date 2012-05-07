@@ -1,0 +1,54 @@
+<h1> Archive   Edit/Create: <%=h @archive.title %> </h1> 
+
+<% form_for(@archive) do |f| %>
+  <p> 
+  <%= f.error_messages %>
+ </p> 
+  <p>
+    Acronym<br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    Title<br />
+    <%= f.text_field :description %>
+  </p>
+
+  
+  <h2> Meta Data Manager Urls </h2>
+  <table>
+  <tr>
+    <td> <%= f.label :create_url_pattern  %> </td>
+    <td> <%= f.text_field :create_url_pattern, :size => 80 %> </td>
+  </tr>
+  <tr>
+    <td> <%= f.label :update_url_pattern  %> </td>
+    <td> <%= f.text_field :update_url_pattern, :size => 80 %> </td>
+  </tr>
+  <tr>
+    <td> <%= f.label :show_url_pattern  %> </td>
+    <td> <%= f.text_field :show_url_pattern, :size => 80 %> </td>
+  </tr>
+  </table>
+  <p>
+    <%= f.submit "Update/Create" %>
+  </p>
+
+  <h2> Globals for all Archives (define in db or via rake tasks) </h2>
+  <table>
+  <tr>
+    <td> test_plugin_url </td>
+    <td> <%= Global.get("test_plugin_url") %> </td>
+  </tr>
+  <tr>
+    <td> production_plugin_url </td>
+    <td> <%= Global.get("production_plugin_url") %> </td>
+  </tr>
+   <tr>
+    <td> retired_plugin_url </td>
+    <td> <%= Global.get("retired_plugin_url") %> </td>
+  </tr>
+
+  </table>
+
+
+<% end %>

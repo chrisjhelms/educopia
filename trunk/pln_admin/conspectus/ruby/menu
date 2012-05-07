@@ -1,0 +1,45 @@
+       Content providers
+super:    Create New 
+super: Content Provider <acro> 
+super      ...
+       Archives 
+
+       All Collections
+       My Collections
+user:     Create New  
+user:  Collection <id>
+user:     ... 
+user:     Manage Aus  
+user:       Add Single
+user:       Add Several
+user:       Delete Draft
+user:       Delete Test
+user:     Status 
+super:    Manage Aus Draft
+super:    Manage Aus Test,retest
+super:    Manage Aus Preserved,retest
+super:    Manage Aus Retired
+super:    Retire
+super:    Unretire
+
+       All Plugins
+       My Plugins
+user:     Create New 
+user:  Plugin <name>
+user:     Edit 
+super:    Retire 
+super:    UnRetire 
+
+super: Users
+super:   Create New
+super:   Check Pwd
+ 
+super: Globals
+  
+super: Archival Units
+super:   Upload LOCKSS IDS
+super:   List Draft
+super:   List Test,retest
+super:   List Preserved,retest
+super:   List Retired
+

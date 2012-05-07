@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_plugin_change (CollectionTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/unit/collection_test.rb, line 57</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_plugin_change</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-constant">Archive</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:first</span>)
+    <span class="ruby-identifier">prov</span> = <span class="ruby-constant">ContentProvider</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:first</span>) 
+    <span class="ruby-identifier">url</span> = <span class="ruby-value str">&quot;http://some.where.edu/collections/location&quot;</span>
+    <span class="ruby-identifier">p1</span> = <span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot; #{prov.plugin_prefix}.eins.plugin &quot;</span>, <span class="ruby-identifier">prov</span>)
+    <span class="ruby-identifier">p2</span> = <span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot; #{prov.plugin_prefix}.zwei.plugin &quot;</span>, <span class="ruby-identifier">prov</span>)
+    
+    <span class="ruby-identifier">c</span> = <span class="ruby-constant">Collection</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:archive</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">a</span>,  
+                       <span class="ruby-identifier">:plugin</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">p1</span>,
+                       <span class="ruby-identifier">:base_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">url</span>, 
+                       <span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;collection&quot;</span>)
+    <span class="ruby-identifier">assert</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">plugin</span>= <span class="ruby-identifier">p2</span>; 
+    <span class="ruby-identifier">assert</span> <span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-node">&quot; #{prov.plugin_prefix}.eins.plugin &quot;</span>).<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

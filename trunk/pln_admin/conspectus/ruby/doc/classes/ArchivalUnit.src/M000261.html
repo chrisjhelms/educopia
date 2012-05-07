@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_xml (ArchivalUnit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/archival_unit.rb, line 188</span>
+ <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">options</span>={}) 
+       <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:indent</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">2</span>
+       <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:builder</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:indent</span>])
+       <span class="ruby-identifier">coll</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:collection</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">collection</span>;  
+       
+       
+       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">instruct!</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:skip_instruct</span>)     
+       <span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;#{coll.title}&quot;</span>;
+       <span class="ruby-identifier">jtitle</span> =  <span class="ruby-identifier">title</span>;
+       <span class="ruby-keyword kw">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">au_param_values</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword kw">then</span> 
+          <span class="ruby-identifier">pvals</span> = <span class="ruby-identifier">au_param_values</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{k}=#{v}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;,&quot;</span>);
+          <span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;#{title}: #{pvals}&quot;</span>; 
+       <span class="ruby-keyword kw">end</span> 
+       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">title</span>) <span class="ruby-keyword kw">do</span> 
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'title'</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>)
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'journalTitle'</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">jtitle</span>)
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'plugin'</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">coll</span>.<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">name</span>)
+          
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;param.1&quot;</span>) <span class="ruby-keyword kw">do</span> 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;key&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;base_url&quot;</span>); 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;value&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">coll</span>.<span class="ruby-identifier">base_url</span>); 
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">i</span> = <span class="ruby-value">2</span>; 
+           
+            <span class="ruby-identifier">au_param_values</span>(<span class="ruby-keyword kw">false</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> 
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;param.#{i}&quot;</span>) <span class="ruby-keyword kw">do</span> 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;key&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">key</span>); 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;value&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>); 
+              <span class="ruby-keyword kw">end</span>
+              <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">end</span> 
+            <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">off_line</span>) <span class="ruby-keyword kw">then</span> 
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;param.#{111 * i}&quot;</span>) <span class="ruby-keyword kw">do</span> 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;key&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'pub_down'</span>); 
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;value&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;true&quot;</span>); 
+            <span class="ruby-keyword kw">end</span>  
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">property</span>(<span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;attributes.publisher&quot;</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">coll</span>.<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">content_provider</span>.<span class="ruby-identifier">name</span>) 
+       <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
