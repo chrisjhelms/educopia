@@ -22,7 +22,7 @@ if ($TABLE =="") then
    exit 1; 
 endif 
 
-foreach f (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
+foreach f (`fgrep -v "#" $MASERVERS | awk '{ print $3 " " }' `) 
    pullCacheTable $f $TABLE $FORMAT;
 end 
 echo "#Find output at $DATA_TARGET_DIR/$TABLE*.$FORMAT";  
