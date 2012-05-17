@@ -9,10 +9,7 @@ mkdir -p  $DATA_TARGET_DIR;
 
 echo "#report per cache vote numbers"; 
 
-foreach s (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
-    set f =   "$MASTATUS/$DATE/Overview*$s*xml"
+foreach f  ( $MASTATUS/$DATE/Overview*.xml ) 
+    set s = `basename $f | sed 's/Space_//' | sed 's/.xml//'`
     echo $s "		" `fgrep "votes" $f | sed s'/<st:value>//' | sed 's/<\/st:value>//'` ; 
 end 
-
-
-
