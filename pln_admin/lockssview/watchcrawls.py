@@ -39,11 +39,11 @@ class WatchCrawlStatus(LockssScript):
 
         option_parser.add_option('--pause',
                         type='int',
-                        help='limiting the number of printed crawl status per archival units in printcrawlstatus [%default]')
+                        help="pause time in seconds between retrying active crawls [%default]")
         
         option_parser.add_option('-o', '--outputdir',
                         dest= 'dir', 
-                        help="pause time in seconds between retrying active crawls [%default]")
+                        help='output directory [%default]')
         
         option_parser.add_option('--crawlsort',
                         type='choice',
