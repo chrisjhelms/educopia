@@ -1,7 +1,7 @@
 #!/bin/tcsh 
 set p = $1
-echo "DROP DATABASE lockssview;" | mysql --user=metaarchive --password=$1
-echo "CREATE DATABASE lockssview;" | mysql --user=metaarchive --password=$1
+echo "DROP DATABASE lockssview;" | mysql --user=lockssview --password=$1
+echo "CREATE DATABASE lockssview;" | mysql --user=lockssview --password=$1
 manage.py syncdb
 
 
