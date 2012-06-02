@@ -1,6 +1,6 @@
 import inspect
 
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 from status.models.models  		import *;
 
@@ -18,4 +18,4 @@ from status.models.lockssurl  	import *
 #from status.models.other  		import LockssCacheCommPeer
 
 
-print "<< ", inspect.getfile(inspect.currentframe())
+#print "<< ", inspect.getfile(inspect.currentframe())
