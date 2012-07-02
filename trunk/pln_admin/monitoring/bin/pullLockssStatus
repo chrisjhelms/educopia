@@ -1,4 +1,5 @@
 #!/bin/csh  -f
+#set echo 
 source ~/.metaarchive.rc 
 mkdir -p $MASTATUS/$DATE;
 set LOG = "$MASTATUS/$DATE/pullStatus.log";
