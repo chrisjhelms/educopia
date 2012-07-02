@@ -13,7 +13,7 @@ echo `date` " Harvesting to $DATA_TARGET_DIR"
 echo `date` " Logging to $DATA_LOG"
 echo `date` " Find it at $MASTATUSURL/BatchAuConfig/$DATE/log" 
 
-foreach CACHE (`fgrep -v "#" $MASERVERS | awk '{ print $2 " " }' `) 
+foreach CACHE (`fgrep -v "#" $MASERVERS | awk '{ print $3 " " }' `)
    $PULL -server $CACHE -t -u $MACACHE_USER -p $MACACHE_PWD -page 'BatchAuConfig?lockssAction=Backup' -dir $DATA_TARGET_DIR -format 'out' >>& $DATA_LOG; 
   if ($status == 0) then 
      echo "pullBatchAuConfigs $CACHE	OK";  
