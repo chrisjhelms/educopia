@@ -14,7 +14,8 @@ class LockssCache(models.Model):
     domain = models.CharField(max_length=64, unique=True)
     port = models.IntegerField()
     name = models.CharField(max_length=16, unique=True)
-    
+    network = models.CharField(max_length=16, unique=False)
+
     list_display = ( 'domain', 'name' )
 
     def __init__(self, *args, **kwargs):
