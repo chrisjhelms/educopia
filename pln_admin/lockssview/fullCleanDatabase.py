@@ -21,13 +21,11 @@ def cleanList(lst):
 		e.delete();
 
 
-cleanList( LockssUrl.objects.all()) 
-1/0
-
 cleanList( UrlReport.objects.all())
 cleanList( Url.objects.all())
 cleanList( LockssCacheAuId.objects.all())
 #cleanList( RepositorySpace.objects.all() );
 cleanList( LockssCacheAuSummary.objects.all() );
 cleanList( lst = LockssCrawlStatus.objects.all() );
+cleanList( LockssUrl.objects.all()) 
 
