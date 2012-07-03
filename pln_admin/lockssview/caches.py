@@ -20,7 +20,8 @@ class StatusScript(LockssScript):
     CONFIGURATION_DEFAULTS = {
                 'nickname': False,
                 "dnsname":  False,  
-                "url": False
+                "url": False,
+                "network" : None
                 }; 
                 
     def __init__(self, argv0):
@@ -28,6 +29,9 @@ class StatusScript(LockssScript):
         
     def _create_opt_parser(self):
         option_parser =  LockssScript._create_parser(self, au_params=False, mayHaveServer=False, credentials=False) 
+        option_parser.add_option('-N', '--Network',
+                                  dest="network",
+                                  help="print cache from give network only")
         option_parser.add_option('-n', '--nickname',
                                   action='store_true',
                                   help="print cache's nickname [%default]")
@@ -45,8 +49,11 @@ class StatusScript(LockssScript):
              not self.options.url ) : 
             self.options.dnsname = True; 
             self.options.nickname = True; 
-            
-        for c in LockssCache.objects.all(): 
+        if self.options.network:
+            caches = LockssCache.objects.filter(network = self.options.network)
+        else: 
+            caches = LockssCache.objects.all()
+        for c in caches: 
             if (self.options.nickname): 
                 print c.name, "\t",
             if (self.options.dnsname): 
