@@ -20,6 +20,7 @@ class StatusScript(LockssScript):
     CONFIGURATION_DEFAULTS = {
                 'nickname': False,
                 "dnsname":  False,  
+                "nwname":  False,  
                 "url": False,
                 "network" : None
                 }; 
@@ -38,6 +39,9 @@ class StatusScript(LockssScript):
         option_parser.add_option('-D', '--dnsname',
                                   action='store_true',
                                   help="print cache's dnsname [%default]")
+        option_parser.add_option('--nwname',
+                                  action='store_true',
+                                  help="print cache's network name [%default]")
         option_parser.add_option('-u', '--url',
                                   action='store_true',
                                   help="print cache's login url [%default]")
@@ -58,6 +62,8 @@ class StatusScript(LockssScript):
                 print c.name, "\t",
             if (self.options.dnsname): 
                 print c.domain, "\t",
+            if (self.options.nwname): 
+                print c.network, "\t",
             if (self.options.url): 
                 print "http//%s:%d" %  (c.domain, c.port), 
             print ""
