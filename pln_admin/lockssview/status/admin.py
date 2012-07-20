@@ -1,15 +1,15 @@
 from status.models import *
 from django.contrib import admin
 
-from models.m_auids          import MasterAuId
-from models.m_auids          import LockssCacheAuId
+from models.masterauid          import MasterAuId
+from models.locksscacheauid     import LockssCacheAuId
 
-from models.m_cache        import LockssCache
+from models.cache        import LockssCache
 
-from models.m_austatus      import LockssCacheAuSummary
-from models.m_austatus      import LockssCrawlStatus
-from models.m_austatus      import UrlReport
-from models.m_austatus      import Url
+from models.austatus       import LockssCacheAuSummary
+from models.austatus       import LockssCrawlStatus
+from models.austatus       import UrlReport
+from models.lockssurl      import Url
 
 class LockssCacheAdmin(admin.ModelAdmin):
     list_display = ('domain', )   
