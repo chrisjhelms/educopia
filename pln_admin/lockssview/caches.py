@@ -65,7 +65,7 @@ class StatusScript(LockssScript):
             if (self.options.nwname): 
                 print c.network, "\t",
             if (self.options.url): 
-                print "http//%s:%d" %  (c.domain, c.port), 
+                print "http://%s:%d" %  (c.domain, c.port), 
             print ""
             
                 
