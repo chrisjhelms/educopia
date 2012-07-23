@@ -209,7 +209,7 @@ class UrlReport(models.Model):
     class Meta: 
         app_label = "status"
 
-    auId = models.OneToOneField(LockssCacheAuId)
+    auId = models.OneToOneField(LockssCacheAuId, db_index=True)
     reportDate = models.DateTimeField()
 
     SORTFIELDS = ['name', 
@@ -378,7 +378,7 @@ class LockssCrawlStatus(models.Model):
     class Meta: 
         app_label = "status"
 
-    auId = models.ForeignKey(LockssCacheAuId)
+    auId = models.ForeignKey(LockssCacheAuId, db_index=True)
 
     ''' possible values for status
             Active
@@ -414,19 +414,6 @@ class LockssCrawlStatus(models.Model):
     NOINFO = 0
     ACTIVE = 1
     DONE = 2
-    
-    STATUS =  {
-            'Successful': DONE,
-            'Error': DONE,
-            'Aborted': DONE, 
-            'Fetch error': DONE,
-            'No permission from publisher': DONE,
-            'Plugin error': DONE,
-            'Repository error': DONE, 
-            'Active' : ACTIVE,
-            'Interrupted by crawl window' : ACTIVE,
-            'Interrupted by daemon exit' : ACTIVE 
-    }
     
     SORTFIELDS = [
 	'status',
@@ -468,7 +455,10 @@ class LockssCrawlStatus(models.Model):
         ''' 
         try: 
             crawl = LockssCrawlStatus.recents(cacheauid, 1)[0]
-            return LockssCrawlStatus.STATUS[crawl.status]
+            if (crawl.nPendingUrls > 0): 
+                return LockssCrawlStatus.ACTIVE;
+            else: 
+                return LockssCrawlStatus.DONE;
         except IndexError:
             # there was no crawl info 
             return LockssCrawlStatus.NOINFO
