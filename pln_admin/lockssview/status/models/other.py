@@ -34,7 +34,7 @@ class RepositorySpace(models.Model):
     class Meta: 
         app_label = "status"
 
-    cache = models.ForeignKey(LockssCache)
+    cache = models.ForeignKey(LockssCache, db_index=True)
     sizeMB = models.FloatField(default=-1);
     usedMB = models.FloatField(default=-1);
     repo = models.CharField(max_length=32); 
