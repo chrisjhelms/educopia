@@ -9,16 +9,13 @@ from xml.parsers.expat import ExpatError;
 from lockss_util import LockssError, log
 from utils import Utils; 
 
-from status.models.models import Action, UI_STRFTIME; 
-from status.models.locksscacheauid import LockssCacheAuId; 
+from lockss.models.models import Action, UI_STRFTIME; 
+from lockss.models.locksscacheauid import LockssCacheAuId; 
 
 '''
 LockssCacheAuSummary corresponds to row in caches ArchivalUnitStatusTable for thei auid 
 '''     
 class LockssCacheAuSummary(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.OneToOneField(LockssCacheAuId, null=True)
     agreement = models.FloatField(blank=True, null=True)
     availableFromPublisher = models.BooleanField()
@@ -206,9 +203,6 @@ class LockssCacheAuSummary(models.Model):
         return sep.join(vals) 
 
 class UrlReport(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.OneToOneField(LockssCacheAuId, db_index=True)
     reportDate = models.DateTimeField()
 
@@ -328,9 +322,6 @@ class UrlReport(models.Model):
             
     
 class Url(models.Model):
-    class Meta: 
-        app_label = "status"
-
     urlReport = models.ForeignKey(UrlReport, db_index=True)   
     name = models.TextField(max_length=1024)
     childCount = models.IntegerField()
@@ -375,9 +366,6 @@ class Url(models.Model):
         return sep.join(vals)
 
 class LockssCrawlStatus(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.ForeignKey(LockssCacheAuId, db_index=True)
 
     ''' possible values for status

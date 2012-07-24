@@ -31,9 +31,6 @@ def getReposState(ui):
     return results; 
                         
 class RepositorySpace(models.Model):
-    class Meta: 
-        app_label = "status"
-
     cache = models.ForeignKey(LockssCache, db_index=True)
     sizeMB = models.FloatField(default=-1);
     usedMB = models.FloatField(default=-1);
@@ -115,9 +112,6 @@ class RepositorySpace(models.Model):
         
 """   
 class LockssCacheCommPeer(models.Model): 
-    class Meta: 
-        app_label = "status"
-
     cache = models.ForeignKey(LockssCache)
     remoteCache = models.ForeignKey(LockssCache)
     peer = models.CharField(max_length=28)
@@ -220,9 +214,6 @@ class LockssCacheCommPeer(models.Model):
 LockssCacheAuSummary corresponds to row in caches ArchivalUnitStatusTable for thei auid 
 '''     
 class LockssCacheAuSummary(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.OneToOneField(LockssCacheAuId, null=True)
     agreement = models.FloatField(blank=True, null=True)
     availableFromPublisher = models.BooleanField()

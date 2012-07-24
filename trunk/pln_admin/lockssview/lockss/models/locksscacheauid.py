@@ -4,14 +4,11 @@ from django.db.models import Q
 import lockss_daemon; 
 from lockss_util import LockssError, log
 
-from status.models.models import  Action;
-from status.models.cache import LockssCache;
-from status.models.masterauid import MasterAuId;
+from lockss.models.models import  Action;
+from lockss.models.cache import LockssCache;
+from lockss.models.masterauid import MasterAuId;
 
 class LockssCacheAuId(models.Model):
-    class Meta: 
-        app_label = "status"
-
     masterAuId = models.ForeignKey(MasterAuId)
     cache = models.ForeignKey(LockssCache)
     auId = models.CharField(max_length=255, db_index=True)    # same as in masterAuId 
