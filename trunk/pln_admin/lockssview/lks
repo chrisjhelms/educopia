@@ -1,8 +1,0 @@
-#!/bin/tcsh 
-set p = $0:h 
-if ($p == $0) then 
-  set p = "."
-endif
-source $p/env.rc 
-$* 
-
