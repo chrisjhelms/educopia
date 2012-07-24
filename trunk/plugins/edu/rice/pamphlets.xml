@@ -9,7 +9,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -36,7 +36,7 @@
       <string>1,&quot;^%s/handle/1911/[0-9]+\?mode=full$&quot;, base_url</string>
       <string>1,&quot;^%s/dspace-oai&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/&quot;, base_url</string>
-      <string>1,&quot;^%s/handle/1911/[0-9]+\&quot;, base_url</string>
+      <string>1,&quot;^%s/handle/1911/[0-9]+/&quot;, base_url</string>
     </list>
   </entry>
   <entry>
