@@ -8,9 +8,6 @@ from lockss_util import log
 
 # Create your models here.
 class LockssCache(models.Model):
-    class Meta: 
-        app_label = "status"
-
     domain = models.CharField(max_length=64, unique=True)
     port = models.IntegerField()
     name = models.CharField(max_length=16, unique=True)

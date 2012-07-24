@@ -1,12 +1,9 @@
 from django.db import models
 
-from status.models.locksscacheauid        import LockssCacheAuId
-from status.models.austatus     import LockssCacheAuSummary; 
+from lockss.models.locksscacheauid        import LockssCacheAuId
+from lockss.models.austatus     import LockssCacheAuSummary; 
 
 class LockssUrl(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.ForeignKey(LockssCacheAuId)
     auSummary = models.ForeignKey(LockssCacheAuSummary, db_index=True)
     name = models.TextField(max_length=1024)

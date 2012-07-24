@@ -16,9 +16,6 @@ PRTCOMMPEERS   - print comm peers info
 GETREPOSSPACE  - print repository space info 
 '''
 class Action:
-    class Meta: 
-        app_label = "status"
-
     GETAUSUMMARY = 'getausummary'
     GETCRAWLSTATUS = 'getcrawlstatus'
     GETURLLIST = 'geturllist'
