@@ -1,9 +1,0 @@
-compress 
-
-/home/metaarchive/tools/conspectus/ruby/log/*.log {
-           rotate 5
-	   size 25M
-           missingok
-           copytruncate
-       }
-

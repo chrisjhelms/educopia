@@ -1,3 +1,0 @@
-The conspectus is a ruby on rails based tool to help a PLN maintain collections of archival units.  MetaArchive attaches additional, not strictly LOCKSS relevant, metadata to collections. This metadata is mantained by the included php code under metadata editor. 
-
-see ruby/README for more details 

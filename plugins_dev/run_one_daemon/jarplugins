@@ -1,4 +1,0 @@
-#!/bin/csh 
-set CUR = `pwd`
-cd plugins 
-jar cvf $CUR/metaarchive_plugins.jar `find . -name \*.xml`
