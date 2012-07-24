@@ -9,8 +9,8 @@ from xml.parsers.expat import ExpatError;
 from lockss_util import LockssError, log
 from utils import Utils; 
 
-from lockss.models.models import Action, UI_STRFTIME; 
-from lockss.models.locksscacheauid import LockssCacheAuId; 
+from lockss.lockssutil import Action, UI_STRFTIME; 
+from lockss.locksscacheauid import LockssCacheAuId; 
 
 '''
 LockssCacheAuSummary corresponds to row in caches ArchivalUnitStatusTable for thei auid 
@@ -328,8 +328,6 @@ class Url(models.Model):
     treeSize = models.BigIntegerField()
     size = models.IntegerField()
     version = models.IntegerField(blank=True,null=True)  
-    
-    list_display = ( 'urlReport', 'name', 'version' )
     
     def __init__(self, *args, **kwargs):
         super(Url, self).__init__(*args, **kwargs)

@@ -4,9 +4,9 @@ from django.db.models import Q
 import lockss_daemon; 
 from lockss_util import LockssError, log
 
-from lockss.models.models import  Action;
-from lockss.models.cache import LockssCache;
-from lockss.models.masterauid import MasterAuId;
+from lockss.lockssutil import  Action;
+from lockss.locksscache import LockssCache;
+from lockss.lockssmasterauid import MasterAuId;
 
 class LockssCacheAuId(models.Model):
     masterAuId = models.ForeignKey(MasterAuId)
