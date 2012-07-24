@@ -1,7 +1,0 @@
-#!/bin/tcsh 
-setenv STATUS /home/metaarchive/tools/data/conspectus_status
-setenv CONSPECTUS http://conspectus.metaarchive.org
-rm -rf $STATUS/content_provider*
-~metaarchive/tools/lockssview/lks \
-	~metaarchive/tools/lockssview/conspectuslib/genrc.py  \
-	--root=$STATUS --url=$CONSPECTUS --state=preserved --provider=all
