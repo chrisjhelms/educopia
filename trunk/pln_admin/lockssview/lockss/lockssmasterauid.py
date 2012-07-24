@@ -7,9 +7,6 @@ from lockss_util import LockssError, log
 import re;
 
 class MasterAuId(models.Model):
-    class Meta: 
-        app_label = "status"
-
     auId = models.CharField(max_length=255, db_index=True)
     plugin = models.CharField(max_length=64)
     baseUrl = models.URLField(max_length=256)
