@@ -5,7 +5,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -35,8 +35,7 @@ It is useful for small sites that are to be harvested completely as they are del
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/manifest.html$&quot;, base_url</string>
       <string>2,&quot;/\?[^/]*$&quot;</string>
-      <string>1,&quot;^%s$&quot;, base_url</string>
-      <string>1,&quot;^%s/&quot;, base_url</string>
+      <string>1,&quot;^%s/.&quot;, base_url</string>
     </list>
   </entry>
   <entry>
