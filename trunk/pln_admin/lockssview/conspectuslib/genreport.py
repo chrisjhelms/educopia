@@ -73,7 +73,22 @@ class Script:
     def log(self, s):
         if (self.verbose):
             print "## %s %s" % (self.name, s); 
-    
+
+    def prt_aus(self, col_f, aus, all):
+        for a in aus: 
+            au, au_url = self.getobj("archival_unit", a)
+            extras = 0; 
+            for p in au['params'].keys():
+                if (p != 'base_url'): 
+                    if (all or -1 != au['au_state_name'].find("test")):
+                        col_f.write("\t%s=%s" % (p, au['params'][p]))
+                        extras = extras + 1;
+            if (extras == 0): 
+                col_f.write("Single AU Defined By Base_Url  ");
+            col_f.write("\tstate=%s" % au['au_state_name']);
+            if (au['off_line']): col_f.write('off_line'); 
+            col_f.write("\n");
+            
     def getobj(self, kind, oid):
         if (oid):
             try:
@@ -146,24 +161,42 @@ class Script:
         col_f.write('\n'); 
 
         col_f.write('---------------------------\n');
-        col_f.write('Archival Units \n');
+        col_f.write('Collections Archival Units \n');
         col_f.write('---------------------------\n');
-        for a in col['archival_units']: 
-            au, au_url = self.getobj("archival_unit", a)
-            extras = 0; 
-            for p in au['params'].keys():
-                if (p != 'base_url'): 
-                    col_f.write("\t%s=%s" % (p, au['params'][p]))
-                    extras = extras + 1;
-            if (extras == 0): 
-                col_f.write("Single AU Defined By Base_Url  ");
-            col_f.write("\tstate=%s" % au['au_state_name']);
-            if (au['off_line']): col_f.write('off_line'); 
-            col_f.write("\n");
-            
-                    
+        self.prt_aus(col_f, col['archival_units'], True); 
+                                
         col_f.write("\n");
 
+        col_f.write('---------------------------\n');
+        col_f.write('Tested archival Units \n');
+        col_f.write('---------------------------\n');
+        self.prt_aus(col_f, col['archival_units'], False); 
+        col_f.write("\n");
+         
+        col_f.write('---------------------------\n');
+        col_f.write('Ingest Test Details \n');
+        col_f.write('---------------------------\n');
+        col_f.write('Manifest page(s):\n');
+        col_f.write("\n");
+        col_f.write("\n");
+        col_f.write('Archival Unit Size Info:\n');
+        col_f.write("   see SERVER/printausummary.tsv\n");
+        col_f.write("\n");
+        col_f.write('Crawl Behavior\n');
+        col_f.write("   see SERVER/printcrawlstatus.tsv\n");
+        col_f.write("\n");
+        col_f.write('Ingested Files\n');
+        col_f.write("   see SERVER/%s*.tsv\n" % plug['name']);
+        col_f.write("\n");
+
+        col_f.write('---------------------------\n');
+        col_f.write('Summary / Recommendations \n');
+        col_f.write('---------------------------\n');
+        col_f.write("\n");
+
+
+
+        col_f.write("\n");
              
 if __name__ == "__main__":
     try:
