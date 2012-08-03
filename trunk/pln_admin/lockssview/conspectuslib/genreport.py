@@ -8,13 +8,13 @@ import getopt, sys, json;
 from datetime import datetime;
 from urllib2 import *;
 import commands, traceback;
+from conspectus import Conspectus;
 
 class Script:
     """
-    usage: genrc [OPTIONS]:
-      generates rc files suitable for lockssview scripts 
-      places generated files in directory hierarchy rooted at given root directory   
-     
+    usage: genreport [OPTIONS]:
+      generates a ingest report template 
+      
      -cCOLLECTION               collection id or name (blanks in name will not work) 
      --collection=COLLECTION   
       
@@ -68,19 +68,21 @@ class Script:
         if (not self.collection): 
             print "Must give a collection"; 
             self.usage(1); 
+        
+        self.conspectus = Conspectus(self.url);
     
         
     def log(self, s):
         if (self.verbose):
             print "## %s %s" % (self.name, s); 
 
-    def prt_aus(self, col_f, aus, all):
+    def prt_aus(self, col_f, aus, doall):
         for a in aus: 
-            au, au_url = self.getobj("archival_unit", a)
+            au  = self.conspectus.get_obj("archival_unit", a)
             extras = 0; 
             for p in au['params'].keys():
                 if (p != 'base_url'): 
-                    if (all or -1 != au['au_state_name'].find("test")):
+                    if (doall or -1 != au['au_state_name'].find("test")):
                         col_f.write("\t%s=%s" % (p, au['params'][p]))
                         extras = extras + 1;
             if (extras == 0): 
@@ -88,26 +90,6 @@ class Script:
             col_f.write("\tstate=%s" % au['au_state_name']);
             if (au['off_line']): col_f.write('off_line'); 
             col_f.write("\n");
-            
-    def getobj(self, kind, oid):
-        if (oid):
-            try:
-                url = "%s/%ss/%d" % (self.url, kind, int(oid))
-                get_url = "%s.json" % url; 
-            except:  
-                url = "%s/%ss/find/%s" % (self.url, kind, oid)
-                get_url = "%s/show.json" % url; 
-            
-        else: 
-            # get list of kind instances  
-            url = "%s/%ss" % (self.url, kind)
-            get_url = "%s.json" % url
-        self.log ("GET %s" % get_url); 
-        url_handle = urlopen(get_url);
-        obj = json.loads(url_handle.read());
-        url_handle.close(); 
-        return obj, url
-    
         
     def doit(self, args):
         self.getargs(args)   
@@ -115,10 +97,12 @@ class Script:
         c = self.collection; 
         col_f = sys.stdout;
         
-        col, col_url = self.getobj("collection", c)
-        ar, ar_url = self.getobj("archive", col['archive_id'])
-        plug, plug_url = self.getobj("plugin", col['plugin_id'])
-        cp, cp_url = self.getobj("content_provider", plug['content_provider_id'])
+        col  = self.conspectus.get_obj("collection", c)
+        col_url = col['GET_URL'];
+        ar  = self.conspectus.get_obj("archive", col['archive_id'])
+        plug = self.conspectus.get_obj("plugin", col['plugin_id'])
+        plug_url = plug['GET_URL'];
+        cp = self.conspectus.get_obj("content_provider", plug['content_provider_id'])
         
         col_f.write('Collection Ingest Report'); 
         col_f.write('Date: %s' %  datetime.today().strftime("%a %Y-%m-%d"));
@@ -154,9 +138,9 @@ class Script:
                 url = url.replace("http://code.google.com/p/educopia/source/browse", "http://educopia.googlecode.com/svn"); 
                 lasts = commands.getoutput("svn info %s | fgrep Last " % url).split("\n")
                 for l in lasts:
-                    col_f.write("                \t\t%s\n" % l)
-		col_f.write("Recrawl Interval: ###\n"); 
-                col_f.write("CrawlDepth: ###\n"); 
+                    col_f.write("                %s\n" % l)
+                col_f.write("                Recrawl Interval: ###\n"); 
+                col_f.write("                CrawlDepth: ###\n"); 
 
             except HTTPError:
                 col_f.write("%s\n" % 'Undefined'); 
