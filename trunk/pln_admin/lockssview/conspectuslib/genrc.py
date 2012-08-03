@@ -8,6 +8,7 @@ import getopt, sys, json;
 from datetime import date;
 from urllib2 import *;
 import traceback, codecs; 
+from conspectus import Conspectus;
 
 class Script:
     """
@@ -91,38 +92,7 @@ class Script:
             print "using roor = /tmp";
     
         
-    def log(self, s):
-        if (self.verbose):
-            print "## %s %s" % (self.name, s); 
-    
-    def cp_url(self, cp):
-        return  "%s/content_providers/%s" % (self.url, cp['acronym'])
-    
-    def col_url(self, col):
-        if (type(col) == int):
-            return  "%s/collections/%s" % (self.url, col)
-        else: 
-            return  "%s/collections/find/%s" % (self.url, col)
-
-    def getobj(self, kind, oid):
-        if (oid):
-            try:
-                url = "%s/%ss/%d" % (self.url, kind, int(oid))
-                get_url = "%s.json" % url; 
-            except:  
-                url = "%s/%ss/find/%s" % (self.url, kind, oid)
-                get_url = "%s/show.json" % url; 
-            
-        else: 
-            # get list of kind instances  
-            url = "%s/%ss" % (self.url, kind)
-            get_url = "%s.json" % url
-        self.log ("GET %s" % get_url); 
-        url_handle = urlopen(get_url);
-        obj = json.loads(url_handle.read());
-        url_handle.close(); 
-        return obj, url
-    
+   
         
     def thedir(self, name):
         if not os.path.exists(name):
@@ -145,19 +115,19 @@ class Script:
     def write_aus(self, fle, aus):
         fle.write("auidlist =\n");
         for a in aus: 
-            au, au_url = self.getobj("archival_unit", a)
+            au = self.conspectus.get_obj("archival_unit", a)
             if (self.austate and au['au_state_name'] != self.austate): 
                     au = None 
             if (au): 
                 if (au['lockss_au_id']): 
                     fle.write("\t%s\n" % au['lockss_au_id'])
                 else: 
-                    fle.write("\t# unknown AUID %s\n" % au_url)         
+                    fle.write("\t# unknown AUID %s\n" % au['GET_URL']) ;        
         fle.write("\n");
     
     def prt_collection(self, col_f, cp, col_url, col):
         if (cp): 
-            col_f.write("# content provider:    id=%s (%s) %s\n" % (cp['id'], cp['acronym'], cp['name'].encode('utf-8')));
+            col_f.write("# content provider:    id=%s (%s)\n" % (cp['id'], cp['acronym']));
         col_f.write("# collection:          id=%s %s\n" % (col['id'], col['title'].encode('utf-8')));
         col_f.write("# archival unit state: %s\n" % self.austate);
         col_f.write("# \n");
@@ -169,8 +139,9 @@ class Script:
 
     
     def doit_collection(self, cp, cp_dir, c):
-        col, col_url = self.getobj("collection", c)
-        print "GEN %s\tid=%s %s" % (cp, col['id'], col['title']); 
+        col  = self.conspectus.get_obj("collection", c)
+        col_url = col['GET_URL'];
+        print "GEN %s\tid=%s %s" % (cp['acronym'], col['id'], col['title']); 
         col_dir = self.thedir( "%s/collection=%s" % (cp_dir , col['id']) )
         col_f = self.rcfile("%s/%s" % (col_dir, "lockssview.rc"))
         aus = self.prt_collection(col_f, cp, col_url, col)
@@ -180,11 +151,11 @@ class Script:
     
     def doit_collection_list(self, cols):
         #print self.__dict__;
-        cp_aus =[]; 
         col_f = self.rcfile("%s/%s" % (".", "lockssview.rc"))
         combined_aus = []; 
         for c in cols: 
-            col, col_url = self.getobj("collection", c)
+            col = self.conspectus.get_obj("collection", c)
+            col_url = col['GET_URL'];
             print "GEN id=%s %s" % (col['id'], col['title']); 
             col_f.write("\n\n####\n"); 
             aus = self.prt_collection(col_f, None, col_url, col)
@@ -206,28 +177,35 @@ class Script:
             cp_aus.extend(aus);
             
         cp_f = self.rcfile("%s/%s" % (cp_dir, "lockssview.rc"))
-        cp_f.write("# content provider:    id=%s (%s) %s\n" % (cp['id'], cp['acronym'], cp['name'].encode('utf-8')));
+        cpname = cp['name'].encode('ascii', 'ignore')
+        cp_f.write("# content provider:    id=%s (%s) %s\n" % (cp['id'], cp['acronym'], cpname));
         cp_f.write("# archival unit state: %s\n" % self.austate);
         cp_f.write("# \n");
         cp_f.write("ausetname=%s\n" % cp['acronym']);
-        cp_f.write("auseturl=%s\n\n" % self.cp_url(cp));
+        cp_url = self.conspectus.obj_url('content_provider', cp['acronym']);
+        cp_f.write("auseturl=%s\n\n" % cp_url);
         self.write_aus(cp_f, cp_aus);
         cp_f.close(); 
 
     def doit(self, args):
         self.getargs(args)
+        self.conspectus= Conspectus(self.url);
+        
         if (self.providers): 
             if (self.providers == 'all'): 
-                self.providers, _ = self.getobj("content_provider", None)
+                self.providers = self.conspectus.list_objs("content_provider")
             else: 
-                cp, _= self.getobj("content_provider", self.providers)
+                cp = self.conspectus.get_obj("content_provider", self.providers)
                 self.providers = [ cp ];
             for p in self.providers: 
                 self.doit_provider(p)    
 
         if (self.collections): 
             self.doit_collection_list(self.collections)
-            
+
+    def log(self, s):
+        if (self.verbose):
+                print "## %s %s" % (self.name, s);    
              
 if __name__ == "__main__":
     try:

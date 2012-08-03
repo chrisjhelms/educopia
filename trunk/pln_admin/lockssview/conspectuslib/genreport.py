@@ -155,6 +155,9 @@ class Script:
                 lasts = commands.getoutput("svn info %s | fgrep Last " % url).split("\n")
                 for l in lasts:
                     col_f.write("                \t\t%s\n" % l)
+		col_f.write("Recrawl Interval: ###\n"); 
+                col_f.write("CrawlDepth: ###\n"); 
+
             except HTTPError:
                 col_f.write("%s\n" % 'Undefined'); 
                     
