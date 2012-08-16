@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       params[:user][:content_provider] = cp;
       flash[:error] = "Could not find content provider #{cpname}" if cp.nil?
     end
+    params[:user][:email] =  params[:user][:email].strip(); 
     @user = User.new(params[:user])
     if @user.save then 
       flash[:notice] = "Account registered!"
