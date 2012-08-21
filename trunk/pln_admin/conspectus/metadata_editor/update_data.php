@@ -38,7 +38,7 @@ function update_collection($arr) {
 		$values .= "'" . mysql_real_escape_string($arr['risk_factors']) . "', ";
 	}
 
-	if($arr['accrualperiodicity']) {
+    if (array_key_exists('accrualperiodicity', $arr) &&  $arr['accrualperiodicity']) {
 		$values .= "accrualperiodicity = ";
 		$values .= "'" . $arr['accrualperiodicity'] . "', ";
 	}
