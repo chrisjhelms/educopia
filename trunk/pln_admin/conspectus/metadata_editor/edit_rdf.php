@@ -958,11 +958,11 @@ END;
 			"catalogued") {
 			$r_value .= '<input type="radio" name="' .
 				'catalogued_status_radio" value="'.
-				'cataloged" checked="checked" />';
+				'catalogued" checked="checked" />';
 		} else {
 			$r_value .= '<input type="radio" name="' .
 				'catalogued_status_radio" value="'.
-				'cataloged" />';
+				'catalogued" />';
 		}
 		$r_value .= "Cataloged<br />\n";
 	
