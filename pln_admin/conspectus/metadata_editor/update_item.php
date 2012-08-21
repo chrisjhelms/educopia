@@ -41,8 +41,7 @@ function update_list($arr, $var, $coll_id) {
 	}
 
 	$valid = true;
-
-	if(!$arr[$var]) return true;
+    if (! array_key_exists($var, $arr) ||  ! $arr[$var]) return true; 
 	$query = "INSERT INTO $var (value, collection_id) VALUES (";
 	if($arr[$var] != '') {
 		foreach ($arr[$var] as $item) {
