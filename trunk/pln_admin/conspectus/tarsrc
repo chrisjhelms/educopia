@@ -1,5 +1,2 @@
 #!/bin/tcsh 
-find . -name \*log > EXCLUDES 
-find . -name \.svn >> EXCLUDES 
-tar cvfzX $1 EXCLUDES .
-rm -f EXCLUDES 
+tar cvfz $1  --exclude-vcs .
