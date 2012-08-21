@@ -5,7 +5,7 @@ function multi_to_array(&$arr, $var) {
 
 	if (! array_key_exists( $var, $arr)) return null; 
 	if (!$arr[$var]) return null;
-	$items = split(",", $arr[$var]);
+	$items = preg_split(",", $arr[$var]);
 	foreach ($items as $item) {
 		$new_array[] = $arr[$item];
 		unset($arr[$item]);
@@ -18,7 +18,7 @@ function multi_check_to_array(&$arr, $var) {
 	$new_array = array();
 
 	if (!$arr[$var]) return null;
-	$items = split(",", $arr[$var]);
+	$items = preg_split(",", $arr[$var]);
 	foreach ($items as $item) {
 		$new_array[$item] = $arr[$item];
 		unset($arr[$item]);
@@ -31,7 +31,7 @@ function dates_to_array(&$arr, $var) {
 	$new_array = array();
 
 	if (!$arr[$var]) return null;
-	$items = split(",", $arr[$var]);
+	$items = preg_split(",", $arr[$var]);
 	foreach ($items as $item) {
 		$new_array[] = array(
 			'start_year' => $arr[$item . "_start_year"],
@@ -52,7 +52,7 @@ function format_to_array(&$arr, $var) {
 	$new_array = array();
 
 	if (!$arr[$var]) return null;
-	$items = split(",", $arr[$var]);
+	$items = preg_split(",", $arr[$var]);
 	foreach ($items as $item) {
 		$new_array[] = array(
 			'top' => $arr[$item],
