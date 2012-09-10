@@ -6,7 +6,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.cmu.BePressPlugin</string>
+    <string>edu.cmu.bepress</string>
   </entry>
   <entry>
     <string>required_daemon_version</string>
