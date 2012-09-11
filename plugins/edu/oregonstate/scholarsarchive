@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.gatech.library.GTCP</string>
+    <string>edu.oregonstate.scholarsarchive</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -17,11 +17,11 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;SMARTech %s&quot;, volume_name</string>
+    <string>&quot;ScholarsArchive %s&quot;, volume_name</string>
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>GT Campus Publications</string>
+    <string>Oregon State University Institutional Repository</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
@@ -54,7 +54,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>coll_list</key>
         <displayName>Collection List</displayName>
-        <description>SMARTech collections included.</description>
+        <description>ScholarsArchives collections included.</description>
         <type>1</type>
         <size>1000</size>
         <definitional>false</definitional>
