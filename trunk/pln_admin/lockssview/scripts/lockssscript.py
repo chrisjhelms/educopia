@@ -1,15 +1,13 @@
-import os,sys,logging,re; 
-from utils import Utils;
-
-from lockss_util import log
+import os,sys,logging,re, time;
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 
-from lockss.models import *; 
- 
 import ConfigParser
 import optparse
-import time
+
+from lockss import log;
+from lockssview import *; 
 
 class LockssScript:
     """
@@ -370,7 +368,7 @@ class LockssScript:
             ids = LockssCacheAuId.get(self.options.auids, self.options.auidprefixlist, cache)
         log.info("#Matching AUIDS: %d" % len(ids))
         for au in ids:
-            log.info("Matching AUIDS: %s" % au.auId)
+            log.debug2("Matching AUIDS: %s" % au.auId)
         return ids
 
     def collectMasterAuIdInstances(self):
@@ -450,7 +448,7 @@ class LockssScript:
                 
     def getcommpeers(self, directory, noquit):
         while (True):
-            success = LockssCacheCommPeer.load(self.cache, self.options.trials,
+            success = CacheCommPeer.load(self.cache, self.options.trials,
                                                  self.options.sleep, self.options.timeout)
             if (success or not noquit):
                 break
@@ -529,7 +527,7 @@ class ReportScript(LockssScript):
         if (not os.path.exists(self.options.dir)):
             os.mkdir(self.options.dir)
         try:
-            self.options.reportheaders = Utils.stringToArray(
+            self.options.reportheaders = utils.stringToArray(
                    self.options.reportheaders.replace("_"," "), self.ALLHEADERS);
         except RuntimeError as rt:
             self.option_parser.error("%s, available reportheader option: %s" % (rt, self.ALLHEADERS))

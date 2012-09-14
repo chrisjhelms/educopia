@@ -6,15 +6,15 @@ $Author: $
 $Revision: $
 $Id: $''' 
 
-import scriptinit
+import inspect
+print ">> ", inspect.getfile(inspect.currentframe())
 
 import sys
 
 from lockssscript import LockssScript 
-from django.db import models
-from lockss.models import LockssCache; 
+from lockssview import LockssCache; 
 
-class StatusScript(LockssScript):
+class Caches(LockssScript):
     ''' list all known caches, without parameters print nickname and domainname '''
     
     CONFIGURATION_DEFAULTS = {
@@ -26,7 +26,7 @@ class StatusScript(LockssScript):
                 }; 
                 
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', StatusScript.CONFIGURATION_DEFAULTS) 
+        LockssScript.__init__(self, argv0, '$Revision: $', Caches.CONFIGURATION_DEFAULTS) 
         
     def _create_opt_parser(self):
         option_parser =  LockssScript._create_parser(self, au_params=False, mayHaveServer=False, credentials=False) 
@@ -68,12 +68,11 @@ class StatusScript(LockssScript):
                 print "http://%s:%d" %  (c.domain, c.port), 
             print ""
             
-                
-                
+                              
 
 def __main(): 
     global script
-    script = StatusScript(sys.argv[0])
+    script = Caches(sys.argv[0])
     if (not script.options.dryrun):
         script.process()
     return 0
