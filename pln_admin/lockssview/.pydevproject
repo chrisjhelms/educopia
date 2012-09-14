@@ -6,7 +6,7 @@
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.6</pydev_property>
 
 <pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
-<path>/usr/lib/python2.7</path>
+<path>/usr/local/lib/python2.6/dist-packages</path>
 </pydev_pathproperty>
 <pydev_variables_property name="org.python.pydev.PROJECT_VARIABLE_SUBSTITUTION">
 <key>DJANGO_MANAGE_LOCATION</key>
@@ -16,7 +16,5 @@
 </pydev_variables_property>
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/lockssview</path>
-<path>/lockssview/locksslib</path>
-<path>/lockssview/utils</path>
 </pydev_pathproperty>
 </pydev_project>

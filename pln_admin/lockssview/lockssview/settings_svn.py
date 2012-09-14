@@ -1,16 +1,13 @@
 # Django settings for lockssview project.
 
+import inspect; 
+print ">> ", inspect.getfile(inspect.currentframe())
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 import os
 import sys
-
-argv0 = sys.argv[0]
-mypath = os.path.dirname( os.path.realpath(  argv0 ) )
-sys.path.append(  os.path.join( mypath, './locksslib' ) )
-sys.path.append(  os.path.join( mypath, './utils' ) )
-
 
 ADMINS = (
     # ('Monika Mevenkamp', 'momeven@gmail.com'),
