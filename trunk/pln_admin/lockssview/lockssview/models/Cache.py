@@ -1,5 +1,5 @@
 import inspect
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 from django.db import models
 from django.db.models import Q
@@ -95,4 +95,4 @@ class LockssCache(models.Model):
         for c in LockssCache.objects.all():
             f.write(c.csv() + "\n")
 
-print "<< ", inspect.getfile(inspect.currentframe())
+#print "<< ", inspect.getfile(inspect.currentframe())

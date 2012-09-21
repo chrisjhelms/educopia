@@ -1,5 +1,5 @@
 import inspect
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 from lockssview.models.Action import Action;
 
@@ -18,4 +18,4 @@ from lockssview.models.CacheCommPeer import CacheCommPeer;
 
 from lockssview.models.RepositorySpace import RepositorySpace;
 
-print "<< ", inspect.getfile(inspect.currentframe())
+#print "<< ", inspect.getfile(inspect.currentframe())

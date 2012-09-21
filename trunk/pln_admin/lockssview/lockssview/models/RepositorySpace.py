@@ -1,5 +1,5 @@
 import inspect; 
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
