@@ -211,7 +211,6 @@ class LockssScript:
         self.options.serverlist = []
         for s in  serverlist:
             self.options.serverlist.append(self.parse_server(s))
-            print "parsed cache"
         self.options.server = None
         self.options.cachelist = None;     # see get_caches and set_Q_caches
         if (self.options.serverlist):
