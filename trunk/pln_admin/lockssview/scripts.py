@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.6
+#!/usr/bin/python
 import os
 import sys
 from django.core.management import setup_environ
@@ -6,10 +6,10 @@ from django.core.management import setup_environ
 #print "PATH", "\nPATH ".join(sys.path); 
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lockssview.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "plnmonitor.settings")
 
-    import lockssview.settings   
-    setup_environ(lockssview.settings)
+    import plnmonitor.settings   
+    setup_environ(plnmonitor.settings)
 
     from scripts import dispatcher; 
 
@@ -17,6 +17,7 @@ if __name__ == "__main__":
     cmd = dispatcher.create_cmd()
     if (not cmd.options.dryrun):
         cmd.process()
+    sys.exit(0);
 
 if __name__ == "__test__":
 
