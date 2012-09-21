@@ -7,7 +7,7 @@ $Revision: $
 $Id: $''' 
 
 import inspect
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 import sys
 
@@ -57,6 +57,7 @@ class Caches(LockssScript):
             caches = LockssCache.objects.filter(network = self.options.network)
         else: 
             caches = LockssCache.objects.all()
+        caches = caches.order_by('name'); 
         for c in caches: 
             if (self.options.nickname): 
                 print c.name, "\t",
@@ -67,8 +68,6 @@ class Caches(LockssScript):
             if (self.options.url): 
                 print "http://%s:%d" %  (c.domain, c.port), 
             print ""
-            
-                              
 
 def __main(): 
     global script
