@@ -1,5 +1,5 @@
 import inspect; 
-print ">> ", inspect.getfile(inspect.currentframe())
+#print ">> ", inspect.getfile(inspect.currentframe())
 
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
@@ -113,5 +113,5 @@ class CacheCommPeer(models.Model):
         for c in CacheCommPeer.objects.filter(cache=cache):
             f.write(c.csv(sep) + "\n")
             
-print "<< ", inspect.getfile(inspect.currentframe())
+#print "<< ", inspect.getfile(inspect.currentframe())
 

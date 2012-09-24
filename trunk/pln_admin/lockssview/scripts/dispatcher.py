@@ -36,7 +36,7 @@ def create_cmd():
             script = globals()[cmd];
             if isinstance(script, types.ClassType): 
                 sys.argv = sys.argv[1:];
-                print "run %s" % (" ".join(sys.argv))
+                #print "run %s" % (" ".join(sys.argv))
                 return script(cmd.lower());
     usage(); 
     
