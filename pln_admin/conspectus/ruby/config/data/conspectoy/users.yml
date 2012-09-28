@@ -6,14 +6,6 @@ mmevenk:
  email: momeven@gmail.com 
  password: nosecret
 
-brobbins:
- login: brobbins
- first_name: Dr
- last_name: Bill
- rights: super
- email: bill.robbins@metaarchive.org 
- password: nosecret
-
 view:
  login: view
  first_name: the
