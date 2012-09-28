@@ -1,22 +1,13 @@
-prod_ma:
+production:
   adapter: mysql
-  database: ma_conspectus_prod
+  database: ma_prod
   socket: /var/lib/mysql/mysql.sock
   username: XXX
   password: XXX # note: cleartext
 
-prod_lockss: 
+test: 
   adapter: mysql
-  database: ma_conspectus_lockss
+  database: ma_test
   username: XXX
   password: XXX # note: cleartext
   socket: /var/lib/mysql/mysql.sock
-
-prod_toy: 
-  adapter: mysql
-  database: ma_ruby_conspectus_dev
-  username: XXX
-  password: XXX # note: cleartext
-  socket: /var/lib/mysql/mysql.sock
-
-
