@@ -1,0 +1,20 @@
+
+Checking http://10.1.10.246/aucmanifest.html
+crawl depth: 4     crawl delay: 6000 ms.
+
+Depth 1
+
+Fetching http://10.1.10.246/aucmanifest.html
+Type: text/html, extracting Urls
+
+Included Urls: (1 new, 0 old)
+http://10.1.10.246/aucmanifestgenerated.html
+
+Excluded Urls: (3 new, 0 old)
+http://www.lockss.org/favicon.ico
+http://www.metaarchive.org/
+http://www.metaarchive.org/public/images/favicon.ico
+
+Depth 2
+
+Fetching http://10.1.10.246/aucmanifestgenerated.html
