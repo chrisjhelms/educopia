@@ -16,7 +16,7 @@ class Report_aubestcopy(ReportScript):
     '''
     
     def __init__(self, argv0):
-                ReportScript.__init__(self, argv0, '$Revision: $')
+        ReportScript.__init__(self, argv0, '$Revision: $')
 
     def _create_opt_parser(self):
         option_parser = LockssScript._create_parser(self, au_params=True, mayHaveServer=True, credentials=False)
