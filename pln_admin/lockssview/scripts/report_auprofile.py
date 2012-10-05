@@ -37,8 +37,8 @@ class Report_auprofile(ReportScript):
       "agree avg" : "average of archival unit agreement stated in archival unit summaries for servers listed in report parameters",
       "agree min" : "minimum of archival unit agreement stated in archival unit summaries for servers listed in report parameters",
       "agree max" : "maximum of archival unit agreement stated in archival unit summaries for servers listed in report parameters",
-      "reportDate min" : "date of oldest archival unit agreement info",
-      "reportDate max" : "date of youngest archival unit agreement info",
+      "reportDate min" : "date of oldest archival unit info",
+      "reportDate max" : "date of youngest archival unit info",
       "caches" : "lists those servers given as report parameters where archival unit is know to be preserved. see replserver"
     };
 
