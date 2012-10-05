@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2.6
 import os
 import sys
 from django.core.management import setup_environ
