@@ -16,7 +16,8 @@ from cleandb import Cleandb
 from cachestatus import Cachestatus; 
 from crawlstarter import Crawlstarter; 
 from watchcrawls import Watchcrawls;
-from report_auprofile import Report_auprofile; 
+from report_auprofile import Report_auprofile;
+from report_aucachesummary import Report_aucachesummary; 
 from report_urlprofile import Report_urlprofile; 
 from report_aubestcopy import Report_aubestcopy; 
 
