@@ -1,0 +1,11 @@
+<h1> {{ url }} </h1> 
+
+{% if lst %}
+    <ul>
+    {% for obj in lst %}
+        <li><a href="/{{ url }}/{{ obj.id }}/">{{ obj }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No caches are available.</p>
+{% endif %}
