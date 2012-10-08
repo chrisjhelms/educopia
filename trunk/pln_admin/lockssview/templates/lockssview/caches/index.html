@@ -1,0 +1,15 @@
+<h1> {{ setname }} caches  </h1> 
+
+{% if lst %}
+    <table>
+    {% for obj in lst %}
+        <tr "{% cycle odd even %}"> 
+        <td> <a href="/lockssview/caches/{{ obj.id }}/">{{ obj.name }}</a></td>
+        <td> <a href="http://{{ obj.domain }}:{{obj.port}}">{{ obj.domain }} </a>  <td> 
+    	<td> <a href="/lockssview/networks/{{ obj.network }}/">{{ obj.network }}</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No caches are available.</p>
+{% endif %}
