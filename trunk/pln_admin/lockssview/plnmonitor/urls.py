@@ -10,6 +10,7 @@ from django.conf.urls import patterns, url, include
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'lockssview.views.home', name='home'),
+    url(r'^apipiston/', include('apipiston.urls')),
     url(r'^lockssview/', include('lockssview.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
