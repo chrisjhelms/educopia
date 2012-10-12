@@ -1,11 +1,13 @@
 # myapp/api.py
 from tastypie.resources import ModelResource
+from tastypie.authentication import BasicAuthentication
 from lockssview.models import *
 
 class GetPostMeta:
     #list_allowed_methods = ['get', 'post']
     #detail_allowed_methods = ['get', 'post']
     allowed_methods = ['get', 'post']
+    authentication = BasicAuthentication()
 
 class LockssCacheResource(ModelResource):
     class Meta(GetPostMeta):
