@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rss version="2.0" >
+  <channel>
+    <title> Localhost </title>
+    <link> http://lockssview.metaarchive.org/actions.rss </link>
+    <language>en-us</language>
+
+    <item>
+      <title> api/v1/schema   </title>
+      <link> http://lockssview.metaarchive.org/api/v1/?format=json  </link> 
+    </item>
+    <item>
+      <title> api/v1/caches schema   </title>
+      <link> http://lockssview.metaarchive.org/api/v1/caches/schema/?format=json  </link> 
+    </item>
+    <item>
+      <title> api/v1/caches list   </title>
+      <link> http://lockssview.metaarchive.org/api/v1/caches/?format=json  </link> 
+    </item>
+
+  </channel>
+</rss>
+
