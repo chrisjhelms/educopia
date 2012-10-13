@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from tastypie.api import Api;
-from apitastypie.api import *;
+from apitastypie.resources import *;
 
 api = Api(api_name='')
 api.register( LockssCacheResource() );
