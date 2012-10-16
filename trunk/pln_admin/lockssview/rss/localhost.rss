@@ -2,9 +2,13 @@
 <rss version="2.0" >
   <channel>
     <title> Localhost </title>
-    <link> file://home/mmevenk/lockssview/localhost.rss  </link>
+    <link> file://home/mmevenk/lockssview/rss/localhost.rss  </link>
     <language>en-us</language>
 
+    <item>
+      <title> /admin    </title>
+      <link> http://localhost:8080/admin   </link> 
+    </item>
     <item>
       <title> api/v1/schema   </title>
       <link> http://localhost:8080/api/v1/?format=json  </link> 

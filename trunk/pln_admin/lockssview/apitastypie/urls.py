@@ -14,5 +14,5 @@ api.register( RepositorySpaceResource() );
 
 urlpatterns = patterns('',
     # The normal jazz here...
-    (r'^v1', include(api.urls)),
+    (r'^api', include(api.urls)),
 )
