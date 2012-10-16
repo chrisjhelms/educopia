@@ -1,7 +1,10 @@
 # myapp/api.py
 from tastypie.resources import ModelResource
 from tastypie.authentication import BasicAuthentication
-from lockssview.models import *
+from tastypie.constants import ALL
+from lockssview.models import LockssCache, CacheCommPeer, RepositorySpace
+from lockssview.models import MasterAuId, LockssCacheAuId
+from lockssview.models import LockssCacheAuSummary, LockssCrawlStatus, UrlReport
 
 class GetPostMeta:
     #list_allowed_methods = ['get', 'post']
@@ -13,7 +16,8 @@ class LockssCacheResource(ModelResource):
     class Meta(GetPostMeta):
         queryset = LockssCache.objects.all()
         resource_name = 'caches'
-        
+        filtering = { 'name' : ('exact', 'startwith', ) , 'network': ( 'exact', ), 'domain' : ALL } 
+
     def dehydrate(self, bundle):
         bundle.data['nauids'] = bundle.obj.locksscacheauid_set.count()
         return bundle
@@ -22,7 +26,8 @@ class MasterAuIdResource(ModelResource):
     class Meta(GetPostMeta):
         queryset = MasterAuId.objects.all()
         resource_name = 'master_auids'
-    
+        filtering = { 'auId' : ( 'exact', 'startswith', ) };
+        
     def dehydrate(self, bundle):
         bundle.data['repl'] = bundle.obj.locksscacheauid_set.count()
         return bundle
