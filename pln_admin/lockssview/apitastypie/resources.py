@@ -25,6 +25,7 @@ class LockssCacheResource(ModelResource):
 class MasterAuIdResource(ModelResource):
     class Meta(GetPostMeta):
         queryset = MasterAuId.objects.all()
+        filtering = { 'auId' : ('startswith', ) };
         resource_name = 'master_auids'
     
     def dehydrate(self, bundle):

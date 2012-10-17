@@ -48,9 +48,9 @@ http://api.jquery.com/jQuery.get/
 
 <script type="text/template" id="master_auids_table_template">
 <div id="navigate">
-<span id="previous" data-uri="<%= meta.previous %>"> previous </span> 
-<span id="count"> total: <%= meta.total_count %>  </span> 
-<span id="next" data-uri="<%= meta.next %>" > next </span> 
+<span id="previous" data-uri="<%= meta.previous %>">  <<  </span> 
+<span id="count"> ... total: <%= meta.total_count %>  ... </span> 
+<span id="next" data-uri="<%= meta.next %>" > >> </span> 
 </div>
 <table>    
     <thead>
@@ -66,11 +66,9 @@ http://api.jquery.com/jQuery.get/
        <tr>
         <td> <%= obj.repl %> </td>
         <td>  
-	    <font size="-10"> 
             <%= obj.plugin %> 
             <%= obj.baseUrl %> 
             <%= obj.extraParams %> 
-	    </font>
         </td>
        </tr> 
        <% } %>
@@ -79,9 +77,9 @@ http://api.jquery.com/jQuery.get/
 </script>
 
 <script type="text/template" id="cache_auids_table_template">
-<div id="previous" data-uri="<%= meta.previous %>"> previous </div> 
-<div id="count"> total: <%= meta.total_count %>  </div> 
-<div id="next" data-uri="<%= meta.next %>" > next </div> 
+<span id="previous" data-uri="<%= meta.previous %>">  <<  </span> 
+<span id="count"> ... total: <%= meta.total_count %>  ... </span> 
+<span id="next" data-uri="<%= meta.next %>" > >> </span> 
 <table>    
     <thead>
        <tr> 
@@ -115,8 +113,8 @@ http://api.jquery.com/jQuery.get/
        @nagios </a> 
     </div>
     <div id="network" > <%= obj.network %> network </div>
-    <div id="reposspace">  soon respository space  </div>
-    <div id="commpeerstatus"> or later comm peer status  </div>
+    <div id="reposspace"> respository space  </div>
+    <div id="commpeerstatus"> comm peer status  </div>
 </script>
 
 <script type="text/javascript">
@@ -126,7 +124,7 @@ function setup_layout()
  $('#container').masonry({
     // options
     itemSelector : '.item',
-    columnWidth : 100,
+    columnWidth : 150,
     gutterWidth: 10
   });
 }
@@ -216,14 +214,12 @@ function network_list()
 function setup_page()
 {
    setup_layout();
-   network_list();
-   $("#pln #main li")[0].click();
    get_cache_auids_list_json("/api/cache_au_summaries/?agreement__lt=90&format=json");
    get_master_auids_list_json("/api/master_auids/?format=json");
    var box = _.template( $("#box_template").html(),
                    { headline: 'menu', 
-	             main: '<div><a href="/content"> reports </a></div><div>... more </div>' }); 
-   $("#menu").html(box); 
+	             main: '<div><a href="/"> home </a></div><div>... more </div>' }); 
+   $("#index").html(box); 
 }
 
 
@@ -235,16 +231,13 @@ $(document).ready(setup_page);
 <body>
 <div id="container">
   <div class="item">
-    <span id="menu">  PLN </span>
+    <span id="index"> </h3>  </span>
   </div>
   <div class="item">
-    <span id="pln">  PLN </span>
+    <span id="cache_auids"> </h3>  </span>
   </div>
   <div class="item">
-    <span id="cache_list">  </span>
-  </div>
-  <div class="item">
-    <span id="cache"> </span>
+    <span id="master_auids"> </h3>  </span>
   </div>
 </div>
 
