@@ -1,8 +1,9 @@
 #, STARTS myap/api.py
 from tastypie.resources import ModelResource
 from tastypie.authentication import BasicAuthentication
-from tastypie.constants import ALL, ALL_WITH_RELATIONS
-from lockssview.models import *
+from tastypie.constants import ALL
+from lockssview.models import LockssCache, CacheCommPeer, RepositorySpace;
+from lockssview.models import MasterAuId, LockssCacheAuId, LockssCacheAuSummary, LockssCrawlStatus, UrlReport;
 
 class GetPostMeta:
     #list_allowed_methods = ['get', 'post']
