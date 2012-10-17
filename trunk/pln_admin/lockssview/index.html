@@ -46,17 +46,45 @@ http://api.jquery.com/jQuery.get/
 </table>
 </script>
 
+<script type="text/template" id="cacheauids_table_template">
+<div id="previous" data-uri="<%= meta.previous %>"> previous </div> 
+<div id="count"> total: <%= meta.total_count %>  </div> 
+<div id="next" data-uri="<%= meta.next %>" > next </div> 
+<table>    
+    <thead>
+       <tr> 
+       <% var hdrs = [ "reportDate", "agreement", "online", "diskUsageMB", "status", "id" ];
+          for(var h in hdrs ) { %>
+          <th><%= hdrs[h] %></th>
+       <% } %>
+       </tr> 
+    </thead>
+    <tbody> 
+       <% for(var i in objects) { var obj = objects[i]; %>
+       <tr>
+        <td> <%= obj.reportDate %> </td>
+        <td> <%= obj.agreement %> </td>
+        <td> <%= obj.online %> </td>
+        <td> <%= obj.diskUsageMB %> </td>
+        <td> <%= obj.status %> </td>
+        <td> <%= obj.id %>  </td> 
+       </tr> 
+       <% } %>
+    </tbody> 
+</table>
+</script>
+
 
 <script type="text/template" id="cache_template">
     <div id="nauids"> <%= obj.nauids %> archival units </div>
-        <div id="lockssui">  <a href="http://<%= obj.domain  %>:<%= obj.port %>"><%= obj.domain %></a> </div> 
+    <div id="lockssui">  <a href="http://<%= obj.domain  %>:<%= obj.port %>"><%= obj.domain %></a> </div> 
     <div id="nagios">
        <a target="_blank" href="http://nagios.metaarchive.org/nagios/cgi-bin/extinfo.cgi?type=1&host=<%=obj.name%>"> 
        @nagios </a> 
     </div>
     <div id="network" > <%= obj.network %> network </div>
     <div id="reposspace"> respository space  </div>
-        <div id="commpeerstatus"> comm peer status  </div>
+    <div id="commpeerstatus"> comm peer status  </div>
 </script>
 
 <script type="text/javascript">
@@ -71,32 +99,26 @@ function setup_layout()
   });
 }
 
-function read_url_json(el, fct)  
-{
-    url = el.getAttribute("data-uri"); 
-    $.getJSON(url, fct);
-    $("#container").masonry( 'reload' );
-}
-
-
 function read_cache_json()  
 {
-   read_url_json($(this)[0], function(data) {
-      var detail = _.template( $("#cache_template").html(), { obj : data } );
-      var box = _.template( $("#box_template").html(),
+   el = $(this)[0]; 
+   url = el.getAttribute("data-uri"); 
+      $.getJSON(url, function(data) {
+         var detail = _.template( $("#cache_template").html(), { obj : data } );
+         var box = _.template( $("#box_template").html(),
                             { headline: data.name + ' cache', main: detail});
-      $("#cache").html(box);
-   });
+         $("#cache").html(box);
+	 $("#container").masonry( 'reload' );
+	 });
 }
 
 function read_cache_list_json()
 {
-    l = $(this)[0];
-    network = l.getAttribute("data-network");
-    url = l.getAttribute("data-uri");
-    alert(url);
+    el = $(this)[0];
+    network = el.getAttribute("data-network");
+    url = el.getAttribute("data-uri");
     $.getJSON(url, function(data) {
-            var table = _.template( $("#cache_table_template").html(), data );
+        var table = _.template( $("#cache_table_template").html(), data );
 
         var box = _.template( $("#box_template").html(),
                             { headline: network + ' network', main: table});
@@ -105,6 +127,28 @@ function read_cache_list_json()
         $("#cache_list #main #name").click(read_cache_json);
         $("#container").masonry( 'reload' );
     });
+}
+
+function get_cacheauids_list_json(url)
+{
+    $.getJSON(url, function(data) {
+        var table = _.template( $("#cacheauids_table_template").html(), data );
+        var box = _.template( $("#box_template").html(),
+                            { headline: ' agreement < 90', main: table});
+
+        $("#cacheauids").html(box);
+	$("#cacheauids #next").click(read_cacheauids_list_json);
+	$("#cacheauids #previous").click(read_cacheauids_list_json);
+        $("#container").masonry( 'reload' );
+    });
+}
+
+function read_cacheauids_list_json()
+{
+    el = $(this)[0];
+    url = el.getAttribute("data-uri");
+    alert(url);
+    get_cacheauids_list_json(url); 
 }
 
 function network_list()
@@ -122,6 +166,7 @@ function setup_page()
    setup_layout();
    network_list();
    $("#pln #main li")[0].click();
+   get_cacheauids_list_json("/api/cache_au_summaries/?agreement__lt=90&format=json");
 }
 
 
