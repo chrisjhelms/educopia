@@ -2,6 +2,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from django.conf.urls import patterns, url, include
+from plnmonitor.settings import STATIC_URL; 
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -10,6 +11,12 @@ from django.conf.urls import patterns, url, include
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'lockssview.views.home', name='home'),
+    url(r'^$', 'django.views.static.serve', 
+            { 'document_root': "" , 'path' : "ix.html" } ),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': STATIC_URL,
+        }),               
+    url(r'^home$', 'plnmonitor.views.networks'), 
     url(r'^', include('apitastypie.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
