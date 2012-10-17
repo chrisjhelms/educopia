@@ -13,10 +13,11 @@ urlpatterns = patterns('',
     # url(r'^$', 'lockssview.views.home', name='home'),
     url(r'^$', 'django.views.static.serve', 
             { 'document_root': "" , 'path' : "index.html" } ),
+    url(r'^content', 'django.views.static.serve', 
+            { 'document_root': "" , 'path' : "content.html" } ),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': STATIC_URL,
-        }),               
-    url(r'^home$', 'plnmonitor.views.networks'), 
+        }),  
     url(r'^', include('apitastypie.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
