@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'lockssview.views.home', name='home'),
     url(r'^$', 'django.views.static.serve', 
-            { 'document_root': "" , 'path' : "ix.html" } ),
+            { 'document_root': "" , 'path' : "index.html" } ),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': STATIC_URL,
         }),               
