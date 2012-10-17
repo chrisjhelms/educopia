@@ -1,4 +1,5 @@
 #, STARTS myap/api.py
+from tastypie import fields;
 from tastypie.resources import ModelResource
 from tastypie.authentication import BasicAuthentication
 from tastypie.constants import ALL
@@ -33,11 +34,14 @@ class MasterAuIdResource(ModelResource):
 class LockssCacheAuIdResource(ModelResource):
     class Meta(GetPostMeta):
         queryset = LockssCacheAuId.objects.all()
-        resource_name = 'caches_auids'
+        filtering = { 'cache_id' : ('exact', ), 
+                      'auId' : ('exact', 'startswith', )} 
+        resource_name = 'cache_auids'
 
 class LockssCacheAuSummaryResource(ModelResource):
     class Meta(GetPostMeta):
         queryset = LockssCacheAuSummary.objects.all()
+        filtering = { 'agreement' : ('lt', 'gt', )} 
         resource_name = 'cache_au_summaries'
 
 class LockssCrawlStatusResource(ModelResource):
