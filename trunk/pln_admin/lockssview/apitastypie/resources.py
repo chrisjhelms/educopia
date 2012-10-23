@@ -3,6 +3,7 @@ from tastypie import fields;
 from tastypie.resources import ModelResource
 from tastypie.authentication import BasicAuthentication
 from tastypie.constants import ALL
+from tastypie.serializers import Serializer
 from lockssview.models import LockssCache, CacheCommPeer, RepositorySpace;
 from lockssview.models import MasterAuId, LockssCacheAuId, LockssCacheAuSummary, LockssCrawlStatus, UrlReport;
 
@@ -11,6 +12,8 @@ class GetPostMeta:
     #detail_allowed_methods = ['get', 'post']
     allowed_methods = ['get', 'post']
     authentication = BasicAuthentication()
+    serializer = Serializer(formats=['json', 'xml'])
+
 
 class LockssCacheResource(ModelResource):
     class Meta(GetPostMeta):
@@ -33,6 +36,9 @@ class MasterAuIdResource(ModelResource):
         return bundle
     
 class LockssCacheAuIdResource(ModelResource):
+    masterAuId = fields.ForeignKey(MasterAuIdResource. 'masterAuId'); 
+    cache = fields.ForeignKey(CacheResource. 'cache'); 
+
     class Meta(GetPostMeta):
         queryset = LockssCacheAuId.objects.all()
         filtering = { 'cache_id' : ('exact', ), 
@@ -40,17 +46,23 @@ class LockssCacheAuIdResource(ModelResource):
         resource_name = 'cache_auids'
 
 class LockssCacheAuSummaryResource(ModelResource):
+    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+
     class Meta(GetPostMeta):
         queryset = LockssCacheAuSummary.objects.all()
         filtering = { 'agreement' : ('lt', 'gt', )} 
         resource_name = 'cache_au_summaries'
 
 class LockssCrawlStatusResource(ModelResource):
+    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+
     class Meta(GetPostMeta):
         queryset = LockssCrawlStatus.objects.all()
         resource_name = 'au_crawl_status'
 
 class UrlReportResource(ModelResource):
+    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+
     class Meta(GetPostMeta):
         queryset = UrlReport.objects.all()
         resource_name = 'cache_au_url_report'
