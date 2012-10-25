@@ -36,8 +36,8 @@ class MasterAuIdResource(ModelResource):
         return bundle
     
 class LockssCacheAuIdResource(ModelResource):
-    masterAuId = fields.ForeignKey(MasterAuIdResource. 'masterAuId'); 
-    cache = fields.ForeignKey(CacheResource. 'cache'); 
+    masterAuId = fields.ForeignKey(MasterAuIdResource, 'masterAuId'); 
+    cache = fields.ForeignKey(LockssCacheResource, 'cache'); 
 
     class Meta(GetPostMeta):
         queryset = LockssCacheAuId.objects.all()
@@ -46,7 +46,7 @@ class LockssCacheAuIdResource(ModelResource):
         resource_name = 'cache_auids'
 
 class LockssCacheAuSummaryResource(ModelResource):
-    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+    auId = fields.ForeignKey(LockssCacheAuIdResource, 'auId'); 
 
     class Meta(GetPostMeta):
         queryset = LockssCacheAuSummary.objects.all()
@@ -54,14 +54,14 @@ class LockssCacheAuSummaryResource(ModelResource):
         resource_name = 'cache_au_summaries'
 
 class LockssCrawlStatusResource(ModelResource):
-    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+    auId = fields.ForeignKey(LockssCacheAuIdResource, 'auId'); 
 
     class Meta(GetPostMeta):
         queryset = LockssCrawlStatus.objects.all()
         resource_name = 'au_crawl_status'
 
 class UrlReportResource(ModelResource):
-    auId = fields.ForeignKey(LockssCacheAuIdResource. 'auId'); 
+    auId = fields.ForeignKey(LockssCacheAuIdResource, 'auId'); 
 
     class Meta(GetPostMeta):
         queryset = UrlReport.objects.all()
