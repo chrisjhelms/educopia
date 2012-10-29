@@ -15,7 +15,9 @@ http://api.jquery.com/jQuery.get/
 --> 
 
 <script type="text/template" id="box_template">
-<h3 id="headline">  <%= headline %> </h3>
+<% if (headline != "") { %>
+   <h3 id="headline">  <%= headline %> </h3>
+<% } %>
 <div id="main">  <%=  main %>  </div>
 </script>
 
@@ -31,7 +33,7 @@ http://api.jquery.com/jQuery.get/
 <script type="text/template" id="cache_table_template">
 <table>    
         <tr> 
-        <% var hdrs = ['name', 'ui', '#AuIds'];
+        <% var hdrs = ['name', 'ui', 'nagios', '#AuIds'];
            for(var h in hdrs ) { %>
            <th><%= hdrs[h] %></th>
         <% } %>
@@ -40,7 +42,11 @@ http://api.jquery.com/jQuery.get/
     <tr>
         <td id="name" data-uri="<%= cache.resource_uri %>?format=json"><%= cache.name %> </td> 
         <td id="lockssui">  <a href="http://<%= cache.domain  %>:<%= cache.port %>"><%= cache.domain %></a> </td> 
-                <td id="nauids"> <%= cache.nauids %> 
+        <td id="nagios"> 
+                <a target="_blank" 
+                   href="http://nagios.metaarchive.org/nagios/cgi-bin/extinfo.cgi?type=1&host=<%=cache.name%>"> 
+       @nagios </a> </td> 
+       <td id="nauids"> <%= cache.nauids %> 
     </tr> 
     <% } %>
 </table>
@@ -221,7 +227,7 @@ function setup_page()
    get_cache_auids_list_json("/api/cache_au_summaries/?agreement__lt=90&format=json");
    get_master_auids_list_json("/api/master_auids/?format=json");
    var box = _.template( $("#box_template").html(),
-                   { headline: 'menu', 
+                   { headline: '', 
 	             main: '<div><a href="/content"> reports </a></div><div>... more </div>' }); 
    $("#menu").html(box); 
 }
@@ -235,6 +241,7 @@ $(document).ready(setup_page);
 <body>
 <div id="container">
   <div class="item">
+     <img src="http://www.metaarchive.org/public/images/metaarchive-logo-blue-100x46.gif" />
     <span id="menu">  PLN </span>
   </div>
   <div class="item">
