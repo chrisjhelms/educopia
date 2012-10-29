@@ -1,6 +1,7 @@
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, include;
 from tastypie.api import Api;
 from apitastypie.resources import *;
+
 
 api = Api(api_name='')
 api.register( LockssCacheResource() );
@@ -14,5 +15,5 @@ api.register( RepositorySpaceResource() );
 
 urlpatterns = patterns('',
     # The normal jazz here...
-    (r'^api', include(api.urls)),
+    (r'^', include(api.urls)),
 )
