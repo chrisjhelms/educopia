@@ -119,12 +119,12 @@ class Script:
         col_f.write('Archive:            %s\n' % ar['title']); 
         col_f.write('Content Provider:   %s\n' % cp['name']); 
         col_f.write('BaseUrl:            %s\n' % col['base_url']); 
+        col_f.write('MetaData:           %s\n' % "XXX"); 
 
         col_f.write('\n'); 
         col_f.write('Plugin:             %s\n' % plug['name']); 
         col_f.write("Plugin Urls:\n"); 
         col_f.write("     Conspectus Url\t%s\n" % plug_url); 
-        
         for mode in ['test', 'production']:
             col_f.write("     GoogleCode.%s\t" % mode);
             try: 
@@ -163,7 +163,7 @@ class Script:
         col_f.write('---------------------------\n');
         col_f.write('Ingest Test Details \n');
         col_f.write('---------------------------\n');
-        col_f.write('Manifest page(s):\n');
+        col_f.write('Manifest/Permission page(s):\n');
         col_f.write("\n");
         col_f.write("\n");
         col_f.write('Archival Unit Size Info:\n');
