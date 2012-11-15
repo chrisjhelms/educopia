@@ -1,29 +1,14 @@
 <map>
   <entry>
-    <string>au_name</string>
-    <string>&quot;Oregon State-DSPACE/ETDs %d&quot;, hdl_id</string>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s/etd/manifestOSU.html&quot;, base_url</string>
-  </entry>
-  <entry>
-    <string>plugin_name</string>
-    <string>Oregon State DSPACE/ETDs</string>
-  </entry>
-  <entry>
-    <string>plugin_notes</string>
-    <string>This plugin is modelled after the DSPACe ingest documented at http://wiki.metaarchive.org/metawiki/index.php/HarvestDSPACESites</string>
-  </entry>
-  <entry>
     <string>au_manifest</string>
     <list>
-      <string>&quot;%s/etd/manifestOSU.html&quot;, base_url</string>
+      <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
+      <string>&quot;%s/MACmanifest/permission.txt&quot;, base_url</string>
     </list>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -38,10 +23,19 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url2</key>
+        <displayName>Second Base URL</displayName>
+        <description>Use if AU spans two hosts</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
         <key>hdl_id</key>
         <displayName>hdl_id</displayName>
         <description>Handle ID</description>
-        <type>2</type>
+        <type>1</type>
         <size>40</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
@@ -49,8 +43,16 @@
     </list>
   </entry>
   <entry>
+    <string>au_name</string>
+    <string>&quot;DOC OSU DSpace  %s&quot;, hdl_id</string>
+  </entry>
+  <entry>
     <string>au_crawl_depth</string>
-    <int>6</int>
+    <int>4</int>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -61,14 +63,19 @@
     <long>2592000000</long>
   </entry>
   <entry>
+    <string>plugin_name</string>
+    <string>DOC OSU DSpace Mockup</string>
+  </entry>
+  <entry>
     <string>plugin_identifier</string>
     <string>edu.oregonstate.etd</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;%s//&quot;, base_url</string>
-      <string>1,&quot;set=hdl_1957_%d&quot;, hdl_id</string>
+      <string>1,&quot;^%s/MACmanifest/permission.txt&quot;, base_url</string>
+      <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
+      <string>1,&quot;set=hdl_1853_%s&quot;, hdl_id</string>
       <string>1,&quot;^%s/handle/1957/[0-9]+\?mode=full&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/1957/*/*/*&quot;, base_url</string>
     </list>
