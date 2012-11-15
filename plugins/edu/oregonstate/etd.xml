@@ -2,8 +2,7 @@
   <entry>
     <string>au_manifest</string>
     <list>
-      <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
-      <string>&quot;%s/MACmanifest/permission.txt&quot;, base_url</string>
+      <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
     </list>
   </entry>
   <entry>
@@ -17,15 +16,6 @@
         <key>base_url</key>
         <displayName>Base URL</displayName>
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
-        <type>3</type>
-        <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>base_url2</key>
-        <displayName>Second Base URL</displayName>
-        <description>Use if AU spans two hosts</description>
         <type>3</type>
         <size>40</size>
         <definitional>true</definitional>
@@ -52,7 +42,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
+    <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -73,8 +63,7 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;^%s/MACmanifest/permission.txt&quot;, base_url</string>
-      <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url2</string>
+      <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
       <string>1,&quot;set=hdl_1853_%s&quot;, hdl_id</string>
       <string>1,&quot;^%s/handle/1957/[0-9]+\?mode=full&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/1957/*/*/*&quot;, base_url</string>
