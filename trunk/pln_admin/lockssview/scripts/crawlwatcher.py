@@ -12,7 +12,7 @@ from lockssview import *;
 from lockss import log
 from lockssscript import LockssScript; 
 
-class Watchcrawls(LockssScript):
+class Crawlwatcher(LockssScript):
     '''
     watch crawls of given archival units until each of the aus show that they have 
     been crawled on the given cache; 
@@ -31,7 +31,7 @@ class Watchcrawls(LockssScript):
     }
     
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', Watchcrawls.MYCONFIGS) 
+        LockssScript.__init__(self, argv0, '$Revision: $', Crawlwatcher.MYCONFIGS) 
         
     def _create_opt_parser(self):
         option_parser = LockssScript._create_opt_parser(self)
