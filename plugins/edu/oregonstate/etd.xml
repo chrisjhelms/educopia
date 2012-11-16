@@ -67,7 +67,7 @@
       <string>1,&quot;set=hdl_1957_%s&quot;, hdl_id</string>
       <string>1,&quot;verb=ListRecords&quot;</string>
       <string>1,&quot;handle/.*mode=full&quot;</string>
-      <string>1,&quot;^%s/bitstream/*&quot;, base_url</string>
+      <string>1,&quot;^%s/xmlui/bitstream/*&quot;, base_url</string>
     </list>
   </entry>
   <entry>
