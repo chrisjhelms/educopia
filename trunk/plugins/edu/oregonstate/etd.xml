@@ -34,7 +34,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;DOC OSU DSpace  %s&quot;, hdl_id</string>
+    <string>&quot;OSU DSpace  %s&quot;, hdl_id</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -65,8 +65,9 @@
     <list>
       <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
       <string>1,&quot;set=hdl_1957_%s&quot;, hdl_id</string>
-      <string>1,&quot;^%s/handle/1957/[0-9]+\?mode=full&quot;, base_url</string>
-      <string>1,&quot;^%s/bitstream/1957/*/*/*&quot;, base_url</string>
+      <string>1,&quot;verb=ListRecords&quot;</string>
+      <string>1,&quot;handle/.*mode=full&quot;</string>
+      <string>1,&quot;^%s/bitstream/*&quot;, base_url</string>
     </list>
   </entry>
   <entry>
