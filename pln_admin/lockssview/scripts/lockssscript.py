@@ -480,10 +480,10 @@ class LockssScript:
         log.warn("printing ids for %s on %s to %s" % (action, cache, fname))
         f = open(fname, 'w')
         f.write('[%s]\n' % LockssScript.PARAMSECTION)
-        f.write('action=%s\n' % action)
-        f.write('auids=\n')
+        f.write('actionlist = %s\n' % action)
+        f.write('auidlist =\n')
         for au in auIds:
-            f.write(' ' + au.auId + "\n ")
+            f.write('\t' + au.auId + "\n ")
         f.write('\n')
         f.close()
 
