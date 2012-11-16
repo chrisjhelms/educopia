@@ -1,10 +1,2 @@
---
--- Table structure for table `lockssview_locksscrawlstatus`
---
-
-ALTER TABLE `thetable` 
-  DROP KEY `oldkey`; 
-
-ALTER TABLE `thetable` 
-  ADD KEY `newkey` (`field`); 
+ALTER TABLE `lockssview_url` CHANGE `size` `size` BIGINT( 20 ) NOT NULL 
 
