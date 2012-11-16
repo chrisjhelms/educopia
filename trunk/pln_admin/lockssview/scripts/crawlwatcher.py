@@ -83,7 +83,7 @@ class Crawlwatcher(LockssScript):
 
         self.options.crawlheaders = LockssCrawlStatus.strToPrtFields(self.options.crawlheaders) 
    
-    def loadstatus(self, auids):
+    def crawlstatus(self, auids):
         self.getcrawlstatus(auids, self.options.dir, True)   # retry until all of them have been retrieved 
         # now check which ones are still active 
         repeat = set() 
@@ -120,19 +120,20 @@ class Crawlwatcher(LockssScript):
             return 
         
         repeat = auids
-        while (repeat): 
-            self.sleep(options.pause)
-            
+        while (repeat):             
             # do a first round until all auids are found to conform 
             # do not retry auids that are found to be ok  
             while (repeat):
-                repeat = self.loadstatus(repeat)
-                self.sleep(options.pause)
+                repeat = self.crawlstatus(repeat)
+                if (repeat): 
+                    self.sleep(options.pause)
                 
             # time has expired, try on original auids to see 
             # whether they all still conforming 
             log.info("Retrying all auids to recheck") 
-            repeat = self.loadstatus(auids) 
+            repeat = self.crawlstatus(auids) 
+            if (repeat):
+                self.sleep(options.pause)
             
         log.info("No active crawls; printing info about most recent crawls") 
         f = open(options.dir + "/AuCrawlStatus.tsv", 'w')
