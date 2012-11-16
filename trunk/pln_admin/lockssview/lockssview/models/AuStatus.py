@@ -340,7 +340,7 @@ class Url(models.Model):
     name = models.TextField(max_length=1024)
     childCount = models.IntegerField()
     treeSize = models.BigIntegerField()
-    size = models.IntegerField()
+    size = models.BigIntegerField()
     version = models.IntegerField(blank=True,null=True)  
     
     def __init__(self, *args, **kwargs):
