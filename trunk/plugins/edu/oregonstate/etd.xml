@@ -64,7 +64,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
-      <string>1,&quot;set=hdl_1853_%s&quot;, hdl_id</string>
+      <string>1,&quot;set=hdl_1957_%s&quot;, hdl_id</string>
       <string>1,&quot;^%s/handle/1957/[0-9]+\?mode=full&quot;, base_url</string>
       <string>1,&quot;^%s/bitstream/1957/*/*/*&quot;, base_url</string>
     </list>
