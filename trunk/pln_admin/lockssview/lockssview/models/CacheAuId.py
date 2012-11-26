@@ -34,9 +34,6 @@ class LockssCacheAuId(models.Model):
         lst = self.locksscrawlstatus_set.all()
         for e in lst:
             e.delete(using)
-        lst = self.lockssurl_set.all()
-        for e in lst:
-            e.delete(using)
         self.__class__.objects.get(pk = self.pk) 
         super(self.__class__, self).delete(using) 
       
