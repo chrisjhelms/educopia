@@ -48,13 +48,6 @@ class LockssCacheAuSummary(models.Model):
     PRTFIELDS.append("extraParams")
     PRTFIELDS.append("auId")
 
-    def delete(self, using=None):
-        lst = self.lockssurl_set.all()
-        for e in lst:
-            e.delete(using)
-        self = self.__class__.objects.get(id=self.id)
-        super(self.__class__, self).delete(using) 
-            
     def __unicode__(self):
         return "contentSize=%s, diskUsage=%s, agreement=%s rep=%s, status=%s, avail=%s reprt_date=%s %s" % (
                              self.contentSize,
