@@ -16,9 +16,12 @@ class GetPostMeta:
 
 
 class LockssCacheResource(ModelResource):
+    #auIds = fields.ToManyField('lockssview.apitastypie.resources.LockssCacheAuIdResource', 'locksscacheauid'); 
     class Meta(GetPostMeta):
         queryset = LockssCache.objects.all()
-        filtering = { 'name' : ('exact', 'startswith', ) , 'network': ( 'exact', ), 'domain' : ALL } 
+        filtering = { 'name' : ('exact', 'startswith', ) ,
+                      'network': ( 'exact', ), 
+                      'domain' : ALL } 
         resource_name = 'caches'
         
     def dehydrate(self, bundle):
@@ -44,6 +47,8 @@ class LockssCacheAuIdResource(ModelResource):
         filtering = { 'cache_id' : ('exact', ), 
                       'auId' : ('exact', 'startswith', )} 
         resource_name = 'cache_auids'
+
+    cache = fields.ToOneField('apitastypie.resources.LockssCache', 'cache'); 
 
 class LockssCacheAuSummaryResource(ModelResource):
     auId = fields.ForeignKey(LockssCacheAuIdResource, 'auId'); 
