@@ -1,5 +1,9 @@
 <map>
   <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
@@ -31,28 +35,24 @@
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>1</string>
-  </entry>
-  <entry>
     <string>au_name</string>
     <string>&quot;CMU Archival Ware %s&quot;, collection</string>
-  </entry>
-  <entry>
-    <string>au_start_url</string>
-    <string>&quot;%s/manifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
     <int>5</int>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>1209600000</long>
+    <string>au_start_url</string>
+    <string>&quot;%s/manifestMaster.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
     <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
@@ -66,11 +66,10 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;^%s/masterManifest.html$&quot;, base_url</string>
-      <string>1,&quot;^%s/manifest%s$&quot;, base_url, collection</string>
-      <string>1,&quot;^%s/.*cl=%s&amp;bucket=%d.*&quot;, baseUrl, collection, bucketid</string>
-      <string>1,&quot;^%s/.*\.tiff&quot;, base_url</string>
-      <string>1,&quot;^%s/.*\.mp3&quot;, base_url</string>
+      <string>1,&quot;^%s/manifestMaster.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/manifest%s.html$&quot;, base_url, collection</string>
+      <string>1,&quot;^%s/oai.*&amp;cl=%s&amp;bucket=%d&quot;, base_url, collection, bucketid</string>
+      <string>1,&quot;^%s/.*/%s/&quot;, base_url, collection</string>
     </list>
   </entry>
 </map>
