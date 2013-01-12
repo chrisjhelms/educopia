@@ -2,8 +2,8 @@
 '''Cache Status Reporter
 
 based on polorus.py 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import inspect
@@ -26,7 +26,7 @@ class Caches(LockssScript):
                 }; 
                 
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', Caches.CONFIGURATION_DEFAULTS) 
+        LockssScript.__init__(self, argv0, '$Revision$', Caches.CONFIGURATION_DEFAULTS) 
         
     def _create_opt_parser(self):
         option_parser =  LockssScript._create_parser(self, au_params=False, mayHaveServer=False, credentials=False) 

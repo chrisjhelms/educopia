@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''Status Reporter
-$Author: mmevenk $
-$Revision: 3797 $
+$Author$
+$Revision$
 $Id: $'''
 
 import sys; 
@@ -53,7 +53,7 @@ class Report_urlprofile(ReportScript):
 
 
     def __init__(self, arg0): 
-        ReportScript.__init__(self, arg0, '$Revision: 3738 $', Report_urlprofile.MYCONFIGS)
+        ReportScript.__init__(self, arg0, '$Revision$', Report_urlprofile.MYCONFIGS)
         
     def _create_opt_parser(self):
         option_parser = ReportScript._create_opt_parser(self)

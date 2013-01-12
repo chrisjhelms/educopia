@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 ''' script initializer - sets path 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import inspect

@@ -1,7 +1,7 @@
 '''Crawl Starter 
 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 from lockssscript import LockssScript 
@@ -10,7 +10,7 @@ from lockss import log, LockssError;
 class Crawlstarter(LockssScript):
     
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', {'max': 10}) 
+        LockssScript.__init__(self, argv0, '$Revision$', {'max': 10}) 
     
     def _create_opt_parser(self):        
         option_parser = LockssScript._create_parser(self, au_params=True, mayHaveServer=True, credentials=True)
