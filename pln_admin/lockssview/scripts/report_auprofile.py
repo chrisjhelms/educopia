@@ -1,6 +1,6 @@
 '''Status Reporter
-$Author: mmevenk $
-$Revision: 3839 $
+$Author$
+$Revision$
 $Id: $'''
 
 from django.db.models import Q
@@ -62,7 +62,7 @@ class Report_auprofile(ReportScript):
             };
 
     def __init__(self, argv0):
-        ReportScript.__init__(self, argv0, '$Revision: 3839 $', self.__class__.MYCONFIGS)
+        ReportScript.__init__(self, argv0, '$Revision$', self.__class__.MYCONFIGS)
 
     def _create_opt_parser(self):
         option_parser = ReportScript._create_opt_parser(self)

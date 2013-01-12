@@ -2,8 +2,8 @@
 '''Status Reporter
 
 based on polorus.py 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import sys, os;
@@ -19,7 +19,7 @@ class Report_commpeer(LockssScript):
     }
     
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', Report_commpeer.MYCONFIGS) 
+        LockssScript.__init__(self, argv0, '$Revision$', Report_commpeer.MYCONFIGS) 
         
     def _create_opt_parser(self):
         option_parser = LockssScript._create_parser(self, False, True)

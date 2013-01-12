@@ -2,8 +2,8 @@
 '''Status Reporter
 
 based on polorus.py 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import os;
@@ -45,7 +45,7 @@ class Cachestatus(LockssScript):
              }
     
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', Cachestatus.MYCONFIGS) 
+        LockssScript.__init__(self, argv0, '$Revision$', Cachestatus.MYCONFIGS) 
         
     def _create_opt_parser(self):
         option_parser = LockssScript._create_opt_parser(self)

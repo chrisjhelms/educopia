@@ -2,8 +2,8 @@
 '''Cache Status Reporter
 
 based on polorus.py 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import inspect

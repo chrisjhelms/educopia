@@ -2,8 +2,8 @@
 '''Status Reporter
 
 based on cacheaustatus.py 
-$Author: $
-$Revision: $
+$Author$
+$Revision$
 $Id: $''' 
 
 import sys, os;
@@ -31,7 +31,7 @@ class Crawlwatcher(LockssScript):
     }
     
     def __init__(self, argv0):
-        LockssScript.__init__(self, argv0, '$Revision: $', Crawlwatcher.MYCONFIGS) 
+        LockssScript.__init__(self, argv0, '$Revision$', Crawlwatcher.MYCONFIGS) 
         
     def _create_opt_parser(self):
         option_parser = LockssScript._create_opt_parser(self)
