@@ -1,0 +1,4 @@
+#!/bin/tcsh
+foreach f (  caches cachestatus cleandb crawlstarter crawlwatcher report_aubestcopy report_aucachesummary report_auprofile report_urlprofile ) 
+	 "lks$f" --help  > ./scripts/usage/$f.txt
+end 

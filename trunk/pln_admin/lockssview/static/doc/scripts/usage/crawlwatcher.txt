@@ -1,0 +1,54 @@
+Usage: crawlwatcher [options] [ AU_ID|@AU_ID_list)...]
+
+ watch crawls of given archival units until each of the aus show that they
+have been crawled on the given cache; if an archival unit does not show any
+crawl info in the crawl status table, wait until information becomes available
+(through a crawl starting up and the finishing)
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -d, --dryrun          dry run [none]
+  -c CONFIG, --config=CONFIG
+                        Configuration file [none]
+  -l LOGLEVEL, --loglevel=LOGLEVEL
+                        set loglevel level [20]
+  -A, --all             work on all known archival units [none]
+  -P AUIDPREFIX, --auidprefix=AUIDPREFIX
+                        archival unit prefix to match against known auids
+                        [none]
+  -S HOST:PORT, --server=HOST:PORT
+                        LOCKSS cache with port, may give multiple
+  -p PASSWORD, --password=PASSWORD
+                        LOCKSS server password [none]
+  -u USERNAME, --username=USERNAME
+                        LOCKSS server username [none]
+  -s SLEEP, --sleep=SLEEP
+                        Sleep time (seconds) between UI requests. Default:
+                        [10]
+  -t TIMEOUT, --timeout=TIMEOUT
+                        Timeout (seconds) before giving up on UI connections.
+                        Default: [30]
+  -T TRIALS, --trials=TRIALS
+                        how often to retry connections [3]
+  --pause=PAUSE         pause time in seconds between retrying active crawls
+                        [300]
+  -o DIR, --outputdir=DIR
+                        output directory [none]
+  --crawlsort=CRAWLSORT
+                        sort field for printcrawlstatus action [nErrorUrls];
+                        available ['status', 'type', 'startTime',
+                        'nBytesFetched', 'nExcludedUrls', 'nFetchedUrls',
+                        'nNotModifiedUrls', 'nParsedUrls', 'nPendingUrls',
+                        'nErrorUrls', 'nMimeTypes', 'reportDate', 'duration',
+                        'cache', 'plugin', 'baseUrl', 'extraParams', 'auId']
+  --crawlheaders=CRAWLHEADERS
+                        headers for printcrawlstatus [reportDate,startTime,cac
+                        he,status,nBytesFetched,nMimeTypes,nErrorUrls,nFetched
+                        Urls,nNotModifiedUrls,nPendingUrls,plugin,baseUrl,extr
+                        aParams]; available headers ['status', 'type',
+                        'startTime', 'nBytesFetched', 'nExcludedUrls',
+                        'nFetchedUrls', 'nNotModifiedUrls', 'nParsedUrls',
+                        'nPendingUrls', 'nErrorUrls', 'nMimeTypes',
+                        'reportDate', 'duration', 'cache', 'plugin',
+                        'baseUrl', 'extraParams', 'auId']
