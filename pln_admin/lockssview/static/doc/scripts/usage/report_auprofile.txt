@@ -1,0 +1,40 @@
+Usage: report_auprofile [options] [ AU_ID|@AU_ID_list)...]
+
+ if dryrun collect matching auids and log.info them otherwise collect stored
+data (do not update from LOCKSS caches) and print a report if --problemsOnly
+is given list only troubled archival units, that is archival units that have
+too few replications, whose agreement is low
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -d, --dryrun          dry run [none]
+  -c CONFIG, --config=CONFIG
+                        Configuration file [none]
+  -l LOGLEVEL, --loglevel=LOGLEVEL
+                        set loglevel level [20]
+  -A, --all             work on all known archival units [none]
+  -P AUIDPREFIX, --auidprefix=AUIDPREFIX
+                        archival unit prefix to match against known auids
+                        [none]
+  -S HOST:PORT, --server=HOST:PORT
+                        LOCKSS cache with port, may give multiple
+  --reportheaders=REPORTHEADERS
+                        report headers
+                        [auid,replserver,lowreplserver,nLowAgree,sizeMB
+                        avg,diskMB avg,agree avg,reportDate min,reportDate
+                        max,caches];   Available headers: agree avg,agree
+                        max,agree min,auid,caches,diskMB avg,diskMB max,diskMB
+                        min,diskMB sum,lowrepl,lowreplserver,missingauinfo,nLo
+                        wAgree,nausummary,repl,replserver,reportDate
+                        max,reportDate min,sizeMB avg,sizeMB max,sizeMB
+                        min,sizeMB sum
+  --explainheaders      explain report headers [False]
+  --agreement=AGREEMENT
+                        minimum acceptable agreement [95.0]
+  --problemsonly        restrict listing to troubled archival units [False]
+  --replserver=REPLSERVER
+                        mark as error archival units those with less
+                        replications on given servers  [6]
+  --repl=REPL           mark as error archival units those with less total
+                        known replications  [6]

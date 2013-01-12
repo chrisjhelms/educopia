@@ -1,0 +1,28 @@
+Usage: report_urlprofile [options] [ AU_ID|@AU_ID_list)...]
+
+ if dryrun match auids and log.info them otherwise collect all known urls from
+selected archival units and report on them if --urlminversion is given
+restrict to urls with at least the given number of versions
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -d, --dryrun          dry run [none]
+  -c CONFIG, --config=CONFIG
+                        Configuration file [none]
+  -l LOGLEVEL, --loglevel=LOGLEVEL
+                        set loglevel level [20]
+  -A, --all             work on all known archival units [none]
+  -P AUIDPREFIX, --auidprefix=AUIDPREFIX
+                        archival unit prefix to match against known auids
+                        [none]
+  -S HOST:PORT, --server=HOST:PORT
+                        LOCKSS cache with port, may give multiple
+  --reportheaders=REPORTHEADERS
+                        report headers [name,size,version,cache,auId];
+                        Available headers: auId,baseUrl,cache,extraParams,name
+                        ,plugin,repl,reportDate,size,urlKnownRepl,urlRepl,vers
+                        ion
+  --explainheaders      explain report headers [False]
+  --urlminversion=URLMINVERSION
+                        minimum version [1]
