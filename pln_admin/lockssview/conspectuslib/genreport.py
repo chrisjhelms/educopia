@@ -166,19 +166,28 @@ class Script:
         col_f.write('Manifest/Permission page(s):\n');
         col_f.write("\n");
         col_f.write("\n");
-        col_f.write('Archival Unit Size Info:\n');
+        col_f.write('Archival Unit Size Report:\n');
         col_f.write("   see SERVER/printausummary.tsv\n");
         col_f.write("\n");
-        col_f.write('Crawl Behavior\n');
+        col_f.write('Crawl Behavior Report:\n');
         col_f.write("   see SERVER/printcrawlstatus.tsv\n");
         col_f.write("\n");
-        col_f.write('Ingested Files\n');
+        col_f.write('Ingested Files Reports:\n');
         col_f.write("   see SERVER/%s*.tsv\n" % plug['name']);
         col_f.write("\n");
 
         col_f.write('---------------------------\n');
         col_f.write('Summary / Recommendations \n');
         col_f.write('---------------------------\n');
+        col_f.write("\n");
+        
+        col_f.write('---------------------------\n');
+        col_f.write('Final Release Step \n');
+        col_f.write('---------------------------\n');
+        col_f.write(' please review the list of included urls in the Ingested Files Reports\n'); 
+        col_f.write(' and let metaarchive staff know whether the archival units do indeeed\n'); 
+        col_f.write(' contain all urls intended for preservation\n');
+ 
         col_f.write("\n");
 
 
