@@ -20,7 +20,7 @@ execute successfuly only on the data server.
 
 All commands accept the following options: 
  --help
-    The usage messages printed are available at usage/....txt 
+    The usage messages printed are available at [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/static/doc/scripts/usage/  usage txt files]
  --version 
     Versions correspond to the subversion revision of a scripts last commit.
  -c filename 
@@ -82,5 +82,3 @@ update the information again.
 All command read a configiration file that matches there name. Additional
 configurations can be read from files passed to commands with the -c option: 
 cachestatus.rc is an example configuration file.
-
-
