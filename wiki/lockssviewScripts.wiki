@@ -2,8 +2,9 @@
 
 = Lockssview command line scripts = 
 
- INSTALL_DIR/scripts NAME                list available scripts do 
- INSTALL_DIR/scripts NAME parameters     execute THESCRIPT  
+ INSTALL_DIR/scripts.py NAME                list available scripts 
+ 
+ INSTALL_DIR/scripts.py NAME parameters     execute THESCRIPT  
 
 Scripts fall into two categories, those that retrieve information form individual LOCKSS caches and print status information about individual caches and those that report about content preserved on several LOCKSS Caches. 
 
@@ -85,4 +86,3 @@ Note that refreshing the urllist info includes refreshing ausuammry info.
 urllist and ausuammry information is only requested from the cache if the
 stored information is outdated; runnig the command a second time will NOT
 update the information again. 
-
