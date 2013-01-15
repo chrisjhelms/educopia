@@ -1,6 +1,15 @@
 #summary lockssview commandline scripts
 
-= Lockssview Commandline Scripts  = 
+= Lockssview command line scripts = 
+
+ INSTALL_DIR/scripts NAME                list available scripts do 
+ INSTALL_DIR/scripts NAME parameters     execute THESCRIPT  
+
+Scripts fall into two categories, those that retrieve information form individual LOCKSS caches and print status information about individual caches and those that report about content preserved on several LOCKSS Caches. 
+
+In the following we us lksNAME as shortcut for INSTALL_DIR/scripts.py NAME 
+
+= Parameters common to all Scripts  = 
 
 All commands accept the following options: 
  --help
@@ -9,10 +18,26 @@ All commands accept the following options:
     Versions correspond to the subversion revision of a scripts last commit.
  -c filename 
     Scripts read the given file name and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files. See the cachestatus.rc example file. 
+ -d 
+    Dryrun; interpret command line and read configuration files 
+ -l loglevel 
+     The amount of logging desired: 1==most, 21=least
+
+=== Configuration files  ===
+
+Each command reads configuration files (if existent)  in the following order 
+# ~/.command.rc 
+# ./command.rc 
+# file listed in -c options on the command line 
+
+All parameters may be defined in configuration files. They must be defined in the [Status] section. See  [http://lockssview.metaarchive.org/doc/scripts/cachestatus.rc cachestatus.rc] which serves as a configuration file for running the lkscachestatus command. 
+
+
+configurations can be read from files passed to commands with the -c option: 
+cachestatus.rc is an example configuration file.
 
 == EXAMPLE USAGE  == 
 
-In the following we us lksNAME as shortcut for INSTALL_DIR/scripts.py NAME 
 
 === Caches ===   
 
@@ -61,9 +86,3 @@ urllist and ausuammry information is only requested from the cache if the
 stored information is outdated; runnig the command a second time will NOT
 update the information again. 
 
-
-=== Using a configuration file  ===
-
-All command read a configiration file that matches there name. Additional
-configurations can be read from files passed to commands with the -c option: 
-cachestatus.rc is an example configuration file.
