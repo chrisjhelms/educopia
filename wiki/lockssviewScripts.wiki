@@ -29,9 +29,9 @@ All commands accept the following:
 === Configuration files  ===
 
 Each command reads configuration files (if existent)  in the following order 
-# ~/.command.rc 
-# ./command.rc 
-# files listed in -c options on the command line i the order that they are listed 
+ # ~/.command.rc 
+ # ./command.rc 
+ # files listed in -c options on the command line i the order that they are listed 
 
 Parameters values given on the command line supersede  any settings in configuration files.  
 
