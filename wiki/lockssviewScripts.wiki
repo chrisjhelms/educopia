@@ -2,32 +2,17 @@
 
 = Lockssview Commandline Scripts  = 
 
-The metaarchive user has several lks commands defined in its bin directory
-that serve as convenience functions for calling lockssview scripts:
-
-~metaarchive/bin/lkscaches is equivalent to
-~metaarchive/tools/lockssview/scripts.py caches
-
-~metaarchive/bin/lksreport_auprofile is equivalent to
-~metaarchive/tools/lockssview/scripts.py  report_auprofile
-
-To list all available lks commands type lks and then hit the TAB key.
-Alternatively you can call the command: lksscripts
-
-Commands access the lockssview MySQL database, currently (Jan,2013) the
-database is available on data.metaarchive.org only, and therefore commands do
-execute successfuly only on the data server.  
-
 All commands accept the following options: 
  --help
-    The usage messages printed are available at [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/static/doc/scripts/usage/  usage txt files]
+    The usage messages printed are available at [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/  usage txt files]
  --version 
     Versions correspond to the subversion revision of a scripts last commit.
  -c filename 
-    Scripts read the given file name and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files.  See the cachestatus.rc example file. 
-
+    Scripts read the given file name and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files. See the cachestatus.rc example file. 
 
 == EXAMPLE USAGE  == 
+
+In the following we us lksNAME as shortcut for INSTALL_DIR/scripts.py NAME 
 
 === Caches ===   
 
