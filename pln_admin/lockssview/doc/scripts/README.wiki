@@ -1,0 +1,91 @@
+﻿= Lockssview Commandline Scripts  = 
+
+The metaarchive user has several lks commands defined in its bin directory
+that serve as convenience functions for calling lockssview scripts:
+
+~metaarchive/bin/lkscaches is equivalent to
+~metaarchive/tools/lockssview/scripts.py caches
+
+~metaarchive/bin/lksreport_auprofile is equivalent to
+~metaarchive/tools/lockssview/scripts.py  report_auprofile
+
+To list all available lks commands type lks and then hit the TAB key.
+Alternatively you can call the command: lksscripts
+
+Commands access the lockssview MySQL database, currently (Jan,2013) the
+database is available on data.metaarchive.org only, and therefore commands do
+execute successfuly only on the data server.  
+
+All commands accept the following options: 
+* --help option. 
+** The usage messages printed are available at usage/*.txt 
+* --version 
+** Versions correspond to the subversion revision the scripts last commit.
+* -c filename 
+** Scripts read the given filename and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files.  See the cachestatus.rc example file. 
+
+
+== EXAMPLE USAGE  == 
+
+=== Caches ===   
+
+Print help message 
+ lkscaches --help 
+
+Print all defined caches 
+ lkscaches 
+
+Print the names of caches only
+ lkscaches  -n 
+
+Print the only production network caches
+  lkscaches -N production 
+
+Print the the docmain names of production network caches
+ lkscaches -N production -D
+
+
+=== CacheStatus  ===
+lkscachestatus is the work horse for retrieving status information from LOCKSS
+caches and for printing cache specific information to tab separated files
+
+When retrieving information a user must define 
+* at least one cache from which to retrieve information 
+* username and password to access cache user interface  
+* which LOCKSS UI status table to access: auidlist, ausummary, urllists, and/or crawlstatus 
+* when retrieving ausummary, urllists, or crawlstatus info : which archival units are of interest
+
+Retrieve the list of known auids  from the aub-dell server 
+The server parameter may either be a cache name or a cache's domain name 
+ lkscachestatus -a getauidlist -u user -p pwd -S aub-dell 
+
+Get ausummary  and crawlstatus info for all aus known to the aub-dell cache
+ lkscachestatus -a getausummary -a getcrawlstatus --all  -u user -p pwd -S aub-dell 
+
+Get urllist for all aus starting with edu.auburn  and crawlstatus info for all aus known to the aub-dell cache
+ lkscachestatus -a geturllist -P edu.auburn  -u user -p pwd -S aub-dell 
+
+Get urllists for 
+edu|auburn|glomeratatif2&base_url~http%3A%2F%2Fdigdata1%2Elib%2Eauburn%2Eedu%2Fglomeratas%2F&year~1928
+if the info stored in the database is older than 3 days = 72 hours 
+ lkscachestatus -a geturllist -u user -p pwd -S aub-dell 'edu|auburn|glomeratatif2&base_url~http%3A%2F%2Fdigdata1%2Elib%2Eauburn%2Eedu%2Fglomeratas%2F&year~192'
+Note that refreshing the urllist info includes refreshing ausuammry info. 
+urllist and ausuammry information is only requested from the cache if the
+stored information is outdated; runnig the command a second time will NOT
+update the information again. 
+
+
+=== Using a configuration file  ===
+
+All command read a configiration file that matches there name. Additional
+configurations can be read from files passed to commands with the -c option: 
+cachestatus.rc is an example configuration file.
+
+
+
+
+
+
+
+ lkscachestatus -a geturllist -P edu.auburn  -u user -p pwd -S aub-dell
+

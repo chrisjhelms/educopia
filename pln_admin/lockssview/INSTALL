@@ -1,8 +1,8 @@
 link  locksslib -> /../lockss-daemon/test/frameworks/lib/
 
-if using non standard python: 
-   use  env.rc to modify path so that the correct pythonversion is called 
-   call scripts as  lks script params 
+this code requires python27 
+
+if this is not the default, make sure that manage.py and scripts.py refer to python27; wither by adjusting the callers path, orby explicitly refering to python27 in the scripts.py and manage.py
 
 
 

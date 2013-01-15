@@ -1,0 +1,81 @@
+<html> 
+<title> 
+lockssview urls 
+</title> 
+<body> 
+
+<h1> admin UI  </h1> 
+
+<ul> 
+<li> 
+      <a href="http://lockssview.metaarchive.org/admin"> admin   </a>
+</li> 
+</ul> 
+
+
+<h1> tastypie REST UI </h1> 
+<p> Some of the links defined in the <a href="http://lockssview.metaarchive.org/api/?format=json"> api schema    </a> do break; </a>; further testing/fixing is required </p> 
+
+<p> Please note that POST requests are supported, so that existing records can be changed </p> 
+
+<ul> 
+<li><a href="/api/caches/schema/?format=json"> caches schema </a> </li>
+<li><a href="/api/master_auids/schema/?format=json"> master_auids schema </a> </li>
+<li><a href="/api/cache_auids/schema/?format=json"> cache_auids schema </a> </li>
+<li><a href="/api/au_crawl_status/schema/?format=json"> au_crawl_status schema </a> </li>
+<li><a href="/api/cache_au_summaries/schema/?format=json"> cache_au_summaries schema </a> </li>
+<li><a href="/api/cache_au_url_report/schema/?format=json"> cache_au_url_report schema </a> </li>
+<li><a href="/api/cache_comm_peer/schema/?format=json"> cache_comm_peer schema </a> </li>
+<li><a href="/api/cache_repos_space/schema/?format=json"> cache_repos_space schema </a> </li>
+</ul> 
+
+<h2> Caches </h2> 
+<ul> 
+<li>
+      <a href="http://lockssview.metaarchive.org/api/caches?format=json"> api/caches list    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/caches/1?format=json"> api/caches id=1    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/caches/?network=test&format=json"> api/caches network=test    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/caches/?name=aub-cap&format=json"> api/caches name=aub-cap    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/caches/?name__startswith=aub&format=json"> api/caches name startswith aub    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/caches/?domain=metaarchive.lib.auburn.edu&format=json"> api/caches daomain=metaarchive.lib.auburn.edu </a>
+</li>
+</ul> 
+
+<h2> Master AuIds  </h2> 
+<ul>
+<li> 
+      <a href="http://lockssview.metaarchive.org/api/master_auids/schema?format=json"> api/master_auids/ schema   </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/master_auids/?format=json"> api/master_auids list - first 20 by default    </a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/master_auids/?limit=100&offset=200&format=json"> api/master_auids list - 101-200</a>
+</li><li>
+      <a href="http://lockssview.metaarchive.org/api/master_auids/1/?format=json"> api/master_auids id = 1 </a>
+</li>
+</ul> 
+
+<h2> Cache AuIds  </h2> 
+<ul>
+<li> 
+      <a href="http://lockssview.metaarchive.org/api/cache_auids/schema?format=json"> api/cache_auids/ schema   </a>
+</li><li>
+      broken <a href="http://lockssview.metaarchive.org/api/cache_auids/?format=json"> api/cache_auids list - first 20 by default    </a>
+</li><li>
+      broken <a href="http://lockssview.metaarchive.org/api/cache_auids/?limit=100&offset=200&format=json"> api/cache_auids list - 101-200</a>
+</li><li>
+      broken <a href="http://lockssview.metaarchive.org/api/cache_auids/1/?format=json"> api/cache_auids id = 1 </a>
+</li>
+</ul> 
+
+
+<h2> and so forth  </h2> 
+
+
+</body> 
+</html> 
+
