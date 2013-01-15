@@ -2,17 +2,19 @@
 
 = Lockssview command line scripts = 
 
- INSTALL_DIR/scripts.py NAME                list available scripts 
- 
- INSTALL_DIR/scripts.py NAME parameters     execute THESCRIPT  
+{{{ INSTALL_DIR/scripts.py  }}}  
+  list available scripts  
 
-Scripts fall into two categories, those that retrieve information form individual LOCKSS caches and print status information about individual caches and those that report about content preserved on several LOCKSS Caches. 
+{{{ INSTALL_DIR/scripts.py THESCRIPT PARAMS  }}} 
+  execute THESCRIPT  with given parameters
 
-In the following we us lksNAME as shortcut for INSTALL_DIR/scripts.py NAME 
+Scripts fall into two categories: those, that retrieve information form individual LOCKSS caches and print status information about them and those, that report on content preserved on several LOCKSS Caches. 
+
+In the following we us {{{ lksNAME }}} as shortcut for {{{ INSTALL_DIR/scripts.py NAME }}} 
 
 = Parameters common to all Scripts  = 
 
-All commands accept the following options: 
+All commands accept the following: 
  --help
     The usage messages printed are available at [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/  usage txt files]
  --version 
@@ -29,13 +31,11 @@ All commands accept the following options:
 Each command reads configuration files (if existent)  in the following order 
 # ~/.command.rc 
 # ./command.rc 
-# file listed in -c options on the command line 
+# files listed in -c options on the command line i the order that they are listed 
 
-All parameters may be defined in configuration files. They must be defined in the [Status] section. See  [http://lockssview.metaarchive.org/doc/scripts/cachestatus.rc cachestatus.rc] which serves as a configuration file for running the lkscachestatus command. 
+Parameters values given on the command line supersede  any settings in configuration files.  
 
-
-configurations can be read from files passed to commands with the -c option: 
-cachestatus.rc is an example configuration file.
+All parameters that can be set via command line options, may be defined in configuration files instead. All scripts look for settings in the [Status] section only. It is easy to share common settings across commands by passing a common configuration file to scripts via the -c option. [http://lockssview.metaarchive.org/doc/scripts/cachestatus.rc cachestatus.rc] shows settings for all options accepted by the cachestatus script. 
 
 == EXAMPLE USAGE  == 
 
