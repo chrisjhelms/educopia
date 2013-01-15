@@ -2,12 +2,13 @@
 
 = Lockssview command line scripts = 
 
-{{{ INSTALL_DIR/scripts.py  }}}  
-  list available scripts  
-
-{{{ INSTALL_DIR/scripts.py THESCRIPT PARAMS  }}} 
-  execute THESCRIPT  with given parameters
-
+<dl> 
+<dt> {{{ INSTALL_DIR/scripts.py  }}}  
+</dt><dd> list available scripts   </dd>
+<dt>  {{{ INSTALL_DIR/scripts.py THESCRIPT PARAMS  }}} 
+</dt> <dd> execute THESCRIPT  with given parameters
+</dd> 
+</dl> 
 Scripts fall into two categories: those, that retrieve information form individual LOCKSS caches and print status information about them and those, that report on content preserved on several LOCKSS Caches. 
 
 In the following we us {{{ lksNAME }}} as shortcut for {{{ INSTALL_DIR/scripts.py NAME }}} 
@@ -15,16 +16,18 @@ In the following we us {{{ lksNAME }}} as shortcut for {{{ INSTALL_DIR/scripts.p
 = Parameters common to all Scripts  = 
 
 All commands accept the following: 
- --help
-    The usage messages printed are available at [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/  usage txt files]
- --version 
-    Versions correspond to the subversion revision of a scripts last commit.
- -c filename 
-    Scripts read the given file name and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files. See the cachestatus.rc example file. 
- -d 
-    Dryrun; interpret command line and read configuration files 
- -l loglevel 
-     The amount of logging desired: 1==most, 21=least
+<dl> 
+<dt> {{{ --help }}} </dt>
+<dd>     The usage messages printed are available a [http://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/  usage txt files] </dd> 
+<dt> {{{ --version }}} </dt>
+<dd> Versions correspond to the subversion revision of a scripts last commit. </dd>
+<dt> {{{ -c filename }}} </dt>
+<dd>    Scripts read the given file name and parse options defined in the [Status] section as configuration parameters; users may give multiple configuration files. See the cachestatus.rc example file.  </dd>
+<dt>  {{{ -d }}} </dt> 
+<dd> Dryrun; interpret command line and read configuration files  </dd> 
+<dt>  -l loglevel </dt>
+<dd>      The amount of logging desired: 1==most, 21=least </dd>
+</dl>
 
 === Configuration files  ===
 
@@ -42,21 +45,15 @@ All parameters that can be set via command line options, may be defined in confi
 
 === Caches ===   
 
-Print help message 
- lkscaches --help 
+[https://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/caches.txt lkscaches USAGE] 
 
-Print all defined caches 
- lkscaches 
-
-Print the names of caches only
- lkscaches  -n 
-
-Print the only production network caches
-  lkscaches -N production 
-
-Print the docmain names of production network caches
- lkscaches -N production -D
-
+<dl> 
+<dt> {{{ lkscaches --help  }}}  </dt> <dd>    print usage message  </dd> 
+<dt> {{{  lkscaches  }}} </dt> <dd> Print all defined caches  </dd> 
+<dt> {{{ lkscaches  -n  }}} </dt> <dd> Print the names of caches only </dd> 
+<dt> {{{ lkscaches -N production  }}} </dt> <dd> Print the only production network caches </dd> 
+<dt> {{{ lkscaches -N production -D }}} </dt> <dd> Print the docmain names of production network caches </dd> 
+</dl> 
 
 === CacheStatus  ===
 lkscachestatus is the work horse for retrieving status information from LOCKSS
