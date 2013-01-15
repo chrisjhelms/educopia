@@ -56,9 +56,29 @@ All parameters that can be set via command line options, may be defined in confi
 </dl> 
 
 === CacheStatus  ===
-lkscachestatus is the work horse for retrieving status information from LOCKSS
-caches and for printing cache specific information to tab separated files
+[https://educopia.googlecode.com/svn/trunk/pln_admin/lockssview/doc/scripts/usage/cachestatus.txt lkscachestatus USAGE]
 
+lkscachestatus is the work horse for retrieving status information from LOCKSS
+caches, storing retrieved information in the lockssview database,  and for printing cache specific information to tab separated files. 
+
+When retrieving data, users must specify at least one LOCKSS cache to retrieve data from and one of the get-action. Except for the {{{getauidlist}}} action users must also define at least one id of an archival unit, for which the information should be retrieved: 
+<dl>
+<dt>getauidlist</dt>
+<dd> retrieve list of preserved archival unit ids from given LOCKSS caches(s) </
+dd>
+<dt>getausummary</dt>
+<dd> retrieve ausummary info for given archival unit(s) </dd>
+<dt>getcrawlstatus</dt>
+<dd> retrieve crawlstatus info for given archival units(s) </dd>
+<dt>geturllist</dt>
+<dd> retrieve urllist for given archival units(s) </dd>
+<dt>getreposspace, getcommpeers</dt>
+<td> not yet fully implemented </dd>
+</dl>
+
+
+To retrieve data from a cache use one of the get-actions: getauidlist, 
+ *
 When retrieving information a user must define 
 * at least one cache from which to retrieve information 
 * username and password to access cache user interface  
