@@ -63,7 +63,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>doc.metatest1.AllFromStart</string>
+    <string>org.metaarchive.AllFromStart</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
