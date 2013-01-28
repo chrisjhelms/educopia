@@ -35,7 +35,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;GCPL All reachable from BaseUrl/%s/%s&quot;, path, start</string>
+    <string>&quot;All reachable from BaseUrl/%s/%s&quot;, path, start</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -43,7 +43,7 @@
   </entry>
  <entry>
     <string>au_manifest</string>
-    <string>1,&quot;%s/LOCKSS-MetaArchive-permission.html&quot;, base_url</string>
+    <string>1,&quot;%s/permission.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -59,18 +59,18 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>GCPL All reachable From BaseUrl/Start/Path</string>
+    <string>All reachable From BaseUrl/Start/Path</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>doc.gcpl.AllFromStart</string>
+    <string>doc.metatest1.AllFromStart</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/LOCKSS-MetaArchive-permission.html&quot;, base_url</string>
-      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;%s/permission.html&quot;, base_url</string>
+      <string>2,&quo/\?&quot;</string>
       <string>1,&quot;^%s/%s/%s$&quot;, base_url, path, start</string>
       <string>1,&quot;^%s/%s/%s/&quot;, base_url, path, start</string>
     </list>
