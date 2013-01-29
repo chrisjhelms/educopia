@@ -1,13 +1,13 @@
-NodeVersion=3,NodeContentSize=573,NodeName=/auids/1/changes.html
-NodeVersion=2,NodeContentSize=652,NodeName=/auids/1.html
-NodeVersion=2,NodeContentSize=495,NodeName=/auids/1.xml
-NodeVersion=2,NodeContentSize=866,NodeName=/collections/51.html
-NodeVersion=2,NodeContentSize=813,NodeName=/collections/51.xml
+NodeVersion=4,NodeContentSize=668,NodeName=/auids/1/changes.html
+NodeVersion=3,NodeContentSize=652,NodeName=/auids/1.html
+NodeVersion=3,NodeContentSize=493,NodeName=/auids/1.xml
+NodeVersion=3,NodeContentSize=866,NodeName=/collections/51.html
+NodeVersion=3,NodeContentSize=813,NodeName=/collections/51.xml
 NodeVersion=1,NodeContentSize=839,NodeName=/metaarchivePermission.html
 NodeVersion=2,NodeContentSize=1016,NodeName=/records/713774.html
 NodeVersion=1,NodeContentSize=797,NodeName=/records/713774.xml
-NodeVersion=1,NodeContentSize=793,NodeName=/records/713780.html
-NodeVersion=1,NodeContentSize=596,NodeName=/records/713780.xml
+NodeVersion=2,NodeContentSize=793,NodeName=/records/713780.html
+NodeVersion=2,NodeContentSize=697,NodeName=/records/713780.xml
 NodeVersion=1,NodeContentSize=591,NodeName=/records/713797.html
 NodeVersion=1,NodeContentSize=418,NodeName=/records/713797.xml
 NodeVersion=1,NodeContentSize=212,NodeName=/source/Heinz/box00279/fld00022/bdl0031/doc0003/00000001.png
@@ -16,3 +16,4 @@ NodeVersion=1,NodeContentSize=273,NodeName=/source/Heinz/box00279/fld00022/bdl00
 NodeVersion=1,NodeContentSize=254,NodeName=/source/Heinz/box00279/fld00022/bdl0031/doc0003/00000004.png
 NodeVersion=1,NodeContentSize=212,NodeName=/source/Heinz/box00279/fld00022/bdl0031/doc0010/00000001.png
 NodeVersion=1,NodeContentSize=279,NodeName=/source/Heinz/box00279/fld00022/bdl0031/doc0010/00000002.png
+NodeVersion=1,NodeContentSize=534720,NodeName=/source/Heinz/box00279/fld00022/bdl0031/doc0010/00000003.png

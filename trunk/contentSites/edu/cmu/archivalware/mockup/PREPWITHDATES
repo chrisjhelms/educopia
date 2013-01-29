@@ -19,6 +19,7 @@ touch -t 200010061255 `find source/Heinz/box00279/fld00022/bdl0031/doc0003/ `
 touch -t 200010051355 `find source/Heinz/box00279/fld00022/bdl0031/doc0080/ `
 
 touch -t 201202011744 source/Heinz/box00279/fld00022/bdl0031/doc0003/00000002.png
+touch -t 201202271212 source/Heinz/box00279/fld00022/bdl0031/doc0010/00000003.png
 
 # set timestamp based on lastmodified given in xml file 
 foreach f ( `find . -name \*.xml`) 
