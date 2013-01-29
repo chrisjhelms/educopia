@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML> 
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>713797</identifier>
+      </header>
+      <metadata>
+          <archivalUnit> 1 </archivalUnit>
+          <lastmodified>200008050115 </lastmodified>
+          <title>Valued Document 0012 </title>
+          <!-- intentionally no relatedFiles initially -->
+      </metadata>
+    </record>
+  </GetRecord>
+</XML> 

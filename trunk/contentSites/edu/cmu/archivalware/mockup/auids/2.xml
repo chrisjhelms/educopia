@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<auid>
+  <lastmodified> 200010051355  </lastmodified> 
+  <id type="integer">2</id>
+  <records>
+    <record>
+	<id type="integer"> 100080 </id>
+	<resource_uri> /records/100080 </resource_uri>
+    </record>
+  </records>
+</auid>

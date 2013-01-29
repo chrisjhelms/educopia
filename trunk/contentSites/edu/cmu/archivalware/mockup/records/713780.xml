@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML> 
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>713780</identifier>
+      </header>
+      <metadata>
+          <archivalUnit> 1 </archivalUnit>
+          <lastmodified>200009051215</lastmodified>
+          <collection> 51 </collection>
+          <title>Valued Document 0010 </title>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0010/00000001.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0010/00000002.png</relatedFiles>
+      </metadata>
+    </record>
+  </GetRecord>
+</XML> 
