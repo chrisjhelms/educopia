@@ -30,3 +30,17 @@ lastmodified of record  based on
 lastmodified of auid = closest lastmodified of enclosed records 
 lastmodified of collection = closest lastmodified of enclosed auids 
 -------------------------------
+
+-------------------------------
+FILES 
+-------------------------------
+
+TODAY_DATE	date of site status shown in this revision 
+TODAY_STATUS    list of central files in archivalware mockup site
+
+PREPWITHDATES   script adjusts file dates to build proper crawl test cases
+
+LOCKSS.gets		GET requeste reported by Apache Web Server 
+LOCKSS.crawlinfo	crawlingo reported by LOCKSS cache
+LOCKSS.urllist		list of urls in archival unit reported by LOCKSS cache
+LOCKSS.urlinfo		list of urls in archival unit, with version number and size
