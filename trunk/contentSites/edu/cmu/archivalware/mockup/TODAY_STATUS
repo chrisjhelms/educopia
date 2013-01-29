@@ -1,30 +1,31 @@
-Date  20120116
-Comment  recrawl && no changes in site content 
+Date  20120226
+Comment  change document in record 713774 on 20120201
 
 xml/html pages
--rw-rw-r-- 1 metaarchive metaarchive  393 Jan 29 21:48 ./auids/1/changes.html
--rw-rw-r-- 1 metaarchive metaarchive  652 Oct  6  2000 ./auids/1.html
--rw-rw-r-- 1 metaarchive metaarchive  495 Oct  6  2000 ./auids/1.xml
--rw-rw-r-- 1 metaarchive metaarchive  393 Jan 29 21:48 ./auids/2/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  573 Jan 29 22:13 ./auids/1/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  652 Feb  1  2012 ./auids/1.html
+-rw-rw-r-- 1 metaarchive metaarchive  495 Feb  1  2012 ./auids/1.xml
+-rw-rw-r-- 1 metaarchive metaarchive  394 Jan 29 22:13 ./auids/2/changes.html
 -rw-rw-r-- 1 metaarchive metaarchive  524 Oct  5  2000 ./auids/2.html
 -rw-rw-r-- 1 metaarchive metaarchive  247 Oct  5  2000 ./auids/2.xml
--rw-rw-r-- 1 metaarchive metaarchive  866 Oct  6  2000 ./collections/51.html
--rw-rw-r-- 1 metaarchive metaarchive  813 Oct  6  2000 ./collections/51.xml
+-rw-rw-r-- 1 metaarchive metaarchive  866 Feb  1  2012 ./collections/51.html
+-rw-rw-r-- 1 metaarchive metaarchive  813 Feb  1  2012 ./collections/51.xml
 -rw-rw-r-- 1 metaarchive metaarchive  839 Jan  1  2012 ./metaarchivePermission.html
 -rw-rw-r-- 1 metaarchive metaarchive  678 Oct  5  2000 ./records/100080.html
 -rwxrwxr-x 1 metaarchive metaarchive  457 Oct  5  2000 ./records/100080.xml
--rw-rw-r-- 1 metaarchive metaarchive 1016 Oct  6  2000 ./records/713774.html
--rwxrwxr-x 1 metaarchive metaarchive  797 Oct  6  2000 ./records/713774.xml
+-rw-rw-r-- 1 metaarchive metaarchive 1016 Feb  1  2012 ./records/713774.html
+-rwxrwxr-x 1 metaarchive metaarchive  797 Feb  1  2012 ./records/713774.xml
 -rw-rw-r-- 1 metaarchive metaarchive  793 Sep  5  2000 ./records/713780.html
 -rwxrwxr-x 1 metaarchive metaarchive  596 Sep  5  2000 ./records/713780.xml
 -rw-rw-r-- 1 metaarchive metaarchive  591 Aug  5  2000 ./records/713797.html
 -rwxrwxr-x 1 metaarchive metaarchive  418 Aug  5  2000 ./records/713797.xml
 
 png documents
--rw-rw-r-- 1 metaarchive metaarchive 212 Oct  6  2000 ./doc0003/00000001.png
--rw-rw-r-- 1 metaarchive metaarchive 279 Oct  6  2000 ./doc0003/00000002.png
--rw-rw-r-- 1 metaarchive metaarchive 273 Oct  6  2000 ./doc0003/00000003.png
--rw-rw-r-- 1 metaarchive metaarchive 254 Oct  6  2000 ./doc0003/00000004.png
--rw-rw-r-- 1 metaarchive metaarchive 212 Sep  5  2000 ./doc0010/00000001.png
--rw-rw-r-- 1 metaarchive metaarchive 279 Sep  5  2000 ./doc0010/00000002.png
--rw-rw-r-- 1 metaarchive metaarchive 212 Oct  5  2000 ./doc0080/00000001.png
+-rw-rw-r-- 1 metaarchive metaarchive     212 Oct  6  2000 ./doc0003/00000001.png
+-rw-rw-r-- 1 metaarchive metaarchive 1627656 Feb  1  2012 ./doc0003/00000002.png
+-rw-rw-r-- 1 metaarchive metaarchive     273 Oct  6  2000 ./doc0003/00000003.png
+-rw-rw-r-- 1 metaarchive metaarchive     254 Oct  6  2000 ./doc0003/00000004.png
+-rw-rw-r-- 1 metaarchive metaarchive     212 Sep  5  2000 ./doc0010/00000001.png
+-rw-rw-r-- 1 metaarchive metaarchive     279 Sep  5  2000 ./doc0010/00000002.png
+-rw-rw-r-- 1 metaarchive metaarchive  534720 Sep  5  2000 ./doc0010/00000003.png
+-rw-rw-r-- 1 metaarchive metaarchive     212 Oct  5  2000 ./doc0080/00000001.png
