@@ -1,11 +1,11 @@
-Date  20120101
-Comment  initial
+Date  20120102
+Comment  first crawl 
 
 xml/html pages
--rw-rw-r-- 1 metaarchive metaarchive  388 Jan  1  2012 ./auids/1/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  388 Jan  2  2012 ./auids/1/changes.html
 -rw-rw-r-- 1 metaarchive metaarchive  652 Oct  6  2000 ./auids/1.html
 -rw-rw-r-- 1 metaarchive metaarchive  495 Oct  6  2000 ./auids/1.xml
--rw-rw-r-- 1 metaarchive metaarchive  388 Jan  1  2012 ./auids/2/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  388 Jan  2  2012 ./auids/2/changes.html
 -rw-rw-r-- 1 metaarchive metaarchive  524 Oct  5  2000 ./auids/2.html
 -rw-rw-r-- 1 metaarchive metaarchive  247 Oct  5  2000 ./auids/2.xml
 -rw-rw-r-- 1 metaarchive metaarchive  866 Oct  6  2000 ./collections/51.html
