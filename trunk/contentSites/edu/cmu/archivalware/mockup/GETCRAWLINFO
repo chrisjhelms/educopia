@@ -4,7 +4,7 @@
 
 cat TODAY_DATE > TODAY_STATUS
 ./PREPWITHDATES >> TODAY_STATUS  
-cat STATUS_OF_TODAY 
+cat TODAY_STATUS
 
 echo -n "start crawl; enter when crawl done " 
 set t = $< 
@@ -15,15 +15,15 @@ wget --user $MACACHE_USER --password $MACACHE_PWD -O -  \
 	fgrep "NodeHasContent=yes" |  \
 	sed 's/sort=[0-9]*,NodeChildCount=,//' | \
 	sed 's/NodeTreeSize=,NodeHasContent=yes,//' | \
-	sed 's/http.*mockup.//' > urlinfo 
+	sed 's/http.*mockup.//' > LOCKSS.urlinfo 
 
 wget --user $MACACHE_USER --password $MACACHE_PWD -O - \
 	"http://rbdadmin.lib.auburn.edu:8081/ListObjects?type=urls&auid=edu%7Ccmu%7Carchivalware%26auid%7E1%26base_url%7Ehttp%253A%252F%252Fdata%252Emetaarchive%252Eorg%252Fpublic%252Fedu%252Ecmu%252Farchivalware%26collection%7E51" | \
-	sed 's/^.*mockup.//' > urllist
+	sed 's/^.*mockup.//' > LOCKSS.urllist
 
 echo "give me the GETS" > $$ 
 vi $$ 
-cat $$ | sed 's/^.*mockup./GET /' > GETS 
+cat $$ | sed 's/^.*mockup./GET /' > LOCKSS.gets
 rm $$
 
 echo -n " crawl id > " 
