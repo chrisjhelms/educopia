@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<collection>
+  <lastmodified> 200010061355 </lastmodified>
+  <id type="integer"> 51 </id>
+  <name> Heinz </name>
+  <description> The Heinz collection contains .... </description>
+  <records>
+  <record> 
+      <id type="integer"> 713774 </id>
+      <resource_uri> /auids/713774 </resource_uri>
+  </record> 
+  <record> 
+      <id type="integer"> 713780 </id>
+      <resource_uri> /auids/713780 </resource_uri>
+  </record> 
+  <record> 
+      <id type="integer"> 713797 </id>
+      <resource_uri> /auids/713797 </resource_uri>
+  </record> 
+  </records>
+  <auids>
+    <auid>
+      <id type="integer"> 1 </id>
+      <resource_uri> /auids/1 </resource_uri>
+    </auid>
+    <auid>
+      <id type="integer"> 2  </id>
+      <resource_uri> /auids/2 </resource_uri>
+    </auid>
+  </auids>
+</collection>

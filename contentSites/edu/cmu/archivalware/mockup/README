@@ -1,0 +1,32 @@
+initial archivalware docs from 2000
+
+metaarchivePermission.html   2012010101 => Jan 1 2012 
+
+auids/{number}.*    auid pages  xml  and html
+records/{number}.*  record pages  xml  and html
+collections/51.*    heinz collection page  xml and html 
+
+auids/*/changes.html   
+	use If-Modified-Since Header value or given date parameter 
+	to compute changes between current archival unit status and 
+	the given date 
+	may assume that the date parameter does not lie in the future 
+	the pages timestamp is the current date == date of request 
+
+
+xml and html have the same information - just in different formats 
+xml and html pages have the same last nodified 
+
+in this mockup we show lastmodified as a metadata field in all xml files 
+-------------------------------
+
+timestamp of record, auid, collection html pages same as 
+lastmodified of corresponding xml page
+
+lastmodified of record  based on 
+   lastmodified of documents related to record
+   of last date of a metadata field change 
+
+lastmodified of auid = closest lastmodified of enclosed records 
+lastmodified of collection = closest lastmodified of enclosed auids 
+-------------------------------

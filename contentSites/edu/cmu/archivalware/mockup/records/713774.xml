@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML> 
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>713774</identifier>
+      </header>
+      <metadata>
+          <archivalUnit> 1 </archivalUnit>
+          <lastmodified> 200010061255 </lastmodified>
+          <collection> 51 </collection>
+          <title>Valued Document 00003 </title>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0003/00000001.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0003/00000002.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0003/00000003.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0003/00000004.png</relatedFiles>
+      </metadata>
+    </record>
+  </GetRecord>
+</XML> 

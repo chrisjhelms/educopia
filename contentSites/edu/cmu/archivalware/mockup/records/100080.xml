@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML> 
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>100080</identifier>
+      </header>
+      <metadata>
+          <archivalUnit> 2 </archivalUnit>
+          <lastmodified> 200010051355 </lastmodified>
+          <title> Important Doc 80  </title>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/doc0080/00000001.png</relatedFiles>
+      </metadata>
+    </record>
+  </GetRecord>
+</XML> 

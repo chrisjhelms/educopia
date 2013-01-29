@@ -1,0 +1,40 @@
+#!/bin/tcsh 
+# enforces policies described in README 
+
+# insert time stamp from xml file into html file
+foreach f (`find . -name \*.xml`) 
+	set ff = $f:r 
+	set dt = `fgrep lastmodi $ff.xml | sed 's,[^0-9]*,,g' `
+	sed "s,^.*lastmodified.*,<p> lastmodified: $dt </p>," $ff.html > $$.html 
+        mv $$.html $ff.html
+end
+
+# initial site dates - youngest file is from 20120101 
+touch -t 200008050115 `find .`
+touch -t 201201010112 metaarchivePermission.html 
+
+touch -t 200008071201 `find source/Heinz/box00279/fld00022/bdl0031/doc0010/ `
+touch -t 200009051215 `find source/Heinz/box00279/fld00022/bdl0031/doc0010/ `
+touch -t 200010061255 `find source/Heinz/box00279/fld00022/bdl0031/doc0003/ `
+touch -t 200010051355 `find source/Heinz/box00279/fld00022/bdl0031/doc0080/ `
+
+
+# set timestamp based on lastmodified given in xml file 
+foreach f ( `find . -name \*.xml`) 
+  set ff = $f:r 
+  touch -t `fgrep last $f | sed 's/<[a-z/]*>//g'` $f  $ff.html 
+end
+
+foreach f ( `find . -name changes.html` ) 
+   touch -t 201201010211 $f
+end  
+
+
+echo "xml/html pages"
+ls -ld `find . -name \*html -or -name \*.xml`  
+
+echo ""
+echo "png documents"
+(cd ./source/Heinz/box00279/fld00022/bdl0031; ls -ld `find . -name \*.png`)
+
+
