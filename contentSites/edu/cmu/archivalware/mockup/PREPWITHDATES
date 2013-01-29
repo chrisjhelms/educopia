@@ -26,7 +26,7 @@ foreach f ( `find . -name \*.xml`)
 end
 
 foreach f ( `find . -name changes.html` ) 
-   touch -t 201201010211 $f
+   touch  $f
 end  
 
 
