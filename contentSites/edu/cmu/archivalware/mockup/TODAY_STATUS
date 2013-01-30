@@ -1,15 +1,15 @@
 Date  20120302
-Comment  add file to record 713780 on 201202271212
+Comment  add record 713NEW on 201204010145
 
 xml/html pages
--rw-rw-r-- 1 metaarchive metaarchive  668 Jan 29 22:35 ./auids/1/changes.html
--rw-rw-r-- 1 metaarchive metaarchive  652 Feb 27  2012 ./auids/1.html
--rw-rw-r-- 1 metaarchive metaarchive  493 Feb 27  2012 ./auids/1.xml
--rw-rw-r-- 1 metaarchive metaarchive  394 Jan 29 22:35 ./auids/2/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  830 Jan 30 00:16 ./auids/1/changes.html
+-rw-rw-r-- 1 metaarchive metaarchive  652 Apr  1  2012 ./auids/1.html
+-rw-rw-r-- 1 metaarchive metaarchive  612 Apr  1  2012 ./auids/1.xml
+-rw-rw-r-- 1 metaarchive metaarchive  394 Jan 30 00:16 ./auids/2/changes.html
 -rw-rw-r-- 1 metaarchive metaarchive  524 Oct  5  2000 ./auids/2.html
 -rw-rw-r-- 1 metaarchive metaarchive  247 Oct  5  2000 ./auids/2.xml
--rw-rw-r-- 1 metaarchive metaarchive  866 Feb 27  2012 ./collections/51.html
--rw-rw-r-- 1 metaarchive metaarchive  813 Feb 27  2012 ./collections/51.xml
+-rw-rw-r-- 1 metaarchive metaarchive  866 Apr  1  2012 ./collections/51.html
+-rw-rw-r-- 1 metaarchive metaarchive  813 Apr  1  2012 ./collections/51.xml
 -rw-rw-r-- 1 metaarchive metaarchive  839 Jan  1  2012 ./metaarchivePermission.html
 -rw-rw-r-- 1 metaarchive metaarchive  678 Oct  5  2000 ./records/100080.html
 -rwxrwxr-x 1 metaarchive metaarchive  457 Oct  5  2000 ./records/100080.xml
@@ -19,6 +19,8 @@ xml/html pages
 -rwxrwxr-x 1 metaarchive metaarchive  697 Feb 27  2012 ./records/713780.xml
 -rw-rw-r-- 1 metaarchive metaarchive  591 Aug  5  2000 ./records/713797.html
 -rwxrwxr-x 1 metaarchive metaarchive  418 Aug  5  2000 ./records/713797.xml
+-rw-rw-r-- 1 metaarchive metaarchive  902 Apr  1  2012 ./records/713NEW.html
+-rwxrwxr-x 1 metaarchive metaarchive  694 Apr  1  2012 ./records/713NEW.xml
 
 png documents
 -rw-rw-r-- 1 metaarchive metaarchive     212 Oct  6  2000 ./doc0003/00000001.png
@@ -29,3 +31,6 @@ png documents
 -rw-rw-r-- 1 metaarchive metaarchive     279 Sep  5  2000 ./doc0010/00000002.png
 -rw-rw-r-- 1 metaarchive metaarchive  534720 Feb 27  2012 ./doc0010/00000003.png
 -rw-rw-r-- 1 metaarchive metaarchive     212 Oct  5  2000 ./doc0080/00000001.png
+-rw-rw-r-- 1 metaarchive metaarchive  132307 Apr  1  2012 ./docNEW/00000001.png
+-rw-rw-r-- 1 metaarchive metaarchive  543261 Apr  1  2012 ./docNEW/00000002.png
+-rw-rw-r-- 1 metaarchive metaarchive  100902 Apr  1  2012 ./docNEW/00000005.png

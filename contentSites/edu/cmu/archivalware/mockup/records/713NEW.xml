@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML> 
+  <GetRecord>
+    <record>
+      <header>
+        <identifier>713NEW</identifier>
+      </header>
+      <metadata>
+          <archivalUnit> 1 </archivalUnit>
+          <lastmodified> 201204010145 </lastmodified>
+          <collection> 51 </collection>
+          <title>Valued Document NEW  </title>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/docNEW/00000001.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/docNEW/00000002.png</relatedFiles>
+          <relatedFiles>source/Heinz/box00279/fld00022/bdl0031/docNEW/00000005.png</relatedFiles>
+      </metadata>
+    </record>
+  </GetRecord>
+</XML> 

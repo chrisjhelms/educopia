@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <auid>
   <id type="integer">1</id>
-  <lastmodified> 201202271212 </lastmodified>
+  <lastmodified> 201204010145 </lastmodified>
   <records>
     <record>
       <id type="integer"> 713774 </id>
@@ -14,6 +14,10 @@
     <record>
       <id type="integer"> 713797 </id>
       <resource_uri> /records/713797 </resource_uri>
+    </record>
+    <record>
+      <id type="integer"> 713NEW </id>
+      <resource_uri> /records/713NEW </resource_uri>
     </record>
   </records>
 </auid>
