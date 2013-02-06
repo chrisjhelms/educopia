@@ -1,15 +1,19 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>13</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>3</int>
   </entry>
   <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
         <key>collection</key>
-        <displayName>ArchivalWare Collection </displayName>
-        <type>1</type>
+        <displayName>ArchivalWare Collection Id </displayName>
+        <type>2</type>
         <size>20</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
@@ -24,8 +28,8 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>bucketid</key>
-        <displayName>ArchivalWare Bucket Id </displayName>
+        <key>auid</key>
+        <displayName>ArchivaUnit Id </displayName>
         <description></description>
         <type>2</type>
         <size>20</size>
@@ -36,16 +40,17 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;CMU Archival Ware %s&quot;, collection</string>
-  </entry>
-  <entry>
-    <string>au_crawl_depth</string>
-    <int>5</int>
+    <string>&quot;CMU ArchivalWare %d (auid=%d)&quot;, collection, auid</string>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/manifestMaster.html&quot;, base_url</string>
+    <string>&quot;%s/mockup5/collections/%d.html&quot;, base_url, collection</string>
   </entry>
+  <entry>
+    <string>au_manifest</string>
+    <string>&quot;%s/mockup5/metaarchivePermission.html&quot;, base_url</string>
+  </entry>
+
   <entry>
     <string>au_def_pause_time</string>
     <long>6000</long>
@@ -66,10 +71,12 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;^%s/manifestMaster.html$&quot;, base_url</string>
-      <string>1,&quot;^%s/manifest%s.html$&quot;, base_url, collection</string>
-      <string>1,&quot;^%s/oai.*&amp;cl=%s&amp;bucket=%d&quot;, base_url, collection, bucketid</string>
-      <string>1,&quot;^%s/.*/%s/&quot;, base_url, collection</string>
+      <string>1,&quot;/collections/%d&quot;,collection</string>
+      <string>1,&quot;/auids/%d&quot;, auid</string>
+      <string>1,&quot;/records/&quot;</string>
+      <string>1,&quot;.*.xml$&quot;</string>
+      <string>1,&quot;.*.png$&quot;</string>
     </list>
   </entry>
 </map>
+
