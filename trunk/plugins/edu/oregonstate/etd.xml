@@ -7,7 +7,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>7</string>
+    <string>8</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -37,8 +37,13 @@
     <string>&quot;OSU DSpace  %s&quot;, hdl_id</string>
   </entry>
   <entry>
-    <string>au_crawl_depth</string>
-    <int>4</int>
+    <string>tal_override</string>
+    <map>
+     <entry>
+      <string>au_crawl_depth</string>
+      <int>1</int>
+     </entry>
+    </map>
   </entry>
   <entry>
     <string>au_start_url</string>
