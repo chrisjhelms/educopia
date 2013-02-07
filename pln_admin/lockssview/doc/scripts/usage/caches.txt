@@ -5,11 +5,11 @@ Usage: caches [options]
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
-  -d, --dryrun          dry run [none]
+  -d, --dryrun          dry run
   -c CONFIG, --config=CONFIG
-                        Configuration file [none]
+                        Read configuration file
   -l LOGLEVEL, --loglevel=LOGLEVEL
-                        set loglevel level [20]
+                        set loglevel level (1=most, 21=least); default: [20]
   -N NETWORK, --Network=NETWORK
                         print cache from give network only
   -n, --nickname        print cache's nickname [False]

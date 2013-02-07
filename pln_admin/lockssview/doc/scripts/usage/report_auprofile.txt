@@ -8,28 +8,28 @@ too few replications, whose agreement is low
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
-  -d, --dryrun          dry run [none]
+  -d, --dryrun          dry run
   -c CONFIG, --config=CONFIG
-                        Configuration file [none]
+                        Read configuration file
   -l LOGLEVEL, --loglevel=LOGLEVEL
-                        set loglevel level [20]
-  -A, --all             work on all known archival units [none]
+                        set loglevel level (1=most, 21=least); default: [20]
+  -A, --all             work on all known archival units
   -P AUIDPREFIX, --auidprefix=AUIDPREFIX
                         archival unit prefix to match against known auids
-                        [none]
-  -S HOST:PORT, --server=HOST:PORT
-                        LOCKSS cache with port, may give multiple
+  -S HOST[:PORT], --server=HOST[:PORT]
+                        LOCKSS cache, nickname or dnsname, with optional port,
+                        may give multiple
   --reportheaders=REPORTHEADERS
-                        report headers
+                        report headers; default
                         [auid,replserver,lowreplserver,nLowAgree,sizeMB
                         avg,diskMB avg,agree avg,reportDate min,reportDate
-                        max,caches];   Available headers: agree avg,agree
-                        max,agree min,auid,caches,diskMB avg,diskMB max,diskMB
+                        max,caches]; available agree avg,agree max,agree
+                        min,auid,caches,diskMB avg,diskMB max,diskMB
                         min,diskMB sum,lowrepl,lowreplserver,missingauinfo,nLo
                         wAgree,nausummary,repl,replserver,reportDate
                         max,reportDate min,sizeMB avg,sizeMB max,sizeMB
                         min,sizeMB sum
-  --explainheaders      explain report headers [False]
+  --explainheaders      explain report headers; default [False]
   --agreement=AGREEMENT
                         minimum acceptable agreement [95.0]
   --problemsonly        restrict listing to troubled archival units [False]
