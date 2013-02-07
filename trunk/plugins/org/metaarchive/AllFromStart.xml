@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>4</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -59,7 +59,7 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>All reachable From BaseUrl/Start/Path</string>
+    <string>MA All reachable From BaseUrl/Start/Path</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -70,7 +70,7 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/permission.html&quot;, base_url</string>
-      <string>2,&quo/\?&quot;</string>
+      <string>2,&quot;/\?&quot;</string>
       <string>1,&quot;^%s/%s/%s$&quot;, base_url, path, start</string>
       <string>1,&quot;^%s/%s/%s/&quot;, base_url, path, start</string>
     </list>
