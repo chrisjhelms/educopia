@@ -7,22 +7,22 @@ restrict to urls with at least the given number of versions
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
-  -d, --dryrun          dry run [none]
+  -d, --dryrun          dry run
   -c CONFIG, --config=CONFIG
-                        Configuration file [none]
+                        Read configuration file
   -l LOGLEVEL, --loglevel=LOGLEVEL
-                        set loglevel level [20]
-  -A, --all             work on all known archival units [none]
+                        set loglevel level (1=most, 21=least); default: [20]
+  -A, --all             work on all known archival units
   -P AUIDPREFIX, --auidprefix=AUIDPREFIX
                         archival unit prefix to match against known auids
-                        [none]
-  -S HOST:PORT, --server=HOST:PORT
-                        LOCKSS cache with port, may give multiple
+  -S HOST[:PORT], --server=HOST[:PORT]
+                        LOCKSS cache, nickname or dnsname, with optional port,
+                        may give multiple
   --reportheaders=REPORTHEADERS
-                        report headers [name,size,version,cache,auId];
-                        Available headers: auId,baseUrl,cache,extraParams,name
-                        ,plugin,repl,reportDate,size,urlKnownRepl,urlRepl,vers
-                        ion
-  --explainheaders      explain report headers [False]
+                        report headers; default
+                        [name,size,version,cache,auId]; available auId,baseUrl
+                        ,cache,extraParams,name,plugin,repl,reportDate,size,ur
+                        lKnownRepl,urlRepl,version
+  --explainheaders      explain report headers; default [False]
   --urlminversion=URLMINVERSION
                         minimum version [1]
