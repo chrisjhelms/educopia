@@ -1,0 +1,130 @@
+[Status]
+
+# ---------------------------------
+# (almost) all scripts 
+# ---------------------------------
+
+#  -l LOGLEVEL, --loglevel=LOGLEVEL
+#                        set loglevel level (1=most, 21=least); default: [20]
+#loglevel=1 
+
+# explicit list auids or use auidprefix option 
+#auidlist = edu|vt|plugin|PapersOfHarris&base_url~http%3A%2F%2Fspec%2Elib%2Evt%2Eedu%2Fmss%2F
+#   edu|vt|plugin|PaulBarringer&base_url~http%3A%2F%2Fspec%2Elib%2Evt%2Eedu%2Farchives%2Fguide%2Fbarringer%2F
+
+# ------------------------------------------------------
+# all scripts that retrive information from LOCKSS caches
+# ------------------------------------------------------
+#  -S HOST[:PORT], --server=HOST[:PORT]
+#                        LOCKSS cache, nickname or dnsname, with optional port,
+#                        may give multiple
+#serverlist = vt-fe
+#	bc-ibm 
+
+#  -u USERNAME, --username=USERNAME
+#                        LOCKSS server username
+#username=USER
+
+#  -p PASSWORD, --password=PASSWORD
+#                        LOCKSS server password
+#password=PWD
+
+#  -s SLEEP, --sleep=SLEEP
+#                        sleep time (seconds) between LOCKSS UI requests;
+#                        default: [10]
+#sleep = 1
+
+#  -t TIMEOUT, --timeout=TIMEOUT
+#                        Timeout (seconds) before giving up on LOCKSS UI
+#                        connections; default: [30]
+#timeout = 3 
+
+#  -T TRIALS, --trials=TRIALS
+#                        how often to retry LOCKSS UI connections; default: [3]
+#trials = 1 
+
+# ---------------------------------
+# used in cachestatus script 
+# ---------------------------------
+#  -a ACTION, --action=ACTION
+#                        which action to take on archival units; available
+#                        ['getausummary', 'getcrawlstatus', 'geturllist',
+#                        'getauidlist', 'getreposspace', 'getcommpeers',
+#                        'printausummary', 'printcrawlstatus', 'printurllist',
+#                        'printauidlist', 'printreposspace', 'printcommpeers']
+#actionlist = getausummary printausummary
+
+#  -x EXPIRE, --expire=EXPIRE
+#                        number of hours after which to expire status data
+#                        about content from LOCKSS caches; default: [168]
+#expire = 24 
+
+#  --ausummarysort=AUSUMMARYSORT
+#                        sort field for printausummary; default: [contentSize];
+#                        available agreement,auId,availableFromPublisher,baseUr
+#                        l,cache,contentSize,diskUsageMB,extraParams,plugin,rep
+#                        ortDate,repository,status
+#ausummarysort = reportDate
+
+#  --ausummaryheaders=AUSUMMARYHEADERS
+#                        headers for printausummary; default: [reportDate,conte
+#                        ntSize,diskUsageMB,extraParams,plugin,baseUrl,cache,au
+#                        Id]; available headers: agreement,auId,availableFromPu
+#                        blisher,baseUrl,cache,contentSize,diskUsageMB,extraPar
+#                        ams,plugin,reportDate,repository,status
+#ausummaryheaders = reportDate,contentSize,extraParams,plugin,cache
+
+#  --urlsort=URLSORT     sort field for printurllist; default: [name];
+#                        available auid,cache,childCount,maxversion,minversion,
+#                        name,replication,size,treeSize,version
+#urlsort=replication 
+
+#  --urlheaders=URLHEADERS
+#                        headers for printurllist; default:
+#                        [size,version,name]; available headers: auid,cache,chi
+#                        ldCount,maxversion,minversion,name,replication,size,tr
+#                        eeSize,version
+#urlheaders=version,name
+
+#  --urlminversion=URLMINVERSION
+#                        include only urls with a version at least minversion
+#                        when doing printurllist; default: [1]
+#urlminversion=2 
+
+#  --ncrawllimit=NCRAWLLIMIT
+#                        number of printed crawl status per archival units in
+#                        printcrawlstatus; default]
+#ncrawllimit = 1
+
+#  --crawlsort=CRAWLSORT
+#                        sort field for printcrawlstatus; default:
+#                        [nErrorUrls]; available auId,baseUrl,cache,duration,ex
+#                        traParams,nBytesFetched,nErrorUrls,nExcludedUrls,nFetc
+#                        hedUrls,nMimeTypes,nNotModifiedUrls,nParsedUrls,nPendi
+#                        ngUrls,plugin,reportDate,startTime,status,type
+#crawlsort=reportDate 
+
+#  --crawlheaders=CRAWLHEADERS
+#                        headers for printcrawlstatus; default: [reportDate,sta
+#                        rtTime,cache,status,nBytesFetched,nMimeTypes,nErrorUrl
+#                        s,nFetchedUrls,nNotModifiedUrls,nPendingUrls,plugin,ba
+#                        seUrl,extraParams]; available headers: auId,baseUrl,ca
+#                        che,duration,extraParams,nBytesFetched,nErrorUrls,nExc
+#                        ludedUrls,nFetchedUrls,nMimeTypes,nNotModifiedUrls,nPa
+#                        rsedUrls,nPendingUrls,plugin,reportDate,startTime,stat
+#                        us,type
+#crawlheaders=reportDate,nErrorUrls,plugin,extraParams,baseUrl
+
+# ---------------------------------
+# used in crawlwatcher script 
+# ---------------------------------
+#  --pause=PAUSE         pause time in seconds between retrying active crawls
+# pause = 1
+
+
+# ---------------------------------
+# used in lksreport_urlprofile script 
+# ---------------------------------
+#  --urlminversion=URLMINVERSION
+# urlminversion=2
+#urlminversion
