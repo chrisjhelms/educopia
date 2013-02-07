@@ -77,7 +77,7 @@ When retrieving data, users must specify at least one LOCKSS cache to retrieve d
 
 {{{get}}}-actions need to contact LOCKSS caches. Thus users must include  LOCKSS daemon credentials via the user and password parameters. {{{cachestatus}}} retrieves new status data from LOCKSS caches only if its database does not contain ausummary, urllist, or crawlstatus information, that was retrieved within {{{x}}} hours, where {{{x}}} is defined by the {{{expire}}} parameter. {{{expire}}} defaults to 168 hours. Setting it to {{{0}}} forces data retrieval from LOCKSS caches.
 
-Here now  few data retrieval examples: 
+Here a  few data retrieval examples: 
 <dl> 
 <dt>  {{{ lkscachestatus -a getauidlist -u user -p pwd -S aub-dell  }}} </dt> 
 <dd>
