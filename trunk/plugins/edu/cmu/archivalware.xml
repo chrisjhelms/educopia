@@ -1,11 +1,7 @@
 <map>
   <entry>
-    <string>plugin_version</string>
-    <string>1</string>
-  </entry>
-  <entry>
-    <string>au_crawl_depth</string>
-    <int>3</int>
+    <string>au_manifest</string>
+    <string>&quot;%s/awweb/metaarchive?verb=GetManifest&quot;, base_url</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -31,28 +27,32 @@
     </list>
   </entry>
   <entry>
+    <string>plugin_version</string>
+    <string>4</string>
+  </entry>
+  <entry>
     <string>au_name</string>
     <string>&quot;CMU ArchivalWare (auid=%s)&quot;, auid</string>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/metaarchive?verb=GetManifest&quot;, base_url</string>
+    <string>&quot;%s/awweb/metaarchive?verb=GetManifest&quot;, base_url</string>
   </entry>
   <entry>
-    <string>au_manifest</string>
-    <string>&quot;%s/metaarchive?verb=GetManifest&quot;, base_url</string>
-  </entry>
-  <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
+    <string>au_crawl_depth</string>
+    <int>3</int>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>1209600000</long>
   </entry>
   <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
     <string>plugin_name</string>
-    <string>CMU ArchivalWare </string>
+    <string>CMU Archival Ware </string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -62,11 +62,11 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;verb=GetAllRecords.*auid=%s&quot;, auid</string>
+      <string>1,&quot;verb=.*Records.*auid=%s&quot;, auid</string>
+      <string>1,&quot;verb=ListRecords&quot;</string>
       <string>1,&quot;verb=GetRecord&quot;</string>
       <string>1,&quot;.*.pdf$&quot;</string>
       <string>1,&quot;.*.tif$&quot;</string>
     </list>
   </entry>
 </map>
-

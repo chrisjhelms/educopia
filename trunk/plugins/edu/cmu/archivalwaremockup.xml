@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>13</string>
+    <string>14</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -61,7 +61,7 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>CMU ArchivalWare </string>
+    <string>CMU ArchivalWare Mockup </string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
