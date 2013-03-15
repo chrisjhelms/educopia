@@ -63,7 +63,6 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;verb=.*Records.*auid=%s&quot;, auid</string>
-      <string>1,&quot;verb=ListRecords&quot;</string>
       <string>1,&quot;verb=GetRecord&quot;</string>
       <string>1,&quot;.*.pdf$&quot;</string>
       <string>1,&quot;.*.tif$&quot;</string>
