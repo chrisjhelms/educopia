@@ -1,0 +1,43 @@
+The LOCKSS daemon UI shows this plugin under the name: 
+    CMU Archival Ware
+see: au_name def in archivalware.xml
+
+The plugin has two parameters: 
+        base_url      Usually of the form http://&lt;journal-name&gt;.com/
+        auid	      Achival Ware auid : string 
+see:  plugin_config_props def in archivalware.xml
+
+Crawls start at 
+    <BASE_URL>/awweb/metaarchive?verb=GetManifest
+see: au_start_url def in archivalware.xml
+
+LOCKSS Crawlers expect a permission statement at 
+    <BASE_URL>/awweb/metaarchive?verb=GetManifest
+see: au_manifest def in archivalware.xml
+
+Crawls follow links to crawl_depth: 3 
+see: au_crawl_depth def in archivalware.xml
+
+LOCKSS daemons space crawls (on average): 
+    1209600000 millisecs apart -->   14 days 
+au_def_new_content_crawl def in archivalware.xml
+
+Crawlers pause  6000 millisces between get requests 
+see: au_def_pause_time def in archivalware.xml
+
+
+Rules used by crawlwers to determin inclusion.exclusion of URLs 
+Rules are case sensitive 
+^, $, .* have the usual interpretations 
+
+ACTION         : PATTERN 
+----------------------------------------------------
+EXCLUDE IF NOT : ^<BASE_URL>
+INCLUDE        : .*Records.*auid=<AUID> 
+INCLUDE        : verb=GetRecords
+INCLUDE        : .*.pdf$
+INCLUDE        : .*.tif$
+
+see: au_crawlrules def in archivalware.xml
+
+
