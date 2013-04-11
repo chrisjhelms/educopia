@@ -14,9 +14,8 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>format</key>
         <displayName>Format</displayName>
-        <description>Format to exclude, included as a variable for testing purposes</description>
-        <type>3</type>
-        <size>40</size>
+        <type>1</type>
+        <size>20</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
@@ -24,7 +23,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>3</string>
+    <string>4</string>
   </entry>
   <entry>
     <string>au_name</string>
