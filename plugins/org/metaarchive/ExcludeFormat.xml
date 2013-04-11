@@ -14,6 +14,7 @@
       <org.lockss.daemon.ConfigParamDescr>
         <key>format</key>
         <displayName>Format</displayName>
+        <description>Format extension chosen for exclusion</description>
         <type>1</type>
         <size>20</size>
         <definitional>true</definitional>
@@ -55,7 +56,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.metaarchive.AllFromStart</string>
+    <string>org.metaarchive.ExcludeFormat</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
