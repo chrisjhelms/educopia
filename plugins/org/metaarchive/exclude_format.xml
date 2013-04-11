@@ -11,15 +11,24 @@
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>format</key>
+        <displayName>Base URL</displayName>
+        <description>Format to exclude, included as a variable for testing purposes</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
     </list>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;All reachable from BaseUrl except .TIF&quot;</string>
+    <string>&quot;All reachable from BaseUrl except .%s&quot;, format</string>
   </entry>
   <entry>
     <string>au_start_url</string>
@@ -55,7 +64,7 @@
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/manifestIndex.html&quot;, base_url</string>
       <string>1,&quot;^%s/&quot;, base_url</string>
-      <string>2,&quot;\.tif$&quot;</string>
+      <string>2,&quot;\.%s$&quot;, format</string>
     </list>
   </entry>
 </map>
