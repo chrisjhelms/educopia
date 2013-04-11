@@ -13,7 +13,7 @@
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>format</key>
-        <displayName>Base URL</displayName>
+        <displayName>Format</displayName>
         <description>Format to exclude, included as a variable for testing purposes</description>
         <type>3</type>
         <size>40</size>
@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_name</string>
