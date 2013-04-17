@@ -56,15 +56,16 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.metaarchive.AllFromStart</string>
+    <string>org.metaarchive.ExcludeFormats</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/manifestIndex.html&quot;, base_url</string>
-      <string>2,&quot;^\.%s$&quot;, format</string>
-      <string>1,&quot;%s/&quot;, base_url</string>
+      <string>2,&quot;\.%s$&quot;, format</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;%s&quot;, base_url</string>
     </list>
   </entry>
 </map>
