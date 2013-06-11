@@ -20,7 +20,7 @@ This code is installed under the metaarchive user's home. In the AMI it is place
 
 For your convenience the AMI comes with several example databases. The comand 
       echo "show databases;" | mysql -u metaarchive -p
-lists the available databases. Set the database fields in the included ruby/config/database.yml to the prefediuned dataase you wish to use, or create your own with the configuration script below.
+lists the available databases. Set the database fields in the included ruby/config/database.yml to the prefdefined dataase you wish to use, or create your own with the configuration script below.
 
 You may want to setup a few cronjobs for this user once the conspectus is fully installed and filled with data describing your preserved collections.
 
