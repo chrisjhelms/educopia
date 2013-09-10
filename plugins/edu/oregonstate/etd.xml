@@ -7,7 +7,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>8</string>
+    <string>9</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -41,7 +41,7 @@
     <map>
      <entry>
       <string>au_crawl_depth</string>
-      <int>1</int>
+      <int>2</int>
      </entry>
     </map>
   </entry>
