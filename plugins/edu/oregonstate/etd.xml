@@ -22,8 +22,8 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>hdl_id</key>
-        <displayName>hdl_id</displayName>
+        <key>com_id</key>
+        <displayName>com_id</displayName>
         <description>Handle ID</description>
         <type>1</type>
         <size>40</size>
@@ -34,7 +34,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;OSU DSpace  %s&quot;, hdl_id</string>
+    <string>&quot;OSU DSpace  %s&quot;, com_id</string>
   </entry>
   <entry>
     <string>tal_override</string>
@@ -69,7 +69,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
-      <string>1,&quot;set=hdl_1957_%s&quot;, hdl_id</string>
+      <string>1,&quot;set=com_1957_%s&quot;, com_id</string>
       <string>1,&quot;verb=ListRecords&quot;</string>
       <string>1,&quot;handle/.*mode=full&quot;</string>
       <string>1,&quot;^%s/xmlui/bitstream/*&quot;, base_url</string>
