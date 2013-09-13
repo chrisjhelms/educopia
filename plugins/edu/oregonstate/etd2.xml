@@ -1,0 +1,82 @@
+<map>
+  <entry>
+    <string>au_manifest</string>
+    <list>
+      <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>10</string>
+  </entry>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>com_id</key>
+        <displayName>com_id</displayName>
+        <description>Handle ID</description>
+        <type>1</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;OSU DSpace  %s&quot;, com_id</string>
+  </entry>
+  <entry>
+    <string>tal_override</string>
+    <map>
+     <entry>
+      <string>au_crawl_depth</string>
+      <int>2</int>
+     </entry>
+    </map>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>2592000000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>OSU DSpace</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.oregonstate.etd</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>1,&quot;^%s/MACmanifest/manifestOSU.html&quot;, base_url</string>
+      <string>1,&quot;set=com_1957_%s&quot;, com_id</string>
+      <string>1,&quot;verb=ListRecords&quot;</string>
+      <string>1,&quot;handle/.*mode=full&quot;</string>
+      <string>1,&quot;^%s/xmlui/bitstream/*&quot;, base_url</string>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_crawl_type</string>
+    <string>HTML Links</string>
+  </entry>
+</map>
