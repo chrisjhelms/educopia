@@ -15,19 +15,19 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>3</string>
+    <string>1</string>
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;Biblio Tech&quot;</string>
+    <string>&quot;Newfound Press&quot;</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
-    <int>4</int>
+    <int>99</int>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%slockss/manifest.html&quot;, base_url</string>
+    <string>&quot;%smanifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -39,17 +39,17 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>BiblioTech</string>
+    <string>NewFoundPress</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.vt.plugin.BiblioTech</string>
+    <string>edu.utk.NewFoundPress</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%slockss/manifest.html&quot;, base_url</string>
+      <string>1,&quot;%smanifest.html&quot;, base_url</string>
       <string>1,&quot;%s.*\.html&quot;, base_url</string>
       <string>1,&quot;%s.*\.gif&quot;, base_url</string>
     </list>
