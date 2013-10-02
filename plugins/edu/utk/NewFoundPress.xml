@@ -50,8 +50,11 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%s/manifest.html&quot;, base_url</string>
-      <string>1,&quot;%s.*\.html&quot;, base_url</string>
-      <string>1,&quot;%s.*\.gif&quot;, base_url</string>
+      <string>2,&quot;\.php&quot;</string>
+      <string>2,&quot;%s.*\.html&quot;, base_url</string>
+      <string>2,&quot;%s.*\.gif&quot;, base_url</string>
+      <string>2,&quot;%s/stats&quot;, base_url</string>
+      <string>2,&quot;%s/veve1&quot;, base_url</string>
     </list>
   </entry>
 </map>
