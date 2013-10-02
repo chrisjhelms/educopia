@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -27,7 +27,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/manifest.html&quot;, base_url</string>
+    <string>&quot;%smanifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
@@ -49,12 +49,12 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/manifest.html&quot;, base_url</string>
+      <string>1,&quot;%smanifest.html&quot;, base_url</string>
       <string>2,&quot;\.php&quot;</string>
       <string>2,&quot;%s.*\.html&quot;, base_url</string>
       <string>2,&quot;%s.*\.gif&quot;, base_url</string>
-      <string>2,&quot;%s/stats&quot;, base_url</string>
-      <string>2,&quot;%s/veve1&quot;, base_url</string>
+      <string>2,&quot;%sstats&quot;, base_url</string>
+      <string>2,&quot;%sveve1&quot;, base_url</string>
     </list>
   </entry>
 </map>
