@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>5</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -50,7 +50,6 @@
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
       <string>1,&quot;%smanifest.html&quot;, base_url</string>
-      <string>2,&quot;\.php&quot;</string>
     </list>
   </entry>
 </map>
