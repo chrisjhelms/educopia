@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -56,8 +56,8 @@
       <string>2,&quot;\.htm&quot;</string>
       <string>2,&quot;\.png&quot;</string>
       <string>2,&quot;\.gif&quot;</string>
-      <string>2,&quot;%sstats&quot;, base_url</string>
-      <string>2,&quot;%veve1&quot;, base_url</string>
+      <string>2,&quot;%sstats&quot;</string>
+      <string>2,&quot;%veve1&quot;</string>
     </list>
   </entry>
 </map>
