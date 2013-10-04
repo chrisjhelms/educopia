@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>3</string>
+    <string>4</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -43,7 +43,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.utk.NewFoundPress</string>
+    <string>edu.utk.NewFoundPress2</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
