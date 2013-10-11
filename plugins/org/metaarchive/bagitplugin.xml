@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>5</string>
+    <string>1</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -63,7 +63,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.metaarchive.AllFromStart</string>
+    <string>org.metaarchive.bagitplugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
