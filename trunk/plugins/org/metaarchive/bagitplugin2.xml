@@ -55,7 +55,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.metaarchive.AllFromStart</string>
+    <string>org.metaarchive.bagitplugin2</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
