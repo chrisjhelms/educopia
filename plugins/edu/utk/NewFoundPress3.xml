@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -53,12 +53,8 @@
       <string>1,&quot;^%s/?&quot;, base_url</string>
       <string>1,&quot;^%s$&quot;, base_url</string>
       <string>1,&quot;^%s/&quot;, base_url</string>
-      <string>2,&quot;^%s*\.php&quot;, base_url</string>
-      <string>2,&quot;^%s*\.htm&quot;, base_url</string>
-      <string>2,&quot;^%s*\.png&quot;, base_url</string>
-      <string>2,&quot;^%s*\.gif&quot;, base_url</string>
-      <string>2,&quot;^%s/stats&quot;, base_url</string>
-      <string>2,&quot;^%s/veve1&quot;, base_url</string>
+      <string>2,&quot;\.(php|html|htm|jpg|jpeg|png|gif)$&quot;</string>
+      <string>2,&quot;^%s(stats|veve1)\b&quot;, base_url</string>
     </list>
   </entry>
 </map>
