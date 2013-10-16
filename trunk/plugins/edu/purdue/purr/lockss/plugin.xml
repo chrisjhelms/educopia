@@ -1,0 +1,71 @@
+<map>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>doi</key>
+        <displayName>DOI</displayName>
+        <description>DOI, transformed to become a legal XML ID or
+file name, like &apos;10.5072__FK298700&apos;.</description>
+        <type>1</type>
+        <size>100</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;%s&quot;, doi</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/lockss-manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>1</int>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>86400000</long>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>edu.purdue.purr is a specialized version of HarvestAllFilesInSubdirectory, where the &apos;volume_name&apos; parameter has been replaced by the &apos;doi&apos; parameter.
+
+Note that the DOI value has been transformed to a valid XML ID and Linux file name by stripping the initial &apos;doi:&apos; and substituting double-underline (&apos;__&apos;) for the filename-XML-ID-illegal slash character (&apos;/&apos;). As an example, &apos;doi:10.5072/FK298700&apos; would become &apos;10.5072__FK298700&apos; under these rules. The DOI value identifies a BagIt-formatted subdirectory where all of the files for the AU are kept.
+
+Please note that &apos;base_url&apos; is used instead of a fixed URL everywhere a URL is required in this plugin for flexibility&apos;s sake. The Crawl Rules are set up to include only the main LOCKSS manifest page and the files inside of the AU directory (the directory named by the &apos;doi&apos; parameter).</string>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Purdue University Research Repository Plugin</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.purdue.purr.lockss.plugin</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;%s/lockss-manifest.html&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;^%s/%s/&quot;, base_url, doi</string>
+    </list>
+  </entry>
+</map>
