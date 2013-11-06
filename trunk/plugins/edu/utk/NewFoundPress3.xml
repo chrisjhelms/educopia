@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>5</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -49,7 +49,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>2,&quot;\.(php|html|htm|jpg|jpeg|png|gif)$&quot;</string>
+      <string>2,&quot;\.php$&quot;</string>
       <string>2,&quot;^%s(stats|veve1)\b&quot;, base_url</string>
       <string>1,&quot;.*&quot;</string>
     </list>
