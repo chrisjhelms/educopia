@@ -23,7 +23,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>1</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -35,7 +35,7 @@
   </entry>
  <entry>
     <string>au_manifest</string>
-    <string>1,&quot;%s/chicagostatemanifest.html&quot;, base_url</string>
+    <string>1,&quot;%s/illinoisstatemanifest.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -55,13 +55,13 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.metaarchive.dpahaykal</string>
+    <string>org.metaarchive.dppprudhomme</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/chicagostatemanifest.html&quot;, base_url</string>
+      <string>1,&quot;%s/illinoisstatemanifest.html&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
       <string>1,&quot;^%s/%s$&quot;, base_url, start</string>
       <string>1,&quot;^%s/%s/&quot;, base_url, start</string>
