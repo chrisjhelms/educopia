@@ -15,7 +15,7 @@ LOCKSS Crawlers expect a permission statement at
     <BASE_URL>/awweb/metaarchive?verb=GetManifest
 see: au_manifest def in archivalware.xml
 
-Crawls follow links to crawl_depth: 3 
+Crawls follow links to crawl_depth: 4 
 see: au_crawl_depth def in archivalware.xml
 
 LOCKSS daemons space crawls (on average): 
