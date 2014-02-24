@@ -37,6 +37,9 @@ INCLUDE        : .*Records.*auid=<AUID>
 INCLUDE        : verb=GetRecords
 INCLUDE        : .*.pdf$
 INCLUDE        : .*.tif$
+INCLUDE        : .*.mp3$
+INCLUDE        : .*.mp4$
+INCLUDE        : .*.avi$
 
 see: au_crawlrules def in archivalware.xml
 
