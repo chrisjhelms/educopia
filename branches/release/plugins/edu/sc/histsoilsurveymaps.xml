@@ -15,11 +15,11 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;NewSouthNewspaper (%s)&quot;, base_url</string>
+    <string>&quot;HistSoilSurveyMapsofSC (%s)&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>&quot;%s/manifest-newsouth.html&quot;, base_url</string>
+    <string>&quot;%s/manifest-hssm.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
@@ -31,15 +31,15 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>New South Newspaper, 1862-1866</string>
+    <string>Historical Soil Survey Maps of SC</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.sc.newsouthnewspaper</string>
+    <string>edu.sc.histsoilsurveymaps</string>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>3</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -49,7 +49,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/manifest-newsouth.html&quot;, base_url</string>
+      <string>1,&quot;%s/manifest-hssm.html&quot;, base_url</string>
       <string>2,&quot;/\?[^/]*$&quot;</string>
       <string>1,&quot;^%s/.&quot;, base_url</string>
     </list>
