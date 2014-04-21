@@ -49,6 +49,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;%s&quot;, base_url</string>
+      <string>2,&quot;/\?[^/]*$&quot;</string>
       <string>1,&quot;%smanifest.html&quot;, base_url</string>
       <string>1,&quot;%s&quot;, base_url</string>
     </list>
