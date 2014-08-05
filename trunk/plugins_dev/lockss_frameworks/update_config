@@ -1,0 +1,3 @@
+./metaarchive_gen_plugins  > metaarchive_plugins.xml 
+./metaarchive_gen_aus  > metaarchive_aus.xml 
+./jarplugins 

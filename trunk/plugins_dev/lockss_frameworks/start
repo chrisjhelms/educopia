@@ -1,0 +1,3 @@
+( cd test/frameworks/run_one_daemon
+  ./start -libdir ../../../lib -cp ../../../metaarchive_plugins.jar -titlepat ../../../metaarchive_aus.xml -props ../../../metaarchive_plugins.xml $@
+)
