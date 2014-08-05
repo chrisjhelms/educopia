@@ -23,7 +23,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>au_name</string>
@@ -35,7 +35,7 @@
   </entry>
  <entry>
     <string>au_manifest</string>
-    <string>1,&quot;%s/permission.html&quot;, base_url</string>
+    <string>1,&quot;%spermission.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -61,7 +61,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/permission.html&quot;, base_url</string>
+      <string>1,&quot;%spermission.html&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
       <string>1,&quot;^%s/%s$&quot;, base_url, start</string>
       <string>1,&quot;^%s/%s/&quot;, base_url, start</string>
