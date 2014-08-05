@@ -4,8 +4,20 @@
     <string>1,&quot;%s/permission.html&quot;, base_url</string>
   </entry>
   <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>start</key>
+        <displayName>Start</displayName>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
         <key>base_url</key>
         <displayName>Base URL</displayName>
@@ -15,23 +27,11 @@
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>start</key>
-        <displayName>Start</displayName>
-        <type>1</type>
-        <size>20</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>1</string>
-  </entry>
-  <entry>
     <string>au_name</string>
-    <string>&quot;Mark Geyer papers&quot;</string>
+    <string>&quot;%s&quot;, start</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
@@ -51,11 +51,11 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>ASCMarkGeyer</string>
+    <string>bagitplugin</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>edu.purdue.plugin.ASCMarkGeyer</string>
+    <string>edu.purdue.bagitplugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
