@@ -40,14 +40,10 @@ To run the daemon:
 You can also start the daemon without the predefined titles from metaarchive_aus.xml 
   ./start -notitle 
 
-./clean removes all files written by the LOCKSS daemon (log files, cache content, ...) with the current exception of 
-test/frameworks/run_one_daemon/derby.log
-test/frameworks/run_one_daemon/export
-This file and directory should be manually deleted after running the ./clean script
-
+./clean removes all files written by the LOCKSS daemon (log files, cache content, ...)
 ./check checks whether the xml config files are proper xml 
-        and normally prints whether the daemon is running (as indicated by the dpid file) 
-        - the script is in need of updates to accurately report whether the daemon is running
+        and prints whether the daemon is running (as indicated by the dpid file) 
+       
 
 To add a new/changed plugins to the LOCKSS daemon's configuration 
 and/or to update the daemons archival units list on the basis of conspectus data
