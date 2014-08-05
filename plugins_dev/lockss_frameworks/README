@@ -1,5 +1,3 @@
-if you are a plugin developer please use run_one_daemon from /branches/release
-
 run_one_daemon runs a standalone development daemon.  Useful for testing
 basic daemon behavior through the UI, and crawling behavior of plugins
 (crawl rules, URL normalizers, etc.).
@@ -29,7 +27,7 @@ ArchivalUnit definitions are retrieved from the MetaArchive
    * conspectoy  (http://metaarchive.org/conspectoy
     * all archival units in test status from the DOC archive 
 
-The daemon uses the user name and password defined in ./lockss.opt
+The daemon uses the user name and password combination lockss-u/lockss-p
 
 --------------------------------------------------------------------------------
 USAGE: 
