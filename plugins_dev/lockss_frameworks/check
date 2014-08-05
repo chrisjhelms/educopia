@@ -6,7 +6,7 @@ foreach xml (metaarchive_aus.xml  metaarchive_plugins.xml)
       echo  "update your configuratiobs ! "
    endif 
 end 
-if (-e dpid) then 
+if (-e test/frameworks/run_one_daemon/dpid) then 
   echo "LOCKSS daemon is running" 
 else 
   echo "LOCKSS daemon is NOT running" 
