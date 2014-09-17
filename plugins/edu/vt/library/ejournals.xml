@@ -1,0 +1,70 @@
+<map>
+  <entry>
+    <string>plugin_config_props</string>
+    <list>
+      <org.lockss.daemon.ConfigParamDescr>
+        <key>base_url</key>
+        <displayName>Base URL</displayName>
+        <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
+        <type>3</type>
+        <size>40</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+    </list>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>1</string>
+  </entry>
+  <entry>
+    <string>au_name</string>
+    <string>&quot;All Files for Active eJournals at Virginia Tech&quot;</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;%s/lockss/manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>au_crawl_depth</string>
+    <int>6</int>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
+  </entry>
+  <entry>
+    <string>au_def_new_content_crawl</string>
+    <long>31536000000</long>
+  </entry>
+  <entry>
+    <string>plugin_name</string>
+    <string>Generic Collection Plugin for Active E-Journals</string>
+  </entry>
+  <entry>
+    <string>plugin_notes</string>
+    <string>This plugin will harvest all files in a subdirectory of a given base URL, as defined by the journal names in the rules.  The Base URL is expected to not contain a trailing slash [/].  The manifest page must be located at /lockss/manifest.html of the base directory.  Useful for small, static collections with no defined structure that would not lend them to be divided into AU&apos;s because of size.  Please test this plugin with your collection before deploying, and if it is not functioning properly, write a new plugin.</string>
+  </entry>
+  <entry>
+    <string>plugin_identifier</string>
+    <string>edu.vt.library.ejournals</string>
+  </entry>
+  <entry>
+    <string>au_crawlrules</string>
+    <list>
+      <string>1,&quot;^%s/lockss/manifest\.html$&quot;, base_url</string>
+      <string>1,&quot;^%s/index\.html$&quot;, base_url</string>
+      <string>2,&quot;/\?&quot;</string>
+      <string>1,&quot;^%s/ALAN&quot;, base_url</string>
+      <string>1,&quot;^%s/CTER&quot;, base_url</string>
+      <string>1,&quot;^%s/ElAnt&quot;, base_url</string>
+      <string>1,&quot;^%s/ICC&quot;, base_url</string>
+      <string>1,&quot;^%s/JCTE&quot;, base_url</string>
+      <string>1,&quot;^%s/JITE&quot;, base_url</string>
+      <string>1,&quot;^%s/JSTE&quot;, base_url</string>
+      <string>1,&quot;^%s/JTE&quot;, base_url</string>
+      <string>1,&quot;^%s/JOTS&quot;, base_url</string>
+      <string>5,&quot;^%s/WILLA&quot;, base_url</string>
+    </list>
+  </entry>
+</map>
