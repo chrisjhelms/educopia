@@ -1,7 +1,11 @@
 <map>
   <entry>
     <string>au_manifest</string>
-    <string>1,&quot;%s/permission.html&quot;, base_url</string>
+    <string>1,&quot;%s/lockss-manifest.html&quot;, base_url</string>
+  </entry>
+  <entry>
+    <string>plugin_version</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -26,28 +30,24 @@
     </list>
   </entry>
   <entry>
-    <string>plugin_version</string>
-    <string>1</string>
-  </entry>
-  <entry>
     <string>au_name</string>
     <string>&quot;%s&quot;, start</string>
-  </entry>
-  <entry>
-    <string>au_crawl_depth</string>
-    <int>999</int>
   </entry>
   <entry>
     <string>au_start_url</string>
     <string>&quot;%s/%s&quot;, base_url, start</string>
   </entry>
   <entry>
-    <string>au_def_pause_time</string>
-    <long>6000</long>
+    <string>au_crawl_depth</string>
+    <int>999</int>
   </entry>
   <entry>
     <string>au_def_new_content_crawl</string>
     <long>7257600000</long>
+  </entry>
+  <entry>
+    <string>au_def_pause_time</string>
+    <long>6000</long>
   </entry>
   <entry>
     <string>plugin_name</string>
