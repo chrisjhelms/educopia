@@ -8,16 +8,17 @@ SETUP, USAGE, TOURBLE SHOOTING
 --------------------------------------------------------------------------------
 SETUP: 
 --------------------------------------------------------------------------------
-If you want to use run_one_daemon 
-  to work on a new, test, or released plugins please check them out from the 
-  respective subversion branch which are documented on the metawiki at 
-  http://code.google.com/p/metaarchive/wiki/SVNLayout
-  run the command: 
-           svn co SVN-URL-FOR-PLUGIN-XML  plugins 
-  Refer to the checkout Instructions under te Source tab to learn about
-  checkout details: http://code.google.com/p/metaarchive/source/checkout
+If you want to use run_one_daemon to work on a test plugin please check out a fresh version of the read-only subversion branch.
 
-After setting up the plugins directory update the configuration 
+  run the command: 
+           svn checkout http://educopia.googlecode.com/svn/trunk/ educopia-read-only
+
+cd to educopia-read-only/trunk/plugins_dev/lockss_frameworks
+
+  run the command: 
+           svn checkout http://educopia.googlecode.com/svn/trunk/plugins plugins
+
+After setting up the plugins directory within /lockss_frameworks proceed to  update the configuration 
   ./update_config  
          # creates metaarchive_plugins.xml, metaarchive_aus.xml, metaarchive_plugins.jar
 
@@ -58,7 +59,7 @@ To add a predefined archival unit:
   direct your browser to  http://localhost:8081
   choose 'Journal Configuration | Manual Add/Edit ' 
   push 'Add' button 
-  select AU from 'Choose a title' drop down list 
+  select AU from 'Choose a title' drop down list
   push 'Continue' 
   push 'Create' 
 
