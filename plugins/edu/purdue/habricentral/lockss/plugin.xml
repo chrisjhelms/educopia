@@ -1,10 +1,14 @@
 <map>
   <entry>
+    <string>plugin_version</string>
+    <string>0.8</string>
+  </entry>
+  <entry>
     <string>plugin_config_props</string>
     <list>
       <org.lockss.daemon.ConfigParamDescr>
         <key>set_type</key>
-        <displayName>Set Type</displayName>
+        <displayName>Resource Type</displayName>
         <description></description>
         <type>1</type>
         <size>16</size>
@@ -16,15 +20,6 @@
         <displayName>Base URL</displayName>
         <description>Usually of the form http://&lt;journal-name&gt;.com/</description>
         <type>3</type>
-        <size>40</size>
-        <definitional>true</definitional>
-        <defaultOnly>false</defaultOnly>
-      </org.lockss.daemon.ConfigParamDescr>
-      <org.lockss.daemon.ConfigParamDescr>
-        <key>oai_request_url</key>
-        <displayName>OAI Request URL</displayName>
-        <description></description>
-        <type>1</type>
         <size>40</size>
         <definitional>true</definitional>
         <defaultOnly>false</defaultOnly>
@@ -42,27 +37,27 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>&quot;HABRI Central (%s)&quot;, base_url</string>
+    <string>&quot;HABRI Central %s %d&quot;, set_type, year</string>
+  </entry>
+  <entry>
+    <string>au_start_url</string>
+    <string>&quot;https://habricentral.org/manifest/%s/%d&quot;, set_type, year</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
     <int>3</int>
   </entry>
   <entry>
-    <string>au_start_url</string>
-    <string>&quot;http://sandbox.subplex.com/lockss/&quot;</string>
+    <string>au_def_new_content_crawl</string>
+    <long>1209600000</long>
   </entry>
   <entry>
     <string>au_def_pause_time</string>
     <long>1000</long>
   </entry>
   <entry>
-    <string>au_def_new_content_crawl</string>
-    <long>1209600000</long>
-  </entry>
-  <entry>
     <string>plugin_name</string>
-    <string>HABRI Central</string>
+    <string>HABRI Central (HTML Links)</string>
   </entry>
   <entry>
     <string>plugin_identifier</string>
@@ -71,12 +66,15 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>1,&quot;^(http|https)://sandbox.subplex.com/lockss.*&quot;</string>
+      <string>2,&quot;^(http|https)://habricentral.org/resources/browse/\d*.*&quot;</string>
+      <string>2,&quot;^(http|https)://habricentral.org/resources/new&quot;</string>
+      <string>1,&quot;%s&quot;, base_url</string>
+      <string>1,&quot;^(http|https)://habricentral.org/manifest/%s/%d&quot;, set_type, year</string>
       <string>1,&quot;^(http|https)://habricentral.org/resources/\d*.*&quot;</string>
     </list>
   </entry>
   <entry>
     <string>plugin_crawl_type</string>
-    <string>OAI</string>
+    <string>HTML Links</string>
   </entry>
 </map>
