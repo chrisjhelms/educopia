@@ -5,7 +5,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.calp.DigitalCommonsYearRangePlugin</string>
+    <string>edu.calp.DigitalCommonsYearRangePlugin</string>
   </entry>
   <entry>
     <string>plugin_name</string>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>1</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_feature_version_map</string>
@@ -41,6 +41,15 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
+        <key>collection_type</key>
+        <displayName>Collection Type</displayName>
+        <description>Collection type (one of: ir_series, ir_etd, ir_book, ir_gallery)</description>
+        <type>1</type>
+        <size>20</size>
+        <definitional>true</definitional>
+        <defaultOnly>false</defaultOnly>
+      </org.lockss.daemon.ConfigParamDescr>
+      <org.lockss.daemon.ConfigParamDescr>
         <key>collection</key>
         <displayName>Collection</displayName>
         <description>Name of the collection</description>
@@ -50,7 +59,7 @@
         <defaultOnly>false</defaultOnly>
       </org.lockss.daemon.ConfigParamDescr>
       <org.lockss.daemon.ConfigParamDescr>
-        <key>year_range</key>
+        <key>collection_heading</key>
         <displayName>Year Range</displayName>
         <description>The years of a collection to be grouped in an AU</description>
         <type>8</type>
@@ -62,7 +71,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>"Digital Commons Plugin, Base URL %s, Collection %s, Collection Theme %s", base_url, collection, year_range</string>
+    <string>"Digital Commons Plugin, Base URL %s, Collection %s, Collection Theme %s", base_url, collection, collection_heading</string>
   </entry>
   <entry>
     <string>au_permission_checker_factory</string>
@@ -86,16 +95,21 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>"%s%s/lockss-theme-%d.html", base_url, collection, year_range</string>
+    <string>"%s%s/lockss-theme-%s-%s.html", base_url, collection, collection_type, collection</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
     <list>
       <string>1,"^https?://%s/.*\.(bmp|css|oet|gif|ico|jpe?g|js|png|svg|tif?f|ttf|woff)$", base_url_host</string>
       <string>4,"^%s", base_url</string>
-      <string>1,"^%s%s/%s$", base_url, collection, year_range</string>
-      <string>1,"^%s%s/%s/", base_url, collection, year_range</string>
+      <!-- http://repository.cmu.edu/statistics -->
+      <string>1,"^%s%s$", base_url, collection</string>
+      <!-- http://repository.cmu.edu/statistics/122/ -->
+      <string>1,"^%s%s/", base_url, collection</string>
+      <!-- http://repository.cmu.edu/cgi/viewcontent.cgi?article=1108&context=statistics -->
+      <!-- http://docs.lib.purdue.edu/context/ecetheses/article/1017/type/native/viewcontent -> http://docs.lib.purdue.edu/cgi/viewcontent.cgi?params=/context/ecetheses/article/1017/type/native/&path_info= -->
       <string>1,"^%scgi/viewcontent\.cgi\?.*(context=|/context/)%s", base_url, collection</string>
+      <!-- http://docs.lib.purdue.edu/ecetheses/10/ -> http://docs.lib.purdue.edu/context/ecetheses/article/1017/type/native/viewcontent -->
       <string>1,"^%scontext/%s/", base_url, collection</string>
     </list>
   </entry>
