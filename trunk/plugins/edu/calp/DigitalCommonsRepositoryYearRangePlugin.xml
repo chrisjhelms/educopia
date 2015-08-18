@@ -9,22 +9,26 @@
   </entry>
   <entry>
     <string>plugin_name</string>
-    <string>Digital Commons Plugin (Event Communities)</string>
+    <string>Digital Commons Plugin (Series, ETDs, Galleries, Book Series) Year Range</string>
   </entry>
   <entry>
     <string>plugin_version</string>
-    <string>2</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>plugin_feature_version_map</string>
     <map>
       <entry>
+        <string>Metadata</string>
+        <string>2</string>
+      </entry>
+      <entry>
         <string>Substance</string>
-        <string>1</string>
+        <string>3</string>
       </entry>
       <entry>
         <string>Poll</string>
-        <string>1</string>
+        <string>4</string>
       </entry>
     </map>
   </entry>
@@ -71,7 +75,7 @@
   </entry>
   <entry>
     <string>au_name</string>
-    <string>"Digital Commons Plugin, Base URL %s, Collection %s, Collection Theme %s", base_url, collection, collection_heading</string>
+    <string>"Digital Commons Plugin (Series, ETDs, Galleries, Book Series), Base URL %s, Collection Type %s, Collection %s, Collection Years %s", base_url, collection_type, collection, collection_heading</string>
   </entry>
   <entry>
     <string>au_permission_checker_factory</string>
@@ -95,7 +99,7 @@
   </entry>
   <entry>
     <string>au_start_url</string>
-    <string>"%s%s/lockss-theme-%s-%s.html", base_url, collection, collection_type, collection</string>
+    <string>"%s%s/lockss-%s-%s.html", base_url, collection, collection_type, collection</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
@@ -115,9 +119,31 @@
   </entry>
   <entry>
     <string>au_substance_url_pattern</string>
-    <list>
-      <string>"^%scgi/viewcontent\.cgi\?.*context=%s", base_url, collection</string>
-    </list>
+    <map>
+      <entry>
+        <string>tablesofcontents</string>
+        <list>
+          <string>"^%s%s/?$", base_url, collection</string>
+          <string>"^%s%s/index(\.[0-9]+)\.html$", base_url, collection</string>
+        </list>
+      </entry>
+      <entry>
+        <string>abstracts</string>
+        <list>
+          <string>"^%s%s/[0-9]+$", base_url, collection</string>
+        </list>
+      </entry>
+      <entry>
+        <string>*</string><!-- 'fulltext' and others -->
+        <list>
+          <!-- ir_series, ir_etd, ir_book -->
+          <string>"^%scgi/viewcontent\.cgi\?.*context=%s", base_url, collection</string>
+          <!-- ir_gallery -->
+          <string>"^%scontext/%s/article/[^/]+/type/native/viewcontent$", base_url, collection</string>
+          <string>"^%scgi/viewcontent\.cgi\?.*/context/%s", base_url, collection</string>
+        </list>
+      </entry>
+    </map>
   </entry>
   <entry>
     <string>text/html_filter_factory</string>
@@ -130,5 +156,18 @@
     <entry>
     <string>plugin_article_iterator_factory</string>
     <string>org.lockss.plugin.bepress.DigitalCommonsRepositoryArticleIteratorFactory</string>
+  </entry>
+  <entry>
+    <string>plugin_article_metadata_extractor_factory</string>
+    <string>org.lockss.plugin.bepress.DigitalCommonsRepositoryArticleIteratorFactory</string>
+  </entry>
+  <entry>
+  <string>application/pdf_metadata_extractor_factory_map</string>
+    <map>
+      <entry>
+        <string>*</string>
+        <string>org.lockss.plugin.bepress.DigitalCommonsRepositoryMetadataExtractorFactory</string>
+      </entry>
+    </map>
   </entry>
 </map>
