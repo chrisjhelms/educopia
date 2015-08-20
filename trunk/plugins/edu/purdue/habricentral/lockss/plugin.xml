@@ -66,11 +66,11 @@
   <entry>
     <string>au_crawlrules</string>
     <list>
-      <string>2,&quot;^(http|https)://habricentral.org/resources/browse/\d*.*&quot;</string>
-      <string>2,&quot;^(http|https)://habricentral.org/resources/new&quot;</string>
-      <string>1,&quot;%s&quot;, base_url</string>
-      <string>1,&quot;^(http|https)://habricentral.org/manifest/%s/%d&quot;, set_type, year</string>
-      <string>1,&quot;^(http|https)://habricentral.org/resources/\d*.*&quot;</string>
+      <string>4,&quot;^%s&quot;, base_url</string>
+      <string>1,&quot;^%s/manifest/%s/%d&quot;, base_url, set_type, year</string>
+      <string>1,&quot;^%s/resources/\d*.*&quot;, base_url</string>
+      <string>2,&quot;^%s/resources/(browse|new)&quot;, base_url</string>
+      <string>4,&quot;^%s/resources/&quot;, base_url</string>
     </list>
   </entry>
   <entry>
