@@ -40,8 +40,12 @@
     <string>&quot;HABRI Central %s %d&quot;, set_type, year</string>
   </entry>
   <entry>
+    <string>au_manifest</string>
+    <string>1,&quot;%s/manifest/permission.html&quot;, base_url</string>
+  </entry>
+  <entry>
     <string>au_start_url</string>
-    <string>&quot;https://habricentral.org/manifest/%s/%d&quot;, set_type, year</string>
+    <string>&quot;%s/manifest/%s/%d&quot;, base_url, set_type, year</string>
   </entry>
   <entry>
     <string>au_crawl_depth</string>
