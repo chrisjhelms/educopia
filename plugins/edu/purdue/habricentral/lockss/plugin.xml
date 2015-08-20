@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>4</string>
+    <string>3</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -38,10 +38,6 @@
   <entry>
     <string>au_name</string>
     <string>&quot;HABRI Central %s %d&quot;, set_type, year</string>
-  </entry>
-  <entry>
-    <string>au_manifest</string>
-    <string>1,&quot;%s/manifest/permission.html&quot;, base_url</string>
   </entry>
   <entry>
     <string>au_start_url</string>
