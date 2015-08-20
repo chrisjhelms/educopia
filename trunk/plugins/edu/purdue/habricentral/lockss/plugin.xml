@@ -1,7 +1,7 @@
 <map>
   <entry>
     <string>plugin_version</string>
-    <string>0.8</string>
+    <string>2</string>
   </entry>
   <entry>
     <string>plugin_config_props</string>
@@ -61,7 +61,7 @@
   </entry>
   <entry>
     <string>plugin_identifier</string>
-    <string>org.habricentral.plugin.HabriPlugin</string>
+    <string>edu.purdue.habricentral.lockss.plugin</string>
   </entry>
   <entry>
     <string>au_crawlrules</string>
