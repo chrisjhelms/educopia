@@ -69,7 +69,7 @@
     <string>au_crawlrules</string>
     <list>
       <string>4,&quot;^%s&quot;, base_url</string>
-      <string>1,&quot;%s/permission.html&quot;, base_url</string>
+      <string>1,&quot;%s/manifest.html&quot;, base_url</string>
       <string>2,&quot;/\?&quot;</string>
       <string>1,&quot;^%s/%s/%s$&quot;, base_url, path, start</string>
       <string>1,&quot;^%s/%s/%s/&quot;, base_url, path, start</string>
